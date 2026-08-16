@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Instagram, Phone, Zap, Heart } from "lucide-react";
+import { Mail, Instagram, Phone, Heart } from "lucide-react";
 
 const socialLinks = [
   {
@@ -33,52 +33,41 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/5 bg-navy-900/50">
-      {/* Gradient top line */}
+    <footer className="relative border-t border-white/5 bg-navy-950/80">
       <div className="section-line" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Zap
-                size={18}
-                className="text-cyan-neon"
-                style={{ filter: "drop-shadow(0 0 6px #00F0FF)" }}
-              />
-              <span className="font-mono font-bold text-cyan-neon tracking-wider text-sm">
-                ARYAPTR_PORTO
-              </span>
-            </div>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Arya Putra Pratama — Computer & Network Engineering Student, IT Support Technician, dan Android Developer Intern.
+            <span className="font-bold text-slate-100 tracking-wider text-base mb-2 block">
+              Arya Putra Pratama
+            </span>
+            <p className="text-slate-400 text-xs leading-relaxed">
+              Mahasiswa STr. Teknik Rekayasa Internet (PENS Surabaya), IT Support Technician, dan Android Developer Intern.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
-              {"// Navigasi"}
+              Navigasi
             </h3>
-            <ul className="grid grid-cols-2 gap-1">
+            <ul className="grid grid-cols-2 gap-1.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-slate-500 hover:text-cyan-neon text-sm transition-colors font-mono"
+                    className="text-slate-400 hover:text-cyan-neon text-xs transition-colors font-mono"
                   >
-                    → {link.label}
+                    {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
-              {"// Terhubung"}
+              Media Sosial
             </h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
@@ -89,9 +78,9 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -3 }}
-                    className="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center
-                               text-slate-500 hover:text-cyan-neon hover:border-cyan-neon/30 
+                    whileHover={{ y: -2 }}
+                    className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center
+                               text-slate-400 hover:text-cyan-neon hover:border-cyan-neon/30 
                                hover:bg-cyan-soft transition-all"
                     aria-label={social.label}
                   >
@@ -103,14 +92,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-600 text-xs font-mono">
+          <p className="text-slate-500 text-xs font-mono">
             © {new Date().getFullYear()} Arya Putra Pratama. All rights reserved.
           </p>
-          <p className="text-slate-600 text-xs font-mono flex items-center gap-1">
+          <p className="text-slate-500 text-xs font-mono flex items-center gap-1">
             Built with{" "}
-            <Heart size={10} className="text-red-500 fill-red-500 mx-0.5" />
+            <Heart size={10} className="text-red-400 fill-red-400 mx-0.5" />
             using Next.js & Tailwind CSS
           </p>
         </div>

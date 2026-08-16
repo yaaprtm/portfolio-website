@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -69,41 +69,20 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-navy-950/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
+            ? "bg-navy-950/85 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/30"
             : "bg-transparent"
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Professional Clean Logo */}
-            <button
-              onClick={() => handleNavClick("#home")}
-              className="flex items-center gap-2.5 group text-left"
-            >
-              <div className="w-8 h-8 rounded-lg bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center group-hover:border-cyan-neon group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all duration-300">
-                <Terminal
-                  size={16}
-                  className="text-cyan-neon group-hover:scale-110 transition-transform"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-mono text-sm font-bold tracking-wider text-slate-100 group-hover:text-cyan-neon transition-colors">
-                  ARYA<span className="text-cyan-neon">.P</span>
-                </span>
-                <span className="font-mono text-[9px] text-slate-500 tracking-widest uppercase -mt-1">
-                  Portfolio
-                </span>
-              </div>
-            </button>
-
-            {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-1">
+          <div className="flex items-center justify-end md:justify-center h-16">
+            {/* Desktop Navigation — Centered & Clean without left logo */}
+            <ul className="hidden md:flex items-center gap-1 sm:gap-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3 py-1.5 text-sm font-medium font-mono transition-all duration-200 rounded-md",
+                      "relative px-3.5 py-1.5 text-sm font-medium font-mono transition-all duration-200 rounded-md",
                       activeSection === link.href.slice(1)
                         ? "text-cyan-neon"
                         : "text-slate-400 hover:text-slate-200"

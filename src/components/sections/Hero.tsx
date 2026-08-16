@@ -2,16 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Instagram, Mail, Phone } from "lucide-react";
+import { ArrowDown, Instagram, Mail, Phone, ArrowUpRight } from "lucide-react";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import Button from "@/components/ui/Button";
 
-// Roles for the typing / cycling animation based on Arya's updated profile
 const ROLES = [
-  "Teknik Rekayasa Internet Student @ PENS",
+  "STr. Teknik Rekayasa Internet Student @ PENS",
   "Computer & Network Engineer",
   "Android Developer (BRIN Intern)",
-  "IT Support Technician",
+  "IT Support & Systems Technician",
   "MikroTik MTCNA Certified",
 ];
 
@@ -21,9 +20,6 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
 
-  /**
-   * Typing effect
-   */
   useEffect(() => {
     const role = ROLES[currentRole];
     let timeout: NodeJS.Timeout;
@@ -32,14 +28,14 @@ export default function Hero() {
       timeout = setTimeout(() => {
         setDisplayText(role.slice(0, charIndex + 1));
         setCharIndex((c) => c + 1);
-      }, 80);
+      }, 75);
     } else if (!isDeleting && charIndex === role.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
+      timeout = setTimeout(() => setIsDeleting(true), 2200);
     } else if (isDeleting && charIndex > 0) {
       timeout = setTimeout(() => {
         setDisplayText(role.slice(0, charIndex - 1));
         setCharIndex((c) => c - 1);
-      }, 40);
+      }, 35);
     } else if (isDeleting && charIndex === 0) {
       setIsDeleting(false);
       setCurrentRole((r) => (r + 1) % ROLES.length);
@@ -51,106 +47,78 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen pt-36 sm:pt-44 pb-24 flex items-center justify-center overflow-hidden"
     >
-      {/* Animated network background canvas */}
-      <NetworkBackground nodeCount={80} maxDistance={150} />
+      <NetworkBackground />
 
-      {/* Radial glow overlays */}
-      <div className="absolute inset-0 bg-hero-gradient pointer-events-none" />
-      <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
-
-      {/* Dark vignette on edges */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(2, 11, 24, 0.7) 100%)",
-        }}
-      />
-
-      {/* Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Status badge */}
+        {/* Status badge — sleek & human-designed */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full
-                     border border-cyan-neon/20 bg-cyan-soft text-cyan-neon text-xs font-mono"
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full
+                     border border-white/10 bg-white/[0.03] text-slate-300 text-xs font-mono backdrop-blur-xl shadow-lg"
         >
           <span className="w-2 h-2 rounded-full bg-cyan-neon animate-pulse" />
-          Mahasiswa STr. Teknik Rekayasa Internet — PENS Surabaya
+          <span>STr. Teknik Rekayasa Internet · PENS Surabaya</span>
         </motion.div>
 
-        {/* Greeting */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.5 }}
-          className="font-mono text-slate-500 text-sm mb-3 tracking-widest"
-        >
-          $ whoami
-        </motion.p>
-
-        {/* Name */}
+        {/* Main Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45, duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-bold font-mono tracking-tight mb-4"
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-5 text-slate-100"
         >
-          <span className="text-slate-100">ARYA PUTRA</span>{" "}
-          <span className="gradient-text">PRATAMA</span>
+          Arya Putra <span className="text-cyan-neon">Pratama</span>
         </motion.h1>
 
-        {/* Typing role indicator */}
+        {/* Dynamic role headline */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
+          transition={{ delay: 0.45, duration: 0.5 }}
           className="h-10 flex items-center justify-center mb-6"
         >
-          <span className="font-mono text-lg sm:text-2xl text-cyan-neon">
+          <span className="font-mono text-lg sm:text-2xl text-slate-300 font-medium">
             {displayText}
           </span>
-          <span className="inline-block w-0.5 h-6 bg-cyan-neon ml-1 animate-blink" />
+          <span className="inline-block w-0.5 h-6 bg-cyan-neon ml-1 animate-pulse" />
         </motion.div>
 
-        {/* Tagline */}
+        {/* Concise Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.5 }}
-          className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
         >
-          Mahasiswa Baru PENS Surabaya prodi STr. Teknik Rekayasa Internet dengan pengalaman praktis di IT Support, 
-          maintenance jaringan, dan Android Development (Magang BRIN). Adaptif, cepat belajar, 
-          dan berorientasi pada kerja tim.
+          Spesialis Jaringan Komputer, IT Support, dan Android Developer. Berorientasi pada solusi infrastruktur digital yang efisien, andal, dan modern.
         </motion.p>
 
-        {/* CTA Buttons */}
+        {/* High Contrast CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          transition={{ delay: 0.75, duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14"
         >
           <Button variant="primary" size="lg" href="#projects">
-            Lihat Proyek Saya
-            <span className="text-cyan-neon/60">→</span>
+            Lihat Proyek
+            <ArrowUpRight size={18} className="ml-1" />
           </Button>
           <Button variant="secondary" size="lg" href="#contact">
             Hubungi Saya
           </Button>
         </motion.div>
 
-        {/* Social quick-links */}
+        {/* Social Links */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.5 }}
-          className="flex items-center justify-center gap-4"
+          transition={{ delay: 0.9, duration: 0.5 }}
+          className="flex items-center justify-center gap-3"
         >
           {[
             { icon: Mail, href: "mailto:aryattt45@gmail.com", label: "Email" },
@@ -162,10 +130,9 @@ export default function Hero() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center
-                         text-slate-500 hover:text-cyan-neon hover:border-cyan-neon/30 hover:bg-cyan-soft
+              whileHover={{ y: -3 }}
+              className="w-10 h-10 rounded-xl border border-white/10 bg-white/[0.02] flex items-center justify-center
+                         text-slate-400 hover:text-cyan-neon hover:border-cyan-neon/40 hover:bg-cyan-soft
                          transition-all duration-200"
               aria-label={label}
             >
@@ -179,15 +146,15 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.2, duration: 0.5 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-mono text-xs text-slate-600">scroll</span>
+        <span className="font-mono text-xs text-slate-500">scroll</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          animate={{ y: [0, 5, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ArrowDown size={16} className="text-slate-600" />
+          <ArrowDown size={14} className="text-slate-500" />
         </motion.div>
       </motion.div>
     </section>

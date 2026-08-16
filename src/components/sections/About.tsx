@@ -2,11 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { User, MapPin, Briefcase, GraduationCap, Award } from "lucide-react";
+import { User, Briefcase, GraduationCap, Award } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-// Animated counter hook
 function useCounter(target: number, isInView: boolean, duration = 2000) {
   const [count, setCount] = useState(0);
 
@@ -29,12 +28,11 @@ function useCounter(target: number, isInView: boolean, duration = 2000) {
   return count;
 }
 
-// Stats data for Arya
 const stats = [
   { label: "Pengalaman Kerja & Magang", value: 4, suffix: " tempat", icon: Briefcase },
   { label: "Sertifikasi & Prestasi", value: 2, suffix: "", icon: Award },
   { label: "Skor MikroTik MTCNA", value: 88, suffix: "%", icon: GraduationCap },
-  { label: "Tahun di Bidang IT/TKJ", value: 3, suffix: " thn", icon: User },
+  { label: "Tahun Pengalaman IT", value: 3, suffix: " tahun", icon: User },
 ];
 
 function StatCard({ label, value, suffix, icon: Icon }: (typeof stats)[0]) {
@@ -46,18 +44,18 @@ function StatCard({ label, value, suffix, icon: Icon }: (typeof stats)[0]) {
     <motion.div
       ref={ref}
       whileHover={{ y: -4 }}
-      className="glass-card p-5 text-center skill-card"
+      className="glass-card p-6 text-center skill-card"
     >
       <div className="flex justify-center mb-3">
-        <div className="w-10 h-10 rounded-lg bg-cyan-soft border border-cyan-neon/20 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
           <Icon size={18} className="text-cyan-neon" />
         </div>
       </div>
-      <div className="font-mono text-3xl font-bold text-cyan-neon mb-1">
+      <div className="font-mono text-3xl font-bold text-slate-100 mb-1">
         {count}
-        {suffix}
+        <span className="text-cyan-neon">{suffix}</span>
       </div>
-      <div className="text-slate-500 text-xs">{label}</div>
+      <div className="text-slate-400 text-xs">{label}</div>
     </motion.div>
   );
 }
@@ -66,85 +64,65 @@ export default function About() {
   return (
     <SectionWrapper id="about">
       <SectionHeading
-        tag="01. About Me"
-        title="Tentang Saya"
-        subtitle="Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan latar belakang TKJ, IT Support, dan Android Development."
+        tag="01 / ABOUT"
+        title="Profil & Latar Belakang"
+        subtitle="Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan latar belakang praktis di bidang IT Support, Networking, dan Android Development."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-        {/* Avatar & visual side */}
+        {/* Profile Photo — Clean, Human, Editorial Card */}
         <motion.div
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
           className="flex justify-center"
         >
           <div className="relative">
-            {/* Glow ring */}
-            <div className="absolute -inset-1.5 rounded-2xl bg-gradient-to-br from-cyan-neon/40 to-blue-electric/30 blur-xl" />
-
-            {/* Avatar container */}
-            <div className="relative w-72 h-[400px] sm:w-80 sm:h-[450px] rounded-2xl glass-card border border-cyan-neon/30 overflow-hidden flex flex-col items-center justify-center p-2 shadow-2xl">
+            <div className="relative w-72 h-[400px] sm:w-80 sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-navy-900 group">
               <img
                 src="/images/arya-photo.png"
                 alt="Arya Putra Pratama"
-                className="w-full h-full object-cover object-top rounded-xl filter brightness-[1.02] contrast-[1.02]"
+                className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
-
-              {/* Decorative corner marks */}
-              <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-cyan-neon pointer-events-none" />
-              <div className="absolute top-3 right-3 w-4 h-4 border-r-2 border-t-2 border-cyan-neon pointer-events-none" />
-              <div className="absolute bottom-3 left-3 w-4 h-4 border-l-2 border-b-2 border-cyan-neon pointer-events-none" />
-              <div className="absolute bottom-3 right-3 w-4 h-4 border-r-2 border-b-2 border-cyan-neon pointer-events-none" />
-            </div>
-
-            {/* Floating badge */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-4 -right-4 glass-card px-3.5 py-2 border border-cyan-neon/40 shadow-lg"
-            >
-              <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse" />
-                <span className="font-mono text-xs text-slate-200 font-medium">Arya Putra Pratama</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
+              
+              <div className="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-navy-950/80 backdrop-blur-md border border-white/10">
+                <p className="font-mono text-xs font-semibold text-slate-200">Arya Putra Pratama</p>
+                <p className="text-[11px] text-slate-400">Teknik Rekayasa Internet · PENS 2026</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Bio text */}
+        {/* Bio Text */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="space-y-5"
         >
-          <p className="font-mono text-xs text-cyan-neon tracking-widest uppercase mb-2">
-            $ cat summary.txt
-          </p>
-
-          <h3 className="font-mono font-bold text-2xl text-slate-100">
-            Arya Putra Pratama
+          <h3 className="text-2xl font-bold text-slate-100 tracking-tight">
+            Berkomitmen Mendorong Infrastruktur Jaringan & Aplikasi Modern.
           </h3>
 
           <p className="text-slate-300 leading-relaxed text-sm">
             Saya adalah Mahasiswa Baru program studi{" "}
-            <span className="text-cyan-neon font-medium">STr. Teknik Rekayasa Internet</span> di{" "}
-            <span className="text-cyan-neon font-medium">Politeknik Elektronika Negeri Surabaya (PENS)</span> (2026–2030), serta alumni Teknik Komputer & Jaringan SMK Dinamika Pembangunan 1 Jakarta.
+            <span className="text-cyan-neon font-semibold">STr. Teknik Rekayasa Internet</span> di{" "}
+            <span className="text-slate-100 font-semibold">Politeknik Elektronika Negeri Surabaya (PENS)</span> (2026–2030), serta alumni Teknik Komputer & Jaringan SMK Dinamika Pembangunan 1 Jakarta.
           </p>
 
           <p className="text-slate-400 leading-relaxed text-sm">
-            Saya memiliki pengalaman kerja dan magang di bidang IT Maintenance (Digital Solusindo), IT Support Technician (ID-Networkers), dan sebagai Android Developer Intern di{" "}
-            <span className="text-cyan-neon font-medium">Badan Riset dan Inovasi Nasional (BRIN)</span> di mana saya bersama tim 4 orang membangun aplikasi & web Kebun Raya Cibinong.
+            Memiliki pengalaman kerja dan magang di IT Maintenance (Digital Solusindo), IT Support Technician (ID-Networkers), dan sebagai Android Developer Intern di{" "}
+            <span className="text-slate-200 font-medium">Badan Riset dan Inovasi Nasional (BRIN)</span> di mana saya bersama tim 4 orang merancang dan membangun aplikasi & web Kebun Raya Cibinong.
           </p>
 
           <p className="text-slate-400 leading-relaxed text-sm">
-            Sangat tertarik dengan arsitektur jaringan internet modern, cloud infrastructure, serta pengembangan sistem terdistribusi. Adaptif, berorientasi tim, dan cepat mempelajari teknologi baru.
+            Tertarik pada arsitektur internet modern, cloud computing, network security, serta pengembangan sistem terdistribusi. Adaptif dan cepat berakselerasi dalam lingkungan teknis.
           </p>
 
-          {/* Quick info chips */}
+          {/* Quick Info Chips */}
           <div className="flex flex-wrap gap-2 pt-2">
             {[
               "🎓 PENS Surabaya — STr. Teknik Rekayasa Internet (2026-2030)",
@@ -155,7 +133,7 @@ export default function About() {
             ].map((item) => (
               <span
                 key={item}
-                className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-300 font-mono"
+                className="px-3.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs text-slate-300 font-mono"
               >
                 {item}
               </span>
