@@ -7,12 +7,8 @@ import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
+import AiAssistant from "@/components/ui/AiAssistant";
 
-/**
- * Main portfolio page.
- * All sections are assembled here in order.
- * Add or reorder sections by modifying this file.
- */
 export default function Home() {
   return (
     <>
@@ -29,6 +25,9 @@ export default function Home() {
       </main>
 
       <Footer />
+
+      {/* Interactive AI Assistant Floating Widget */}
+      <AiAssistant />
     </>
   );
 }

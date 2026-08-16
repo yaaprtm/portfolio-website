@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import CommandPalette from "@/components/ui/CommandPalette";
+import CvModal from "@/components/ui/CvModal";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -20,12 +23,14 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Detect scroll to apply blur backdrop
+  // Modals state
+  const [cmdOpen, setCmdOpen] = useState(false);
+  const [cvOpen, setCvOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Detect active section for link highlighting
       const sections = navLinks.map((link) => link.href.slice(1));
       for (const sectionId of sections.reverse()) {
         const el = document.getElementById(sectionId);
@@ -43,7 +48,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false);
@@ -67,22 +71,43 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           scrolled
             ? "bg-navy-950/85 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/30"
             : "bg-transparent"
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-end md:justify-center h-16">
-            {/* Desktop Navigation — Centered & Clean without left logo */}
+          <div className="flex items-center justify-between h-16">
+            {/* Left Quick Tools: Live CV + Command Palette */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setCvOpen(true)}
+                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all flex items-center gap-1.5"
+              >
+                <FileText size={14} className="text-cyan-neon" />
+                <span className="hidden sm:inline">Preview</span> CV
+              </button>
+
+              <button
+                onClick={() => setCmdOpen(true)}
+                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-400 hover:text-slate-200 transition-all hidden sm:flex items-center gap-2"
+                title="Tekan Ctrl+K"
+              >
+                <Command size={13} />
+                <span>Command</span>
+                <kbd className="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-slate-400">Ctrl K</kbd>
+              </button>
+            </div>
+
+            {/* Desktop Navigation */}
             <ul className="hidden md:flex items-center gap-1 sm:gap-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3.5 py-1.5 text-sm font-medium font-mono transition-all duration-200 rounded-md",
+                      "relative px-3 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
                       activeSection === link.href.slice(1)
                         ? "text-cyan-neon"
                         : "text-slate-400 hover:text-slate-200"
@@ -101,14 +126,18 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-md text-slate-400 hover:text-cyan-neon hover:bg-cyan-soft transition-all"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            {/* Right Tools: Theme Switcher + Mobile Toggle */}
+            <div className="flex items-center gap-2">
+              <ThemeSwitcher />
+
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="md:hidden p-2 rounded-xl text-slate-400 hover:text-cyan-neon hover:bg-white/5 transition-all"
+                aria-label="Toggle navigation menu"
+              >
+                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </nav>
       </motion.header>
@@ -124,6 +153,13 @@ export default function Navbar() {
             className="fixed inset-y-0 right-0 z-40 w-72 bg-navy-900/95 backdrop-blur-xl border-l border-white/5 md:hidden"
           >
             <div className="flex flex-col pt-20 px-6 gap-1">
+              <button
+                onClick={() => { setMobileOpen(false); setCvOpen(true); }}
+                className="mb-3 px-4 py-3 rounded-xl bg-cyan-neon text-navy-950 font-mono text-xs font-bold flex items-center justify-center gap-2"
+              >
+                <FileText size={16} /> Lihat Live CV
+              </button>
+
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.href}
@@ -149,18 +185,9 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Mobile menu backdrop */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setMobileOpen(false)}
-            className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm md:hidden"
-          />
-        )}
-      </AnimatePresence>
+      {/* Modals */}
+      <CommandPalette isOpen={cmdOpen} onClose={() => setCmdOpen(false)} onOpenCv={() => setCvOpen(true)} />
+      <CvModal isOpen={cvOpen} onClose={() => setCvOpen(false)} />
     </>
   );
 }
