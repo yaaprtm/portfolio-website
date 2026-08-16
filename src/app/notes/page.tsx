@@ -36,7 +36,7 @@ export default function NotesIndexPage() {
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="text-xs font-mono text-cyan-neon tracking-widest uppercase mb-2 block">
-            // TECHNICAL KNOWLEDGE BASE
+            {"// TECHNICAL KNOWLEDGE BASE"}
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight mb-4">
             Catatan Teknis & Artikel

@@ -140,7 +140,7 @@ export default function CaseStudyPage() {
             className="glass-card p-6 sm:p-8"
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Overview</span>
+              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Overview"}</span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-100">1. Ringkasan Proyek & Peran</h2>
             </div>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -157,7 +157,7 @@ export default function CaseStudyPage() {
             className="glass-card p-6 sm:p-8"
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Background</span>
+              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Background"}</span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-100">2. Latar Belakang & Masalah</h2>
             </div>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -174,7 +174,7 @@ export default function CaseStudyPage() {
             className="glass-card p-6 sm:p-8"
           >
             <div className="flex items-center gap-2 mb-6">
-              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Workflow</span>
+              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Workflow"}</span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-100">3. Tahapan Pengerjaan & Tim</h2>
             </div>
             <div className="space-y-4">
@@ -198,7 +198,7 @@ export default function CaseStudyPage() {
             className="glass-card p-6 sm:p-8"
           >
             <div className="flex items-center gap-2 mb-6">
-              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Engineering Challenges</span>
+              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Engineering Challenges"}</span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-100">4. Tantangan Teknis & Solusi</h2>
             </div>
             <div className="space-y-4">
@@ -226,7 +226,7 @@ export default function CaseStudyPage() {
             className="glass-card p-6 sm:p-8"
           >
             <div className="flex items-center gap-2 mb-6">
-              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Deliverables</span>
+              <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Deliverables"}</span>
               <h2 className="text-xl sm:text-2xl font-bold text-slate-100">5. Hasil Akhir & Pembelajaran</h2>
             </div>
             <div className="space-y-3">
@@ -249,7 +249,7 @@ export default function CaseStudyPage() {
           >
             <div className="flex items-center justify-between gap-2 mb-6">
               <div>
-                <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">// Visual Showcase</span>
+                <span className="text-xs font-mono text-cyan-neon uppercase tracking-widest">{"// Visual Showcase"}</span>
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-100">6. Galeri Screenshot & Diagram</h2>
               </div>
               <span className="text-xs font-mono text-slate-400">Klik untuk memperbesar</span>
