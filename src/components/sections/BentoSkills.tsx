@@ -259,7 +259,7 @@ export default function BentoSkills() {
 
               <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
                 <p className="text-cyan-neon font-mono text-xs font-bold">PENS Surabaya</p>
-                <p className="text-slate-300 text-xs">STr. Teknik Rekayasa Internet ('26 - '30)</p>
+                <p className="text-slate-300 text-xs">{"STr. Teknik Rekayasa Internet ('26 - '30)"}</p>
               </div>
             </div>
           </div>

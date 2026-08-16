@@ -138,7 +138,7 @@ export default function Sidebar() {
           {/* Vertical Navigation Menu */}
           <nav className="space-y-1">
             <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-3 mb-2">
-              // Navigation
+              {"// Navigation"}
             </p>
 
             {navItems.map((item) => {
