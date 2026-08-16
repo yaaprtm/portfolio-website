@@ -23,7 +23,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Modals state
   const [cmdOpen, setCmdOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
 
@@ -107,7 +106,7 @@ export default function Navbar() {
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
+                      "relative px-3.5 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
                       activeSection === link.href.slice(1)
                         ? "text-cyan-neon"
                         : "text-slate-400 hover:text-slate-200"
@@ -116,7 +115,7 @@ export default function Navbar() {
                     {activeSection === link.href.slice(1) && (
                       <motion.span
                         layoutId="nav-pill"
-                        className="absolute inset-0 bg-cyan-neon/10 rounded-md border border-cyan-neon/20"
+                        className="absolute inset-0 bg-cyan-soft rounded-md border border-cyan-neon/30"
                         transition={{ type: "spring", duration: 0.4 }}
                       />
                     )}

@@ -8,19 +8,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /* ============================================================
-   CSS Custom Properties — DYNAMIC THEME SYSTEM
+   CSS Custom Properties — FULL DYNAMIC MULTI-THEME ENGINE
    ============================================================ */
 :root {
+  /* Default Theme: Obsidian Lime */
   --color-bg: #090a0c;
   --color-surface: #0f1115;
   --color-surface-2: #16181e;
   
-  /* Dynamic Active Theme Colors (Default: Obsidian Lime) */
   --color-cyan: #d4ff00;
-  --color-cyan-glow: #c4f000;
+  --color-cyan-glow: #e2f952;
   --color-cyan-dim: #88b000;
-  --color-cyan-soft: rgba(212, 255, 0, 0.1);
-  --color-border-hover: rgba(212, 255, 0, 0.35);
+  --color-cyan-soft: rgba(212, 255, 0, 0.12);
+  --color-border-hover: rgba(212, 255, 0, 0.4);
 
   --color-text: #f1f5f9;
   --color-text-muted: #94a3b8;
@@ -48,6 +48,7 @@ body {
   font-family: "Inter", system-ui, sans-serif;
   overflow-x: hidden;
   letter-spacing: -0.01em;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* ============================================================
@@ -62,7 +63,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2129;
+  background: var(--color-surface-2);
   border-radius: 4px;
 }
 
@@ -82,10 +83,10 @@ body {
 }
 
 /* ============================================================
-   Editorial Matte Glass Card
+   Editorial Matte Glass Card — Fully Dynamic Surface
    ============================================================ */
 .glass-card {
-  background: rgba(15, 17, 21, 0.75);
+  background: var(--color-surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
@@ -95,7 +96,7 @@ body {
 
 .glass-card:hover {
   border-color: var(--color-border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px var(--color-cyan-soft);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-cyan-soft);
 }
 
 /* ============================================================
@@ -103,6 +104,7 @@ body {
    ============================================================ */
 .accent-text {
   color: var(--color-cyan);
+  transition: color 0.3s ease;
 }
 
 /* ============================================================
@@ -113,7 +115,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.12) 50%,
     transparent
   );
   margin: 0 auto;
@@ -121,13 +123,14 @@ body {
 }
 
 /* ============================================================
-   Gradient Heading
+   Gradient Heading — Fully Dynamic
    ============================================================ */
 .gradient-text {
   background: linear-gradient(135deg, #ffffff 30%, var(--color-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: all 0.3s ease;
 }
 
 /* ============================================================
@@ -147,6 +150,7 @@ body {
   color: var(--color-cyan);
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
 /* ============================================================
@@ -183,7 +187,7 @@ body {
 }
 
 /* ============================================================
-   Buttons — High Contrast Matte & Outline
+   Buttons — Fully Dynamic
    ============================================================ */
 .btn-primary {
   position: relative;
