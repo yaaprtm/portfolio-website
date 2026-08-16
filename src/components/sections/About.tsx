@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { User, Briefcase, GraduationCap, Award } from "lucide-react";
+import { User, Briefcase, GraduationCap, Award, FolderGit2 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -31,7 +31,7 @@ function useCounter(target: number, isInView: boolean, duration = 2000) {
 const stats = [
   { label: "Pengalaman Kerja & Magang", value: 4, suffix: " tempat", icon: Briefcase },
   { label: "Sertifikasi & Prestasi", value: 2, suffix: "", icon: Award },
-  { label: "Skor MikroTik MTCNA", value: 88, suffix: "%", icon: GraduationCap },
+  { label: "Proyek Diselesaikan", value: 4, suffix: " proyek", icon: FolderGit2 },
   { label: "Tahun Pengalaman IT", value: 3, suffix: " tahun", icon: User },
 ];
 

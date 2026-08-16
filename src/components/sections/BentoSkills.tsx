@@ -6,15 +6,35 @@ import {
   Network,
   Smartphone,
   Wrench,
-  Award,
+  Users,
   CheckCircle2,
   Activity,
   Layers,
   Radio,
+  MessageCircle,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SubnetCalculator from "@/components/ui/SubnetCalculator";
+
+const softSkills = [
+  {
+    title: "Kerja Tim & Kolaborasi",
+    desc: "Pengalaman kerja dalam tim 4 orang lintas divisi (Frontend, Backend, Android) saat magang di BRIN.",
+  },
+  {
+    title: "Komunikasi Teknis",
+    desc: "Mampu menjelaskan solusi teknis ke pengguna non-teknis dari pengalaman IT Support & maintenance lapangan.",
+  },
+  {
+    title: "Problem Solving",
+    desc: "Terbiasa troubleshooting cepat di lapangan (hardware, software, jaringan) dengan tekanan waktu.",
+  },
+  {
+    title: "Adaptif & Cepat Belajar",
+    desc: "Terbukti dari perpindahan antar bidang (Networking, IT Support, Android Dev) secara efisien.",
+  },
+];
 
 export default function BentoSkills() {
   const [pinging, setPinging] = useState(false);
@@ -230,7 +250,7 @@ export default function BentoSkills() {
         </motion.div>
 
         {/* ============================================================
-            BENTO CARD 5: Certifications & Academic Highlight
+            BENTO CARD 5: Soft Skills & Interpersonal Competencies
            ============================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -242,22 +262,23 @@ export default function BentoSkills() {
           <div>
             <div className="flex items-center justify-between mb-4">
               <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
-                <Award size={20} className="text-cyan-neon" />
+                <Users size={20} className="text-cyan-neon" />
               </div>
-              <span className="text-xs font-mono text-cyan-neon">Certificates & Honors</span>
+              <span className="text-xs font-mono text-cyan-neon">Soft Skills</span>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">Pendidikan & Sertifikasi Resmi</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                <p className="text-cyan-neon font-mono text-xs font-bold">MikroTik MTCNA</p>
-                <p className="text-slate-300 text-xs">Official Certified (Score: 88%) · 2024</p>
-              </div>
+            <h3 className="text-lg font-bold text-slate-100 mb-3">Kemampuan Interpersonal</h3>
 
-              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                <p className="text-cyan-neon font-mono text-xs font-bold">PENS Surabaya</p>
-                <p className="text-slate-300 text-xs">{"STr. Teknik Rekayasa Internet ('26 - '30)"}</p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+              {softSkills.map((item) => (
+                <div key={item.title} className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                  <p className="text-cyan-neon font-mono text-xs font-bold mb-1 flex items-center gap-1.5">
+                    <CheckCircle2 size={13} className="text-cyan-neon flex-shrink-0" />
+                    <span>{item.title}</span>
+                  </p>
+                  <p className="text-slate-300 text-xs leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

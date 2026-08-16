@@ -26,7 +26,7 @@ const bootSequence: BootStep[] = [
   },
   {
     cmd: "experience --highlight",
-    output: "Android Dev Intern @ BRIN (Kebun Raya Cibinong App) · MTCNA Certified (88%)",
+    output: "Android Dev Intern @ BRIN (Kebun Raya Cibinong App)",
   },
   {
     cmd: "status.availability",
