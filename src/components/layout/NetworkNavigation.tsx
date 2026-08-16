@@ -1,25 +1,23 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Home,
   User,
   Code,
   FolderGit2,
   Briefcase,
+  GraduationCap,
   Award,
   Mail,
   FileText,
   Command,
   Menu,
   X,
-  Server,
-  Network,
-  Cpu,
-  Shield,
   Radio,
-  Clock,
+  BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
@@ -37,48 +35,38 @@ export interface NodeItem {
 }
 
 const topologyNodes: NodeItem[] = [
-  { id: "home", label: "Core (Home)", href: "#home", icon: Home, tooltip: "Arya Putra Pratama · STr. Rekayasa Internet", x: 10, y: 50 },
-  { id: "about", label: "About", href: "#about", icon: User, tooltip: "Bio, Background & PENS Surabaya Student", x: 25, y: 50 },
-  { id: "skills", label: "Skills", href: "#skills", icon: Code, tooltip: "Networking, Android Dev, IT Support & Dev Stack", x: 40, y: 50 },
-  { id: "projects", label: "Projects", href: "#projects", icon: FolderGit2, tooltip: "BRIN Android App & Cisco Packet Tracer Projects", x: 55, y: 50 },
-  { id: "experience", label: "Experience", href: "#experience", icon: Briefcase, tooltip: "IT Maintenance, ID-Networkers & BRIN Internship", x: 70, y: 50 },
-  { id: "certifications", label: "Certs", href: "#certifications", icon: Award, tooltip: "MikroTik MTCNA (88%) & IONIC PENS Finalist", x: 85, y: 50 },
-  { id: "contact", label: "Contact", href: "#contact", icon: Mail, tooltip: "Direct Email, WhatsApp & Social Channels", x: 95, y: 50 },
+  { id: "home", label: "Core", href: "/#home", icon: Home, tooltip: "Arya Putra Pratama · STr. Rekayasa Internet", x: 7, y: 50 },
+  { id: "about", label: "About", href: "/#about", icon: User, tooltip: "Bio, Background & PENS Surabaya", x: 18, y: 50 },
+  { id: "skills", label: "Skills", href: "/#skills", icon: Code, tooltip: "Networking, Android Dev & IT Support", x: 29, y: 50 },
+  { id: "projects", label: "Projects", href: "/#projects", icon: FolderGit2, tooltip: "BRIN Android App & Cisco Projects", x: 40, y: 50 },
+  { id: "experience", label: "Work", href: "/#experience", icon: Briefcase, tooltip: "Digital Solusindo, ID-Networkers & BRIN", x: 51, y: 50 },
+  { id: "education", label: "Education", href: "/#education", icon: GraduationCap, tooltip: "PENS Surabaya & SMK TKJ", x: 62, y: 50 },
+  { id: "notes", label: "Notes", href: "/notes", icon: BookOpen, tooltip: "Catatan Teknis Networking & Android", x: 73, y: 50 },
+  { id: "certifications", label: "Certs", href: "/#certifications", icon: Award, tooltip: "MikroTik MTCNA (88%) & Honors", x: 85, y: 50 },
+  { id: "contact", label: "Contact", href: "/#contact", icon: Mail, tooltip: "Direct Email, WhatsApp & Socials", x: 96, y: 50 },
 ];
 
 export default function NetworkNavigation() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [activeNode, setActiveNode] = useState("home");
   const [hoveredNode, setHoveredNode] = useState<NodeItem | null>(null);
-  const [prevNodeId, setPrevNodeId] = useState("home");
   const [isPacketAnimating, setIsPacketAnimating] = useState(false);
   const [packetProgress, setPacketProgress] = useState({ startX: 0, startY: 0, endX: 0, endY: 0 });
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
-  const [currentTime, setCurrentTime] = useState("");
 
-  // Real-time clock update
+  // Scroll detection for homepage sections
   useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-      setCurrentTime(
-        now.toLocaleTimeString("id-ID", {
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }) + " WIB"
-      );
-    };
-    updateClock();
-    const interval = setInterval(updateClock, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    if (pathname.startsWith("/notes")) {
+      setActiveNode("notes");
+      return;
+    }
 
-  // Active section scroll detection
-  useEffect(() => {
     const handleScroll = () => {
-      const sections = topologyNodes.map((n) => n.href.slice(1));
+      const sections = ["home", "about", "skills", "projects", "experience", "education", "certifications", "contact"];
       const scrollPos = window.scrollY + 160;
 
       for (const sectionId of sections.reverse()) {
@@ -96,12 +84,12 @@ export default function NetworkNavigation() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const handleNodeClick = (node: NodeItem) => {
     setMobileOpen(false);
 
-    // Trigger Packet Animation from current active node to clicked node
+    // Packet Animation
     const fromNode = topologyNodes.find((n) => n.id === activeNode) || topologyNodes[0];
     setPacketProgress({
       startX: fromNode.x,
@@ -110,16 +98,23 @@ export default function NetworkNavigation() {
       endY: node.y,
     });
     setIsPacketAnimating(true);
-    setPrevNodeId(activeNode);
     setActiveNode(node.id);
 
     setTimeout(() => {
       setIsPacketAnimating(false);
     }, 600);
 
-    const target = document.querySelector(node.href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+    if (node.href.startsWith("/notes")) {
+      router.push("/notes");
+    } else {
+      if (pathname !== "/") {
+        router.push(node.href);
+      } else {
+        const target = document.querySelector(node.href.replace("/", ""));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
   };
 
@@ -134,36 +129,36 @@ export default function NetworkNavigation() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="hidden md:block fixed top-4 left-4 right-4 z-40 max-w-7xl mx-auto"
       >
-        <div className="glass-card border border-white/10 p-3 sm:px-6 rounded-2xl shadow-2xl backdrop-blur-2xl bg-navy-950/85">
-          <div className="flex items-center justify-between gap-4">
+        <div className="glass-card border border-white/10 p-3 sm:px-4 rounded-2xl shadow-2xl backdrop-blur-2xl bg-navy-950/85">
+          <div className="flex items-center justify-between gap-2">
             {/* Left Quick Profile Branding */}
-            <div className="flex items-center gap-3 flex-shrink-0">
-              <div className="w-9 h-9 rounded-xl overflow-hidden border border-cyan-neon/40 flex-shrink-0 bg-navy-900 shadow-md">
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="w-8 h-8 rounded-xl overflow-hidden border border-cyan-neon/40 flex-shrink-0 bg-navy-900 shadow-md">
                 <img
                   src="/images/arya-photo.png"
                   alt="Arya"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              <div className="hidden lg:block min-w-0">
+              <div className="hidden xl:block min-w-0">
                 <h1 className="font-bold text-slate-100 text-xs tracking-tight truncate">
                   Arya Putra Pratama
                 </h1>
                 <p className="text-[10px] text-cyan-neon font-mono truncate">
-                  STr. Rekayasa Internet @ PENS
+                  PENS Surabaya
                 </p>
               </div>
             </div>
 
             {/* CENTER: INTERACTIVE SVG NETWORK TOPOLOGY MAP */}
-            <div className="flex-1 relative h-12 flex items-center px-4 max-w-3xl">
+            <div className="flex-1 relative h-12 flex items-center px-2 max-w-4xl">
               {/* SVG Cables / Connection Lines */}
               <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible">
                 {/* Main Cable Backbone Line */}
                 <line
-                  x1="10%"
+                  x1="7%"
                   y1="50%"
-                  x2="95%"
+                  x2="97%"
                   y2="50%"
                   stroke="rgba(255, 255, 255, 0.15)"
                   strokeWidth="2"
@@ -173,7 +168,7 @@ export default function NetworkNavigation() {
                 {/* Active Highlight Cable Segment */}
                 {hoveredNode && (
                   <line
-                    x1="10%"
+                    x1="7%"
                     y1="50%"
                     x2={`${hoveredNode.x}%`}
                     y2="50%"
@@ -201,7 +196,6 @@ export default function NetworkNavigation() {
                 {topologyNodes.map((node) => {
                   const Icon = node.icon;
                   const isActive = activeNode === node.id;
-                  const isHovered = hoveredNode?.id === node.id;
 
                   return (
                     <div key={node.id} className="relative group">
@@ -210,7 +204,7 @@ export default function NetworkNavigation() {
                         onMouseEnter={() => setHoveredNode(node)}
                         onMouseLeave={() => setHoveredNode(null)}
                         className={cn(
-                          "relative flex items-center justify-center transition-all duration-300 rounded-xl min-h-[40px] px-2.5 py-1.5 gap-1.5",
+                          "relative flex items-center justify-center transition-all duration-300 rounded-xl min-h-[36px] px-2 py-1 gap-1.5",
                           isActive
                             ? "bg-cyan-soft border border-cyan-neon/40 text-cyan-neon font-bold shadow-md"
                             : "bg-white/[0.04] border border-white/10 text-slate-400 hover:text-slate-100 hover:border-white/30"
@@ -224,8 +218,8 @@ export default function NetworkNavigation() {
                           />
                         )}
 
-                        <Icon size={14} className={isActive ? "text-cyan-neon" : "text-slate-400"} />
-                        <span className="text-xs font-mono">{node.label}</span>
+                        <Icon size={13} className={isActive ? "text-cyan-neon" : "text-slate-400"} />
+                        <span className="text-[11px] font-mono">{node.label}</span>
                       </button>
                     </div>
                   );
@@ -256,15 +250,15 @@ export default function NetworkNavigation() {
             <div className="flex items-center gap-2 flex-shrink-0">
               <button
                 onClick={() => setCvOpen(true)}
-                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all flex items-center gap-1.5 min-h-[40px]"
+                className="px-2.5 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all flex items-center gap-1.5 min-h-[36px]"
               >
                 <FileText size={14} className="text-cyan-neon" />
-                <span className="hidden xl:inline">Preview</span> CV
+                <span className="hidden lg:inline">Preview</span> CV
               </button>
 
               <button
                 onClick={() => setCmdOpen(true)}
-                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-400 hover:text-slate-200 transition-all hidden lg:flex items-center gap-1.5 min-h-[40px]"
+                className="px-2.5 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-400 hover:text-slate-200 transition-all hidden lg:flex items-center gap-1.5 min-h-[36px]"
                 title="Tekan Ctrl+K"
               >
                 <Command size={13} />
@@ -360,7 +354,7 @@ export default function NetworkNavigation() {
                   </button>
                 </div>
 
-                {/* Mobile Simple Topology List */}
+                {/* Mobile Topology List */}
                 <div className="space-y-1">
                   <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-3 mb-2">
                     Network Map Nodes

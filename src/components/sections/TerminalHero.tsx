@@ -93,19 +93,6 @@ export default function TerminalHero() {
       <NetworkBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        {/* Top Status Pill */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center mb-6"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] text-slate-300 text-xs font-mono backdrop-blur-xl shadow-lg">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-neon animate-pulse" />
-            <span>PENS Surabaya · STr. Teknik Rekayasa Internet</span>
-          </div>
-        </motion.div>
-
         {/* Terminal Window Frame */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}

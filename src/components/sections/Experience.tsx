@@ -1,25 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Users, Building2 } from "lucide-react";
+import { Briefcase, Building2 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
-import { experiences } from "@/data/experience";
-import type { Experience } from "@/data/experience";
+import { workExperiences } from "@/data/experience";
+import type { Experience as ExperienceType } from "@/data/experience";
 
 const typeConfig = {
   work: { icon: Briefcase, label: "Pekerjaan" },
   internship: { icon: Building2, label: "Magang" },
-  education: { icon: GraduationCap, label: "Pendidikan" },
-  organization: { icon: Users, label: "Organisasi" },
+  education: { icon: Briefcase, label: "Pendidikan" },
+  organization: { icon: Briefcase, label: "Organisasi" },
 };
 
-function TimelineEntry({
+function WorkTimelineEntry({
   exp,
   idx,
 }: {
-  exp: Experience;
+  exp: ExperienceType;
   idx: number;
 }) {
   const config = typeConfig[exp.type];
@@ -35,7 +35,7 @@ function TimelineEntry({
     >
       {/* Timeline Indicator */}
       <div className="relative flex flex-col items-center">
-        <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center flex-shrink-0 z-10">
+        <div className="w-10 h-10 rounded-xl bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center flex-shrink-0 z-10">
           <Icon size={18} className="text-cyan-neon" />
           {exp.current && (
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-neon border-2 border-navy-950 animate-pulse" />
@@ -95,14 +95,14 @@ export default function Experience() {
   return (
     <SectionWrapper id="experience">
       <SectionHeading
-        tag="04 / EXPERIENCE & EDUCATION"
-        title="Pengalaman & Pendidikan"
-        subtitle="Riwayat riil dalam pekerjaan, magang, dan perjalanan akademik."
+        tag="04 / WORK EXPERIENCE"
+        title="Pengalaman Kerja & Magang"
+        subtitle="Riwayat karir profesional dalam IT Maintenance, IT Support, Android Development, dan Manajemen Proyek."
       />
 
       <div className="max-w-3xl mx-auto">
-        {experiences.map((exp, idx) => (
-          <TimelineEntry key={exp.id} exp={exp} idx={idx} />
+        {workExperiences.map((exp, idx) => (
+          <WorkTimelineEntry key={exp.id} exp={exp} idx={idx} />
         ))}
       </div>
     </SectionWrapper>

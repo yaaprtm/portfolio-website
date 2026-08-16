@@ -6,18 +6,15 @@ import {
   Network,
   Smartphone,
   Wrench,
-  Terminal,
   Award,
   CheckCircle2,
   Activity,
-  Cpu,
-  Shield,
   Layers,
   Radio,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Badge from "@/components/ui/Badge";
+import SubnetCalculator from "@/components/ui/SubnetCalculator";
 
 export default function BentoSkills() {
   const [pinging, setPinging] = useState(false);
@@ -189,7 +186,7 @@ export default function BentoSkills() {
         </motion.div>
 
         {/* ============================================================
-            BENTO CARD 4: Tools & Dev Ecosystem (Full Width on 2-col)
+            BENTO CARD 4: Tools & Dev Ecosystem
            ============================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
@@ -265,6 +262,19 @@ export default function BentoSkills() {
           </div>
         </motion.div>
       </div>
+
+      {/* ============================================================
+          INTERACTIVE SUBNET CALCULATOR WIDGET SECTION
+         ============================================================ */}
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-8"
+      >
+        <SubnetCalculator />
+      </motion.div>
     </SectionWrapper>
   );
 }

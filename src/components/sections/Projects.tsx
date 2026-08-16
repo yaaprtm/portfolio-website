@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FolderGit2, ExternalLink, Github, Eye } from "lucide-react";
+import { FolderGit2, ExternalLink, Github, Eye, ArrowRight, BookOpen } from "lucide-react";
+import Link from "next/link";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
@@ -56,7 +57,7 @@ export default function Projects() {
             onClick={() => setActiveCategory(cat.id)}
             className={`relative px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeCategory === cat.id
-                ? "text-navy-950 font-bold bg-cyan-neon shadow-lg"
+                ? "text-white font-bold bg-cyan-neon shadow-lg"
                 : "text-slate-400 hover:text-slate-200 bg-white/[0.03] border border-white/10"
             }`}
           >
@@ -68,105 +69,142 @@ export default function Projects() {
       {/* Grid of Projects */}
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <AnimatePresence>
-          {filteredProjects.map((project, idx) => (
-            <motion.article
-              layout
-              key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="glass-card overflow-hidden group project-card flex flex-col justify-between"
-            >
-              <div>
-                {/* Banner Preview */}
-                <div
-                  className={`relative h-44 bg-gradient-to-br ${
+          {filteredProjects.map((project, idx) => {
+            const hasCaseStudy = Boolean(project.hasCaseStudy && project.slug);
+
+            return (
+              <motion.article
+                layout
+                key={project.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="glass-card overflow-hidden group project-card flex flex-col justify-between"
+              >
+                <div>
+                  {/* Banner Preview */}
+                  <div className={`relative h-44 bg-gradient-to-br ${
                     placeholderGradients[idx % placeholderGradients.length]
-                  } flex items-center justify-center overflow-hidden border-b border-white/5 cursor-pointer`}
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <FolderGit2
-                    size={44}
-                    className="text-slate-600 group-hover:text-cyan-neon transition-colors duration-300"
-                    strokeWidth={1.5}
-                  />
+                  } flex items-center justify-center overflow-hidden border-b border-white/5`}>
+                    <FolderGit2
+                      size={44}
+                      className="text-slate-600 group-hover:text-cyan-neon transition-colors duration-300"
+                      strokeWidth={1.5}
+                    />
 
-                  <div className="absolute top-3 right-3">
-                    <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-navy-950/80 border border-white/10 text-slate-300">
-                      {project.category}
-                    </span>
+                    <div className="absolute top-3 right-3 flex items-center gap-2">
+                      {hasCaseStudy && (
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-cyan-soft text-cyan-neon border border-cyan-neon/40 font-bold">
+                          Case Study Available
+                        </span>
+                      )}
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-navy-950/80 border border-white/10 text-slate-300">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Hover Overlay Link/Button */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-4 text-center">
+                      {hasCaseStudy ? (
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
+                        >
+                          <BookOpen size={14} /> Baca Case Study Lengkap <ArrowRight size={14} />
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => setSelectedProject(project)}
+                          className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg"
+                        >
+                          <Eye size={14} /> Detail & Interactive Preview
+                        </button>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Hover Overlay Button */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                    <span className="px-3 py-1.5 rounded-lg bg-cyan-neon text-navy-950 font-mono text-xs font-bold flex items-center gap-1.5">
-                      <Eye size={14} /> Detail & Interactive Preview
-                    </span>
+                  {/* Content */}
+                  <div className="p-6">
+                    {hasCaseStudy ? (
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="font-bold text-slate-100 text-lg mb-2 group-hover:text-cyan-neon transition-colors block"
+                      >
+                        {project.title}
+                      </Link>
+                    ) : (
+                      <h3
+                        onClick={() => setSelectedProject(project)}
+                        className="font-bold text-slate-100 text-lg mb-2 group-hover:text-cyan-neon transition-colors cursor-pointer"
+                      >
+                        {project.title}
+                      </h3>
+                    )}
+
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
+                      {project.description}
+                    </p>
+
+                    {/* Tech Stack Badges */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.techStack.map((tech) => (
+                        <Badge key={tech} variant={getBadgeVariant(tech)}>
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3
-                    onClick={() => setSelectedProject(project)}
-                    className="font-bold text-slate-100 text-lg mb-2 group-hover:text-cyan-neon transition-colors cursor-pointer"
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-5">
-                    {project.description}
-                  </p>
-
-                  {/* Tech Stack Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.techStack.map((tech) => (
-                      <Badge key={tech} variant={getBadgeVariant(tech)}>
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Card Footer Actions */}
-              <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-white/5">
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="text-xs font-mono text-cyan-neon hover:underline flex items-center gap-1"
-                >
-                  <Eye size={13} /> Pratinjau Detail
-                </button>
-
-                <div className="flex items-center gap-3">
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-slate-100 text-xs font-mono transition-colors flex items-center gap-1"
+                {/* Card Footer Actions */}
+                <div className="px-6 pb-6 pt-2 flex items-center justify-between border-t border-white/5">
+                  {hasCaseStudy ? (
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="text-xs font-mono text-cyan-neon hover:underline flex items-center gap-1.5 font-bold"
                     >
-                      <Github size={13} /> Repo
-                    </a>
-                  )}
-                  {project.demoUrl && (
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-cyan-neon text-xs font-mono transition-colors flex items-center gap-1"
+                      <BookOpen size={13} /> Case Study Detail <ArrowRight size={12} />
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => setSelectedProject(project)}
+                      className="text-xs font-mono text-cyan-neon hover:underline flex items-center gap-1"
                     >
-                      Demo <ExternalLink size={11} />
-                    </a>
+                      <Eye size={13} /> Pratinjau Detail
+                    </button>
                   )}
+
+                  <div className="flex items-center gap-3">
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-slate-100 text-xs font-mono transition-colors flex items-center gap-1"
+                      >
+                        <Github size={13} /> Repo
+                      </a>
+                    )}
+                    {project.demoUrl && (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-cyan-neon text-xs font-mono transition-colors flex items-center gap-1"
+                      >
+                        Demo <ExternalLink size={11} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+              </motion.article>
+            );
+          })}
         </AnimatePresence>
       </motion.div>
 
-      {/* Project Detail Modal */}
+      {/* Project Detail Modal for Non-CaseStudy Projects */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

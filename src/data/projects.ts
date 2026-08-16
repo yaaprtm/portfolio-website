@@ -13,6 +13,8 @@ export interface Project {
   githubUrl?: string;
   featured?: boolean;
   category: "networking" | "android" | "web" | "other";
+  slug?: string;
+  hasCaseStudy?: boolean;
 }
 
 export const projects: Project[] = [
@@ -25,6 +27,8 @@ export const projects: Project[] = [
     techStack: ["Android", "Kotlin", "Java", "REST API", "Git"],
     featured: true,
     category: "android",
+    slug: "kebun-raya-cibinong",
+    hasCaseStudy: true,
   },
   {
     id: 2,
@@ -35,6 +39,8 @@ export const projects: Project[] = [
     techStack: ["Cisco Packet Tracer", "Routing & Switching", "VLAN", "Subnetting"],
     featured: true,
     category: "networking",
+    slug: "vlan-routing-cisco",
+    hasCaseStudy: true,
   },
   {
     id: 3,

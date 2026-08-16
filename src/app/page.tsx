@@ -5,6 +5,7 @@ import About from "@/components/sections/About";
 import BentoSkills from "@/components/sections/BentoSkills";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
+import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
 import AiAssistant from "@/components/ui/AiAssistant";
@@ -27,6 +28,7 @@ export default function Home() {
           <BentoSkills />
           <Projects />
           <Experience />
+          <Education />
           <Certifications />
           <Contact />
         </main>

@@ -16,23 +16,7 @@ export interface Experience {
   current?: boolean;
 }
 
-export const experiences: Experience[] = [
-  {
-    id: 1,
-    type: "education",
-    title: "STr. Teknik Rekayasa Internet",
-    company: "Politeknik Elektronika Negeri Surabaya (PENS)",
-    location: "Surabaya, Jawa Timur",
-    period: "2026 – 2030",
-    startDate: "2026-08",
-    current: true,
-    description: [
-      "Mahasiswa Baru Program Studi Sarjana Terapan (STr.) Teknik Rekayasa Internet.",
-      "Fokus studi: Arsitektur Internet Modern, Infrastruktur Jaringan Broadband, Cloud Computing, Network Security, dan Distributed Systems.",
-      "Melanjutkan passion dan penguatan keahlian teknis di kampus teknologi terkemuka Indonesia.",
-    ],
-    technologies: ["Internet Engineering", "Network Architecture", "Broadband", "Cloud & Security"],
-  },
+export const workExperiences: Experience[] = [
   {
     id: 2,
     type: "work",
@@ -99,6 +83,25 @@ export const experiences: Experience[] = [
     ],
     technologies: ["VSAT", "Project Coordination", "Field Documentation"],
   },
+];
+
+export const educationList: Experience[] = [
+  {
+    id: 1,
+    type: "education",
+    title: "STr. Teknik Rekayasa Internet",
+    company: "Politeknik Elektronika Negeri Surabaya (PENS)",
+    location: "Surabaya, Jawa Timur",
+    period: "2026 – 2030",
+    startDate: "2026-08",
+    current: true,
+    description: [
+      "Mahasiswa Baru Program Studi Sarjana Terapan (STr.) Teknik Rekayasa Internet.",
+      "Fokus studi: Arsitektur Internet Modern, Infrastruktur Jaringan Broadband, Cloud Computing, Network Security, dan Distributed Systems.",
+      "Melanjutkan passion dan penguatan keahlian teknis di kampus teknologi terkemuka Indonesia.",
+    ],
+    technologies: ["Internet Engineering", "Network Architecture", "Broadband", "Cloud & Security"],
+  },
   {
     id: 6,
     type: "education",
@@ -114,5 +117,6 @@ export const experiences: Experience[] = [
       "Aktif mengerjakan proyek akademis: VLAN & Routing Configuration, Network Topology Simulation, dan VSAT Installation Assistance.",
       "Finalis IONIC IoT & Networking PENS 2025.",
     ],
+    technologies: ["Computer Networking", "Routing & Switching", "IT Support", "Server Admin"],
   },
 ];
