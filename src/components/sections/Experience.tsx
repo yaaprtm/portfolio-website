@@ -46,7 +46,7 @@ function WorkTimelineEntry({
 
       {/* Content Card */}
       <div className="flex-1 glass-card p-6 mb-2">
-        <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4 mb-3">
           <div>
             <h3 className="font-bold text-slate-100 text-base">
               {exp.title}
@@ -55,7 +55,7 @@ function WorkTimelineEntry({
               {exp.company} · {exp.location}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 flex-shrink-0 sm:self-start">
             <span className="text-xs font-mono text-slate-300 bg-white/[0.05] px-2.5 py-1 rounded-md border border-white/10">
               {exp.period}
             </span>
