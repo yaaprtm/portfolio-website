@@ -1,30 +1,38 @@
-import Navbar from "@/components/layout/Navbar";
+import Sidebar from "@/components/layout/Sidebar";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Hero";
+import TerminalHero from "@/components/sections/TerminalHero";
 import About from "@/components/sections/About";
-import Skills from "@/components/sections/Skills";
+import BentoSkills from "@/components/sections/BentoSkills";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
 import AiAssistant from "@/components/ui/AiAssistant";
+import LiquidBackground from "@/components/ui/LiquidBackground";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
+      {/* Root Level Liquid Morphing Shapes Background */}
+      <LiquidBackground />
 
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Certifications />
-        <Contact />
-      </main>
+      {/* Fixed Desktop Sidebar & Mobile Top/Drawer Navigation */}
+      <Sidebar />
 
-      <Footer />
+      {/* Main Content Area — Padded on desktop (lg:pl-72 xl:pl-80) to sit beside fixed sidebar */}
+      <div className="lg:pl-72 xl:pl-80 min-h-screen flex flex-col transition-all duration-300 relative z-10">
+        <main className="flex-1">
+          <TerminalHero />
+          <About />
+          <BentoSkills />
+          <Projects />
+          <Experience />
+          <Certifications />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
 
       {/* Interactive AI Assistant Floating Widget */}
       <AiAssistant />
