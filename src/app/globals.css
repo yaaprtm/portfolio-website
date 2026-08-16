@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Google Fonts Import
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+
+/* ============================================================
+   CSS Custom Properties — UNIQUE TERMINAL MINT & OBSIDIAN THEME
+   ============================================================ */
+:root {
+  --color-bg: #070a0f;
+  --color-surface: #0d111a;
+  --color-surface-2: #131926;
+  --color-cyan: #00f5a0;
+  --color-cyan-dim: #00a86b;
+  --color-blue: #8b5cf6;
+  --color-text: #e2e8f0;
+  --color-text-muted: #64748b;
+  --color-border: rgba(0, 245, 160, 0.15);
+  --color-border-bright: rgba(0, 245, 160, 0.4);
+  --glow-sm: 0 0 12px rgba(0, 245, 160, 0.25);
+  --glow-md: 0 0 24px rgba(0, 245, 160, 0.35), 0 0 45px rgba(0, 245, 160, 0.15);
+  --glow-lg: 0 0 35px rgba(0, 245, 160, 0.55), 0 0 70px rgba(0, 245, 160, 0.25);
+}
+
+/* ============================================================
+   Base Reset & Body
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   Custom Scrollbar
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyan-dim);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* ============================================================
+   Grid Background Pattern
+   ============================================================ */
+.bg-grid {
+  background-image: linear-gradient(
+      rgba(0, 245, 160, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 245, 160, 0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ============================================================
+   Glassmorphism Card — Rich Dark Obsidian
+   ============================================================ */
+.glass-card {
+  background: rgba(13, 17, 26, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 245, 160, 0.12);
+  border-radius: 14px;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 245, 160, 0.38);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 245, 160, 0.15);
+}
+
+/* ============================================================
+   Neon Text Effect — Cyber Mint
+   ============================================================ */
+.neon-text {
+  color: var(--color-cyan);
+  text-shadow: 0 0 12px rgba(0, 245, 160, 0.6), 0 0 24px rgba(0, 245, 160, 0.3);
+}
+
+.neon-text-sm {
+  color: var(--color-cyan);
+  text-shadow: 0 0 8px rgba(0, 245, 160, 0.4);
+}
+
+/* ============================================================
+   Glow Border
+   ============================================================ */
+.glow-border {
+  border: 1px solid rgba(0, 245, 160, 0.3);
+  box-shadow: var(--glow-sm), inset 0 1px 0 rgba(0, 245, 160, 0.1);
+}
+
+.glow-border:hover {
+  border-color: rgba(0, 245, 160, 0.6);
+  box-shadow: var(--glow-md);
+}
+
+/* ============================================================
+   Section Separator Line
+   ============================================================ */
+.section-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cyan) 50%,
+    transparent
+  );
+  opacity: 0.3;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+/* ============================================================
+   Terminal Cursor Blink
+   ============================================================ */
+.cursor-blink::after {
+  content: "|";
+  display: inline-block;
+  color: var(--color-cyan);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================================
+   Gradient Heading — Cyber Mint Emerald to Electric Violet
+   ============================================================ */
+.gradient-text {
+  background: linear-gradient(135deg, #00f5a0 0%, #8b5cf6 50%, #00f5a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradient-shift 4s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ============================================================
+   Section Heading Style
+   ============================================================ */
+.section-heading {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  color: var(--color-cyan);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Skill Card Hover
+   ============================================================ */
+.skill-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 245, 160, 0.18);
+  border-color: rgba(0, 245, 160, 0.45);
+}
+
+/* ============================================================
+   Project Card Hover
+   ============================================================ */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ============================================================
+   Timeline Connector
+   ============================================================ */
+.timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--color-cyan) 20%,
+    var(--color-cyan) 80%,
+    transparent
+  );
+  opacity: 0.4;
+}
+
+/* ============================================================
+   Input Focus Glow
+   ============================================================ */
+.input-glow:focus {
+  outline: none;
+  border-color: rgba(0, 245, 160, 0.5);
+  box-shadow: 0 0 0 1px rgba(0, 245, 160, 0.2), 0 0 15px rgba(0, 245, 160, 0.12);
+}
+
+/* ============================================================
+   Gradient Button — Cyber Mint to Violet Glow
+   ============================================================ */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(0, 245, 160, 0.18), rgba(139, 92, 246, 0.18));
+  border: 1px solid rgba(0, 245, 160, 0.45);
+  color: var(--color-cyan);
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 245, 160, 0.28), rgba(139, 92, 246, 0.28));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  border-color: rgba(0, 245, 160, 0.8);
+  box-shadow: 0 0 25px rgba(0, 245, 160, 0.35), 0 0 50px rgba(0, 245, 160, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(0, 245, 160, 0.4);
+  color: var(--color-cyan);
+  background: rgba(0, 245, 160, 0.05);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   Selection color
+   ============================================================ */
+::selection {
+  background: rgba(0, 245, 160, 0.25);
+  color: var(--color-cyan);
+}
+
+/* ============================================================
+   Floating animation
+   ============================================================ */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+/* ============================================================
+   Responsive utility
+   ============================================================ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
