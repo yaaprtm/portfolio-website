@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import {
   Mail,
   Instagram,
+  Linkedin,
   Send,
   User,
   AtSign,
@@ -30,9 +31,15 @@ const socialLinks = [
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/yaaprtm",
+    href: "https://www.instagram.com/yaaprtm",
     icon: Instagram,
     value: "@yaaprtm",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/",
+    icon: Linkedin,
+    value: "Arya Putra Pratama",
   },
 ];
 

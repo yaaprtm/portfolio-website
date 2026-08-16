@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, Instagram, Phone, Heart } from "lucide-react";
+import { Mail, Instagram, Linkedin, Phone, Heart } from "lucide-react";
 
 const socialLinks = [
   {
@@ -17,8 +17,13 @@ const socialLinks = [
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/yaaprtm",
+    href: "https://www.instagram.com/yaaprtm",
     icon: Instagram,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/",
+    icon: Linkedin,
   },
 ];
 
