@@ -8,18 +8,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /* ============================================================
-   CSS Custom Properties — BESPOKE MATTE OBSIDIAN & ICE-LIME
+   CSS Custom Properties — DYNAMIC THEME SYSTEM
    ============================================================ */
 :root {
   --color-bg: #090a0c;
   --color-surface: #0f1115;
   --color-surface-2: #16181e;
-  --color-lime: #d4ff00;
-  --color-sky: #38bdf8;
+  
+  /* Dynamic Active Theme Colors (Default: Obsidian Lime) */
+  --color-cyan: #d4ff00;
+  --color-cyan-glow: #c4f000;
+  --color-cyan-dim: #88b000;
+  --color-cyan-soft: rgba(212, 255, 0, 0.1);
+  --color-border-hover: rgba(212, 255, 0, 0.35);
+
   --color-text: #f1f5f9;
   --color-text-muted: #94a3b8;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: rgba(212, 255, 0, 0.3);
 }
 
 /* ============================================================
@@ -49,7 +54,7 @@ body {
    Custom Scrollbar
    ============================================================ */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -62,24 +67,22 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-lime);
+  background: var(--color-cyan);
 }
 
 /* ============================================================
    Subtle Ambient Grid Pattern
    ============================================================ */
 .bg-grid {
-  background-image: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
 }
 
 /* ============================================================
-   Editorial Matte Glass Card — Bespoke & Clean
+   Editorial Matte Glass Card
    ============================================================ */
 .glass-card {
   background: rgba(15, 17, 21, 0.75);
@@ -92,14 +95,14 @@ body {
 
 .glass-card:hover {
   border-color: var(--color-border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 255, 0, 0.05);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 25px var(--color-cyan-soft);
 }
 
 /* ============================================================
    Bespoke Accent Text
    ============================================================ */
 .accent-text {
-  color: var(--color-lime);
+  color: var(--color-cyan);
 }
 
 /* ============================================================
@@ -118,10 +121,10 @@ body {
 }
 
 /* ============================================================
-   Gradient Heading — Refined Ice Lime to Slate White
+   Gradient Heading
    ============================================================ */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #d4ff00 60%, #38bdf8 100%);
+  background: linear-gradient(135deg, #ffffff 30%, var(--color-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -141,7 +144,7 @@ body {
 .section-tag {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
-  color: var(--color-lime);
+  color: var(--color-cyan);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -155,8 +158,8 @@ body {
 
 .skill-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(212, 255, 0, 0.35);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 255, 0, 0.05);
+  border-color: var(--color-border-hover);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-cyan-soft);
 }
 
 /* ============================================================
@@ -175,8 +178,8 @@ body {
    ============================================================ */
 .input-glow:focus {
   outline: none;
-  border-color: rgba(212, 255, 0, 0.5);
-  box-shadow: 0 0 0 1px rgba(212, 255, 0, 0.2);
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 1px var(--color-cyan);
 }
 
 /* ============================================================
@@ -185,7 +188,7 @@ body {
 .btn-primary {
   position: relative;
   overflow: hidden;
-  background: #d4ff00;
+  background: var(--color-cyan);
   color: #090a0c;
   font-weight: 600;
   border-radius: 12px;
@@ -193,8 +196,8 @@ body {
 }
 
 .btn-primary:hover {
-  background: #e2f952;
-  box-shadow: 0 0 25px rgba(212, 255, 0, 0.35);
+  background: var(--color-cyan-glow);
+  box-shadow: 0 0 25px var(--color-cyan-soft);
   transform: translateY(-2px);
 }
 
@@ -216,6 +219,6 @@ body {
    Selection Color
    ============================================================ */
 ::selection {
-  background: rgba(212, 255, 0, 0.2);
-  color: #d4ff00;
+  background: var(--color-cyan-soft);
+  color: var(--color-cyan);
 }

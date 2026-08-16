@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -29,19 +29,27 @@ export default function ThemeSwitcher() {
 
     if (mode === "lime") {
       root.style.setProperty("--color-cyan", "#D4FF00");
+      root.style.setProperty("--color-cyan-glow", "#E2F952");
       root.style.setProperty("--color-cyan-dim", "#88B000");
-      root.style.setProperty("--color-border-hover", "rgba(212, 255, 0, 0.3)");
+      root.style.setProperty("--color-cyan-soft", "rgba(212, 255, 0, 0.15)");
+      root.style.setProperty("--color-border-hover", "rgba(212, 255, 0, 0.35)");
     } else if (mode === "cyan") {
       root.style.setProperty("--color-cyan", "#00F0FF");
+      root.style.setProperty("--color-cyan-glow", "#38BDF8");
       root.style.setProperty("--color-cyan-dim", "#00A8B5");
-      root.style.setProperty("--color-border-hover", "rgba(0, 240, 255, 0.3)");
+      root.style.setProperty("--color-cyan-soft", "rgba(0, 240, 255, 0.15)");
+      root.style.setProperty("--color-border-hover", "rgba(0, 240, 255, 0.35)");
     } else if (mode === "violet") {
       root.style.setProperty("--color-cyan", "#A855F7");
+      root.style.setProperty("--color-cyan-glow", "#C084FC");
       root.style.setProperty("--color-cyan-dim", "#7E22CE");
-      root.style.setProperty("--color-border-hover", "rgba(168, 85, 247, 0.3)");
+      root.style.setProperty("--color-cyan-soft", "rgba(168, 85, 247, 0.15)");
+      root.style.setProperty("--color-border-hover", "rgba(168, 85, 247, 0.35)");
     } else if (mode === "monochrome") {
       root.style.setProperty("--color-cyan", "#FFFFFF");
+      root.style.setProperty("--color-cyan-glow", "#E2E8F0");
       root.style.setProperty("--color-cyan-dim", "#94A3B8");
+      root.style.setProperty("--color-cyan-soft", "rgba(255, 255, 255, 0.15)");
       root.style.setProperty("--color-border-hover", "rgba(255, 255, 255, 0.4)");
     }
   };
