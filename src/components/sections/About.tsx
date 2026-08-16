@@ -115,7 +115,7 @@ export default function About() {
 
           <p className="text-slate-400 leading-relaxed text-sm">
             Memiliki pengalaman kerja dan magang di IT Maintenance (Digital Solusindo), IT Support Technician (ID-Networkers), dan sebagai Android Developer Intern di{" "}
-            <span className="text-slate-200 font-medium">Badan Riset dan Inovasi Nasional (BRIN)</span> di mana saya bersama tim 4 orang merancang dan membangun aplikasi & web Kebun Raya Cibinong.
+            <span className="text-slate-200 font-medium">Badan Riset dan Inovasi Nasional (BRIN)</span>.
           </p>
 
           <p className="text-slate-400 leading-relaxed text-sm">
@@ -127,9 +127,9 @@ export default function About() {
             {[
               "🎓 PENS Surabaya — STr. Teknik Rekayasa Internet (2026-2030)",
               "📍 Surabaya / Jakarta, Indonesia",
-              "🌐 MikroTik MTCNA Certified (88%)",
-              "🏆 Finalist IONIC IoT & Networking PENS 2025",
-              "📱 Android Dev Intern @ BRIN",
+              "⚡ IT Enthusiast",
+              "🧩 Problem Solver",
+              "🚀 Fast Learner",
             ].map((item) => (
               <span
                 key={item}
