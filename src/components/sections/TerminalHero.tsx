@@ -18,7 +18,11 @@ const bootSequence: BootStep[] = [
   },
   {
     cmd: "whoami",
-    output: "Arya Putra Pratama — Network Engineer, IT Support Technician & Android Developer",
+    output: "Arya Putra Pratama — IT Enthusiast",
+  },
+  {
+    cmd: "interests --explore",
+    output: "Networking, Android Development, IT Support, Cloud & System Architecture",
   },
   {
     cmd: "education --current",
@@ -176,7 +180,7 @@ export default function TerminalHero() {
                     Arya Putra <span className="text-cyan-neon">Pratama</span>
                   </h1>
                   <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl font-normal leading-relaxed">
-                    Praktisi IT, Spesialis Jaringan Komputer & IT Support, serta Android Developer dengan fokus pada solusi infrastruktur digital modern.
+                    IT Enthusiast yang antusias mengeksplorasi teknologi — dari jaringan komputer, pengembangan Android, hingga infrastruktur digital modern.
                   </p>
                 </div>
 

@@ -66,7 +66,7 @@ export default function About() {
       <SectionHeading
         tag="01 / ABOUT"
         title="Profil & Latar Belakang"
-        subtitle="Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan latar belakang praktis di bidang IT Support, Networking, dan Android Development."
+        subtitle="IT Enthusiast dan Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan minat serta pengalaman praktis di bidang Networking, IT Support, dan Android Development."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
@@ -108,7 +108,7 @@ export default function About() {
           </h3>
 
           <p className="text-slate-300 leading-relaxed text-sm">
-            Saya adalah Mahasiswa Baru program studi{" "}
+            Saya adalah seorang <span className="text-cyan-neon font-semibold">IT Enthusiast</span> dan Mahasiswa Baru program studi{" "}
             <span className="text-cyan-neon font-semibold">STr. Teknik Rekayasa Internet</span> di{" "}
             <span className="text-slate-100 font-semibold">Politeknik Elektronika Negeri Surabaya (PENS)</span> (2026–2030), serta alumni Teknik Komputer & Jaringan SMK Dinamika Pembangunan 1 Jakarta.
           </p>

@@ -51,7 +51,7 @@ export default function Footer() {
               Arya Putra Pratama
             </span>
             <p className="text-slate-400 text-xs leading-relaxed">
-              Mahasiswa STr. Teknik Rekayasa Internet (PENS Surabaya), IT Support Technician, dan Android Developer Intern.
+              IT Enthusiast, Mahasiswa STr. Teknik Rekayasa Internet (PENS Surabaya), IT Support Technician, dan Android Developer Intern.
             </p>
           </div>
 

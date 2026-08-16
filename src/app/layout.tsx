@@ -5,21 +5,21 @@ import "./globals.css";
 // SEO Metadata — ARYA PUTRA PRATAMA
 // ============================================================
 export const metadata: Metadata = {
-  title: "Arya Putra Pratama — IT Enthusiast | Network & Android Developer",
+  title: "Arya Putra Pratama — IT Enthusiast | Networking, Android Dev & IT Support",
   description:
-    "Portofolio Profesional Arya Putra Pratama: Siswa Teknik Komputer dan Jaringan (TKJ) SMK Dinamika Pembangunan 1 Jakarta, IT Support Technician, dan Android Developer Intern di BRIN.",
+    "Portofolio Arya Putra Pratama, seorang IT Enthusiast dan Mahasiswa STr. Teknik Rekayasa Internet (PENS Surabaya) dengan minat serta keahlian di bidang Networking, Android Development, dan IT Support.",
   keywords: [
     "Arya Putra Pratama",
     "IT Enthusiast",
-    "Computer and Network Engineering",
-    "TKJ",
+    "Teknik Rekayasa Internet",
+    "PENS Surabaya",
     "IT Maintenance",
     "IT Support Technician",
     "Android Developer",
     "BRIN Intern",
     "MikroTik MTCNA",
     "Cisco Packet Tracer",
-    "Jakarta",
+    "Surabaya",
   ],
   authors: [{ name: "Arya Putra Pratama", url: "https://aryaputrapratama.vercel.app" }],
   creator: "Arya Putra Pratama",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: "https://aryaputrapratama.vercel.app",
-    title: "Arya Putra Pratama — IT Enthusiast | Network & Android Developer",
+    title: "Arya Putra Pratama — IT Enthusiast | Networking, Android Dev & IT Support",
     description:
-      "Portofolio profesional: IT Maintenance, Network Engineering, IT Support, dan Magang Android Developer BRIN.",
+      "Portofolio Arya Putra Pratama: IT Enthusiast dengan minat di bidang Networking, Android Development, dan IT Support.",
     siteName: "Arya Putra Pratama Portfolio",
     images: [
       {
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arya Putra Pratama — IT Enthusiast | Network & Android Developer",
-    description: "Portofolio profesional: IT Maintenance, Networking, dan Android Development.",
+    title: "Arya Putra Pratama — IT Enthusiast | Networking, Android Dev & IT Support",
+    description: "Portofolio Arya Putra Pratama: IT Enthusiast dengan minat di bidang Networking, Android Development, dan IT Support.",
     images: ["/og-image.png"],
   },
   robots: {
