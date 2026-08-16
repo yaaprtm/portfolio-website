@@ -7,11 +7,10 @@ import NetworkBackground from "@/components/ui/NetworkBackground";
 import Button from "@/components/ui/Button";
 
 const ROLES = [
-  "STr. Teknik Rekayasa Internet Student @ PENS",
-  "Computer & Network Engineer",
-  "Android Developer (BRIN Intern)",
-  "IT Support & Systems Technician",
-  "MikroTik MTCNA Certified",
+  "IT Enthusiast",
+  "Network & Systems Explorer",
+  "Android Developer",
+  "IT Support Specialist",
 ];
 
 export default function Hero() {
@@ -61,7 +60,7 @@ export default function Hero() {
                      border border-white/10 bg-white/[0.03] text-slate-300 text-xs font-mono backdrop-blur-xl shadow-lg"
         >
           <span className="w-2 h-2 rounded-full bg-cyan-neon animate-pulse" />
-          <span>STr. Teknik Rekayasa Internet · PENS Surabaya</span>
+          <span>IT Enthusiast · PENS Surabaya</span>
         </motion.div>
 
         {/* Main Headline */}
@@ -94,7 +93,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-normal"
         >
-          Spesialis Jaringan Komputer, IT Support, dan Android Developer. Berorientasi pada solusi infrastruktur digital yang efisien, andal, dan modern.
+          IT Enthusiast yang antusias mengeksplorasi teknologi — dari jaringan komputer, pengembangan Android, hingga infrastruktur digital modern.
         </motion.p>
 
         {/* High Contrast CTA Buttons */}

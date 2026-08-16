@@ -187,13 +187,13 @@ export default function TerminalHero() {
                 {/* Quick Highlights */}
                 <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    🎓 STr. Teknik Rekayasa Internet @ PENS
+                    ⚡ IT Enthusiast
                   </span>
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    📱 Android Dev Intern @ BRIN
+                    🧩 Problem Solver
                   </span>
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    🌐 MikroTik MTCNA (88%)
+                    🚀 Fast Learner
                   </span>
                 </div>
               </motion.div>
