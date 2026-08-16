@@ -129,7 +129,7 @@ export default function Contact() {
                 {/* Name */}
                 <div className="relative">
                   <label className="block text-xs font-mono text-slate-500 mb-1.5">
-                    // Nama Lengkap
+                    {"// Nama Lengkap"}
                   </label>
                   <div className="relative">
                     <User
@@ -152,7 +152,7 @@ export default function Contact() {
                 {/* Email */}
                 <div>
                   <label className="block text-xs font-mono text-slate-500 mb-1.5">
-                    // Email
+                    {"// Email"}
                   </label>
                   <div className="relative">
                     <AtSign
@@ -175,7 +175,7 @@ export default function Contact() {
                 {/* Message */}
                 <div>
                   <label className="block text-xs font-mono text-slate-500 mb-1.5">
-                    // Pesan
+                    {"// Pesan"}
                   </label>
                   <div className="relative">
                     <MessageSquare

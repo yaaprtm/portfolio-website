@@ -59,7 +59,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
-              // Navigasi
+              {"// Navigasi"}
             </h3>
             <ul className="grid grid-cols-2 gap-1">
               {navLinks.map((link) => (
@@ -78,7 +78,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
-              // Terhubung
+              {"// Terhubung"}
             </h3>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
