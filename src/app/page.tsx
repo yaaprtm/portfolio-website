@@ -1,4 +1,4 @@
-import Sidebar from "@/components/layout/Sidebar";
+import NetworkNavigation from "@/components/layout/NetworkNavigation";
 import Footer from "@/components/layout/Footer";
 import TerminalHero from "@/components/sections/TerminalHero";
 import About from "@/components/sections/About";
@@ -13,14 +13,14 @@ import LiquidBackground from "@/components/ui/LiquidBackground";
 export default function Home() {
   return (
     <>
-      {/* Root Level Liquid Morphing Shapes Background */}
+      {/* Root Level Liquid Morphing Shapes & Network Background */}
       <LiquidBackground />
 
-      {/* Fixed Desktop Sidebar & Mobile Top/Drawer Navigation */}
-      <Sidebar />
+      {/* Interactive Network Topology Map Navigation */}
+      <NetworkNavigation />
 
-      {/* Main Content Area — Padded on desktop (lg:pl-72 xl:pl-80) to sit beside fixed sidebar */}
-      <div className="lg:pl-72 xl:pl-80 min-h-screen flex flex-col transition-all duration-300 relative z-10">
+      {/* Main Content Area */}
+      <div className="min-h-screen flex flex-col transition-all duration-300 relative z-10">
         <main className="flex-1">
           <TerminalHero />
           <About />

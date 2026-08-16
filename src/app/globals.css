@@ -8,21 +8,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 /* ============================================================
-   CSS Custom Properties — FULL DYNAMIC MULTI-THEME ENGINE
+   CSS Custom Properties — SOFT ELECTRIC BLUE & DEEP NAVY
    ============================================================ */
 :root {
-  /* Default Theme: Obsidian Lime */
-  --color-bg: #090a0c;
-  --color-surface: #0f1115;
-  --color-surface-2: #16181e;
+  /* Default Theme: Soft Electric Blue */
+  --color-bg: #0b1120;
+  --color-surface: #0f172a;
+  --color-surface-2: #1e293b;
   
-  --color-cyan: #d4ff00;
-  --color-cyan-glow: #e2f952;
-  --color-cyan-dim: #88b000;
-  --color-cyan-soft: rgba(212, 255, 0, 0.12);
-  --color-border-hover: rgba(212, 255, 0, 0.4);
+  --color-cyan: #3b82f6;
+  --color-cyan-glow: #60a5fa;
+  --color-cyan-dim: #2563eb;
+  --color-cyan-soft: rgba(59, 130, 246, 0.14);
+  --color-border-hover: rgba(59, 130, 246, 0.4);
 
-  --color-text: #f1f5f9;
+  --color-text: #f8fafc;
   --color-text-muted: #94a3b8;
   --color-border: rgba(255, 255, 255, 0.08);
 }
@@ -76,17 +76,17 @@ body {
    ============================================================ */
 .bg-grid {
   background-image: radial-gradient(
-    rgba(255, 255, 255, 0.07) 1px,
+    rgba(255, 255, 255, 0.06) 1px,
     transparent 1px
   );
   background-size: 36px 36px;
 }
 
 /* ============================================================
-   Editorial Matte Glass Card
+   Editorial Matte Glass Card — Deep Navy Surface
    ============================================================ */
 .glass-card {
-  background: var(--color-surface);
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
@@ -96,7 +96,7 @@ body {
 
 .glass-card:hover {
   border-color: var(--color-border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-cyan-soft);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-cyan-soft);
 }
 
 /* ============================================================
@@ -123,7 +123,7 @@ body {
 }
 
 /* ============================================================
-   Gradient Heading
+   Gradient Heading — Soft Electric Blue to White
    ============================================================ */
 .gradient-text {
   background: linear-gradient(135deg, #ffffff 30%, var(--color-cyan) 100%);
@@ -163,7 +163,7 @@ body {
 .skill-card:hover {
   transform: translateY(-4px);
   border-color: var(--color-border-hover);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-cyan-soft);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--color-cyan-soft);
 }
 
 /* ============================================================
@@ -187,13 +187,13 @@ body {
 }
 
 /* ============================================================
-   Buttons
+   Buttons — Soft Electric Blue High Contrast
    ============================================================ */
 .btn-primary {
   position: relative;
   overflow: hidden;
   background: var(--color-cyan);
-  color: #090a0c;
+  color: #ffffff;
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -206,16 +206,16 @@ body {
 }
 
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f8fafc;
   border-radius: 12px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
   border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.09);
   transform: translateY(-2px);
 }
 

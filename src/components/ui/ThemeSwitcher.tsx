@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export type ThemeMode = "lime" | "cyan" | "violet" | "monochrome";
+export type ThemeMode = "blue" | "teal" | "indigo" | "mono";
 
 interface ThemeOption {
   id: ThemeMode;
@@ -13,56 +13,56 @@ interface ThemeOption {
 }
 
 const themes: ThemeOption[] = [
-  { id: "lime", name: "Obsidian Lime", color: "#D4FF00" },
-  { id: "cyan", name: "Cyber Cyan", color: "#00F0FF" },
-  { id: "violet", name: "Electric Violet", color: "#A855F7" },
-  { id: "monochrome", name: "Studio Mono", color: "#FFFFFF" },
+  { id: "blue", name: "Electric Blue", color: "#3B82F6" },
+  { id: "teal", name: "Emerald Teal", color: "#10B981" },
+  { id: "indigo", name: "Indigo Violet", color: "#6366F1" },
+  { id: "mono", name: "Slate Mono", color: "#94A3B8" },
 ];
 
 export default function ThemeSwitcher() {
-  const [activeTheme, setActiveTheme] = useState<ThemeMode>("lime");
+  const [activeTheme, setActiveTheme] = useState<ThemeMode>("blue");
   const [open, setOpen] = useState(false);
 
   const applyTheme = (mode: ThemeMode) => {
     setActiveTheme(mode);
     const root = document.documentElement;
 
-    if (mode === "lime") {
-      root.style.setProperty("--color-bg", "#090a0c");
-      root.style.setProperty("--color-surface", "#0f1115");
-      root.style.setProperty("--color-surface-2", "#16181e");
-      root.style.setProperty("--color-cyan", "#D4FF00");
-      root.style.setProperty("--color-cyan-glow", "#E2F952");
-      root.style.setProperty("--color-cyan-dim", "#88B000");
-      root.style.setProperty("--color-cyan-soft", "rgba(212, 255, 0, 0.15)");
-      root.style.setProperty("--color-border-hover", "rgba(212, 255, 0, 0.35)");
-    } else if (mode === "cyan") {
-      root.style.setProperty("--color-bg", "#030c16");
-      root.style.setProperty("--color-surface", "#071626");
-      root.style.setProperty("--color-surface-2", "#0d2238");
-      root.style.setProperty("--color-cyan", "#00F0FF");
-      root.style.setProperty("--color-cyan-glow", "#38BDF8");
-      root.style.setProperty("--color-cyan-dim", "#00A8B5");
-      root.style.setProperty("--color-cyan-soft", "rgba(0, 240, 255, 0.15)");
-      root.style.setProperty("--color-border-hover", "rgba(0, 240, 255, 0.35)");
-    } else if (mode === "violet") {
-      root.style.setProperty("--color-bg", "#0e0918");
-      root.style.setProperty("--color-surface", "#160e26");
-      root.style.setProperty("--color-surface-2", "#22163a");
-      root.style.setProperty("--color-cyan", "#A855F7");
-      root.style.setProperty("--color-cyan-glow", "#C084FC");
-      root.style.setProperty("--color-cyan-dim", "#7E22CE");
-      root.style.setProperty("--color-cyan-soft", "rgba(168, 85, 247, 0.15)");
-      root.style.setProperty("--color-border-hover", "rgba(168, 85, 247, 0.35)");
-    } else if (mode === "monochrome") {
-      root.style.setProperty("--color-bg", "#0a0a0a");
-      root.style.setProperty("--color-surface", "#141414");
-      root.style.setProperty("--color-surface-2", "#1f1f1f");
-      root.style.setProperty("--color-cyan", "#FFFFFF");
-      root.style.setProperty("--color-cyan-glow", "#E2E8F0");
+    if (mode === "blue") {
+      root.style.setProperty("--color-bg", "#0b1120");
+      root.style.setProperty("--color-surface", "#0f172a");
+      root.style.setProperty("--color-surface-2", "#1e293b");
+      root.style.setProperty("--color-cyan", "#3b82f6");
+      root.style.setProperty("--color-cyan-glow", "#60a5fa");
+      root.style.setProperty("--color-cyan-dim", "#2563eb");
+      root.style.setProperty("--color-cyan-soft", "rgba(59, 130, 246, 0.16)");
+      root.style.setProperty("--color-border-hover", "rgba(59, 130, 246, 0.4)");
+    } else if (mode === "teal") {
+      root.style.setProperty("--color-bg", "#061A14");
+      root.style.setProperty("--color-surface", "#0B2920");
+      root.style.setProperty("--color-surface-2", "#133D30");
+      root.style.setProperty("--color-cyan", "#10B981");
+      root.style.setProperty("--color-cyan-glow", "#34D399");
+      root.style.setProperty("--color-cyan-dim", "#059669");
+      root.style.setProperty("--color-cyan-soft", "rgba(16, 185, 129, 0.16)");
+      root.style.setProperty("--color-border-hover", "rgba(16, 185, 129, 0.4)");
+    } else if (mode === "indigo") {
+      root.style.setProperty("--color-bg", "#0E0D22");
+      root.style.setProperty("--color-surface", "#161536");
+      root.style.setProperty("--color-surface-2", "#211F4E");
+      root.style.setProperty("--color-cyan", "#6366F1");
+      root.style.setProperty("--color-cyan-glow", "#818CF8");
+      root.style.setProperty("--color-cyan-dim", "#4F46E5");
+      root.style.setProperty("--color-cyan-soft", "rgba(99, 102, 241, 0.16)");
+      root.style.setProperty("--color-border-hover", "rgba(99, 102, 241, 0.4)");
+    } else if (mode === "mono") {
+      root.style.setProperty("--color-bg", "#0F172A");
+      root.style.setProperty("--color-surface", "#1E293B");
+      root.style.setProperty("--color-surface-2", "#334155");
+      root.style.setProperty("--color-cyan", "#F1F5F9");
+      root.style.setProperty("--color-cyan-glow", "#FFFFFF");
       root.style.setProperty("--color-cyan-dim", "#94A3B8");
-      root.style.setProperty("--color-cyan-soft", "rgba(255, 255, 255, 0.15)");
-      root.style.setProperty("--color-border-hover", "rgba(255, 255, 255, 0.4)");
+      root.style.setProperty("--color-cyan-soft", "rgba(241, 245, 249, 0.16)");
+      root.style.setProperty("--color-border-hover", "rgba(241, 245, 249, 0.4)");
     }
   };
 
@@ -94,7 +94,7 @@ export default function ThemeSwitcher() {
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
               className="absolute right-0 top-12 w-48 rounded-2xl glass-card p-3 border border-white/10 shadow-2xl z-50"
             >
-              <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-2 mb-2">
+              <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest px-2 mb-2">
                 Pilih Suasana Warna
               </p>
               <div className="space-y-1">

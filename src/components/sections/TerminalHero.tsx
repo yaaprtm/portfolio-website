@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Terminal, SkipForward, ArrowUpRight, FileText, CheckCircle2, Shield, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network, Shield, Radio, Cpu } from "lucide-react";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import Button from "@/components/ui/Button";
 
@@ -13,8 +13,8 @@ interface BootStep {
 
 const bootSequence: BootStep[] = [
   {
-    cmd: "system --init",
-    output: "[OK] Kernel initialized. Loading Arya's professional identity...",
+    cmd: "network --discover-nodes",
+    output: "[OK] Topology Map Discovered. Core Router (Home) online.",
   },
   {
     cmd: "whoami",
@@ -68,14 +68,13 @@ export default function TerminalHero() {
     if (currentCmdText.length < fullCmd.length) {
       const timeout = setTimeout(() => {
         setCurrentCmdText(fullCmd.slice(0, currentCmdText.length + 1));
-      }, 35);
+      }, 30);
       return () => clearTimeout(timeout);
     } else {
-      // Command typed, wait briefly then complete step
       const timeout = setTimeout(() => {
         setCompletedSteps((prev) => prev + 1);
         setCurrentCmdText("");
-      }, 300);
+      }, 250);
       return () => clearTimeout(timeout);
     }
   }, [completedSteps, currentCmdText, skipped, isBootFinished]);
@@ -89,7 +88,7 @@ export default function TerminalHero() {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] lg:min-h-screen pt-24 lg:pt-16 pb-16 flex items-center justify-center overflow-hidden"
+      className="relative min-h-[90vh] lg:min-h-screen pt-28 sm:pt-36 pb-16 flex items-center justify-center overflow-hidden"
     >
       <NetworkBackground />
 
@@ -123,8 +122,8 @@ export default function TerminalHero() {
                 <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
               </div>
               <span className="font-mono text-xs text-slate-400 ml-2 flex items-center gap-1.5">
-                <Terminal size={13} className="text-cyan-neon" />
-                arya-pratama@system-kernel:~
+                <Network size={13} className="text-cyan-neon" />
+                topology-node://core-router-home
               </span>
             </div>
 
@@ -143,7 +142,7 @@ export default function TerminalHero() {
 
             {isBootFinished && (
               <span className="font-mono text-[10px] text-cyan-neon bg-cyan-soft px-2 py-0.5 rounded border border-cyan-neon/30 flex items-center gap-1">
-                <CheckCircle2 size={11} /> READY
+                <CheckCircle2 size={11} /> CORE ONLINE
               </span>
             )}
           </div>
