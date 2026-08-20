@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 export type ThemeMode = "blue" | "teal" | "indigo" | "mono";
 
@@ -10,59 +11,124 @@ interface ThemeOption {
   id: ThemeMode;
   name: string;
   color: string;
+  // Dark mode bg/surface
+  darkBg: string;
+  darkSurface: string;
+  darkSurface2: string;
+  // Accent colors (applied in both modes)
+  cyan: string;
+  cyanGlow: string;
+  cyanDim: string;
+  cyanSoft: string;
+  borderHover: string;
+  // Light mode accent (slightly darker for readability)
+  lightCyan: string;
+  lightCyanGlow: string;
+  lightCyanDim: string;
+  lightCyanSoft: string;
 }
 
 const themes: ThemeOption[] = [
-  { id: "blue", name: "Electric Blue", color: "#3B82F6" },
-  { id: "teal", name: "Emerald Teal", color: "#10B981" },
-  { id: "indigo", name: "Indigo Violet", color: "#6366F1" },
-  { id: "mono", name: "Slate Mono", color: "#94A3B8" },
+  {
+    id: "blue",
+    name: "Electric Blue",
+    color: "#3B82F6",
+    darkBg: "#0b1120",
+    darkSurface: "#0f172a",
+    darkSurface2: "#1e293b",
+    cyan: "#3b82f6",
+    cyanGlow: "#60a5fa",
+    cyanDim: "#2563eb",
+    cyanSoft: "rgba(59, 130, 246, 0.16)",
+    borderHover: "rgba(59, 130, 246, 0.4)",
+    lightCyan: "#2563eb",
+    lightCyanGlow: "#3b82f6",
+    lightCyanDim: "#1d4ed8",
+    lightCyanSoft: "rgba(37, 99, 235, 0.12)",
+  },
+  {
+    id: "teal",
+    name: "Emerald Teal",
+    color: "#10B981",
+    darkBg: "#061A14",
+    darkSurface: "#0B2920",
+    darkSurface2: "#133D30",
+    cyan: "#10B981",
+    cyanGlow: "#34D399",
+    cyanDim: "#059669",
+    cyanSoft: "rgba(16, 185, 129, 0.16)",
+    borderHover: "rgba(16, 185, 129, 0.4)",
+    lightCyan: "#059669",
+    lightCyanGlow: "#10B981",
+    lightCyanDim: "#047857",
+    lightCyanSoft: "rgba(5, 150, 105, 0.12)",
+  },
+  {
+    id: "indigo",
+    name: "Indigo Violet",
+    color: "#6366F1",
+    darkBg: "#0E0D22",
+    darkSurface: "#161536",
+    darkSurface2: "#211F4E",
+    cyan: "#6366F1",
+    cyanGlow: "#818CF8",
+    cyanDim: "#4F46E5",
+    cyanSoft: "rgba(99, 102, 241, 0.16)",
+    borderHover: "rgba(99, 102, 241, 0.4)",
+    lightCyan: "#4F46E5",
+    lightCyanGlow: "#6366F1",
+    lightCyanDim: "#4338CA",
+    lightCyanSoft: "rgba(79, 70, 229, 0.12)",
+  },
+  {
+    id: "mono",
+    name: "Slate Mono",
+    color: "#94A3B8",
+    darkBg: "#0F172A",
+    darkSurface: "#1E293B",
+    darkSurface2: "#334155",
+    cyan: "#F1F5F9",
+    cyanGlow: "#FFFFFF",
+    cyanDim: "#94A3B8",
+    cyanSoft: "rgba(241, 245, 249, 0.16)",
+    borderHover: "rgba(241, 245, 249, 0.4)",
+    lightCyan: "#475569",
+    lightCyanGlow: "#64748B",
+    lightCyanDim: "#334155",
+    lightCyanSoft: "rgba(71, 85, 105, 0.12)",
+  },
 ];
 
 export default function ThemeSwitcher() {
+  const { t } = useLanguage();
   const [activeTheme, setActiveTheme] = useState<ThemeMode>("blue");
   const [open, setOpen] = useState(false);
 
   const applyTheme = (mode: ThemeMode) => {
     setActiveTheme(mode);
     const root = document.documentElement;
+    const isLight = root.classList.contains("light");
+    const theme = themes.find((t) => t.id === mode)!;
 
-    if (mode === "blue") {
-      root.style.setProperty("--color-bg", "#0b1120");
-      root.style.setProperty("--color-surface", "#0f172a");
-      root.style.setProperty("--color-surface-2", "#1e293b");
-      root.style.setProperty("--color-cyan", "#3b82f6");
-      root.style.setProperty("--color-cyan-glow", "#60a5fa");
-      root.style.setProperty("--color-cyan-dim", "#2563eb");
-      root.style.setProperty("--color-cyan-soft", "rgba(59, 130, 246, 0.16)");
-      root.style.setProperty("--color-border-hover", "rgba(59, 130, 246, 0.4)");
-    } else if (mode === "teal") {
-      root.style.setProperty("--color-bg", "#061A14");
-      root.style.setProperty("--color-surface", "#0B2920");
-      root.style.setProperty("--color-surface-2", "#133D30");
-      root.style.setProperty("--color-cyan", "#10B981");
-      root.style.setProperty("--color-cyan-glow", "#34D399");
-      root.style.setProperty("--color-cyan-dim", "#059669");
-      root.style.setProperty("--color-cyan-soft", "rgba(16, 185, 129, 0.16)");
-      root.style.setProperty("--color-border-hover", "rgba(16, 185, 129, 0.4)");
-    } else if (mode === "indigo") {
-      root.style.setProperty("--color-bg", "#0E0D22");
-      root.style.setProperty("--color-surface", "#161536");
-      root.style.setProperty("--color-surface-2", "#211F4E");
-      root.style.setProperty("--color-cyan", "#6366F1");
-      root.style.setProperty("--color-cyan-glow", "#818CF8");
-      root.style.setProperty("--color-cyan-dim", "#4F46E5");
-      root.style.setProperty("--color-cyan-soft", "rgba(99, 102, 241, 0.16)");
-      root.style.setProperty("--color-border-hover", "rgba(99, 102, 241, 0.4)");
-    } else if (mode === "mono") {
-      root.style.setProperty("--color-bg", "#0F172A");
-      root.style.setProperty("--color-surface", "#1E293B");
-      root.style.setProperty("--color-surface-2", "#334155");
-      root.style.setProperty("--color-cyan", "#F1F5F9");
-      root.style.setProperty("--color-cyan-glow", "#FFFFFF");
-      root.style.setProperty("--color-cyan-dim", "#94A3B8");
-      root.style.setProperty("--color-cyan-soft", "rgba(241, 245, 249, 0.16)");
-      root.style.setProperty("--color-border-hover", "rgba(241, 245, 249, 0.4)");
+    // Always set accent colors (mode-aware)
+    root.style.setProperty("--color-cyan", isLight ? theme.lightCyan : theme.cyan);
+    root.style.setProperty("--color-cyan-glow", isLight ? theme.lightCyanGlow : theme.cyanGlow);
+    root.style.setProperty("--color-cyan-dim", isLight ? theme.lightCyanDim : theme.cyanDim);
+    root.style.setProperty("--color-cyan-soft", isLight ? theme.lightCyanSoft : theme.cyanSoft);
+    root.style.setProperty("--color-border-hover", isLight ? `rgba(${hexToRgb(theme.lightCyan)}, 0.4)` : theme.borderHover);
+
+    // Only override bg/surface in dark mode (light mode has its own CSS vars)
+    if (!isLight) {
+      root.style.setProperty("--color-bg", theme.darkBg);
+      root.style.setProperty("--color-surface", theme.darkSurface);
+      root.style.setProperty("--color-surface-2", theme.darkSurface2);
+    }
+
+    // Store for DarkModeToggle to re-apply on mode switch
+    try {
+      localStorage.setItem("portfolio-color-theme", mode);
+    } catch {
+      // ignore
     }
   };
 
@@ -72,7 +138,8 @@ export default function ThemeSwitcher() {
         onClick={() => setOpen(!open)}
         className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center
                    text-slate-400 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all"
-        title="Ubah Tema Warna"
+        title={t.common.switchTheme}
+        aria-label={t.common.switchTheme}
       >
         <Palette size={16} />
       </button>
@@ -92,30 +159,30 @@ export default function ThemeSwitcher() {
               initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
-              className="absolute right-0 top-12 w-48 rounded-2xl glass-card p-3 border border-white/10 shadow-2xl z-50"
+              className="absolute right-0 top-12 w-52 rounded-2xl glass-card p-3 border border-white/10 shadow-2xl z-50"
             >
               <p className="text-[10px] font-mono text-slate-400 uppercase tracking-widest px-2 mb-2">
-                Pilih Suasana Warna
+                {t.common.switchTheme}
               </p>
               <div className="space-y-1">
-                {themes.map((t) => (
+                {themes.map((theme) => (
                   <button
-                    key={t.id}
+                    key={theme.id}
                     onClick={() => {
-                      applyTheme(t.id);
+                      applyTheme(theme.id);
                       setOpen(false);
                     }}
                     className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl text-xs font-mono transition-all text-left ${
-                      activeTheme === t.id
+                      activeTheme === theme.id
                         ? "bg-white/10 text-white font-semibold"
                         : "text-slate-400 hover:bg-white/5 hover:text-slate-200"
                     }`}
                   >
                     <span
                       className="w-3.5 h-3.5 rounded-full border border-white/20 flex-shrink-0"
-                      style={{ background: t.color }}
+                      style={{ background: theme.color }}
                     />
-                    {t.name}
+                    {theme.name}
                   </button>
                 ))}
               </div>
@@ -125,4 +192,11 @@ export default function ThemeSwitcher() {
       </AnimatePresence>
     </div>
   );
+}
+
+/** Utility: Convert hex to "r, g, b" string for rgba() use */
+function hexToRgb(hex: string): string {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  if (!result) return "0, 0, 0";
+  return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
 }

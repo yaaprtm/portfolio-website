@@ -3,261 +3,236 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Mail,
-  Instagram,
-  Linkedin,
   Send,
-  User,
-  AtSign,
-  MessageSquare,
-  CheckCircle,
+  CheckCircle2,
+  Mail,
   Phone,
+  MessageSquare,
+  Linkedin,
+  Github,
+  Instagram,
+  MapPin,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Button from "@/components/ui/Button";
+import { useLanguage } from "@/context/LanguageContext";
 
-const socialLinks = [
+const contactLinks = [
   {
-    label: "Email Direct",
-    href: "mailto:aryattt45@gmail.com",
     icon: Mail,
-    value: "aryattt45@gmail.com",
+    label: "Email",
+    value: "arya2.pp@gmail.com",
+    href: "mailto:arya2.pp@gmail.com",
+    color: "text-red-400",
   },
   {
-    label: "WhatsApp / Call",
-    href: "https://wa.me/6283890227712",
     icon: Phone,
-    value: "+62 838-9022-7712",
+    label: "WhatsApp",
+    value: "+62 819-0785-2222",
+    href: "https://wa.me/6281907852222",
+    color: "text-green-400",
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/yaaprtm",
-    icon: Instagram,
-    value: "@yaaprtm",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/",
     icon: Linkedin,
-    value: "Arya Putra Pratama",
+    label: "LinkedIn",
+    value: "linkedin.com/in/arya-pptr",
+    href: "https://www.linkedin.com/in/arya-pptr/",
+    color: "text-blue-400",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/yaaprtm",
+    href: "https://github.com/yaaprtm",
+    color: "text-slate-300",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "@arya_pptr",
+    href: "https://www.instagram.com/arya_pptr/",
+    color: "text-pink-400",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Surabaya / Jakarta, Indonesia",
+    href: null,
+    color: "text-orange-400",
   },
 ];
 
-interface FormState {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export default function Contact() {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
-  const [loading, setLoading] = useState(false);
+  const { t } = useLanguage();
+
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    setError("");
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+
     if (!form.name || !form.email || !form.message) {
-      setError("Semua kolom harus diisi.");
+      setError(t.contact.form.required);
       return;
     }
 
-    setLoading(true);
-    await new Promise((res) => setTimeout(res, 1800));
-    setLoading(false);
+    setSending(true);
+    await new Promise((res) => setTimeout(res, 1200));
+    setSending(false);
     setSent(true);
   };
 
   return (
-    <SectionWrapper id="contact" className="relative">
-      <div className="relative z-10">
-        <SectionHeading
-          tag="06 / CONTACT"
-          title="Mari Terhubung"
-          subtitle="Terbuka untuk diskusi proyek, peluang kolaborasi, maupun penawaran karir IT."
-        />
+    <SectionWrapper id="contact">
+      <SectionHeading
+        tag={t.contact.tag}
+        title={t.contact.title}
+        subtitle={t.contact.subtitle}
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {/* Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="glass-card p-6 sm:p-8"
-          >
-            <h3 className="font-bold text-slate-100 text-lg mb-6">
-              Kirim Pesan
-            </h3>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* ─── Contact Form ─── */}
+        <motion.div
+          initial={{ opacity: 0, x: -25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="glass-card p-8"
+        >
+          <h3 className="font-semibold text-slate-200 text-base mb-6 flex items-center gap-2">
+            <MessageSquare size={18} className="text-cyan-neon" />
+            {t.contact.sendMessage}
+          </h3>
 
-            {sent ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center gap-4 py-10 text-center"
+          {sent ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
+              <CheckCircle2 size={48} className="text-cyan-neon" />
+              <h4 className="font-semibold text-slate-100 text-lg">{t.contact.form.successTitle}</h4>
+              <p className="text-slate-400 text-sm">{t.contact.form.successDesc}</p>
+              <button
+                onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
+                className="text-xs font-mono text-cyan-neon hover:underline mt-2"
               >
-                <div className="w-14 h-14 rounded-full bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center">
-                  <CheckCircle size={28} className="text-cyan-neon" />
-                </div>
-                <p className="font-semibold text-slate-100 text-base">
-                  Pesan Terkirim!
-                </p>
-                <p className="text-slate-400 text-xs sm:text-sm max-w-xs">
-                  Terima kasih, Arya akan segera merespons pesan Anda.
-                </p>
-                <button
-                  onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
-                  className="mt-2 text-xs font-mono text-slate-500 hover:text-slate-300 transition-colors underline"
-                >
-                  Kirim pesan lain
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-2">
-                    Nama Lengkap
-                  </label>
-                  <div className="relative">
-                    <User
-                      size={16}
-                      className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
-                    />
-                    <input
-                      type="text"
-                      name="name"
-                      value={form.name}
-                      onChange={handleChange}
-                      placeholder="Masukkan nama Anda"
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-4 py-3
-                                 text-sm text-slate-200 placeholder-slate-600 input-glow transition-all"
-                    />
-                  </div>
-                </div>
+                {t.contact.form.sendAnother}
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                  {t.contact.form.name}
+                </label>
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder={t.contact.form.namePlaceholder}
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-2">
-                    Alamat Email
-                  </label>
-                  <div className="relative">
-                    <AtSign
-                      size={16}
-                      className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={handleChange}
-                      placeholder="email@domain.com"
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-4 py-3
-                                 text-sm text-slate-200 placeholder-slate-600 input-glow transition-all"
-                    />
-                  </div>
-                </div>
+              <div>
+                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                  {t.contact.form.email}
+                </label>
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder={t.contact.form.emailPlaceholder}
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-xs font-medium text-slate-300 mb-2">
-                    Pesan Anda
-                  </label>
-                  <div className="relative">
-                    <MessageSquare
-                      size={16}
-                      className="absolute left-3.5 top-3.5 text-slate-500"
-                    />
-                    <textarea
-                      name="message"
-                      value={form.message}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Tuliskan detail pesan Anda..."
-                      className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-4 py-3
-                                 text-sm text-slate-200 placeholder-slate-600 input-glow transition-all resize-none"
-                    />
-                  </div>
-                </div>
+              <div>
+                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                  {t.contact.form.message}
+                </label>
+                <textarea
+                  rows={5}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  placeholder={t.contact.form.messagePlaceholder}
+                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all resize-none"
+                />
+              </div>
 
-                {error && (
-                  <p className="text-red-400 text-xs font-mono">{error}</p>
+              {error && (
+                <p className="text-red-400 text-xs font-mono">{error}</p>
+              )}
+
+              <Button type="submit" variant="primary" size="lg" disabled={sending} className="w-full">
+                {sending ? (
+                  <span className="flex items-center justify-center gap-2">
+                    <Send size={16} className="animate-pulse" />
+                    {t.contact.form.sending}
+                  </span>
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    <Send size={16} />
+                    {t.contact.form.submit}
+                  </span>
                 )}
+              </Button>
+            </form>
+          )}
+        </motion.div>
 
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="btn-primary w-full py-3.5 rounded-xl flex items-center justify-center gap-2
-                             text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+        {/* ─── Direct Contact Links ─── */}
+        <motion.div
+          initial={{ opacity: 0, x: 25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="space-y-6"
+        >
+          <div>
+            <h3 className="font-semibold text-slate-200 text-base mb-2">
+              {t.contact.directContact}
+            </h3>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              {t.contact.directContactDesc}
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {contactLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <motion.div
+                  key={link.label}
+                  whileHover={{ x: 4 }}
+                  className="glass-card px-5 py-4 flex items-center gap-4 group"
                 >
-                  {loading ? (
-                    <>
-                      <div className="w-4 h-4 border-2 border-navy-950/40 border-t-navy-950 rounded-full animate-spin" />
-                      Mengirim...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={15} />
-                      Kirim Pesan
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-5"
-          >
-            <div>
-              <h4 className="font-bold text-slate-100 text-lg mb-2">Kontak Langsung</h4>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Anda juga dapat menghubungi Arya Putra Pratama melalui saluran komunikasi resmi berikut:
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              {socialLinks.map((social, idx) => {
-                const Icon = social.icon;
-                return (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-4 glass-card p-4 group"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:border-cyan-neon/40 transition-colors">
-                      <Icon size={18} className="text-cyan-neon" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">
-                        {social.label}
-                      </div>
-                      <div className="text-sm font-mono text-slate-200 group-hover:text-cyan-neon transition-colors truncate">
-                        {social.value}
-                      </div>
-                    </div>
-                  </motion.a>
-                );
-              })}
-            </div>
-          </motion.div>
-        </div>
+                  <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center">
+                    <Icon size={16} className={link.color} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-mono text-slate-400">{link.label}</p>
+                    {link.href ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-slate-200 hover:text-cyan-neon transition-colors truncate block"
+                      >
+                        {link.value}
+                      </a>
+                    ) : (
+                      <span className="text-sm text-slate-200 truncate block">
+                        {link.value}
+                      </span>
+                    )}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </SectionWrapper>
   );

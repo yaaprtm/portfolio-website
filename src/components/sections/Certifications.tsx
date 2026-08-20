@@ -5,14 +5,17 @@ import { Award, ExternalLink, Calendar, Building } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { certifications } from "@/data/certifications";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Certifications() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="certifications">
       <SectionHeading
-        tag="05 / CERTIFICATIONS"
-        title="Sertifikasi & Prestasi"
-        subtitle="Bukti kompetensi dan penghargaan teknis yang telah dicapai."
+        tag={t.certifications.tag}
+        title={t.certifications.title}
+        subtitle={t.certifications.subtitle}
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -57,7 +60,7 @@ export default function Certifications() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-mono text-cyan-neon hover:underline"
                 >
-                  Verifikasi
+                  {t.certifications.verify}
                   <ExternalLink size={12} />
                 </a>
               </div>

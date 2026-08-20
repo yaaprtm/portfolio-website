@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "previewCV": "Preview CV",
+    "command": "Command",
+    "viewLiveCV": "Lihat Live CV"
+  },
+  "hero": {
+    "status": "IT Enthusiast · PENS Surabaya",
+    "tagline": "IT Enthusiast yang antusias mengeksplorasi teknologi — dari jaringan komputer, pengembangan Android, hingga infrastruktur digital modern.",
+    "viewProjects": "Lihat Proyek",
+    "contact": "Hubungi Saya",
+    "learnMore": "Pelajari Lebih Lanjut ↓",
+    "skip": "Skip",
+    "bootOnline": "CORE ONLINE",
+    "boot": {
+      "discover": "[OK] Topology Map Discovered. Core Router (Home) online.",
+      "whoami": "Arya Putra Pratama — IT Enthusiast",
+      "interests": "Networking, Android Development, IT Support, Cloud & System Architecture",
+      "education": "STr. Teknik Rekayasa Internet · Politeknik Elektronika Negeri Surabaya (PENS) '26 - '30",
+      "experience": "Android Dev Intern @ BRIN (Kebun Raya Cibinong App)",
+      "availability": "Available for internships, projects, and collaborative opportunities"
+    }
+  },
+  "about": {
+    "tag": "01 / ABOUT",
+    "title": "Profil & Latar Belakang",
+    "subtitle": "IT Enthusiast dan Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan minat serta pengalaman praktis di bidang Networking, IT Support, dan Android Development.",
+    "heading": "Berkomitmen Mendorong Infrastruktur Jaringan & Aplikasi Modern.",
+    "bio1a": "Saya adalah seorang",
+    "bio1role": "IT Enthusiast",
+    "bio1b": "dan Mahasiswa Baru program studi",
+    "bio1program": "STr. Teknik Rekayasa Internet",
+    "bio1c": "di",
+    "bio1school": "Politeknik Elektronika Negeri Surabaya (PENS)",
+    "bio1d": "(2026–2030), serta alumni Teknik Komputer & Jaringan SMK Dinamika Pembangunan 1 Jakarta.",
+    "bio2a": "Memiliki pengalaman kerja dan magang di IT Maintenance (Digital Solusindo), IT Support Technician (ID-Networkers), dan sebagai Android Developer Intern di",
+    "bio2org": "Badan Riset dan Inovasi Nasional (BRIN)",
+    "bio2b": ".",
+    "bio3": "Tertarik pada arsitektur internet modern, cloud computing, network security, serta pengembangan sistem terdistribusi. Adaptif dan cepat berakselerasi dalam lingkungan teknis.",
+    "stats": {
+      "workExp": "Pengalaman Kerja & Magang",
+      "certifications": "Sertifikasi & Prestasi",
+      "projects": "Proyek Diselesaikan",
+      "yearsExp": "Tahun Pengalaman IT",
+      "suffixPlaces": " tempat",
+      "suffixProjects": " proyek",
+      "suffixYears": " tahun"
+    },
+    "chips": {
+      "pens": "🎓 PENS Surabaya — STr. Teknik Rekayasa Internet (2026-2030)",
+      "location": "📍 Surabaya / Jakarta, Indonesia",
+      "enthusiast": "⚡ IT Enthusiast",
+      "solver": "🧩 Problem Solver",
+      "learner": "🚀 Fast Learner"
+    }
+  },
+  "skills": {
+    "tag": "02 / SKILLS & EXPERTISE",
+    "title": "Keahlian & Ekosistem Teknologi",
+    "subtitle": "Eksplorasi kompetensi teknis yang dikuasai — dari infrastruktur jaringan hingga pengembangan mobile.",
+    "networking": {
+      "badge": "Primary Specialty",
+      "title": "Networking & Infrastructure Architecture",
+      "desc": "Pengalaman praktis dalam mendesain, mengonfigurasi, dan memelihara infrastruktur jaringan komputer berskala menengah hingga besar.",
+      "levels": {
+        "Expert": "Expert",
+        "Advanced": "Advanced",
+        "Intermediate": "Intermediate"
+      },
+      "simulatorLabel": "Network Simulator:",
+      "ready": "Ready",
+      "optimal": "ms (Optimal)",
+      "testLatency": "Test Latency",
+      "pinging": "Pinging..."
+    },
+    "android": {
+      "title": "Android Development",
+      "desc": "Pengembangan aplikasi mobile native Android. Pengalaman magang di Badan Riset dan Inovasi Nasional (BRIN)."
+    },
+    "itSupport": {
+      "title": "IT Support & Systems",
+      "desc": "Pemeliharaan hardware/software, troubleshooting sistem komputer, dan asistensi teknis lapangan."
+    },
+    "tools": {
+      "badge": "Dev Stack",
+      "title": "Tools & Developer Ecosystem",
+      "desc": "Tooling sehari-hari untuk alur kerja pengkodean, pengujian API, dan manajemen versi repositori."
+    },
+    "softSkills": {
+      "badge": "Soft Skills",
+      "title": "Kemampuan Interpersonal",
+      "items": [
+        {
+          "title": "Kerja Tim & Kolaborasi",
+          "desc": "Pengalaman kerja dalam tim 4 orang lintas divisi (Frontend, Backend, Android) saat magang di BRIN."
+        },
+        {
+          "title": "Komunikasi Teknis",
+          "desc": "Mampu menjelaskan solusi teknis ke pengguna non-teknis dari pengalaman IT Support & maintenance lapangan."
+        },
+        {
+          "title": "Problem Solving",
+          "desc": "Terbiasa troubleshooting cepat di lapangan (hardware, software, jaringan) dengan tekanan waktu."
+        },
+        {
+          "title": "Adaptif & Cepat Belajar",
+          "desc": "Terbukti dari perpindahan antar bidang (Networking, IT Support, Android Dev) secara efisien."
+        }
+      ]
+    }
+  },
+  "projects": {
+    "tag": "03 / PROJECTS",
+    "title": "Proyek Unggulan",
+    "subtitle": "Beberapa proyek praktis dan aplikasi yang telah dikembangkan.",
+    "categories": {
+      "all": "Semua Proyek",
+      "android": "Android Dev",
+      "networking": "Networking",
+      "other": "IT Support"
+    },
+    "caseStudyAvailable": "Case Study Available",
+    "readCaseStudy": "Baca Case Study Lengkap",
+    "detailPreview": "Detail & Interactive Preview",
+    "caseStudyDetail": "Case Study Detail",
+    "preview": "Pratinjau Detail",
+    "repo": "Repo",
+    "demo": "Demo"
+  },
+  "experience": {
+    "tag": "04 / WORK EXPERIENCE",
+    "title": "Pengalaman Kerja & Magang",
+    "subtitle": "Riwayat karir profesional dalam IT Maintenance, IT Support, Android Development, dan Manajemen Proyek.",
+    "types": {
+      "work": "Pekerjaan",
+      "internship": "Magang",
+      "education": "Pendidikan",
+      "organization": "Organisasi"
+    }
+  },
+  "education": {
+    "tag": "05 / ACADEMIC EDUCATION",
+    "title": "Riwayat Pendidikan",
+    "subtitle": "Perjalanan pendidikan resmi di perguruan tinggi vokasi PENS Surabaya dan pendidikan kejuruan TKJ.",
+    "active": "Status: Aktif",
+    "alumni": "Alumni"
+  },
+  "certifications": {
+    "tag": "05 / CERTIFICATIONS",
+    "title": "Sertifikasi & Prestasi",
+    "subtitle": "Bukti kompetensi dan penghargaan teknis yang telah dicapai.",
+    "verify": "Verifikasi"
+  },
+  "contact": {
+    "tag": "06 / CONTACT",
+    "title": "Mari Terhubung",
+    "subtitle": "Terbuka untuk diskusi proyek, peluang kolaborasi, maupun penawaran karir IT.",
+    "sendMessage": "Kirim Pesan",
+    "directContact": "Kontak Langsung",
+    "directContactDesc": "Anda juga dapat menghubungi Arya Putra Pratama melalui saluran komunikasi resmi berikut:",
+    "form": {
+      "name": "Nama Lengkap",
+      "email": "Alamat Email",
+      "message": "Pesan Anda",
+      "namePlaceholder": "Masukkan nama Anda",
+      "emailPlaceholder": "email@domain.com",
+      "messagePlaceholder": "Tuliskan detail pesan Anda...",
+      "submit": "Kirim Pesan",
+      "sending": "Mengirim...",
+      "required": "Semua kolom harus diisi.",
+      "successTitle": "Pesan Terkirim!",
+      "successDesc": "Terima kasih, Arya akan segera merespons pesan Anda.",
+      "sendAnother": "Kirim pesan lain"
+    }
+  },
+  "footer": {
+    "desc": "IT Enthusiast, Mahasiswa STr. Teknik Rekayasa Internet (PENS Surabaya), IT Support Technician, dan Android Developer Intern.",
+    "navigation": "Navigasi",
+    "social": "Media Sosial",
+    "copyright": "All rights reserved.",
+    "builtWith": "Dibuat dengan"
+  },
+  "dhcp": {
+    "title": "Cara Kerja DHCP",
+    "subtitle": "Animasi step-by-step mendapatkan IP otomatis",
+    "start": "Mulai Animasi",
+    "replay": "Ulangi",
+    "client": "Client",
+    "server": "DHCP Server",
+    "steps": [
+      {
+        "label": "DISCOVER",
+        "desc": "Client menyiarkan pesan broadcast ke seluruh jaringan untuk menemukan server DHCP yang tersedia."
+      },
+      {
+        "label": "OFFER",
+        "desc": "DHCP Server merespons dengan menawarkan konfigurasi IP (alamat IP, subnet mask, gateway) yang tersedia."
+      },
+      {
+        "label": "REQUEST",
+        "desc": "Client meminta secara resmi IP address yang telah ditawarkan oleh DHCP Server."
+      },
+      {
+        "label": "ACKNOWLEDGE",
+        "desc": "Server mengonfirmasi permintaan. Client berhasil mendapatkan IP address dan mulai menggunakannya."
+      }
+    ],
+    "complete": "Client berhasil mendapatkan IP address!"
+  },
+  "common": {
+    "darkMode": "Mode Gelap",
+    "lightMode": "Mode Terang",
+    "switchTheme": "Ubah Tema Warna"
+  }
+}

@@ -7,13 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import { workExperiences } from "@/data/experience";
 import type { Experience as ExperienceType } from "@/data/experience";
-
-const typeConfig = {
-  work: { icon: Briefcase, label: "Pekerjaan" },
-  internship: { icon: Building2, label: "Magang" },
-  education: { icon: Briefcase, label: "Pendidikan" },
-  organization: { icon: Briefcase, label: "Organisasi" },
-};
+import { useLanguage } from "@/context/LanguageContext";
 
 function WorkTimelineEntry({
   exp,
@@ -22,6 +16,15 @@ function WorkTimelineEntry({
   exp: ExperienceType;
   idx: number;
 }) {
+  const { t } = useLanguage();
+
+  const typeConfig = {
+    work: { icon: Briefcase, label: t.experience.types.work },
+    internship: { icon: Building2, label: t.experience.types.internship },
+    education: { icon: Briefcase, label: t.experience.types.education },
+    organization: { icon: Briefcase, label: t.experience.types.organization },
+  };
+
   const config = typeConfig[exp.type];
   const Icon = config.icon;
 
@@ -48,9 +51,7 @@ function WorkTimelineEntry({
       <div className="flex-1 glass-card p-6 mb-2">
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4 mb-3">
           <div>
-            <h3 className="font-bold text-slate-100 text-base">
-              {exp.title}
-            </h3>
+            <h3 className="font-bold text-slate-100 text-base">{exp.title}</h3>
             <p className="text-slate-400 text-xs font-mono mt-0.5">
               {exp.company} · {exp.location}
             </p>
@@ -92,12 +93,14 @@ function WorkTimelineEntry({
 }
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="experience">
       <SectionHeading
-        tag="04 / WORK EXPERIENCE"
-        title="Pengalaman Kerja & Magang"
-        subtitle="Riwayat karir profesional dalam IT Maintenance, IT Support, Android Development, dan Manajemen Proyek."
+        tag={t.experience.tag}
+        title={t.experience.title}
+        subtitle={t.experience.subtitle}
       />
 
       <div className="max-w-3xl mx-auto">

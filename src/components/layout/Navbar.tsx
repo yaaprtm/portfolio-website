@@ -5,20 +5,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import DarkModeToggle from "@/components/ui/DarkModeToggle";
+import LanguageToggle from "@/components/ui/LanguageToggle";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
+import { useLanguage } from "@/context/LanguageContext";
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
-];
+const navKeys = [
+  { key: "home", href: "#home" },
+  { key: "about", href: "#about" },
+  { key: "skills", href: "#skills" },
+  { key: "projects", href: "#projects" },
+  { key: "experience", href: "#experience" },
+  { key: "certifications", href: "#certifications" },
+  { key: "contact", href: "#contact" },
+] as const;
 
 export default function Navbar() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -30,7 +34,7 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = navLinks.map((link) => link.href.slice(1));
+      const sections = navKeys.map((link) => link.href.slice(1));
       for (const sectionId of sections.reverse()) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -85,7 +89,7 @@ export default function Navbar() {
                 className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all flex items-center gap-1.5"
               >
                 <FileText size={14} className="text-cyan-neon" />
-                <span className="hidden sm:inline">Preview</span> CV
+                <span className="hidden sm:inline">{t.nav.previewCV}</span>
               </button>
 
               <button
@@ -94,19 +98,19 @@ export default function Navbar() {
                 title="Tekan Ctrl+K"
               >
                 <Command size={13} />
-                <span>Command</span>
+                <span>{t.nav.command}</span>
                 <kbd className="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-slate-400">Ctrl K</kbd>
               </button>
             </div>
 
             {/* Desktop Navigation */}
             <ul className="hidden md:flex items-center gap-1 sm:gap-2">
-              {navLinks.map((link) => (
+              {navKeys.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3.5 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
+                      "relative px-3 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
                       activeSection === link.href.slice(1)
                         ? "text-cyan-neon"
                         : "text-slate-400 hover:text-slate-200"
@@ -119,14 +123,16 @@ export default function Navbar() {
                         transition={{ type: "spring", duration: 0.4 }}
                       />
                     )}
-                    <span className="relative z-10">{link.label}</span>
+                    <span className="relative z-10">{t.nav[link.key]}</span>
                   </button>
                 </li>
               ))}
             </ul>
 
-            {/* Right Tools: Theme Switcher + Mobile Toggle */}
+            {/* Right Tools: Language Toggle + Dark Mode Toggle + Theme Switcher + Mobile Menu */}
             <div className="flex items-center gap-2">
+              <LanguageToggle />
+              <DarkModeToggle />
               <ThemeSwitcher />
 
               <button
@@ -156,10 +162,10 @@ export default function Navbar() {
                 onClick={() => { setMobileOpen(false); setCvOpen(true); }}
                 className="mb-3 px-4 py-3 rounded-xl bg-cyan-neon text-navy-950 font-mono text-xs font-bold flex items-center justify-center gap-2"
               >
-                <FileText size={16} /> Lihat Live CV
+                <FileText size={16} /> {t.nav.viewLiveCV}
               </button>
 
-              {navLinks.map((link, i) => (
+              {navKeys.map((link, i) => (
                 <motion.button
                   key={link.href}
                   initial={{ opacity: 0, x: 20 }}
@@ -176,7 +182,7 @@ export default function Navbar() {
                   <span className="text-cyan-neon/40 mr-2">
                     {String(i + 1).padStart(2, "0")}.
                   </span>
-                  {link.label}
+                  {t.nav[link.key]}
                 </motion.button>
               ))}
             </div>

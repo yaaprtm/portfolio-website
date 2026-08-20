@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import DarkModeToggle from "@/components/ui/DarkModeToggle";
+import LanguageToggle from "@/components/ui/LanguageToggle";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
 
@@ -265,6 +267,8 @@ export default function NetworkNavigation() {
                 <kbd className="px-1.5 py-0.5 rounded text-[9px] bg-white/10">Ctrl K</kbd>
               </button>
 
+              <LanguageToggle />
+              <DarkModeToggle />
               <ThemeSwitcher />
             </div>
           </div>
@@ -300,6 +304,8 @@ export default function NetworkNavigation() {
             <span>CV</span>
           </button>
 
+          <LanguageToggle />
+          <DarkModeToggle />
           <ThemeSwitcher />
 
           <button

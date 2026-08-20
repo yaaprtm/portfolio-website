@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, BookOpen, School, Award } from "lucide-react";
+import { GraduationCap, School } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Badge from "@/components/ui/Badge";
 import { educationList } from "@/data/experience";
 import type { Experience as ExperienceType } from "@/data/experience";
+import { useLanguage } from "@/context/LanguageContext";
 
 function EducationTimelineEntry({
   edu,
@@ -15,6 +15,8 @@ function EducationTimelineEntry({
   edu: ExperienceType;
   idx: number;
 }) {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 25 }}
@@ -40,12 +42,10 @@ function EducationTimelineEntry({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-soft text-cyan-neon border border-cyan-neon/30 font-bold uppercase">
-                {edu.current ? "Status: Aktif" : "Alumni"}
+                {edu.current ? t.education.active : t.education.alumni}
               </span>
             </div>
-            <h3 className="font-bold text-slate-100 text-base">
-              {edu.title}
-            </h3>
+            <h3 className="font-bold text-slate-100 text-base">{edu.title}</h3>
             <p className="text-slate-400 text-xs font-mono mt-0.5 flex items-center gap-1.5">
               <School size={13} className="text-cyan-neon" />
               <span>{edu.company} · {edu.location}</span>
@@ -88,12 +88,14 @@ function EducationTimelineEntry({
 }
 
 export default function Education() {
+  const { t } = useLanguage();
+
   return (
     <SectionWrapper id="education">
       <SectionHeading
-        tag="05 / ACADEMIC EDUCATION"
-        title="Riwayat Pendidikan"
-        subtitle="Perjalanan pendidikan resmi di perguruan tinggi vokasi PENS Surabaya dan pendidikan kejuruan TKJ."
+        tag={t.education.tag}
+        title={t.education.title}
+        subtitle={t.education.subtitle}
       />
 
       <div className="max-w-3xl mx-auto">

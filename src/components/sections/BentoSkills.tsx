@@ -11,32 +11,48 @@ import {
   Activity,
   Layers,
   Radio,
-  MessageCircle,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import SubnetCalculator from "@/components/ui/SubnetCalculator";
+import DhcpExplainer from "@/components/ui/DhcpExplainer";
+import { useLanguage } from "@/context/LanguageContext";
 
-const softSkills = [
-  {
-    title: "Kerja Tim & Kolaborasi",
-    desc: "Pengalaman kerja dalam tim 4 orang lintas divisi (Frontend, Backend, Android) saat magang di BRIN.",
-  },
-  {
-    title: "Komunikasi Teknis",
-    desc: "Mampu menjelaskan solusi teknis ke pengguna non-teknis dari pengalaman IT Support & maintenance lapangan.",
-  },
-  {
-    title: "Problem Solving",
-    desc: "Terbiasa troubleshooting cepat di lapangan (hardware, software, jaringan) dengan tekanan waktu.",
-  },
-  {
-    title: "Adaptif & Cepat Belajar",
-    desc: "Terbukti dari perpindahan antar bidang (Networking, IT Support, Android Dev) secara efisien.",
-  },
+const networkingSkills = [
+  { name: "MikroTik (MTCNA 88%)", levelKey: "Expert" as const },
+  { name: "Cisco & Packet Tracer", levelKey: "Advanced" as const },
+  { name: "Routing & Switching", levelKey: "Advanced" as const },
+  { name: "Network Troubleshooting", levelKey: "Advanced" as const },
+  { name: "Server Administration", levelKey: "Intermediate" as const },
+  { name: "VSAT Installation", levelKey: "Intermediate" as const },
+];
+
+const androidSkills = [
+  "Android Native (Kotlin/Java)",
+  "REST API Integration",
+  "Git & Team Workflow",
+  "Material Design 3",
+];
+
+const itSupportSkills = [
+  "Hardware & Software Repair",
+  "Windows OS Deployment",
+  "Network Maintenance",
+  "System Diagnostics",
+];
+
+const devTools = [
+  "Git & GitHub",
+  "Linux (Ubuntu/Debian)",
+  "Postman API",
+  "VS Code & Android Studio",
+  "Figma UI/UX",
+  "Microsoft Office Suite",
+  "Bash Scripting",
 ];
 
 export default function BentoSkills() {
+  const { t } = useLanguage();
   const [pinging, setPinging] = useState(false);
   const [latency, setLatency] = useState<number | null>(null);
 
@@ -52,9 +68,9 @@ export default function BentoSkills() {
   return (
     <SectionWrapper id="skills">
       <SectionHeading
-        tag="02 / SKILLS & EXPERTISE"
-        title="Keahlian & Ekosistem Teknologi"
-        subtitle="Eksplorasi kompetensi teknis yang dikuasai — dari infrastruktur jaringan hingga pengembangan mobile."
+        tag={t.skills.tag}
+        title={t.skills.title}
+        subtitle={t.skills.subtitle}
       />
 
       {/* Asymmetric Bento Grid */}
@@ -75,27 +91,20 @@ export default function BentoSkills() {
                 <Network size={24} className="text-cyan-neon" />
               </div>
               <span className="px-3 py-1 rounded-full text-xs font-mono bg-cyan-soft text-cyan-neon border border-cyan-neon/30">
-                Primary Specialty
+                {t.skills.networking.badge}
               </span>
             </div>
 
             <h3 className="text-xl font-bold text-slate-100 mb-2">
-              Networking & Infrastructure Architecture
+              {t.skills.networking.title}
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
-              Pengalaman praktis dalam mendesain, mengonfigurasi, dan memelihara infrastruktur jaringan komputer berskala menengah hingga besar.
+              {t.skills.networking.desc}
             </p>
 
             {/* Skill Badges List */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-6">
-              {[
-                { name: "MikroTik (MTCNA 88%)", level: "Expert" },
-                { name: "Cisco & Packet Tracer", level: "Advanced" },
-                { name: "Routing & Switching", level: "Advanced" },
-                { name: "Network Troubleshooting", level: "Advanced" },
-                { name: "Server Administration", level: "Intermediate" },
-                { name: "VSAT Installation", level: "Intermediate" },
-              ].map((skill) => (
+              {networkingSkills.map((skill) => (
                 <div
                   key={skill.name}
                   className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-2 group-hover:border-cyan-neon/30 transition-colors"
@@ -103,7 +112,9 @@ export default function BentoSkills() {
                   <CheckCircle2 size={14} className="text-cyan-neon flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-slate-200 text-xs font-medium truncate">{skill.name}</p>
-                    <p className="text-slate-500 text-[10px] font-mono">{skill.level}</p>
+                    <p className="text-slate-500 text-[10px] font-mono">
+                      {t.skills.networking.levels[skill.levelKey]}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -114,13 +125,17 @@ export default function BentoSkills() {
           <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-3 bg-white/[0.02] p-3 rounded-xl">
             <div className="flex items-center gap-2">
               <Activity size={16} className="text-cyan-neon" />
-              <span className="text-xs font-mono text-slate-300">Network Simulator:</span>
+              <span className="text-xs font-mono text-slate-300">
+                {t.skills.networking.simulatorLabel}
+              </span>
               {latency !== null ? (
                 <span className="text-xs font-mono text-cyan-neon font-bold">
-                  {latency}ms (Optimal)
+                  {latency}{t.skills.networking.optimal}
                 </span>
               ) : (
-                <span className="text-xs font-mono text-slate-500">Ready</span>
+                <span className="text-xs font-mono text-slate-500">
+                  {t.skills.networking.ready}
+                </span>
               )}
             </div>
 
@@ -130,7 +145,7 @@ export default function BentoSkills() {
               className="btn-primary px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 disabled:opacity-50 min-h-[36px]"
             >
               <Radio size={12} className={pinging ? "animate-spin" : ""} />
-              {pinging ? "Pinging..." : "Test Latency"}
+              {pinging ? t.skills.networking.pinging : t.skills.networking.testLatency}
             </button>
           </div>
         </motion.div>
@@ -150,13 +165,13 @@ export default function BentoSkills() {
               <Smartphone size={20} className="text-cyan-neon" />
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">Android Development</h3>
+            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.android.title}</h3>
             <p className="text-slate-400 text-xs leading-relaxed mb-4">
-              Pengembangan aplikasi mobile native Android. Pengalaman magang di Badan Riset dan Inovasi Nasional (BRIN).
+              {t.skills.android.desc}
             </p>
 
             <div className="space-y-2 mb-4">
-              {["Android Native (Kotlin/Java)", "REST API Integration", "Git & Team Workflow", "Material Design 3"].map((tech) => (
+              {androidSkills.map((tech) => (
                 <div key={tech} className="flex items-center gap-2 text-xs text-slate-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-neon" />
                   <span>{tech}</span>
@@ -185,13 +200,13 @@ export default function BentoSkills() {
               <Wrench size={20} className="text-cyan-neon" />
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">IT Support & Systems</h3>
+            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.itSupport.title}</h3>
             <p className="text-slate-400 text-xs leading-relaxed mb-4">
-              Pemeliharaan hardware/software, troubleshooting sistem komputer, dan asistensi teknis lapangan.
+              {t.skills.itSupport.desc}
             </p>
 
             <div className="space-y-2 mb-4">
-              {["Hardware & Software Repair", "Windows OS Deployment", "Network Maintenance", "System Diagnostics"].map((item) => (
+              {itSupportSkills.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-xs text-slate-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-neon" />
                   <span>{item}</span>
@@ -220,24 +235,16 @@ export default function BentoSkills() {
               <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
                 <Layers size={20} className="text-cyan-neon" />
               </div>
-              <span className="text-xs font-mono text-slate-400">Dev Stack</span>
+              <span className="text-xs font-mono text-slate-400">{t.skills.tools.badge}</span>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">Tools & Developer Ecosystem</h3>
+            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.tools.title}</h3>
             <p className="text-slate-400 text-xs leading-relaxed mb-5">
-              Tooling sehari-hari untuk alur kerja pengkodean, pengujian API, dan manajemen versi repositori.
+              {t.skills.tools.desc}
             </p>
 
             <div className="flex flex-wrap gap-2">
-              {[
-                "Git & GitHub",
-                "Linux (Ubuntu/Debian)",
-                "Postman API",
-                "VS Code & Android Studio",
-                "Figma UI/UX",
-                "Microsoft Office Suite",
-                "Bash Scripting",
-              ].map((tool) => (
+              {devTools.map((tool) => (
                 <span
                   key={tool}
                   className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300"
@@ -264,13 +271,13 @@ export default function BentoSkills() {
               <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
                 <Users size={20} className="text-cyan-neon" />
               </div>
-              <span className="text-xs font-mono text-cyan-neon">Soft Skills</span>
+              <span className="text-xs font-mono text-cyan-neon">{t.skills.softSkills.badge}</span>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-3">Kemampuan Interpersonal</h3>
+            <h3 className="text-lg font-bold text-slate-100 mb-3">{t.skills.softSkills.title}</h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
-              {softSkills.map((item) => (
+              {t.skills.softSkills.items.map((item) => (
                 <div key={item.title} className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
                   <p className="text-cyan-neon font-mono text-xs font-bold mb-1 flex items-center gap-1.5">
                     <CheckCircle2 size={13} className="text-cyan-neon flex-shrink-0" />
@@ -282,6 +289,11 @@ export default function BentoSkills() {
             </div>
           </div>
         </motion.div>
+
+        {/* ============================================================
+            BENTO CARD 6: DHCP Explainer (Educational Widget)
+           ============================================================ */}
+        <DhcpExplainer />
       </div>
 
       {/* ============================================================

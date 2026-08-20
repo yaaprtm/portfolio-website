@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 // ============================================================
 // SEO Metadata — ARYA PUTRA PRATAMA
@@ -70,6 +71,12 @@ export default function RootLayout({
   return (
     <html lang="id" className="scroll-smooth">
       <head>
+        {/* Anti-FOUC Theme Init Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var m=localStorage.getItem("portfolio-theme-mode");if(m==="light"||(!m&&window.matchMedia("(prefers-color-scheme: light)").matches)){document.documentElement.classList.add("light");}}catch(e){}})();`,
+          }}
+        />
         {/* Google Fonts: Inter + JetBrains Mono */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -83,8 +90,9 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-navy-950 text-slate-200 antialiased">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
 }
+

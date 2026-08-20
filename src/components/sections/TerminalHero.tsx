@@ -2,49 +2,37 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network, Shield, Radio, Cpu } from "lucide-react";
+import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network } from "lucide-react";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import Button from "@/components/ui/Button";
-
-interface BootStep {
-  cmd: string;
-  output: string;
-}
-
-const bootSequence: BootStep[] = [
-  {
-    cmd: "network --discover-nodes",
-    output: "[OK] Topology Map Discovered. Core Router (Home) online.",
-  },
-  {
-    cmd: "whoami",
-    output: "Arya Putra Pratama — IT Enthusiast",
-  },
-  {
-    cmd: "interests --explore",
-    output: "Networking, Android Development, IT Support, Cloud & System Architecture",
-  },
-  {
-    cmd: "education --current",
-    output: "STr. Teknik Rekayasa Internet · Politeknik Elektronika Negeri Surabaya (PENS) '26 - '30",
-  },
-  {
-    cmd: "experience --highlight",
-    output: "Android Dev Intern @ BRIN (Kebun Raya Cibinong App)",
-  },
-  {
-    cmd: "status.availability",
-    output: "Available for internships, projects, and collaborative opportunities",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function TerminalHero() {
+  const { t } = useLanguage();
+
+  const bootSequence = [
+    { cmd: "network --discover-nodes", output: t.hero.boot.discover },
+    { cmd: "whoami", output: t.hero.boot.whoami },
+    { cmd: "interests --explore", output: t.hero.boot.interests },
+    { cmd: "education --current", output: t.hero.boot.education },
+    { cmd: "experience --highlight", output: t.hero.boot.experience },
+    { cmd: "status.availability", output: t.hero.boot.availability },
+  ];
+
   const [completedSteps, setCompletedSteps] = useState<number>(0);
   const [currentCmdText, setCurrentCmdText] = useState<string>("");
   const [isBootFinished, setIsBootFinished] = useState<boolean>(false);
   const [skipped, setSkipped] = useState<boolean>(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Reset animation when language changes
+  useEffect(() => {
+    setCompletedSteps(0);
+    setCurrentCmdText("");
+    setIsBootFinished(false);
+    setSkipped(false);
+  }, [t]);
 
   // Keyboard shortcut ESC to skip
   useEffect(() => {
@@ -81,7 +69,7 @@ export default function TerminalHero() {
       }, 250);
       return () => clearTimeout(timeout);
     }
-  }, [completedSteps, currentCmdText, skipped, isBootFinished]);
+  }, [completedSteps, currentCmdText, skipped, isBootFinished, bootSequence]);
 
   const handleSkip = () => {
     setSkipped(true);
@@ -126,14 +114,14 @@ export default function TerminalHero() {
                 title="Tekan ESC untuk skip"
               >
                 <SkipForward size={11} />
-                <span>Skip</span>
+                <span>{t.hero.skip}</span>
                 <kbd className="px-1 py-0.2 rounded bg-black/40 text-[9px]">ESC</kbd>
               </button>
             )}
 
             {isBootFinished && (
               <span className="font-mono text-[10px] text-cyan-neon bg-cyan-soft px-2 py-0.5 rounded border border-cyan-neon/30 flex items-center gap-1">
-                <CheckCircle2 size={11} /> CORE ONLINE
+                <CheckCircle2 size={11} /> {t.hero.bootOnline}
               </span>
             )}
           </div>
@@ -180,20 +168,20 @@ export default function TerminalHero() {
                     Arya Putra <span className="text-cyan-neon">Pratama</span>
                   </h1>
                   <p className="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl font-normal leading-relaxed">
-                    IT Enthusiast yang antusias mengeksplorasi teknologi — dari jaringan komputer, pengembangan Android, hingga infrastruktur digital modern.
+                    {t.hero.tagline}
                   </p>
                 </div>
 
                 {/* Quick Highlights */}
                 <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    ⚡ IT Enthusiast
+                    {t.about.chips.enthusiast}
                   </span>
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    🧩 Problem Solver
+                    {t.about.chips.solver}
                   </span>
                   <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    🚀 Fast Learner
+                    {t.about.chips.learner}
                   </span>
                 </div>
               </motion.div>
@@ -210,10 +198,10 @@ export default function TerminalHero() {
             >
               <div className="flex items-center gap-3">
                 <Button variant="primary" size="md" href="#projects">
-                  Lihat Proyek <ArrowUpRight size={16} className="ml-1" />
+                  {t.hero.viewProjects} <ArrowUpRight size={16} className="ml-1" />
                 </Button>
                 <Button variant="secondary" size="md" href="#contact">
-                  Hubungi Saya
+                  {t.hero.contact}
                 </Button>
               </div>
 
@@ -222,7 +210,7 @@ export default function TerminalHero() {
                   href="#about"
                   className="text-xs font-mono text-slate-400 hover:text-cyan-neon transition-colors"
                 >
-                  Pelajari Lebih Lanjut ↓
+                  {t.hero.learnMore}
                 </a>
               </div>
             </motion.div>

@@ -9,13 +9,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
 import { projects, Project } from "@/data/projects";
 import ProjectModal from "@/components/ui/ProjectModal";
-
-const categories = [
-  { id: "all", label: "Semua Proyek" },
-  { id: "android", label: "Android Dev" },
-  { id: "networking", label: "Networking" },
-  { id: "other", label: "IT Support" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const placeholderGradients = [
   "from-emerald-950/40 via-navy-900 to-navy-800",
@@ -33,8 +27,16 @@ function getBadgeVariant(tech: string): "cyan" | "blue" | "green" | "amber" | "d
 }
 
 export default function Projects() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const categories = [
+    { id: "all", label: t.projects.categories.all },
+    { id: "android", label: t.projects.categories.android },
+    { id: "networking", label: t.projects.categories.networking },
+    { id: "other", label: t.projects.categories.other },
+  ];
 
   const filteredProjects =
     activeCategory === "all"
@@ -44,9 +46,9 @@ export default function Projects() {
   return (
     <SectionWrapper id="projects">
       <SectionHeading
-        tag="03 / PROJECTS"
-        title="Proyek Unggulan"
-        subtitle="Beberapa proyek praktis dan aplikasi yang telah dikembangkan."
+        tag={t.projects.tag}
+        title={t.projects.title}
+        subtitle={t.projects.subtitle}
       />
 
       {/* Category Filter Tabs */}
@@ -84,9 +86,11 @@ export default function Projects() {
               >
                 <div>
                   {/* Banner Preview */}
-                  <div className={`relative h-44 bg-gradient-to-br ${
-                    placeholderGradients[idx % placeholderGradients.length]
-                  } flex items-center justify-center overflow-hidden border-b border-white/5`}>
+                  <div
+                    className={`relative h-44 bg-gradient-to-br ${
+                      placeholderGradients[idx % placeholderGradients.length]
+                    } flex items-center justify-center overflow-hidden border-b border-white/5`}
+                  >
                     <FolderGit2
                       size={44}
                       className="text-slate-600 group-hover:text-cyan-neon transition-colors duration-300"
@@ -96,7 +100,7 @@ export default function Projects() {
                     <div className="absolute top-3 right-3 flex items-center gap-2">
                       {hasCaseStudy && (
                         <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-cyan-soft text-cyan-neon border border-cyan-neon/40 font-bold">
-                          Case Study Available
+                          {t.projects.caseStudyAvailable}
                         </span>
                       )}
                       <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-navy-950/80 border border-white/10 text-slate-300">
@@ -104,21 +108,21 @@ export default function Projects() {
                       </span>
                     </div>
 
-                    {/* Hover Overlay Link/Button */}
+                    {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 p-4 text-center">
                       {hasCaseStudy ? (
                         <Link
                           href={`/projects/${project.slug}`}
                           className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
                         >
-                          <BookOpen size={14} /> Baca Case Study Lengkap <ArrowRight size={14} />
+                          <BookOpen size={14} /> {t.projects.readCaseStudy} <ArrowRight size={14} />
                         </Link>
                       ) : (
                         <button
                           onClick={() => setSelectedProject(project)}
                           className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg"
                         >
-                          <Eye size={14} /> Detail & Interactive Preview
+                          <Eye size={14} /> {t.projects.detailPreview}
                         </button>
                       )}
                     </div>
@@ -164,14 +168,14 @@ export default function Projects() {
                       href={`/projects/${project.slug}`}
                       className="text-xs font-mono text-cyan-neon hover:underline flex items-center gap-1.5 font-bold"
                     >
-                      <BookOpen size={13} /> Case Study Detail <ArrowRight size={12} />
+                      <BookOpen size={13} /> {t.projects.caseStudyDetail} <ArrowRight size={12} />
                     </Link>
                   ) : (
                     <button
                       onClick={() => setSelectedProject(project)}
                       className="text-xs font-mono text-cyan-neon hover:underline flex items-center gap-1"
                     >
-                      <Eye size={13} /> Pratinjau Detail
+                      <Eye size={13} /> {t.projects.preview}
                     </button>
                   )}
 
@@ -183,7 +187,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         className="text-slate-400 hover:text-slate-100 text-xs font-mono transition-colors flex items-center gap-1"
                       >
-                        <Github size={13} /> Repo
+                        <Github size={13} /> {t.projects.repo}
                       </a>
                     )}
                     {project.demoUrl && (
@@ -193,7 +197,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         className="text-slate-400 hover:text-cyan-neon text-xs font-mono transition-colors flex items-center gap-1"
                       >
-                        Demo <ExternalLink size={11} />
+                        {t.projects.demo} <ExternalLink size={11} />
                       </a>
                     )}
                   </div>
@@ -204,7 +208,7 @@ export default function Projects() {
         </AnimatePresence>
       </motion.div>
 
-      {/* Project Detail Modal for Non-CaseStudy Projects */}
+      {/* Project Detail Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

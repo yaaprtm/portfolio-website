@@ -1,0 +1,222 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "previewCV": "Preview CV",
+    "command": "Command",
+    "viewLiveCV": "View Live CV"
+  },
+  "hero": {
+    "status": "IT Enthusiast · PENS Surabaya",
+    "tagline": "An IT Enthusiast passionate about exploring technology — from computer networking and Android development to modern digital infrastructure.",
+    "viewProjects": "View Projects",
+    "contact": "Contact Me",
+    "learnMore": "Learn More ↓",
+    "skip": "Skip",
+    "bootOnline": "CORE ONLINE",
+    "boot": {
+      "discover": "[OK] Topology Map Discovered. Core Router (Home) online.",
+      "whoami": "Arya Putra Pratama — IT Enthusiast",
+      "interests": "Networking, Android Development, IT Support, Cloud & System Architecture",
+      "education": "D4 Internet Engineering Technology · Electronic Engineering Polytechnic of Surabaya (PENS) '26 - '30",
+      "experience": "Android Dev Intern @ BRIN (Kebun Raya Cibinong App)",
+      "availability": "Available for internships, projects, and collaborative opportunities"
+    }
+  },
+  "about": {
+    "tag": "01 / ABOUT",
+    "title": "Profile & Background",
+    "subtitle": "IT Enthusiast and Internet Engineering student at PENS Surabaya with practical experience in Networking, IT Support, and Android Development.",
+    "heading": "Committed to Advancing Network Infrastructure & Modern Applications.",
+    "bio1a": "I am an",
+    "bio1role": "IT Enthusiast",
+    "bio1b": "and incoming student of",
+    "bio1program": "D4 Internet Engineering Technology",
+    "bio1c": "at",
+    "bio1school": "Electronic Engineering Polytechnic of Surabaya (PENS)",
+    "bio1d": "(2026–2030), and an alumnus of Computer & Network Engineering at SMK Dinamika Pembangunan 1 Jakarta.",
+    "bio2a": "I have professional experience in IT Maintenance (Digital Solusindo), IT Support Technician (ID-Networkers), and as an Android Developer Intern at",
+    "bio2org": "the National Research and Innovation Agency (BRIN)",
+    "bio2b": ".",
+    "bio3": "Passionate about modern internet architecture, cloud computing, network security, and distributed systems. Adaptive and quick to accelerate in technical environments.",
+    "stats": {
+      "workExp": "Work & Internship Experience",
+      "certifications": "Certifications & Achievements",
+      "projects": "Completed Projects",
+      "yearsExp": "Years of IT Experience",
+      "suffixPlaces": " places",
+      "suffixProjects": " projects",
+      "suffixYears": " years"
+    },
+    "chips": {
+      "pens": "🎓 PENS Surabaya — D4 Internet Engineering (2026-2030)",
+      "location": "📍 Surabaya / Jakarta, Indonesia",
+      "enthusiast": "⚡ IT Enthusiast",
+      "solver": "🧩 Problem Solver",
+      "learner": "🚀 Fast Learner"
+    }
+  },
+  "skills": {
+    "tag": "02 / SKILLS & EXPERTISE",
+    "title": "Skills & Technology Ecosystem",
+    "subtitle": "Explore the technical competencies mastered — from network infrastructure to mobile development.",
+    "networking": {
+      "badge": "Primary Specialty",
+      "title": "Networking & Infrastructure Architecture",
+      "desc": "Hands-on experience in designing, configuring, and maintaining medium-to-large scale computer network infrastructure.",
+      "levels": {
+        "Expert": "Expert",
+        "Advanced": "Advanced",
+        "Intermediate": "Intermediate"
+      },
+      "simulatorLabel": "Network Simulator:",
+      "ready": "Ready",
+      "optimal": "ms (Optimal)",
+      "testLatency": "Test Latency",
+      "pinging": "Pinging..."
+    },
+    "android": {
+      "title": "Android Development",
+      "desc": "Native Android mobile application development. Internship experience at the National Research and Innovation Agency (BRIN)."
+    },
+    "itSupport": {
+      "title": "IT Support & Systems",
+      "desc": "Hardware/software maintenance, computer system troubleshooting, and field technical assistance."
+    },
+    "tools": {
+      "badge": "Dev Stack",
+      "title": "Tools & Developer Ecosystem",
+      "desc": "Daily tooling for coding workflows, API testing, and repository version management."
+    },
+    "softSkills": {
+      "badge": "Soft Skills",
+      "title": "Interpersonal Skills",
+      "items": [
+        {
+          "title": "Teamwork & Collaboration",
+          "desc": "Experience working in a 4-person cross-functional team (Frontend, Backend, Android) during an internship at BRIN."
+        },
+        {
+          "title": "Technical Communication",
+          "desc": "Able to explain technical solutions to non-technical users from IT Support & field maintenance experience."
+        },
+        {
+          "title": "Problem Solving",
+          "desc": "Experienced in rapid field troubleshooting (hardware, software, networking) under time pressure."
+        },
+        {
+          "title": "Adaptive & Fast Learner",
+          "desc": "Proven by efficiently transitioning between domains (Networking, IT Support, Android Dev)."
+        }
+      ]
+    }
+  },
+  "projects": {
+    "tag": "03 / PROJECTS",
+    "title": "Featured Projects",
+    "subtitle": "A selection of practical projects and applications developed.",
+    "categories": {
+      "all": "All Projects",
+      "android": "Android Dev",
+      "networking": "Networking",
+      "other": "IT Support"
+    },
+    "caseStudyAvailable": "Case Study Available",
+    "readCaseStudy": "Read Full Case Study",
+    "detailPreview": "Detail & Interactive Preview",
+    "caseStudyDetail": "Case Study Detail",
+    "preview": "Preview Details",
+    "repo": "Repo",
+    "demo": "Demo"
+  },
+  "experience": {
+    "tag": "04 / WORK EXPERIENCE",
+    "title": "Work & Internship Experience",
+    "subtitle": "Professional career history in IT Maintenance, IT Support, Android Development, and Project Management.",
+    "types": {
+      "work": "Work",
+      "internship": "Internship",
+      "education": "Education",
+      "organization": "Organization"
+    }
+  },
+  "education": {
+    "tag": "05 / ACADEMIC EDUCATION",
+    "title": "Education History",
+    "subtitle": "Formal education journey at PENS Surabaya vocational polytechnic and TKJ vocational school.",
+    "active": "Status: Active",
+    "alumni": "Alumni"
+  },
+  "certifications": {
+    "tag": "05 / CERTIFICATIONS",
+    "title": "Certifications & Achievements",
+    "subtitle": "Proof of technical competencies and recognitions achieved.",
+    "verify": "Verify"
+  },
+  "contact": {
+    "tag": "06 / CONTACT",
+    "title": "Let's Connect",
+    "subtitle": "Open for project discussions, collaboration opportunities, and IT career offers.",
+    "sendMessage": "Send a Message",
+    "directContact": "Direct Contact",
+    "directContactDesc": "You can also reach Arya Putra Pratama through these official communication channels:",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "message": "Your Message",
+      "namePlaceholder": "Enter your name",
+      "emailPlaceholder": "email@domain.com",
+      "messagePlaceholder": "Write the details of your message...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "required": "All fields are required.",
+      "successTitle": "Message Sent!",
+      "successDesc": "Thank you, Arya will respond to your message shortly.",
+      "sendAnother": "Send another message"
+    }
+  },
+  "footer": {
+    "desc": "IT Enthusiast, D4 Internet Engineering student (PENS Surabaya), IT Support Technician, and Android Developer Intern.",
+    "navigation": "Navigation",
+    "social": "Social Media",
+    "copyright": "All rights reserved.",
+    "builtWith": "Built with"
+  },
+  "dhcp": {
+    "title": "How DHCP Works",
+    "subtitle": "Step-by-step animation of automatic IP assignment",
+    "start": "Start Animation",
+    "replay": "Replay",
+    "client": "Client",
+    "server": "DHCP Server",
+    "steps": [
+      {
+        "label": "DISCOVER",
+        "desc": "The client broadcasts a message across the entire network to locate an available DHCP server."
+      },
+      {
+        "label": "OFFER",
+        "desc": "The DHCP Server responds by offering an IP configuration (IP address, subnet mask, gateway) to the client."
+      },
+      {
+        "label": "REQUEST",
+        "desc": "The client formally requests the IP address that was offered by the DHCP Server."
+      },
+      {
+        "label": "ACKNOWLEDGE",
+        "desc": "The server confirms the request. The client successfully obtains its IP address and begins using it."
+      }
+    ],
+    "complete": "Client successfully obtained an IP address!"
+  },
+  "common": {
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "switchTheme": "Switch Color Theme"
+  }
+}
