@@ -6,10 +6,10 @@ import { Mail, Instagram, Linkedin, Phone, Heart } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const socialLinks = [
-  { label: "Email", href: "mailto:arya2.pp@gmail.com", icon: Mail },
-  { label: "WhatsApp", href: "https://wa.me/6281907852222", icon: Phone },
-  { label: "Instagram", href: "https://www.instagram.com/arya_pptr/", icon: Instagram },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/arya-pptr/", icon: Linkedin },
+  { label: "Email", href: "mailto:aryattt45@gmail.com", icon: Mail },
+  { label: "WhatsApp", href: "https://wa.me/6283890227712", icon: Phone },
+  { label: "Instagram", href: "https://www.instagram.com/yaaprtm", icon: Instagram },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/", icon: Linkedin },
 ];
 
 const navKeys = [

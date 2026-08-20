@@ -22,22 +22,22 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "arya2.pp@gmail.com",
-    href: "mailto:arya2.pp@gmail.com",
+    value: "aryattt45@gmail.com",
+    href: "mailto:aryattt45@gmail.com",
     color: "text-red-400",
   },
   {
     icon: Phone,
     label: "WhatsApp",
-    value: "+62 819-0785-2222",
-    href: "https://wa.me/6281907852222",
+    value: "+62 838-9022-7712",
+    href: "https://wa.me/6283890227712",
     color: "text-green-400",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/arya-pptr",
-    href: "https://www.linkedin.com/in/arya-pptr/",
+    value: "linkedin.com/in/arya-putra-pratama-848871338/",
+    href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/",
     color: "text-blue-400",
   },
   {
@@ -50,8 +50,8 @@ const contactLinks = [
   {
     icon: Instagram,
     label: "Instagram",
-    value: "@arya_pptr",
-    href: "https://www.instagram.com/arya_pptr/",
+    value: "@yaaprtm",
+    href: "https://www.instagram.com/yaaprtm",
     color: "text-pink-400",
   },
   {
