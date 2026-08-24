@@ -31,6 +31,7 @@ interface CaseStudyImage {
   src: string;
   alt: string;
   caption?: string;
+  description?: string;
 }
 
 const caseStudyItems: StarItem[] = [
@@ -101,6 +102,7 @@ export default function CaseStudies() {
           const isOpen = openItems[item.id];
           const Icon = item.icon;
           const images: CaseStudyImage[] = data.images || [];
+          const imagesNote = (data as { imagesNote?: string }).imagesNote;
 
           return (
             <motion.article
@@ -213,8 +215,8 @@ export default function CaseStudies() {
 
                     {/* Photo Gallery Support (Task 4) */}
                     {images && images.length > 0 && (
-                      <div className="pt-4 border-t border-white/10">
-                        <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="pt-4 border-t border-white/10 space-y-3">
+                        <div className="flex items-center justify-between gap-2">
                           <span className="text-xs font-mono text-cyan-neon uppercase tracking-wider font-semibold flex items-center gap-1.5">
                             <ImageIcon size={14} /> Foto & Dokumentasi Lapangan ({images.length})
                           </span>
@@ -222,6 +224,13 @@ export default function CaseStudies() {
                             Klik foto untuk memperbesar
                           </span>
                         </div>
+
+                        {imagesNote && (
+                          <p className="text-xs font-mono text-slate-300 bg-white/[0.03] border border-cyan-neon/20 p-3 rounded-xl leading-relaxed italic flex items-start gap-2">
+                            <span className="text-cyan-neon font-bold not-italic">ℹ️</span>
+                            <span>{imagesNote}</span>
+                          </p>
+                        )}
 
                         {/* Layout: Single Image Full-Width OR Responsive Multi-Image Grid */}
                         {images.length === 1 ? (
@@ -354,11 +363,16 @@ export default function CaseStudies() {
                 )}
               </div>
 
-              <div className="text-left space-y-1">
-                <p className="text-slate-100 font-bold text-sm font-mono">
+              <div className="text-left space-y-2 max-w-3xl mx-auto">
+                <p className="text-slate-100 font-bold text-base font-mono text-cyan-neon">
                   {activeImage.caption || activeImage.alt}
                 </p>
-                <p className="text-slate-400 text-xs font-mono">
+                {activeImage.description && (
+                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans bg-white/[0.03] border border-white/10 p-3 rounded-xl">
+                    {activeImage.description}
+                  </p>
+                )}
+                <p className="text-slate-400 text-[11px] font-mono">
                   Alt: {activeImage.alt}
                 </p>
               </div>

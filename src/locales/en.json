@@ -229,21 +229,25 @@
       "task": "Assist technical coordination of satellite antenna installation and ensure the project proceeds according to schedule.",
       "action": "Arranged daily installation schedules and equipment readiness checklists (antenna, LNB, modem, coaxial cables) before the team headed to remote West Kalimantan. Coordinated with field technicians and local contacts to anticipate access hurdles from weather and terrain. Accompanied technical team during VSAT antenna pointing/alignment, helping troubleshoot when initial signal didn't hit targets. Documented daily installation progress (field photos, obstacle logs, milestones) for daily evaluation reports to the central project manager.",
       "result": "VSAT installation was successfully completed on schedule despite initial weather delays, achieving final signal quality that met client specifications. Well-organized field documentation streamlined project handoff. From this experience, I learned to manage technical projects under time, access, and remote coordination constraints between field and central teams — skills highly relevant to cross-divisional engineering teamwork requiring tight research, hardware, and software coordination.",
+      "imagesNote": "The documentation below highlights the field installation process at one of the several project sites.",
       "images": [
         {
-          "src": "/images/case-studies/vsat-installation/01-persiapan-perangkat.jpg",
-          "alt": "VSAT antenna equipment, LNB, modem, and coaxial cable preparation",
-          "caption": "Equipment readiness check before deployment to West Kalimantan"
+          "src": "/images/case-studies/vsat-installation/01-inspeksi-grounding.jpg",
+          "alt": "Grounding system and surge protection inspection for VSAT setup",
+          "caption": "Grounding System Inspection & Surge Protection Check",
+          "description": "Inspecting the ground rod installation and earth grounding pathways prepared by the previous team to ensure low resistance levels and verify compliance with surge protection standards for VSAT equipment."
         },
         {
           "src": "/images/case-studies/vsat-installation/02-pointing-antena.jpg",
-          "alt": "VSAT antenna pointing and alignment process in the field",
-          "caption": "Antenna pointing & signal alignment process with technicians"
+          "alt": "Elevation angle check for VSAT antenna alignment toward the satellite",
+          "caption": "Elevation Angle Verification & Antenna Pointing Check",
+          "description": "Conducting a visual inspection and checking the elevation/azimuth angle of the BAKTI Kominfo VSAT antenna to ensure dish inclination and feedhorn alignment precisely target the satellite coordinates."
         },
         {
-          "src": "/images/case-studies/vsat-installation/03-dokumentasi-lapangan.jpg",
-          "alt": "VSAT installation documentation and project handoff",
-          "caption": "Final installation documentation & project handoff"
+          "src": "/images/case-studies/vsat-installation/03-serah-terima.jpg",
+          "alt": "Project handoff and final testing session with SDN 11 Setunggul Principal",
+          "caption": "Project Handover & Handoff Photo with School Principal",
+          "description": "Final documentation and operational handover session with the school principal at SDN 11 Setunggul upon completing the VSAT installation, indoor unit commissioning, and connectivity testing."
         }
       ]
     },
@@ -255,6 +259,7 @@
       "task": "Integrate REST APIs between the Android application and backend systems whose data formats were often inconsistent.",
       "action": "Held technical discussion sessions with the backend team, compared API documentation with actual implementation, and created sample request/response documentation for the entire team.",
       "result": "Integration ran smoothly, data miscommunication was minimized, and core application features were completed on deadline.",
+      "imagesNote": "Documentation of the Android application development workflow and REST API coordination sessions with the team.",
       "images": [
         {
           "src": "/images/case-studies/brin-internship/01-diskusi-rest-api.jpg",
