@@ -354,3 +354,44 @@ body {
   background: var(--color-cyan-soft);
   color: var(--color-cyan);
 }
+
+/* ============================================================
+   PRINT STYLES FOR PDF EXPORT & HARDCOPY
+   ============================================================ */
+@page {
+  size: A4;
+  margin: 2.54cm;
+}
+
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-family: "Inter", system-ui, sans-serif !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide navigation, background shapes, interactive widgets */
+  .no-print,
+  nav,
+  header.no-print,
+  footer.no-print,
+  .liquid-bg,
+  .network-nav,
+  .ai-assistant,
+  button:not(.print-keep) {
+    display: none !important;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+}
+

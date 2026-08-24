@@ -4,6 +4,7 @@ import TerminalHero from "@/components/sections/TerminalHero";
 import About from "@/components/sections/About";
 import BentoSkills from "@/components/sections/BentoSkills";
 import Projects from "@/components/sections/Projects";
+import CaseStudies from "@/components/sections/CaseStudies";
 import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
@@ -27,6 +28,7 @@ export default function Home() {
           <About />
           <BentoSkills />
           <Projects />
+          <CaseStudies />
           <Experience />
           <Education />
           <Certifications />

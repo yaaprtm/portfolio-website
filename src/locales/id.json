@@ -214,9 +214,49 @@
     ],
     "complete": "Client berhasil mendapatkan IP address!"
   },
+  "caseStudies": {
+    "tag": "CASE STUDIES (STAR)",
+    "title": "Studi Kasus & Resolusi Teknis",
+    "subtitle": "Metodologi STAR (Situation, Task, Action, Result) dalam penyelesaian proyek dunia nyata.",
+    "expandAll": "Buka Semua",
+    "collapseAll": "Tutup Semua",
+    "viewStar": "Lihat Analisis STAR",
+    "vsat": {
+      "title": "Proyek Instalasi & Koordinasi Lapangan VSAT",
+      "subtitle": "PT. Telnusa Intrakom · Kalimantan Barat",
+      "category": "Field Engineering & Project Coordination",
+      "situation": "Proyek instalasi VSAT di lapangan bersama PT. Telnusa Intrakom, Kalimantan Barat, dengan kondisi lokasi terpencil dan koordinasi tim yang menantang.",
+      "task": "Membantu koordinasi teknis pemasangan antena satelit dan memastikan proyek berjalan sesuai jadwal.",
+      "action": "Menyusun jadwal harian instalasi dan checklist kesiapan perangkat (antena, LNB, modem, kabel coaxial) sebelum tim berangkat ke lokasi terpencil di Kalimantan Barat. Berkoordinasi dengan teknisi lapangan dan kontak lokal untuk mengantisipasi kendala akses akibat kondisi cuaca dan medan. Mendampingi tim teknis saat proses pointing/alignment antena VSAT, serta membantu troubleshooting saat sinyal awal belum sesuai target. Mendokumentasikan progres instalasi setiap hari (foto lapangan, catatan kendala, dan capaian) untuk dilaporkan ke project manager pusat sebagai bahan evaluasi harian.",
+      "result": "Instalasi VSAT berhasil diselesaikan sesuai target meski sempat tertunda oleh kondisi cuaca di lokasi, dengan kualitas sinyal akhir memenuhi standar yang disyaratkan klien. Dokumentasi lapangan yang tersusun rapi mempermudah proses serah terima proyek. Dari pengalaman ini saya belajar mengelola proyek teknis dengan keterbatasan waktu, akses lokasi, dan koordinasi jarak jauh antara tim lapangan dan tim pusat — kemampuan yang saya nilai relevan dengan cara kerja tim lintas divisi di EEPISAT yang juga membutuhkan koordinasi ketat antara riset, hardware, dan software."
+    },
+    "brin": {
+      "title": "Integrasi REST API Aplikasi Kebun Raya Cibinong",
+      "subtitle": "Badan Riset dan Inovasi Nasional (BRIN)",
+      "category": "Android Mobile Development & API Integration",
+      "situation": "Magang sebagai Android Developer Intern di BRIN, bekerja dalam tim 4 orang (1 frontend, 2 backend, 1 Android) mengembangkan aplikasi Kebun Raya Cibinong.",
+      "task": "Mengintegrasikan REST API antara aplikasi Android dan sistem backend yang formatnya sering tidak konsisten.",
+      "action": "Mengadakan sesi diskusi teknis dengan tim backend, membandingkan dokumentasi API dengan implementasi aktual, membuat dokumentasi contoh request/response untuk seluruh tim.",
+      "result": "Integrasi berjalan lancar, miskomunikasi data berkurang, dan fitur utama aplikasi berhasil diselesaikan sesuai tenggat."
+    }
+  },
+  "print": {
+    "pageTitle": "Portofolio & Resume Cetak",
+    "downloadPdf": "Cetak / Simpan PDF",
+    "backHome": "Kembali ke Portofolio Utama",
+    "headerRole": "IT Enthusiast | Networking, Android Dev & IT Support",
+    "summaryTitle": "Ringkasan Profil",
+    "skillsTitle": "Keahlian Teknis",
+    "experienceTitle": "Pengalaman Kerja & Magang",
+    "educationTitle": "Pendidikan",
+    "certificationsTitle": "Sertifikasi & Penghargaan",
+    "caseStudiesTitle": "Studi Kasus Teknis (STAR)",
+    "contactInfo": "Kontak & Portofolio Web"
+  },
   "common": {
     "darkMode": "Mode Gelap",
     "lightMode": "Mode Terang",
-    "switchTheme": "Ubah Tema Warna"
+    "switchTheme": "Ubah Tema Warna",
+    "printPortfolio": "Halaman PDF / Cetak"
   }
 }

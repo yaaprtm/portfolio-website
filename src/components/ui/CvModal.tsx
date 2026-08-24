@@ -59,6 +59,15 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   {copied ? "Link Copied" : "Share"}
                 </button>
                 <a
+                  href="/print"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 rounded-lg border border-cyan-neon/40 bg-cyan-soft text-cyan-neon text-xs font-mono flex items-center gap-1.5 hover:bg-cyan-neon hover:text-white transition-all font-semibold"
+                >
+                  <FileText size={14} />
+                  Printable PDF
+                </a>
+                <a
                   href="/docs/CV-Arya-Putra-Pratama.pdf"
                   download="CV_Arya_Putra_Pratama.pdf"
                   className="btn-primary px-3.5 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5"

@@ -63,6 +63,14 @@ export default function Footer() {
                   Catatan Teknis
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/print"
+                  className="text-cyan-neon hover:underline text-xs transition-colors font-mono font-semibold"
+                >
+                  📄 {t.common.printPortfolio}
+                </Link>
+              </li>
             </ul>
           </div>
 
