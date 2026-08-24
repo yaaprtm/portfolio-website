@@ -227,8 +227,25 @@
       "category": "Field Engineering & Project Coordination",
       "situation": "Proyek instalasi VSAT di lapangan bersama PT. Telnusa Intrakom, Kalimantan Barat, dengan kondisi lokasi terpencil dan koordinasi tim yang menantang.",
       "task": "Membantu koordinasi teknis pemasangan antena satelit dan memastikan proyek berjalan sesuai jadwal.",
-      "action": "Menyusun jadwal harian instalasi dan checklist kesiapan perangkat (antena, LNB, modem, kabel coaxial) sebelum tim berangkat ke lokasi terpencil di Kalimantan Barat. Berkoordinasi dengan teknisi lapangan dan kontak lokal untuk mengantisipasi kendala akses akibat kondisi cuaca dan medan. Mendampingi tim teknis saat proses pointing/alignment antena VSAT, serta membantu troubleshooting saat sinyal awal belum sesuai target. Mendokumentasikan progres instalasi setiap hari (foto lapangan, catatan kendala, dan capaian) untuk dilaporkan ke project manager pusat sebagai bahan evaluasi harian.",
-      "result": "Instalasi VSAT berhasil diselesaikan sesuai target meski sempat tertunda oleh kondisi cuaca di lokasi, dengan kualitas sinyal akhir memenuhi standar yang disyaratkan klien. Dokumentasi lapangan yang tersusun rapi mempermudah proses serah terima proyek. Dari pengalaman ini saya belajar mengelola proyek teknis dengan keterbatasan waktu, akses lokasi, dan koordinasi jarak jauh antara tim lapangan dan tim pusat — kemampuan yang saya nilai relevan dengan cara kerja tim lintas divisi di EEPISAT yang juga membutuhkan koordinasi ketat antara riset, hardware, dan software."
+      "action": "Menyusun jadwal harian instalasi dan checklist kesiapan perangkat (antena, LNB, modem, kabel coaxial) sebelum tim berangkat ke lokasi terpencil di Kalimantan Barat. Berkoordinasi dengan teknisi lapangan dan kontak lokal untuk menganticipasi kendala akses akibat kondisi cuaca dan medan. Mendampingi tim teknis saat proses pointing/alignment antena VSAT, serta membantu troubleshooting saat sinyal awal belum sesuai target. Mendokumentasikan progres instalasi setiap hari (foto lapangan, catatan kendala, dan capaian) untuk dilaporkan ke project manager pusat sebagai bahan evaluasi harian.",
+      "result": "Instalasi VSAT berhasil diselesaikan sesuai target meski sempat tertunda oleh kondisi cuaca di lokasi, dengan kualitas sinyal akhir memenuhi standar yang disyaratkan klien. Dokumentasi lapangan yang tersusun rapi mempermudah proses serah terima proyek. Dari pengalaman ini saya belajar mengelola proyek teknis dengan keterbatasan waktu, akses lokasi, dan koordinasi jarak jauh antara tim lapangan dan tim pusat — kemampuan yang saya nilai relevan dengan cara kerja tim lintas divisi di EEPISAT yang juga membutuhkan koordinasi ketat antara riset, hardware, dan software.",
+      "images": [
+        {
+          "src": "/images/case-studies/vsat-installation/01-persiapan-perangkat.jpg",
+          "alt": "Persiapan perangkat antena VSAT, LNB, modem, dan kabel coaxial",
+          "caption": "Pengecekan kesiapan perangkat VSAT sebelum ke lokasi Kalimantan Barat"
+        },
+        {
+          "src": "/images/case-studies/vsat-installation/02-pointing-antena.jpg",
+          "alt": "Proses pointing dan alignment antena VSAT di lokasi lapangan",
+          "caption": "Proses pointing antena & alignment sinyal bersama teknisi"
+        },
+        {
+          "src": "/images/case-studies/vsat-installation/03-dokumentasi-lapangan.jpg",
+          "alt": "Dokumentasi hasil instalasi VSAT dan serah terima proyek",
+          "caption": "Dokumentasi akhir hasil instalasi & serah terima proyek"
+        }
+      ]
     },
     "brin": {
       "title": "Integrasi REST API Aplikasi Kebun Raya Cibinong",
@@ -237,7 +254,19 @@
       "situation": "Magang sebagai Android Developer Intern di BRIN, bekerja dalam tim 4 orang (1 frontend, 2 backend, 1 Android) mengembangkan aplikasi Kebun Raya Cibinong.",
       "task": "Mengintegrasikan REST API antara aplikasi Android dan sistem backend yang formatnya sering tidak konsisten.",
       "action": "Mengadakan sesi diskusi teknis dengan tim backend, membandingkan dokumentasi API dengan implementasi aktual, membuat dokumentasi contoh request/response untuk seluruh tim.",
-      "result": "Integrasi berjalan lancar, miskomunikasi data berkurang, dan fitur utama aplikasi berhasil diselesaikan sesuai tenggat."
+      "result": "Integrasi berjalan lancar, miskomunikasi data berkurang, dan fitur utama aplikasi berhasil diselesaikan sesuai tenggat.",
+      "images": [
+        {
+          "src": "/images/case-studies/brin-internship/01-diskusi-rest-api.jpg",
+          "alt": "Sesi diskusi teknis dan pemetaan endpoint REST API bersama tim backend BRIN",
+          "caption": "Diskusi spesifikasi REST API & pemetaan schema JSON"
+        },
+        {
+          "src": "/images/case-studies/brin-internship/02-aplikasi-android.jpg",
+          "alt": "Tampilan antarmuka aplikasi Android Kebun Raya Cibinong BRIN",
+          "caption": "Antarmuka aplikasi Android Kebun Raya Cibinong"
+        }
+      ]
     }
   },
   "print": {

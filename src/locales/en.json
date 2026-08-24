@@ -228,7 +228,24 @@
       "situation": "VSAT installation field project with PT. Telnusa Intrakom, West Kalimantan, in a remote location with challenging team coordination.",
       "task": "Assist technical coordination of satellite antenna installation and ensure the project proceeds according to schedule.",
       "action": "Arranged daily installation schedules and equipment readiness checklists (antenna, LNB, modem, coaxial cables) before the team headed to remote West Kalimantan. Coordinated with field technicians and local contacts to anticipate access hurdles from weather and terrain. Accompanied technical team during VSAT antenna pointing/alignment, helping troubleshoot when initial signal didn't hit targets. Documented daily installation progress (field photos, obstacle logs, milestones) for daily evaluation reports to the central project manager.",
-      "result": "VSAT installation was successfully completed on schedule despite initial weather delays, achieving final signal quality that met client specifications. Well-organized field documentation streamlined project handoff. From this experience, I learned to manage technical projects under time, access, and remote coordination constraints between field and central teams — skills highly relevant to cross-divisional teamwork like EEPISAT requiring tight research, hardware, and software coordination."
+      "result": "VSAT installation was successfully completed on schedule despite initial weather delays, achieving final signal quality that met client specifications. Well-organized field documentation streamlined project handoff. From this experience, I learned to manage technical projects under time, access, and remote coordination constraints between field and central teams — skills highly relevant to cross-divisional teamwork like EEPISAT requiring tight research, hardware, and software coordination.",
+      "images": [
+        {
+          "src": "/images/case-studies/vsat-installation/01-persiapan-perangkat.jpg",
+          "alt": "VSAT antenna equipment, LNB, modem, and coaxial cable preparation",
+          "caption": "Equipment readiness check before deployment to West Kalimantan"
+        },
+        {
+          "src": "/images/case-studies/vsat-installation/02-pointing-antena.jpg",
+          "alt": "VSAT antenna pointing and alignment process in the field",
+          "caption": "Antenna pointing & signal alignment process with technicians"
+        },
+        {
+          "src": "/images/case-studies/vsat-installation/03-dokumentasi-lapangan.jpg",
+          "alt": "VSAT installation documentation and project handoff",
+          "caption": "Final installation documentation & project handoff"
+        }
+      ]
     },
     "brin": {
       "title": "REST API Integration for Kebun Raya Cibinong App",
@@ -237,7 +254,19 @@
       "situation": "Internship as an Android Developer Intern at BRIN, working in a 4-person team (1 frontend, 2 backend, 1 Android) developing the Kebun Raya Cibinong mobile app.",
       "task": "Integrate REST APIs between the Android application and backend systems whose data formats were often inconsistent.",
       "action": "Held technical discussion sessions with the backend team, compared API documentation with actual implementation, and created sample request/response documentation for the entire team.",
-      "result": "Integration ran smoothly, data miscommunication was minimized, and core application features were completed on deadline."
+      "result": "Integration ran smoothly, data miscommunication was minimized, and core application features were completed on deadline.",
+      "images": [
+        {
+          "src": "/images/case-studies/brin-internship/01-diskusi-rest-api.jpg",
+          "alt": "Technical discussion session & REST API endpoint mapping with BRIN backend team",
+          "caption": "REST API specification discussion & JSON schema mapping"
+        },
+        {
+          "src": "/images/case-studies/brin-internship/02-aplikasi-android.jpg",
+          "alt": "Kebun Raya Cibinong Android app user interface",
+          "caption": "Kebun Raya Cibinong Android app interface"
+        }
+      ]
     }
   },
   "print": {
