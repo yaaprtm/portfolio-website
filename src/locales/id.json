@@ -29,7 +29,7 @@
     }
   },
   "about": {
-    "tag": "01 / ABOUT",
+    "tag": "TENTANG SAYA",
     "title": "Profil & Latar Belakang",
     "subtitle": "IT Enthusiast dan Mahasiswa Teknik Rekayasa Internet PENS Surabaya dengan minat serta pengalaman praktis di bidang Networking, IT Support, dan Android Development.",
     "heading": "Berkomitmen Mendorong Infrastruktur Jaringan & Aplikasi Modern.",
@@ -62,11 +62,11 @@
     }
   },
   "skills": {
-    "tag": "02 / SKILLS & EXPERTISE",
+    "tag": "KEAHLIAN TEKNIS",
     "title": "Keahlian & Ekosistem Teknologi",
     "subtitle": "Eksplorasi kompetensi teknis yang dikuasai — dari infrastruktur jaringan hingga pengembangan mobile.",
     "networking": {
-      "badge": "Primary Specialty",
+      "badge": "Spesialisasi Utama",
       "title": "Networking & Infrastructure Architecture",
       "desc": "Pengalaman praktis dalam mendesain, mengonfigurasi, dan memelihara infrastruktur jaringan komputer berskala menengah hingga besar.",
       "levels": {
@@ -89,12 +89,12 @@
       "desc": "Pemeliharaan hardware/software, troubleshooting sistem komputer, dan asistensi teknis lapangan."
     },
     "tools": {
-      "badge": "Dev Stack",
+      "badge": "Developer Tooling",
       "title": "Tools & Developer Ecosystem",
       "desc": "Tooling sehari-hari untuk alur kerja pengkodean, pengujian API, dan manajemen versi repositori."
     },
     "softSkills": {
-      "badge": "Soft Skills",
+      "badge": "Kompetensi Interpersonal",
       "title": "Kemampuan Interpersonal",
       "items": [
         {
@@ -117,7 +117,7 @@
     }
   },
   "projects": {
-    "tag": "03 / PROJECTS",
+    "tag": "PROYEK PILIHAN",
     "title": "Proyek Unggulan",
     "subtitle": "Beberapa proyek praktis dan aplikasi yang telah dikembangkan.",
     "categories": {
@@ -135,7 +135,7 @@
     "demo": "Demo"
   },
   "experience": {
-    "tag": "04 / WORK EXPERIENCE",
+    "tag": "PENGALAMAN KERJA",
     "title": "Pengalaman Kerja & Magang",
     "subtitle": "Riwayat karir profesional dalam IT Maintenance, IT Support, Android Development, dan Manajemen Proyek.",
     "types": {
@@ -146,20 +146,20 @@
     }
   },
   "education": {
-    "tag": "05 / ACADEMIC EDUCATION",
+    "tag": "RIWAYAT PENDIDIKAN",
     "title": "Riwayat Pendidikan",
     "subtitle": "Perjalanan pendidikan resmi di perguruan tinggi vokasi PENS Surabaya dan pendidikan kejuruan TKJ.",
     "active": "Status: Aktif",
     "alumni": "Alumni"
   },
   "certifications": {
-    "tag": "05 / CERTIFICATIONS",
+    "tag": "SERTIFIKASI & PRESTASI",
     "title": "Sertifikasi & Prestasi",
     "subtitle": "Bukti kompetensi dan penghargaan teknis yang telah dicapai.",
     "verify": "Verifikasi"
   },
   "contact": {
-    "tag": "06 / CONTACT",
+    "tag": "HUBUNGI SAYA",
     "title": "Mari Terhubung",
     "subtitle": "Terbuka untuk diskusi proyek, peluang kolaborasi, maupun penawaran karir IT.",
     "sendMessage": "Kirim Pesan",
@@ -188,7 +188,7 @@
     "builtWith": "Dibuat dengan"
   },
   "caseStudies": {
-    "tag": "CASE STUDIES (STAR)",
+    "tag": "STUDI KASUS TEKNIS",
     "title": "Studi Kasus & Resolusi Teknis",
     "subtitle": "Metodologi STAR (Situation, Task, Action, Result) dalam penyelesaian proyek dunia nyata.",
     "expandAll": "Buka Semua",

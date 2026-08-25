@@ -124,7 +124,7 @@ export default function CaseStudies() {
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-cyan-soft text-cyan-neon border border-cyan-neon/30">
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-white/[0.04] text-slate-200 border border-white/10 shadow-sm">
                         {data.category}
                       </span>
                       <span className="text-[11px] font-mono text-slate-400">

@@ -88,7 +88,7 @@ export default function BentoSkills() {
               <div className="w-12 h-12 rounded-2xl bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center">
                 <Network size={24} className="text-cyan-neon" />
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono bg-cyan-soft text-cyan-neon border border-cyan-neon/30">
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">
                 {t.skills.networking.badge}
               </span>
             </div>
@@ -233,7 +233,7 @@ export default function BentoSkills() {
               <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
                 <Layers size={20} className="text-cyan-neon" />
               </div>
-              <span className="text-xs font-mono text-slate-400">{t.skills.tools.badge}</span>
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">{t.skills.tools.badge}</span>
             </div>
 
             <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.tools.title}</h3>
@@ -245,7 +245,7 @@ export default function BentoSkills() {
               {devTools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-3 py-1.5 rounded-xl bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300"
+                  className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300 hover:border-white/30 transition-colors"
                 >
                   {tool}
                 </span>
@@ -269,7 +269,7 @@ export default function BentoSkills() {
               <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
                 <Users size={20} className="text-cyan-neon" />
               </div>
-              <span className="text-xs font-mono text-cyan-neon">{t.skills.softSkills.badge}</span>
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">{t.skills.softSkills.badge}</span>
             </div>
 
             <h3 className="text-lg font-bold text-slate-100 mb-3">{t.skills.softSkills.title}</h3>

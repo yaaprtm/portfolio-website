@@ -8,15 +8,15 @@ interface BadgeProps {
 }
 
 const variantStyles = {
-  cyan: "bg-cyan-neon/10 text-cyan-neon border-cyan-neon/20",
-  blue: "bg-blue-electric/10 text-blue-400 border-blue-400/20",
-  green: "bg-emerald-400/10 text-emerald-400 border-emerald-400/20",
-  amber: "bg-amber-400/10 text-amber-400 border-amber-400/20",
-  default: "bg-white/5 text-slate-400 border-white/10",
+  cyan: "bg-white/[0.04] text-slate-200 border-white/10 hover:border-white/30 hover:bg-white/[0.08]",
+  blue: "bg-white/[0.04] text-slate-200 border-white/10 hover:border-white/30 hover:bg-white/[0.08]",
+  green: "bg-emerald-950/40 text-emerald-300 border-emerald-500/20 hover:border-emerald-500/40",
+  amber: "bg-amber-950/40 text-amber-300 border-amber-500/20 hover:border-amber-500/40",
+  default: "bg-white/[0.03] text-slate-300 border-white/10 hover:bg-white/[0.06]",
 };
 
 /**
- * Badge / tag component for displaying tech stack, categories, etc.
+ * Professional Badge / Tag component — minimal, refined, human-designed.
  */
 const Badge = memo(function Badge({
   children,
@@ -26,7 +26,7 @@ const Badge = memo(function Badge({
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-mono font-medium border transition-all",
+        "inline-flex items-center px-2.5 py-0.5 rounded-md text-[11px] font-mono font-medium border border-white/10 shadow-sm transition-all duration-200",
         variantStyles[variant],
         className
       )}

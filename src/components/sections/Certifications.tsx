@@ -48,7 +48,7 @@ export default function Certifications() {
               <div>
                 {/* Header Badge & Icon */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 rounded-md font-mono font-semibold text-xs bg-cyan-soft border border-cyan-neon/30 text-cyan-neon">
+                  <span className="px-2.5 py-1 rounded-md font-mono font-semibold text-xs bg-white/[0.05] text-slate-200 border border-white/10 shadow-sm">
                     {cert.shortName}
                   </span>
                   <Award size={20} className="text-slate-400 group-hover:text-cyan-neon transition-colors" />
@@ -58,7 +58,7 @@ export default function Certifications() {
                 {pdfPath && (
                   <div
                     onClick={() => setActiveCert(cert)}
-                    className="relative w-full p-4 rounded-xl mb-4 border border-cyan-neon/20 bg-navy-900/80 hover:bg-navy-900 cursor-pointer group/pdf transition-all flex items-center justify-between gap-3 shadow-md"
+                    className="relative w-full p-3.5 rounded-xl mb-4 border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/20 cursor-pointer group/pdf transition-all flex items-center justify-between gap-3 shadow-sm"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 flex-shrink-0">

@@ -99,11 +99,11 @@ export default function Projects() {
 
                     <div className="absolute top-3 right-3 flex items-center gap-2">
                       {hasCaseStudy && (
-                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-cyan-soft text-cyan-neon border border-cyan-neon/40 font-bold">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-white/[0.08] text-slate-100 border border-white/15 font-semibold backdrop-blur-md shadow-sm">
                           {t.projects.caseStudyAvailable}
                         </span>
                       )}
-                      <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-navy-950/80 border border-white/10 text-slate-300">
+                      <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-black/70 border border-white/10 text-slate-300 backdrop-blur-md">
                         {project.category}
                       </span>
                     </div>

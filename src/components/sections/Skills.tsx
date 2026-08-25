@@ -13,10 +13,10 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const levelBadge: Record<string, string> = {
-  beginner: "text-slate-400 bg-white/[0.04]",
-  intermediate: "text-blue-400 bg-blue-500/10 border border-blue-500/20",
-  advanced: "text-cyan-neon bg-cyan-soft border border-cyan-neon/20",
-  expert: "text-cyan-neon bg-cyan-neon/15 border border-cyan-neon/30 font-semibold",
+  beginner: "text-slate-400 bg-white/[0.03] border border-white/5",
+  intermediate: "text-slate-300 bg-white/[0.04] border border-white/10",
+  advanced: "text-slate-200 bg-white/[0.05] border border-white/10 font-medium",
+  expert: "text-white bg-white/[0.08] border border-white/15 font-semibold",
 };
 
 export default function Skills() {
