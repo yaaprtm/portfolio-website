@@ -62,7 +62,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   href="/print"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3.5 py-1.5 rounded-lg border border-cyan-neon/40 bg-cyan-soft text-cyan-neon text-xs font-mono flex items-center gap-1.5 hover:bg-cyan-neon hover:text-white transition-all font-semibold"
+                  className="px-3.5 py-1.5 rounded-lg border border-cyan-neon/40 bg-cyan-soft text-cyan-neon text-xs font-mono flex items-center gap-1.5 hover:bg-cyan-neon hover:text-[var(--color-cyan-text)] transition-all font-semibold"
                 >
                   <FileText size={14} />
                   Printable PDF

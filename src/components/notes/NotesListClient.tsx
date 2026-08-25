@@ -37,7 +37,7 @@ export default function NotesListClient({ notes }: Props) {
             onClick={() => setSelectedCategory(cat)}
             className={`px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               selectedCategory === cat
-                ? "bg-cyan-neon text-white font-bold shadow-lg"
+                ? "bg-cyan-neon text-[var(--color-cyan-text)] font-bold shadow-lg"
                 : "bg-white/[0.03] text-slate-400 hover:text-slate-200 border border-white/10"
             }`}
           >

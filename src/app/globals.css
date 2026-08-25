@@ -17,6 +17,7 @@
   --color-surface-2: #141414;
   
   --color-cyan: #ffffff;
+  --color-cyan-text: #050505;
   --color-cyan-glow: #ffffff;
   --color-cyan-dim: #a1a1aa;
   --color-cyan-soft: rgba(255, 255, 255, 0.12);
@@ -34,6 +35,7 @@ html.light {
   --color-surface-2: #e4e4e7;
 
   --color-cyan: #09090b;
+  --color-cyan-text: #ffffff;
   --color-cyan-glow: #18181b;
   --color-cyan-dim: #27272a;
   --color-cyan-soft: rgba(9, 9, 11, 0.10);
@@ -258,7 +260,7 @@ body {
   position: relative;
   overflow: hidden;
   background: var(--color-cyan);
-  color: #ffffff;
+  color: var(--color-cyan-text);
   font-weight: 600;
   border-radius: 12px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -266,6 +268,7 @@ body {
 
 .btn-primary:hover {
   background: var(--color-cyan-glow);
+  color: var(--color-cyan-text);
   box-shadow: 0 0 25px var(--color-cyan-soft);
   transform: translateY(-2px);
 }

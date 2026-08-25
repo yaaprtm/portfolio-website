@@ -59,7 +59,7 @@ export default function Projects() {
             onClick={() => setActiveCategory(cat.id)}
             className={`relative px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeCategory === cat.id
-                ? "text-white font-bold bg-cyan-neon shadow-lg"
+                ? "text-[var(--color-cyan-text)] font-bold bg-cyan-neon shadow-lg"
                 : "text-slate-400 hover:text-slate-200 bg-white/[0.03] border border-white/10"
             }`}
           >
@@ -113,14 +113,14 @@ export default function Projects() {
                       {hasCaseStudy ? (
                         <Link
                           href={`/projects/${project.slug}`}
-                          className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
+                          className="px-4 py-2 rounded-xl bg-cyan-neon text-[var(--color-cyan-text)] font-mono text-xs font-bold flex items-center gap-2 shadow-lg hover:scale-105 transition-transform"
                         >
                           <BookOpen size={14} /> {t.projects.readCaseStudy} <ArrowRight size={14} />
                         </Link>
                       ) : (
                         <button
                           onClick={() => setSelectedProject(project)}
-                          className="px-4 py-2 rounded-xl bg-cyan-neon text-white font-mono text-xs font-bold flex items-center gap-2 shadow-lg"
+                          className="px-4 py-2 rounded-xl bg-cyan-neon text-[var(--color-cyan-text)] font-mono text-xs font-bold flex items-center gap-2 shadow-lg"
                         >
                           <Eye size={14} /> {t.projects.detailPreview}
                         </button>

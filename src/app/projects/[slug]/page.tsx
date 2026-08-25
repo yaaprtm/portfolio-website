@@ -40,7 +40,7 @@ export default function CaseStudyPage() {
         <p className="text-slate-400 mb-6">Proyek yang Anda cari belum memiliki halaman case study.</p>
         <Link
           href="/"
-          className="px-5 py-2.5 rounded-xl bg-cyan-neon text-white font-mono text-sm font-bold flex items-center gap-2"
+          className="px-5 py-2.5 rounded-xl bg-cyan-neon text-[var(--color-cyan-text)] font-mono text-sm font-bold flex items-center gap-2"
         >
           <ArrowLeft size={16} /> Kembali ke Beranda
         </Link>

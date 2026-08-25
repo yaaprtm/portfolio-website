@@ -193,7 +193,7 @@ export default function AiAssistant() {
               />
               <button
                 type="submit"
-                className="btn-primary p-2 rounded-xl text-navy-950 flex items-center justify-center"
+                className="btn-primary p-2 rounded-xl flex items-center justify-center"
               >
                 <Send size={14} />
               </button>

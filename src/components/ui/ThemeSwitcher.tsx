@@ -17,12 +17,14 @@ interface ThemeOption {
   darkSurface2: string;
   // Accent colors (applied in both modes)
   cyan: string;
+  cyanText: string;
   cyanGlow: string;
   cyanDim: string;
   cyanSoft: string;
   borderHover: string;
   // Light mode accent (slightly darker for readability)
   lightCyan: string;
+  lightCyanText: string;
   lightCyanGlow: string;
   lightCyanDim: string;
   lightCyanSoft: string;
@@ -37,11 +39,13 @@ const themes: ThemeOption[] = [
     darkSurface: "#0a0a0a",
     darkSurface2: "#141414",
     cyan: "#ffffff",
+    cyanText: "#050505",
     cyanGlow: "#ffffff",
     cyanDim: "#a1a1aa",
     cyanSoft: "rgba(255, 255, 255, 0.14)",
     borderHover: "rgba(255, 255, 255, 0.4)",
     lightCyan: "#09090b",
+    lightCyanText: "#ffffff",
     lightCyanGlow: "#18181b",
     lightCyanDim: "#27272a",
     lightCyanSoft: "rgba(9, 9, 11, 0.10)",
@@ -54,11 +58,13 @@ const themes: ThemeOption[] = [
     darkSurface: "#0f172a",
     darkSurface2: "#1e293b",
     cyan: "#3b82f6",
+    cyanText: "#ffffff",
     cyanGlow: "#60a5fa",
     cyanDim: "#2563eb",
     cyanSoft: "rgba(59, 130, 246, 0.16)",
     borderHover: "rgba(59, 130, 246, 0.4)",
     lightCyan: "#2563eb",
+    lightCyanText: "#ffffff",
     lightCyanGlow: "#3b82f6",
     lightCyanDim: "#1d4ed8",
     lightCyanSoft: "rgba(37, 99, 235, 0.12)",
@@ -71,11 +77,13 @@ const themes: ThemeOption[] = [
     darkSurface: "#0B2920",
     darkSurface2: "#133D30",
     cyan: "#10B981",
+    cyanText: "#061A14",
     cyanGlow: "#34D399",
     cyanDim: "#059669",
     cyanSoft: "rgba(16, 185, 129, 0.16)",
     borderHover: "rgba(16, 185, 129, 0.4)",
     lightCyan: "#059669",
+    lightCyanText: "#ffffff",
     lightCyanGlow: "#10B981",
     lightCyanDim: "#047857",
     lightCyanSoft: "rgba(5, 150, 105, 0.12)",
@@ -88,11 +96,13 @@ const themes: ThemeOption[] = [
     darkSurface: "#161536",
     darkSurface2: "#211F4E",
     cyan: "#6366F1",
+    cyanText: "#ffffff",
     cyanGlow: "#818CF8",
     cyanDim: "#4F46E5",
     cyanSoft: "rgba(99, 102, 241, 0.16)",
     borderHover: "rgba(99, 102, 241, 0.4)",
     lightCyan: "#4F46E5",
+    lightCyanText: "#ffffff",
     lightCyanGlow: "#6366F1",
     lightCyanDim: "#4338CA",
     lightCyanSoft: "rgba(79, 70, 229, 0.12)",
@@ -112,6 +122,7 @@ export default function ThemeSwitcher() {
 
     // Always set accent colors (mode-aware)
     root.style.setProperty("--color-cyan", isLight ? theme.lightCyan : theme.cyan);
+    root.style.setProperty("--color-cyan-text", isLight ? theme.lightCyanText : theme.cyanText);
     root.style.setProperty("--color-cyan-glow", isLight ? theme.lightCyanGlow : theme.cyanGlow);
     root.style.setProperty("--color-cyan-dim", isLight ? theme.lightCyanDim : theme.cyanDim);
     root.style.setProperty("--color-cyan-soft", isLight ? theme.lightCyanSoft : theme.cyanSoft);
