@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network } from "lucide-react";
+import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network, GraduationCap, Smartphone } from "lucide-react";
 import NetworkBackground from "@/components/ui/NetworkBackground";
 import Button from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
@@ -177,14 +177,17 @@ export default function TerminalHero() {
 
                 {/* Quick Highlights */}
                 <div className="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
-                  <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    {t.about.chips.enthusiast}
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-slate-200">
+                    <GraduationCap size={13} className="text-slate-400" />
+                    <span>PENS Surabaya</span>
                   </span>
-                  <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    {t.about.chips.solver}
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-slate-200">
+                    <Network size={13} className="text-slate-400" />
+                    <span>Networking & Infrastructure</span>
                   </span>
-                  <span className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300">
-                    {t.about.chips.learner}
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-slate-200">
+                    <Smartphone size={13} className="text-slate-400" />
+                    <span>Android Dev Intern</span>
                   </span>
                 </div>
               </motion.div>

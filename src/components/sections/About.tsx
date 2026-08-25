@@ -2,11 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { User, Briefcase, GraduationCap, Award, FolderGit2 } from "lucide-react";
+import { User, Briefcase, GraduationCap, Award, FolderGit2, MapPin, Network, Smartphone, Wrench } from "lucide-react";
 import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/context/LanguageContext";
+
+const chipIcons: Record<string, React.ReactNode> = {
+  pens: <GraduationCap size={14} className="text-slate-400" />,
+  location: <MapPin size={14} className="text-slate-400" />,
+  networking: <Network size={14} className="text-slate-400" />,
+  android: <Smartphone size={14} className="text-slate-400" />,
+  support: <Wrench size={14} className="text-slate-400" />,
+};
 
 function useCounter(target: number, isInView: boolean, duration = 2000) {
   const [count, setCount] = useState(0);
@@ -139,12 +147,13 @@ export default function About() {
 
           {/* Quick Info Chips */}
           <div className="flex flex-wrap gap-2 pt-2">
-            {Object.values(t.about.chips).map((chip) => (
+            {Object.entries(t.about.chips).map(([key, text]) => (
               <span
-                key={chip}
-                className="px-3.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/10 text-xs text-slate-300 font-mono"
+                key={key}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/[0.04] border border-white/10 text-xs text-slate-200 font-mono shadow-sm hover:border-white/20 transition-colors"
               >
-                {chip}
+                {chipIcons[key]}
+                <span>{text}</span>
               </span>
             ))}
           </div>

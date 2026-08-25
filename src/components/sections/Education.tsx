@@ -75,9 +75,9 @@ function EducationTimelineEntry({
             {edu.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-[10px] font-mono text-slate-300 bg-white/[0.04] px-2.5 py-1 rounded-lg border border-white/10"
+                className="text-[11px] font-mono text-slate-300 bg-white/[0.04] px-2.5 py-0.5 rounded-md border border-white/10"
               >
-                🎓 {tech}
+                {tech}
               </span>
             ))}
           </div>

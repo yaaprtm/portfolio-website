@@ -54,11 +54,11 @@
       "suffixYears": " tahun"
     },
     "chips": {
-      "pens": "🎓 PENS Surabaya — STr. Teknik Rekayasa Internet (2026-2030)",
-      "location": "📍 Surabaya / Jakarta, Indonesia",
-      "enthusiast": "⚡ IT Enthusiast",
-      "solver": "🧩 Problem Solver",
-      "learner": "🚀 Fast Learner"
+      "pens": "PENS Surabaya — STr. Teknik Rekayasa Internet (2026–2030)",
+      "location": "Surabaya / Jakarta, Indonesia",
+      "networking": "Network & Infrastructure Architecture",
+      "android": "Android Native & REST API",
+      "support": "IT Support & Systems Maintenance"
     }
   },
   "skills": {
