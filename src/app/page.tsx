@@ -1,6 +1,6 @@
 import NetworkNavigation from "@/components/layout/NetworkNavigation";
 import Footer from "@/components/layout/Footer";
-import TerminalHero from "@/components/sections/TerminalHero";
+import HeroWithAvatar from "@/components/sections/HeroWithAvatar";
 import About from "@/components/sections/About";
 import BentoSkills from "@/components/sections/BentoSkills";
 import Projects from "@/components/sections/Projects";
@@ -24,7 +24,7 @@ export default function Home() {
       {/* Main Content Area */}
       <div className="min-h-screen flex flex-col transition-all duration-300 relative z-10">
         <main className="flex-1">
-          <TerminalHero />
+          <HeroWithAvatar />
           <About />
           <BentoSkills />
           <Projects />
