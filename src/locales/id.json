@@ -232,19 +232,19 @@
       "imagesNote": "Dokumentasi di bawah ini merupakan gambaran proses pekerjaan di salah satu lokasi (site) dari beberapa site instalasi VSAT yang dikerjakan.",
       "images": [
         {
-          "src": "/images/case-studies/vsat-installation/01-inspeksi-grounding.jpg",
+          "src": "/case-studies/vsat-installation/01-inspeksi-grounding.jpg",
           "alt": "Inspeksi dan verifikasi sistem grounding pendukung antena VSAT",
           "caption": "Inspeksi Sistem Grounding & Keselamatan Perangkat",
           "description": "Memeriksa penanaman grounding rod dan jalur pentanahan (earth grounding system) yang telah disiapkan oleh tim sebelumnya. Inspeksi ini bertujuan memastikan nilai resistansi grounding memenuhi standar keselamatan guna melindungi perangkat VSAT dari lonjakan arus dan sambaran petir."
         },
         {
-          "src": "/images/case-studies/vsat-installation/02-pointing-antena.jpg",
+          "src": "/case-studies/vsat-installation/02-pointing-antena.jpg",
           "alt": "Pengecekan sudut elevasi dan pointing antena VSAT BAKTI Kominfo",
           "caption": "Verifikasi Sudut Elevasi & Pointing Antena Satelit",
           "description": "Melakukan inspeksi visual dan pengecekan sudut elevasi serta azimut pada antena VSAT BAKTI Kominfo untuk memastikan kemiringan dish dan posisi feedhorn presisi mengarah ke koordinat satelit target sebelum penguncian sinyal (signal locking)."
         },
         {
-          "src": "/images/case-studies/vsat-installation/03-serah-terima.jpg",
+          "src": "/case-studies/vsat-installation/03-serah-terima.jpg",
           "alt": "Dokumentasi serah terima pekerjaan bersama Kepala Sekolah SDN 11 Setunggul",
           "caption": "Serah Terima Pekerjaan & Dokumentasi Bersama Pihak Sekolah",
           "description": "Sesi dokumentasi akhir dan verifikasi serah terima operasional bersama Kepala Sekolah di SDN 11 Setunggul setelah seluruh proses instalasi perangkat, commissioning modem indoor, dan pengujian konektivitas jaringan VSAT selesai dilaksanakan."
