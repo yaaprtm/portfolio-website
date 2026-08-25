@@ -11,37 +11,37 @@
    CSS Custom Properties — SOFT ELECTRIC BLUE & DEEP NAVY
    ============================================================ */
 :root {
-  /* Default Theme: Soft Electric Blue */
-  --color-bg: #0b1120;
-  --color-surface: #0f172a;
-  --color-surface-2: #1e293b;
+  /* Default Theme: Noir Monochrome (Hitam & Putih Professional) */
+  --color-bg: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #141414;
   
-  --color-cyan: #3b82f6;
-  --color-cyan-glow: #60a5fa;
-  --color-cyan-dim: #2563eb;
-  --color-cyan-soft: rgba(59, 130, 246, 0.14);
-  --color-border-hover: rgba(59, 130, 246, 0.4);
+  --color-cyan: #ffffff;
+  --color-cyan-glow: #ffffff;
+  --color-cyan-dim: #a1a1aa;
+  --color-cyan-soft: rgba(255, 255, 255, 0.12);
+  --color-border-hover: rgba(255, 255, 255, 0.4);
 
-  --color-text: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text: #fafafa;
+  --color-text-muted: #a1a1aa;
+  --color-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Light Mode Overrides */
+/* Light Mode Overrides (Pure Crisp White & Black) */
 html.light {
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-surface-2: #f1f5f9;
+  --color-bg: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-surface-2: #e4e4e7;
 
-  --color-cyan: #2563eb;
-  --color-cyan-glow: #3b82f6;
-  --color-cyan-dim: #1d4ed8;
-  --color-cyan-soft: rgba(37, 99, 235, 0.12);
-  --color-border-hover: rgba(37, 99, 235, 0.4);
+  --color-cyan: #09090b;
+  --color-cyan-glow: #18181b;
+  --color-cyan-dim: #27272a;
+  --color-cyan-soft: rgba(9, 9, 11, 0.10);
+  --color-border-hover: rgba(9, 9, 11, 0.3);
 
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-border: rgba(15, 23, 42, 0.12);
+  --color-text: #09090b;
+  --color-text-muted: #52525b;
+  --color-border: rgba(9, 9, 11, 0.12);
 }
 
 html.light .glass-card {

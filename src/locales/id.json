@@ -187,33 +187,6 @@
     "copyright": "All rights reserved.",
     "builtWith": "Dibuat dengan"
   },
-  "dhcp": {
-    "title": "Cara Kerja DHCP",
-    "subtitle": "Animasi step-by-step mendapatkan IP otomatis",
-    "start": "Mulai Animasi",
-    "replay": "Ulangi",
-    "client": "Client",
-    "server": "DHCP Server",
-    "steps": [
-      {
-        "label": "DISCOVER",
-        "desc": "Client menyiarkan pesan broadcast ke seluruh jaringan untuk menemukan server DHCP yang tersedia."
-      },
-      {
-        "label": "OFFER",
-        "desc": "DHCP Server merespons dengan menawarkan konfigurasi IP (alamat IP, subnet mask, gateway) yang tersedia."
-      },
-      {
-        "label": "REQUEST",
-        "desc": "Client meminta secara resmi IP address yang telah ditawarkan oleh DHCP Server."
-      },
-      {
-        "label": "ACKNOWLEDGE",
-        "desc": "Server mengonfirmasi permintaan. Client berhasil mendapatkan IP address dan mulai menggunakannya."
-      }
-    ],
-    "complete": "Client berhasil mendapatkan IP address!"
-  },
   "caseStudies": {
     "tag": "CASE STUDIES (STAR)",
     "title": "Studi Kasus & Resolusi Teknis",

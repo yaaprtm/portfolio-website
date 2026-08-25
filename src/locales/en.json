@@ -187,33 +187,6 @@
     "copyright": "All rights reserved.",
     "builtWith": "Built with"
   },
-  "dhcp": {
-    "title": "How DHCP Works",
-    "subtitle": "Step-by-step animation of automatic IP assignment",
-    "start": "Start Animation",
-    "replay": "Replay",
-    "client": "Client",
-    "server": "DHCP Server",
-    "steps": [
-      {
-        "label": "DISCOVER",
-        "desc": "The client broadcasts a message across the entire network to locate an available DHCP server."
-      },
-      {
-        "label": "OFFER",
-        "desc": "The DHCP Server responds by offering an IP configuration (IP address, subnet mask, gateway) to the client."
-      },
-      {
-        "label": "REQUEST",
-        "desc": "The client formally requests the IP address that was offered by the DHCP Server."
-      },
-      {
-        "label": "ACKNOWLEDGE",
-        "desc": "The server confirms the request. The client successfully obtains its IP address and begins using it."
-      }
-    ],
-    "complete": "Client successfully obtained an IP address!"
-  },
   "caseStudies": {
     "tag": "CASE STUDIES (STAR)",
     "title": "Technical Case Studies & Problem Solving",

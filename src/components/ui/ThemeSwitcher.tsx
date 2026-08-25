@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 
-export type ThemeMode = "blue" | "teal" | "indigo" | "mono";
+export type ThemeMode = "mono" | "blue" | "teal" | "indigo";
 
 interface ThemeOption {
   id: ThemeMode;
@@ -29,6 +29,23 @@ interface ThemeOption {
 }
 
 const themes: ThemeOption[] = [
+  {
+    id: "mono",
+    name: "Noir (Hitam & Putih)",
+    color: "#FFFFFF",
+    darkBg: "#050505",
+    darkSurface: "#0a0a0a",
+    darkSurface2: "#141414",
+    cyan: "#ffffff",
+    cyanGlow: "#ffffff",
+    cyanDim: "#a1a1aa",
+    cyanSoft: "rgba(255, 255, 255, 0.14)",
+    borderHover: "rgba(255, 255, 255, 0.4)",
+    lightCyan: "#09090b",
+    lightCyanGlow: "#18181b",
+    lightCyanDim: "#27272a",
+    lightCyanSoft: "rgba(9, 9, 11, 0.10)",
+  },
   {
     id: "blue",
     name: "Electric Blue",
@@ -80,28 +97,11 @@ const themes: ThemeOption[] = [
     lightCyanDim: "#4338CA",
     lightCyanSoft: "rgba(79, 70, 229, 0.12)",
   },
-  {
-    id: "mono",
-    name: "Slate Mono",
-    color: "#94A3B8",
-    darkBg: "#0F172A",
-    darkSurface: "#1E293B",
-    darkSurface2: "#334155",
-    cyan: "#F1F5F9",
-    cyanGlow: "#FFFFFF",
-    cyanDim: "#94A3B8",
-    cyanSoft: "rgba(241, 245, 249, 0.16)",
-    borderHover: "rgba(241, 245, 249, 0.4)",
-    lightCyan: "#475569",
-    lightCyanGlow: "#64748B",
-    lightCyanDim: "#334155",
-    lightCyanSoft: "rgba(71, 85, 105, 0.12)",
-  },
 ];
 
 export default function ThemeSwitcher() {
   const { t } = useLanguage();
-  const [activeTheme, setActiveTheme] = useState<ThemeMode>("blue");
+  const [activeTheme, setActiveTheme] = useState<ThemeMode>("mono");
   const [open, setOpen] = useState(false);
 
   const applyTheme = (mode: ThemeMode) => {
@@ -117,20 +117,32 @@ export default function ThemeSwitcher() {
     root.style.setProperty("--color-cyan-soft", isLight ? theme.lightCyanSoft : theme.cyanSoft);
     root.style.setProperty("--color-border-hover", isLight ? `rgba(${hexToRgb(theme.lightCyan)}, 0.4)` : theme.borderHover);
 
-    // Only override bg/surface in dark mode (light mode has its own CSS vars)
+    // Override bg/surface in dark mode
     if (!isLight) {
       root.style.setProperty("--color-bg", theme.darkBg);
       root.style.setProperty("--color-surface", theme.darkSurface);
       root.style.setProperty("--color-surface-2", theme.darkSurface2);
     }
 
-    // Store for DarkModeToggle to re-apply on mode switch
     try {
       localStorage.setItem("portfolio-color-theme", mode);
     } catch {
       // ignore
     }
   };
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("portfolio-color-theme") as ThemeMode;
+      if (saved && themes.some((t) => t.id === saved)) {
+        applyTheme(saved);
+      } else {
+        applyTheme("mono");
+      }
+    } catch {
+      applyTheme("mono");
+    }
+  }, []);
 
   return (
     <div className="relative z-50">

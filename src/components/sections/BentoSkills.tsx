@@ -14,8 +14,6 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import SubnetCalculator from "@/components/ui/SubnetCalculator";
-import DhcpExplainer from "@/components/ui/DhcpExplainer";
 import { useLanguage } from "@/context/LanguageContext";
 
 const networkingSkills = [
@@ -289,25 +287,7 @@ export default function BentoSkills() {
             </div>
           </div>
         </motion.div>
-
-        {/* ============================================================
-            BENTO CARD 6: DHCP Explainer (Educational Widget)
-           ============================================================ */}
-        <DhcpExplainer />
       </div>
-
-      {/* ============================================================
-          INTERACTIVE SUBNET CALCULATOR WIDGET SECTION
-         ============================================================ */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="mt-8"
-      >
-        <SubnetCalculator />
-      </motion.div>
     </SectionWrapper>
   );
 }
