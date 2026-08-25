@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface SectionHeadingProps {
   tag: string;       // e.g. "01 / ABOUT"
   title: string;     // Main heading
@@ -7,7 +9,7 @@ interface SectionHeadingProps {
 /**
  * Editorial Section Heading — Clean, human-designed layout.
  */
-export default function SectionHeading({ tag, title, subtitle }: SectionHeadingProps) {
+const SectionHeading = memo(function SectionHeading({ tag, title, subtitle }: SectionHeadingProps) {
   return (
     <div className="mb-16 text-center max-w-3xl mx-auto">
       <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10">
@@ -22,4 +24,6 @@ export default function SectionHeading({ tag, title, subtitle }: SectionHeadingP
       )}
     </div>
   );
-}
+});
+
+export default SectionHeading;

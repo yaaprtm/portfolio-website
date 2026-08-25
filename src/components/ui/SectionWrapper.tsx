@@ -1,7 +1,7 @@
 "use client";
 
+import { memo, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface SectionWrapperProps {
@@ -17,7 +17,7 @@ interface SectionWrapperProps {
  * - Optional grid background pattern
  * - Consistent padding and max-width
  */
-export default function SectionWrapper({
+const SectionWrapper = memo(function SectionWrapper({
   id,
   children,
   className,
@@ -46,4 +46,6 @@ export default function SectionWrapper({
       </motion.div>
     </section>
   );
-}
+});
+
+export default SectionWrapper;

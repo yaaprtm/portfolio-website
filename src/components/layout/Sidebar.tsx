@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   Home,
   User,
@@ -100,10 +101,13 @@ export default function Sidebar() {
           <div className="flex items-center gap-3.5 mb-6 pb-6 border-b border-white/10">
             {/* Small Avatar Frame */}
             <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-cyan-neon/40 flex-shrink-0 shadow-lg bg-navy-900">
-              <img
+              <Image
                 src="/images/arya-photo.png"
                 alt="Arya Putra Pratama"
-                className="w-full h-full object-cover object-top"
+                width={48}
+                height={48}
+                className="object-cover object-top w-full h-full"
+                priority
               />
             </div>
 
@@ -214,11 +218,13 @@ export default function Sidebar() {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-navy-950/90 backdrop-blur-xl border-b border-white/10 px-4 h-16 flex items-center justify-between">
         {/* Mobile Header Title */}
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg overflow-hidden border border-cyan-neon/40 flex-shrink-0 bg-navy-900">
-            <img
+          <div className="relative w-8 h-8 rounded-lg overflow-hidden border border-cyan-neon/40 flex-shrink-0 bg-navy-900">
+            <Image
               src="/images/arya-photo.png"
               alt="Arya"
-              className="w-full h-full object-cover object-top"
+              width={32}
+              height={32}
+              className="object-cover object-top w-full h-full"
             />
           </div>
           <div>
@@ -271,11 +277,13 @@ export default function Sidebar() {
               <div>
                 <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl overflow-hidden border border-cyan-neon/40">
-                      <img
+                    <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-cyan-neon/40">
+                      <Image
                         src="/images/arya-photo.png"
                         alt="Arya"
-                        className="w-full h-full object-cover object-top"
+                        width={40}
+                        height={40}
+                        className="object-cover object-top w-full h-full"
                       />
                     </div>
                     <div>

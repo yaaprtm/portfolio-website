@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { User, Briefcase, GraduationCap, Award, FolderGit2 } from "lucide-react";
+import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/context/LanguageContext";
@@ -89,10 +90,12 @@ export default function About() {
         >
           <div className="relative">
             <div className="relative w-72 h-[400px] sm:w-80 sm:h-[450px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-navy-900 group">
-              <img
+              <Image
                 src="/images/arya-photo.png"
                 alt="Arya Putra Pratama"
-                className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 640px) 288px, 320px"
+                className="object-cover object-top filter brightness-[1.02] contrast-[1.02] group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
 

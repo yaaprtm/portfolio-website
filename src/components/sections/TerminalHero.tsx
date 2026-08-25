@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Terminal, SkipForward, ArrowUpRight, CheckCircle2, Network } from "lucide-react";
 import NetworkBackground from "@/components/ui/NetworkBackground";
@@ -10,14 +10,17 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function TerminalHero() {
   const { t } = useLanguage();
 
-  const bootSequence = [
-    { cmd: "network --discover-nodes", output: t.hero.boot.discover },
-    { cmd: "whoami", output: t.hero.boot.whoami },
-    { cmd: "interests --explore", output: t.hero.boot.interests },
-    { cmd: "education --current", output: t.hero.boot.education },
-    { cmd: "experience --highlight", output: t.hero.boot.experience },
-    { cmd: "status.availability", output: t.hero.boot.availability },
-  ];
+  const bootSequence = useMemo(
+    () => [
+      { cmd: "network --discover-nodes", output: t.hero.boot.discover },
+      { cmd: "whoami", output: t.hero.boot.whoami },
+      { cmd: "interests --explore", output: t.hero.boot.interests },
+      { cmd: "education --current", output: t.hero.boot.education },
+      { cmd: "experience --highlight", output: t.hero.boot.experience },
+      { cmd: "status.availability", output: t.hero.boot.availability },
+    ],
+    [t]
+  );
 
   const [completedSteps, setCompletedSteps] = useState<number>(0);
   const [currentCmdText, setCurrentCmdText] = useState<string>("");
@@ -25,6 +28,12 @@ export default function TerminalHero() {
   const [skipped, setSkipped] = useState<boolean>(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleSkip = useCallback(() => {
+    setSkipped(true);
+    setCompletedSteps(bootSequence.length);
+    setIsBootFinished(true);
+  }, [bootSequence.length]);
 
   // Reset animation when language changes
   useEffect(() => {
@@ -43,7 +52,7 @@ export default function TerminalHero() {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isBootFinished]);
+  }, [isBootFinished, handleSkip]);
 
   // Typing animation for boot sequence
   useEffect(() => {
@@ -70,12 +79,6 @@ export default function TerminalHero() {
       return () => clearTimeout(timeout);
     }
   }, [completedSteps, currentCmdText, skipped, isBootFinished, bootSequence]);
-
-  const handleSkip = () => {
-    setSkipped(true);
-    setCompletedSteps(bootSequence.length);
-    setIsBootFinished(true);
-  };
 
   return (
     <section

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { cn } from "@/lib/utils";
 
 interface BadgeProps {
@@ -17,7 +18,7 @@ const variantStyles = {
 /**
  * Badge / tag component for displaying tech stack, categories, etc.
  */
-export default function Badge({
+const Badge = memo(function Badge({
   children,
   className,
   variant = "default",
@@ -33,4 +34,6 @@ export default function Badge({
       {children}
     </span>
   );
-}
+});
+
+export default Badge;
