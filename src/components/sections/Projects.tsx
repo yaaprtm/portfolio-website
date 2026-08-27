@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FolderGit2, ExternalLink, Github, Eye, ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Badge from "@/components/ui/Badge";
@@ -87,19 +88,42 @@ export default function Projects() {
                 <div>
                   {/* Banner Preview */}
                   <div
-                    className={`relative h-44 bg-gradient-to-br ${
-                      placeholderGradients[idx % placeholderGradients.length]
-                    } flex items-center justify-center overflow-hidden border-b border-white/5`}
+                    className={`relative overflow-hidden border-b border-white/5 ${
+                      project.imageOrientation === "portrait" ? "h-64" : "h-44"
+                    }`}
                   >
-                    <FolderGit2
-                      size={44}
-                      className="text-slate-600 group-hover:text-cyan-neon transition-colors duration-300"
-                      strokeWidth={1.5}
-                    />
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+                          project.imageOrientation === "portrait"
+                            ? "object-top"
+                            : "object-center"
+                        }`}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    ) : (
+                      <div
+                        className={`w-full h-full bg-gradient-to-br ${
+                          placeholderGradients[idx % placeholderGradients.length]
+                        } flex items-center justify-center`}
+                      >
+                        <FolderGit2
+                          size={44}
+                          className="text-slate-600 group-hover:text-cyan-neon transition-colors duration-300"
+                          strokeWidth={1.5}
+                        />
+                      </div>
+                    )}
+
+                    {/* Overlay gelap tipis agar badge terbaca */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
 
                     <div className="absolute top-3 right-3 flex items-center gap-2">
                       {hasCaseStudy && (
-                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-white/[0.08] text-slate-100 border border-white/15 font-semibold backdrop-blur-md shadow-sm">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-black/60 text-slate-100 border border-white/20 font-semibold backdrop-blur-md shadow-sm">
                           {t.projects.caseStudyAvailable}
                         </span>
                       )}

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
@@ -255,30 +256,49 @@ export default function CaseStudyPage() {
               <span className="text-xs font-mono text-slate-400">Klik untuk memperbesar</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {study.gallery.map((item, idx) => (
                 <div
                   key={item.id}
                   onClick={() => setActiveImageIndex(idx)}
-                  className="group relative h-48 rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden cursor-pointer hover:border-cyan-neon/40 transition-all flex flex-col justify-between p-4"
+                  className="group relative h-56 rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden cursor-pointer hover:border-cyan-neon/40 transition-all flex flex-col justify-between p-4"
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="w-8 h-8 rounded-lg bg-cyan-soft flex items-center justify-center text-cyan-neon font-mono text-xs font-bold">
+                  {item.src ? (
+                    <Image
+                      src={item.src}
+                      alt={item.caption}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  ) : null}
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40" />
+
+                  <div className="relative z-10 flex items-center justify-between">
+                    <span className="w-8 h-8 rounded-lg bg-black/60 backdrop-blur-md flex items-center justify-center text-cyan-neon font-mono text-xs font-bold border border-white/10">
                       0{item.id}
                     </span>
-                    <Maximize2 size={16} className="text-slate-400 group-hover:text-cyan-neon transition-colors" />
+                    <div className="w-8 h-8 rounded-lg bg-black/60 backdrop-blur-md flex items-center justify-center text-slate-300 group-hover:text-cyan-neon transition-colors border border-white/10">
+                      <Maximize2 size={14} />
+                    </div>
                   </div>
 
-                  <div className="my-auto text-center p-2">
-                    <ImageIcon size={32} className="mx-auto text-slate-600 group-hover:text-cyan-neon transition-colors mb-2" />
-                    <p className="text-xs font-mono text-slate-400 group-hover:text-slate-200 transition-colors">
-                      {item.placeholderText}
+                  {!item.src && (
+                    <div className="relative z-10 my-auto text-center p-2">
+                      <ImageIcon size={32} className="mx-auto text-slate-600 group-hover:text-cyan-neon transition-colors mb-2" />
+                      <p className="text-xs font-mono text-slate-400 group-hover:text-slate-200 transition-colors">
+                        {item.placeholderText}
+                      </p>
+                    </div>
+                  )}
+
+                  <div className="relative z-10">
+                    <p className="text-[11px] font-mono text-slate-200 font-semibold truncate drop-shadow">
+                      {item.caption}
                     </p>
                   </div>
-
-                  <p className="text-[11px] font-mono text-slate-300 truncate">
-                    {item.caption}
-                  </p>
                 </div>
               ))}
             </div>
@@ -320,16 +340,25 @@ export default function CaseStudyPage() {
                 <X size={20} />
               </button>
 
-              <div className="h-64 sm:h-80 rounded-2xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4 p-6">
-                <div>
-                  <ImageIcon size={56} className="mx-auto text-cyan-neon mb-3 animate-bounce" />
-                  <h3 className="text-slate-100 font-bold text-lg mb-1">
-                    {study.gallery[activeImageIndex].placeholderText}
-                  </h3>
-                  <p className="text-slate-400 text-xs font-mono">
-                    Placeholder Screenshot / Diagram Visual Proyek
-                  </p>
-                </div>
+              <div className="relative h-72 sm:h-96 w-full rounded-2xl bg-white/[0.04] border border-white/10 overflow-hidden flex items-center justify-center mb-4">
+                {study.gallery[activeImageIndex].src ? (
+                  <Image
+                    src={study.gallery[activeImageIndex].src!}
+                    alt={study.gallery[activeImageIndex].caption}
+                    fill
+                    className="object-contain"
+                  />
+                ) : (
+                  <div className="p-6">
+                    <ImageIcon size={56} className="mx-auto text-cyan-neon mb-3 animate-bounce" />
+                    <h3 className="text-slate-100 font-bold text-lg mb-1">
+                      {study.gallery[activeImageIndex].placeholderText}
+                    </h3>
+                    <p className="text-slate-400 text-xs font-mono">
+                      Placeholder Screenshot / Diagram Visual Proyek
+                    </p>
+                  </div>
+                )}
               </div>
 
               <p className="text-slate-200 text-sm font-mono">

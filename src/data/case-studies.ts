@@ -71,18 +71,27 @@ export const caseStudies: Record<string, CaseStudy> = {
     gallery: [
       {
         id: 1,
-        caption: "Tampilan Beranda Utama & Katalog Flora Kebun Raya Cibinong",
-        placeholderText: "Screenshot Layout Utama Aplikasi Android",
+        caption: "Tampilan Antarmuka (UI/UX) App Mobile Kebun Raya Cibinong",
+        placeholderText: "UI/UX & Modul Interface Android Client",
+        src: "/images/aplikasi-brin.jpg",
       },
       {
         id: 2,
-        caption: "Peta Zonasi & Informasi Detail Jenis Tanaman Riset",
-        placeholderText: "Screenshot Detail Informasi Tanaman",
+        caption: "Pengujian Payload Endpoint POST Multipart REST API via Postman",
+        placeholderText: "Integrasi & Testing RESTful API Network Layer",
+        src: "/images/mengintegrasikan-api-ke-aplikasi.jpg",
       },
       {
         id: 3,
-        caption: "Arsitektur Integrasi REST API Android dengan Backend Server",
-        placeholderText: "Diagram Alur Arsitektur Aplikasi",
+        caption: "Sesi Diskusi Arsitektur Sistem & Perancangan JSON Schema API",
+        placeholderText: "Brainstorming & Mapping Logika Bisnis Sistem",
+        src: "/images/diskusi-bersama.jpg",
+      },
+      {
+        id: 4,
+        caption: "Dokumentasi Kolaborasi Tim Pengembang Lintas Peran di BRIN",
+        placeholderText: "Sinergi Tim Developer (Android, Frontend, Backend)",
+        src: "/images/foto-bersama-team.jpg",
       },
     ],
   },
