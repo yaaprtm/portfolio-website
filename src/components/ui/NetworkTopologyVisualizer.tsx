@@ -27,6 +27,16 @@ interface TopoNode {
   };
 }
 
+interface ClientNode {
+  id: string;
+  label: string;
+  parent: string;
+  x: number;
+  y: number;
+  color: string;
+  boxWidth: number;
+}
+
 interface Packet {
   id: number;
   startX: number;
@@ -57,7 +67,7 @@ const NODES: TopoNode[] = [
     label: "Router",
     sublabel: "Mikrotik RB3011",
     icon: Router,
-    x: 50, y: 38,
+    x: 50, y: 34,
     color: "#00D4FF",
     info: { device: "MikroTik RB3011UiAS", ip: "192.168.1.1/24", protocol: "NAT · OSPF", detail: "Gateway utama, firewall, bandwidth management & NAT masquerade" },
   },
@@ -66,7 +76,7 @@ const NODES: TopoNode[] = [
     label: "Switch L3",
     sublabel: "Cisco Catalyst",
     icon: Server,
-    x: 50, y: 65,
+    x: 50, y: 56,
     color: "#818CF8",
     info: { device: "Cisco Catalyst 2960", ip: "192.168.1.2", protocol: "VLAN Trunking 802.1Q", detail: "Distribusi ke 3 VLAN terpisah dengan inter-VLAN routing" },
   },
@@ -75,7 +85,7 @@ const NODES: TopoNode[] = [
     label: "VLAN 10",
     sublabel: "Manajemen",
     icon: Wifi,
-    x: 18, y: 86,
+    x: 20, y: 75,
     color: "#F59E0B",
     info: { device: "Access Point + Admin PC", ip: "10.10.10.0/24", protocol: "VLAN 10", detail: "Jaringan manajemen perangkat & admin internal" },
   },
@@ -84,7 +94,7 @@ const NODES: TopoNode[] = [
     label: "VLAN 20",
     sublabel: "Operasional",
     icon: Wifi,
-    x: 50, y: 86,
+    x: 50, y: 75,
     color: "#EF4444",
     info: { device: "PC Workstation · CCTV", ip: "10.20.20.0/24", protocol: "VLAN 20", detail: "Perangkat operasional lapangan dan monitoring kamera" },
   },
@@ -93,16 +103,16 @@ const NODES: TopoNode[] = [
     label: "VLAN 30",
     sublabel: "Tamu / Guest",
     icon: Wifi,
-    x: 82, y: 86,
+    x: 80, y: 75,
     color: "#A78BFA",
     info: { device: "Access Point Guest", ip: "10.30.30.0/24", protocol: "VLAN 30", detail: "Isolated guest network dengan QoS terbatas 256Kbps per user" },
   },
 ];
 
-const CLIENT_NODES = [
-  { id: "c1", label: "Admin PC", parent: "vlan10", x: 10, y: 96, color: "#F59E0B" },
-  { id: "c2", label: "Workstation", parent: "vlan20", x: 42, y: 96, color: "#EF4444" },
-  { id: "c3", label: "Guest Laptop", parent: "vlan30", x: 74, y: 96, color: "#A78BFA" },
+const CLIENT_NODES: ClientNode[] = [
+  { id: "c1", label: "Admin PC", parent: "vlan10", x: 20, y: 92, color: "#F59E0B", boxWidth: 42 },
+  { id: "c2", label: "Workstation", parent: "vlan20", x: 50, y: 92, color: "#EF4444", boxWidth: 48 },
+  { id: "c3", label: "Guest Laptop", parent: "vlan30", x: 80, y: 92, color: "#A78BFA", boxWidth: 50 },
 ];
 
 const EDGES: Edge[] = [
@@ -129,7 +139,7 @@ export default function NetworkTopologyVisualizer() {
     return null;
   }, []);
 
-  const toSvg = (x: number, y: number) => ({ svgX: (x / 100) * 400, svgY: (y / 100) * 250 });
+  const toSvg = (x: number, y: number) => ({ svgX: (x / 100) * 400, svgY: (y / 100) * 260 });
 
   const simulatePing = useCallback(
     (clientId: string) => {
@@ -186,9 +196,9 @@ export default function NetworkTopologyVisualizer() {
       </div>
 
       {/* SVG Topology Canvas */}
-      <div className="relative bg-navy-950/60 border border-white/5 rounded-xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <div className="relative bg-navy-950/60 border border-white/5 rounded-xl overflow-hidden" style={{ aspectRatio: "16/10" }}>
         <svg
-          viewBox="0 0 400 250"
+          viewBox="0 0 400 260"
           className="w-full h-full"
           style={{ fontFamily: "JetBrains Mono, monospace" }}
         >
@@ -197,10 +207,10 @@ export default function NetworkTopologyVisualizer() {
             <line key={y} x1="0" y1={y} x2="400" y2={y} stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           ))}
           {[80, 160, 240, 320].map((x) => (
-            <line key={x} x1={x} y1="0" x2={x} y2="250" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+            <line key={x} x1={x} y1="0" x2={x} y2="260" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
           ))}
 
-          {/* ── Edges ─────────────────────────── */}
+          {/* ── Edges (Backbone & VLANs) ─────────────────────────── */}
           {EDGES.map((edge) => {
             const from = getNodePos(edge.from);
             const to = getNodePos(edge.to);
@@ -219,7 +229,7 @@ export default function NetworkTopologyVisualizer() {
             );
           })}
 
-          {/* Client → VLAN edges */}
+          {/* Client → VLAN edges (Direct vertical connection) */}
           {CLIENT_NODES.map((c) => {
             const parent = NODES.find((n) => n.id === c.parent)!;
             const { svgX: x1, svgY: y1 } = toSvg(c.x, c.y);
@@ -227,10 +237,10 @@ export default function NetworkTopologyVisualizer() {
             return (
               <line
                 key={`client-${c.id}`}
-                x1={x1} y1={y1} x2={x2} y2={y2}
+                x1={x1} y1={y1 - 8} x2={x2} y2={y2 + 12}
                 stroke={c.color}
-                strokeWidth="1"
-                strokeOpacity="0.3"
+                strokeWidth="1.2"
+                strokeOpacity="0.4"
                 strokeDasharray="2 3"
               />
             );
@@ -252,7 +262,7 @@ export default function NetworkTopologyVisualizer() {
             />
           ))}
 
-          {/* ── Main Nodes ────────────────────── */}
+          {/* ── Main Nodes (Satelit, Router, Switch, 3 VLANs) ────────────────────── */}
           {NODES.map((node) => {
             const { svgX, svgY } = toSvg(node.x, node.y);
             const isHovered = hoveredNode?.id === node.id;
@@ -267,32 +277,36 @@ export default function NetworkTopologyVisualizer() {
               >
                 {/* Glow ring */}
                 {isHovered && (
-                  <circle r="20" fill="none" stroke={node.color} strokeWidth="1" opacity="0.4" />
+                  <circle r="18" fill="none" stroke={node.color} strokeWidth="1" opacity="0.4" />
                 )}
                 {/* Node circle */}
                 <circle
-                  r="14"
+                  r="12"
                   fill={`${node.color}18`}
                   stroke={node.color}
                   strokeWidth={isHovered ? "2" : "1.5"}
                   opacity={isHovered ? 1 : 0.8}
                 />
                 {/* Label */}
-                <text x="0" y="23" textAnchor="middle" fontSize="6" fill={node.color} fontWeight="bold">
+                <text x="0" y="20" textAnchor="middle" fontSize="5.5" fill={node.color} fontWeight="bold">
                   {node.label}
                 </text>
-                <text x="0" y="30" textAnchor="middle" fontSize="5" fill="rgba(255,255,255,0.4)">
+                <text x="0" y="26" textAnchor="middle" fontSize="4.5" fill="rgba(255,255,255,0.4)">
                   {node.sublabel}
                 </text>
               </g>
             );
           })}
 
-          {/* ── Client Nodes (Clickable Ping) ─── */}
+          {/* ── Client Nodes (Clickable Ping Boxes with Dynamic Width) ─── */}
           {CLIENT_NODES.map((client) => {
             const { svgX, svgY } = toSvg(client.x, client.y);
             const isPinging = pinging === client.id;
             const stat = pingStats[client.id];
+            const w = client.boxWidth;
+            const h = 13;
+            const halfW = w / 2;
+            const halfH = h / 2;
 
             return (
               <g
@@ -302,23 +316,47 @@ export default function NetworkTopologyVisualizer() {
                 onClick={() => simulatePing(client.id)}
               >
                 {isPinging && (
-                  <circle r="16" fill="none" stroke={client.color} strokeWidth="1" opacity="0.5">
-                    <animate attributeName="r" values="10;20;10" dur="1s" repeatCount="indefinite" />
-                    <animate attributeName="opacity" values="0.5;0;0.5" dur="1s" repeatCount="indefinite" />
-                  </circle>
+                  <rect
+                    x={-halfW - 3}
+                    y={-halfH - 3}
+                    width={w + 6}
+                    height={h + 6}
+                    rx="5"
+                    fill="none"
+                    stroke={client.color}
+                    strokeWidth="1"
+                    opacity="0.5"
+                  >
+                    <animate attributeName="opacity" values="0.6;0;0.6" dur="0.8s" repeatCount="indefinite" />
+                  </rect>
                 )}
-                <rect x="-12" y="-7" width="24" height="14" rx="3"
-                  fill={`${client.color}20`} stroke={client.color} strokeWidth="1.2" />
-                <text x="0" y="2.5" textAnchor="middle" fontSize="5.5" fill={client.color} fontWeight="bold">
+                <rect
+                  x={-halfW}
+                  y={-halfH}
+                  width={w}
+                  height={h}
+                  rx="3.5"
+                  fill={`${client.color}20`}
+                  stroke={client.color}
+                  strokeWidth="1.2"
+                />
+                <text
+                  x="0"
+                  y="2"
+                  textAnchor="middle"
+                  fontSize="5"
+                  fill={client.color}
+                  fontWeight="bold"
+                >
                   {client.label}
                 </text>
                 {stat && (
-                  <text x="0" y="18" textAnchor="middle" fontSize="4.5" fill={stat.success ? "#00F5A0" : "#EF4444"}>
+                  <text x="0" y="14" textAnchor="middle" fontSize="4" fill={stat.success ? "#00F5A0" : "#EF4444"} fontWeight="bold">
                     {stat.success ? `✓ ${stat.rtt}ms` : "✗ Timeout"}
                   </text>
                 )}
                 {!stat && !isPinging && (
-                  <text x="0" y="18" textAnchor="middle" fontSize="4" fill="rgba(255,255,255,0.25)">
+                  <text x="0" y="14" textAnchor="middle" fontSize="3.8" fill="rgba(255,255,255,0.3)">
                     klik ping
                   </text>
                 )}
@@ -334,7 +372,7 @@ export default function NetworkTopologyVisualizer() {
               initial={{ opacity: 0, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="absolute bottom-3 left-3 right-3 p-3 rounded-xl border border-white/10 bg-navy-950/95 backdrop-blur-md"
+              className="absolute bottom-3 left-3 right-3 p-3 rounded-xl border border-white/10 bg-navy-950/95 backdrop-blur-md z-10"
             >
               <div className="flex items-start gap-2">
                 <Info size={12} className="text-cyan-neon mt-0.5 flex-shrink-0" />
