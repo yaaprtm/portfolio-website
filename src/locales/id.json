@@ -205,22 +205,10 @@
       "imagesNote": "Dokumentasi di bawah ini merupakan gambaran proses pekerjaan di salah satu lokasi (site) dari beberapa site instalasi VSAT yang dikerjakan.",
       "images": [
         {
-          "src": "/case-studies/vsat-installation/01-inspeksi-grounding.jpg",
-          "alt": "Inspeksi dan verifikasi sistem grounding pendukung antena VSAT",
-          "caption": "Inspeksi Sistem Grounding & Keselamatan Perangkat",
-          "description": "Memeriksa penanaman grounding rod dan jalur pentanahan (earth grounding system) yang telah disiapkan oleh tim sebelumnya. Inspeksi ini bertujuan memastikan nilai resistansi grounding memenuhi standar keselamatan guna melindungi perangkat VSAT dari lonjakan arus dan sambaran petir."
-        },
-        {
-          "src": "/case-studies/vsat-installation/02-pointing-antena.jpg",
-          "alt": "Pengecekan sudut elevasi dan pointing antena VSAT BAKTI Kominfo",
-          "caption": "Verifikasi Sudut Elevasi & Pointing Antena Satelit",
-          "description": "Melakukan inspeksi visual dan pengecekan sudut elevasi serta azimut pada antena VSAT BAKTI Kominfo untuk memastikan kemiringan dish dan posisi feedhorn presisi mengarah ke koordinat satelit target sebelum penguncian sinyal (signal locking)."
-        },
-        {
-          "src": "/case-studies/vsat-installation/03-serah-terima.jpg",
-          "alt": "Dokumentasi serah terima pekerjaan bersama Kepala Sekolah SDN 11 Setunggul",
-          "caption": "Serah Terima Pekerjaan & Dokumentasi Bersama Pihak Sekolah",
-          "description": "Sesi dokumentasi akhir dan verifikasi serah terima operasional bersama Kepala Sekolah di SDN 11 Setunggul setelah seluruh proses instalasi perangkat, commissioning modem indoor, dan pengujian konektivitas jaringan VSAT selesai dilaksanakan."
+          "src": "/images/kalimantan.jpg",
+          "alt": "Dokumentasi proyek instalasi & koordinasi lapangan VSAT di Kalimantan Barat",
+          "caption": "Proyek Instalasi & Koordinasi Lapangan VSAT (Kalimantan Barat)",
+          "description": "Asistensi koordinasi proyek instalasi VSAT bersama PT. Telnusa Intrakom, pemantauan progress pekerjaan di lapangan, dan penyusunan dokumentasi teknis."
         }
       ]
     },
@@ -235,14 +223,28 @@
       "imagesNote": "Dokumentasi alur pengembangan aplikasi Android Kebun Raya Cibinong dan sesi koordinasi REST API bersama tim.",
       "images": [
         {
-          "src": "/images/case-studies/brin-internship/01-diskusi-rest-api.jpg",
-          "alt": "Sesi diskusi teknis dan pemetaan endpoint REST API bersama tim backend BRIN",
-          "caption": "Diskusi spesifikasi REST API & pemetaan schema JSON"
+          "src": "/images/aplikasi-brin.jpg",
+          "alt": "UI/UX & Modul Interface Android Client Kebun Raya Cibinong",
+          "caption": "Tampilan Antarmuka (UI/UX) App Mobile Kebun Raya Cibinong",
+          "description": "Implementation antarmuka (front-end) aplikasi Android Native menggunakan Material Design 3 untuk dashboard sistem SIMPEL!"
         },
         {
-          "src": "/images/case-studies/brin-internship/02-aplikasi-android.jpg",
-          "alt": "Tampilan antarmuka aplikasi Android Kebun Raya Cibinong BRIN",
-          "caption": "Antarmuka aplikasi Android Kebun Raya Cibinong"
+          "src": "/images/mengintegrasikan-api-ke-aplikasi.jpg",
+          "alt": "RESTful API Integration & Network Payload Testing via Postman",
+          "caption": "Pengujian Payload Endpoint POST Multipart REST API via Postman",
+          "description": "Proses API testing & payload validation menggunakan Postman HTTP client pada endpoint POST /api/v1/laporan untuk multipart/form-data"
+        },
+        {
+          "src": "/images/diskusi-bersama.jpg",
+          "alt": "System Architecture & Data Schema Mapping Session bersama tim developer BRIN",
+          "caption": "Sesi Diskusi Arsitektur Sistem & Perancangan JSON Schema API",
+          "description": "Sesi brainstorming & architectural mapping bersama tim developer untuk menentukan JSON Schema contract dan alur logika bisnis"
+        },
+        {
+          "src": "/images/foto-bersama-team.jpg",
+          "alt": "Cross-Functional Software Engineering Team Collaboration di BRIN",
+          "caption": "Dokumentasi Kolaborasi Tim Pengembang Lintas Peran di BRIN",
+          "description": "Dokumentasi sinergi tim pengembang cross-functional (1 Android, 1 Frontend, 2 Backend) selama riset magang di BRIN"
         }
       ]
     }
