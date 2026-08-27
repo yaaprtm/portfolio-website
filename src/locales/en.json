@@ -205,10 +205,22 @@
       "imagesNote": "The documentation below highlights the field installation process at one of the several project sites.",
       "images": [
         {
-          "src": "/images/kalimantan.jpg",
-          "alt": "VSAT installation & field coordination project documentation in West Kalimantan",
-          "caption": "VSAT Field Installation & Coordination Project (West Kalimantan)",
-          "description": "Field coordination assistance for VSAT installation project with PT. Telnusa Intrakom, field progress monitoring, and technical documentation."
+          "src": "/case-studies/vsat-installation/01-inspeksi-grounding.jpg",
+          "alt": "Grounding system and surge protection inspection for VSAT setup",
+          "caption": "Grounding System Inspection & Surge Protection Check",
+          "description": "Inspecting the ground rod installation and earth grounding pathways prepared by the previous team to ensure low resistance levels and verify compliance with surge protection standards for VSAT equipment."
+        },
+        {
+          "src": "/case-studies/vsat-installation/02-pointing-antena.jpg",
+          "alt": "Elevation angle check for VSAT antenna alignment toward the satellite",
+          "caption": "Elevation Angle Verification & Antenna Pointing Check",
+          "description": "Conducting a visual inspection and checking the elevation/azimuth angle of the BAKTI Kominfo VSAT antenna to ensure dish inclination and feedhorn alignment precisely target the satellite coordinates."
+        },
+        {
+          "src": "/case-studies/vsat-installation/03-serah-terima.jpg",
+          "alt": "Project handoff and final testing session with SDN 11 Setunggul Principal",
+          "caption": "Project Handover & Handoff Photo with School Principal",
+          "description": "Final documentation and operational handover session with the school principal at SDN 11 Setunggul upon completing the VSAT installation, indoor unit commissioning, and connectivity testing."
         }
       ]
     },
