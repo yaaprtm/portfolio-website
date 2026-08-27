@@ -83,7 +83,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                     <div className="text-center pt-2">
                       <span className="px-3 py-1 rounded-full bg-cyan-soft text-cyan-neon font-mono text-[9px]">
-                        Android Native · Kotlin
+                        Android Native · Java
                       </span>
                     </div>
                   </div>

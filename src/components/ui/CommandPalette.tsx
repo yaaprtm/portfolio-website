@@ -280,7 +280,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
                   setQuery(e.target.value);
                   play("type");
                 }}
-                placeholder="Ketik perintah atau cari... (CV, Kotlin, VSAT, bahasa...)"
+                placeholder="Ketik perintah atau cari... (CV, Java, VSAT, bahasa...)"
                 className="w-full bg-transparent text-sm text-slate-100 placeholder-slate-500 focus:outline-none font-mono"
               />
               <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-slate-400 border border-white/10 flex-shrink-0">

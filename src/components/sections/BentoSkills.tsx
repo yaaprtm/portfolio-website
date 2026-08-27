@@ -27,7 +27,7 @@ const networkingSkills = [
 ];
 
 const androidSkills = [
-  "Android Native (Kotlin/Java)",
+  "Android Native (Java)",
   "REST API Integration",
   "Git & Team Workflow",
   "Material Design 3",

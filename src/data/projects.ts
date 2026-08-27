@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "Aplikasi Android interaktif yang dikembangkan saat magang di Badan Riset dan Inovasi Nasional (BRIN) dalam tim 4 orang (1 Frontend, 2 Backend, 1 Android Developer). Memudahkan pengunjung mengakses informasi kebun raya dan ekosistem digitalnya.",
     image: "/images/aplikasi-brin.jpg",
     imageOrientation: "portrait",
-    techStack: ["Android", "Kotlin", "Java", "REST API", "Git"],
+    techStack: ["Android", "Java", "REST API", "Git"],
     featured: true,
     category: "android",
     slug: "kebun-raya-cibinong",

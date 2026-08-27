@@ -41,7 +41,7 @@ export const skillCategories: SkillCategory[] = [
     accentColor: "#8B5CF6",
     skills: [
       { name: "Android App Development", level: "intermediate" },
-      { name: "Kotlin / Java", level: "intermediate" },
+      { name: "Java (Android Development)", level: "intermediate" },
       { name: "REST API Integration", level: "intermediate" },
       { name: "Git & Version Control", level: "intermediate" },
       { name: "Programming Logic", level: "intermediate" },

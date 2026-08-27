@@ -40,7 +40,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     period: "Juni 2024 – Agustus 2024 (2 Bulan)",
     role: "Android Developer Intern",
     team: "Tim 4 Orang (1 Android Dev - Arya, 1 Frontend Web, 2 Backend)",
-    technologies: ["Android Native", "Kotlin", "Java", "REST API Integration", "Git / GitHub", "Material Design 3"],
+    technologies: ["Android Native", "Java", "REST API Integration", "Git / GitHub", "Material Design 3"],
     summary:
       "Selama program magang 2 bulan di Badan Riset dan Inovasi Nasional (BRIN), saya bertanggung jawab penuh sebagai tunggal Android Developer dalam tim beranggotakan 4 orang untuk membangun aplikasi mobile resmi Kebun Raya Cibinong.",
     problem:

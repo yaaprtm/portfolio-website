@@ -22,7 +22,7 @@ const placeholderGradients = [
 
 function getBadgeVariant(tech: string): "cyan" | "blue" | "green" | "amber" | "default" {
   const t = tech.toLowerCase();
-  if (t.includes("kotlin") || t.includes("android")) return "green";
+  if (t.includes("java") || t.includes("android")) return "green";
   if (t.includes("react") || t.includes("next")) return "blue";
   if (t.includes("cisco") || t.includes("mikrotik") || t.includes("vlan")) return "cyan";
   return "default";
@@ -73,7 +73,7 @@ export default function Projects() {
               setSearchQuery(e.target.value);
               play("type");
             }}
-            placeholder="Cari proyek... (contoh: Kotlin, VSAT, Android)"
+            placeholder="Cari proyek... (contoh: Java, VSAT, Android)"
             className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-9 py-2.5 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-neon/40 focus:bg-white/[0.05] transition-all"
           />
           <AnimatePresence>

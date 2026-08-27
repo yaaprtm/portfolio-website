@@ -32,7 +32,7 @@ export const workExperiences: Experience[] = [
       "Berkolaborasi dengan tim frontend dan backend dalam pengembangan ekosistem digital Kebun Raya Cibinong.",
       "Membangun fitur-fitur utama aplikasi menggunakan teknologi Android native.",
     ],
-    technologies: ["Android", "Kotlin", "Java", "REST API", "Git"],
+    technologies: ["Android", "Java", "REST API", "Git"],
   },
   {
     id: 2,

@@ -43,7 +43,7 @@ const caseStudyItems: StarItem[] = [
   {
     id: "brin",
     icon: Code2,
-    techs: ["Android Native", "Kotlin / Java", "REST API", "JSON Schema", "Git"],
+    techs: ["Android Native", "Java", "REST API", "JSON Schema", "Git"],
   },
 ];
 
