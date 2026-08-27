@@ -122,26 +122,34 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                 <div className="space-y-3 text-xs">
                   <div className="bg-white/[0.02] p-3 rounded-lg border border-white/5">
                     <div className="flex justify-between font-mono text-slate-300 font-semibold mb-1">
-                      <span>IT Maintenance — Digital Solusindo</span>
-                      <span className="text-slate-500">Mar 2025 - Present</span>
+                      <span>Android Developer Intern — BRIN</span>
+                      <span className="text-slate-500">Juli 2026 - Agu 2026</span>
                     </div>
-                    <p className="text-slate-400">Pemeliharaan perangkat jaringan, troubleshooting hardware/software, dan instalasi sistem.</p>
+                    <p className="text-slate-400">Pengembangan aplikasi mobile Kebun Raya Cibinong dalam tim 4 orang (1 FE, 2 BE, 1 Android).</p>
                   </div>
 
                   <div className="bg-white/[0.02] p-3 rounded-lg border border-white/5">
                     <div className="flex justify-between font-mono text-slate-300 font-semibold mb-1">
-                      <span>IT Support Technician — ID-Networkers</span>
+                      <span>IT Support — PT. Trima Anugrah Sejahtera</span>
+                      <span className="text-slate-500">Mar 2025 - Juli 2026</span>
+                    </div>
+                    <p className="text-slate-400">Pemeliharaan dasar komputer dan jaringan rutin, troubleshooting hardware/software, instalasi OS.</p>
+                  </div>
+
+                  <div className="bg-white/[0.02] p-3 rounded-lg border border-white/5">
+                    <div className="flex justify-between font-mono text-slate-300 font-semibold mb-1">
+                      <span>IT Support — ID-Networkers</span>
                       <span className="text-slate-500">Des 2024 - Mar 2025</span>
                     </div>
-                    <p className="text-slate-400">Troubleshooting teknis pengguna, maintenance perangkat jaringan & infrastruktur IT.</p>
+                    <p className="text-slate-400">Troubleshooting teknis, maintenance perangkat jaringan & infrastruktur IT operasional.</p>
                   </div>
 
                   <div className="bg-white/[0.02] p-3 rounded-lg border border-white/5">
                     <div className="flex justify-between font-mono text-slate-300 font-semibold mb-1">
-                      <span>Android Developer Intern — Badan Riset dan Inovasi Nasional (BRIN)</span>
-                      <span className="text-slate-500">2024 · 2 Bulan</span>
+                      <span>Assistant Project Manager — PT. Telnusa Intrakom</span>
+                      <span className="text-slate-500">Desember 2023</span>
                     </div>
-                    <p className="text-slate-400">Bekerja dalam tim 4 orang (1 FE, 2 BE, 1 Android) membangun aplikasi mobile & web Kebun Raya Cibinong.</p>
+                    <p className="text-slate-400">Koordinasi lapangan instalasi VSAT di Kalimantan Barat, pemantauan progress & dokumentasi teknis.</p>
                   </div>
                 </div>
               </div>

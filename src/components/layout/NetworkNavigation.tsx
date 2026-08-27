@@ -26,6 +26,8 @@ import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import LanguageToggle from "@/components/ui/LanguageToggle";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
+import SoundToggle from "@/components/ui/SoundToggle";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export interface NodeItem {
   id: string;
@@ -60,6 +62,7 @@ export default function NetworkNavigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [cmdOpen, setCmdOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
+  const { play } = useSoundEffects();
 
   // Scroll detection for homepage sections
   useEffect(() => {
@@ -91,6 +94,7 @@ export default function NetworkNavigation() {
 
   const handleNodeClick = (node: NodeItem) => {
     setMobileOpen(false);
+    play("ping");
 
     // Packet Animation
     const fromNode = topologyNodes.find((n) => n.id === activeNode) || topologyNodes[0];
@@ -273,6 +277,7 @@ export default function NetworkNavigation() {
 
               <LanguageToggle />
               <DarkModeToggle />
+              <SoundToggle />
               <ThemeSwitcher />
             </div>
           </div>
@@ -312,6 +317,7 @@ export default function NetworkNavigation() {
 
           <LanguageToggle />
           <DarkModeToggle />
+          <SoundToggle />
           <ThemeSwitcher />
 
           <button

@@ -15,6 +15,7 @@ import {
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/context/LanguageContext";
+import NetworkTopologyVisualizer from "@/components/ui/NetworkTopologyVisualizer";
 
 const networkingSkills = [
   { name: "MikroTik (MTCNA 88%)", levelKey: "Expert" as const },
@@ -146,6 +147,19 @@ export default function BentoSkills() {
               {pinging ? t.skills.networking.pinging : t.skills.networking.testLatency}
             </button>
           </div>
+        </motion.div>
+
+        {/* ============================================================
+            BENTO CARD: Interactive Network Topology Visualizer (Full Width)
+           ============================================================ */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 glass-card p-5 sm:p-6 skill-card border border-white/10 overflow-hidden"
+        >
+          <NetworkTopologyVisualizer />
         </motion.div>
 
         {/* ============================================================

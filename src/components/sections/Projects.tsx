@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FolderGit2, ExternalLink, Github, Eye, ArrowRight, BookOpen } from "lucide-react";
+import { FolderGit2, ExternalLink, Github, Eye, ArrowRight, BookOpen, Search, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import SectionWrapper from "@/components/ui/SectionWrapper";
@@ -11,6 +11,7 @@ import Badge from "@/components/ui/Badge";
 import { projects, Project } from "@/data/projects";
 import ProjectModal from "@/components/ui/ProjectModal";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 const placeholderGradients = [
   "from-emerald-950/40 via-navy-900 to-navy-800",
@@ -29,7 +30,9 @@ function getBadgeVariant(tech: string): "cyan" | "blue" | "green" | "amber" | "d
 
 export default function Projects() {
   const { t } = useLanguage();
+  const { play } = useSoundEffects();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = [
@@ -39,10 +42,17 @@ export default function Projects() {
     { id: "other", label: t.projects.categories.other },
   ];
 
-  const filteredProjects =
-    activeCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  const filteredProjects = projects
+    .filter((p) => activeCategory === "all" || p.category === activeCategory)
+    .filter((p) => {
+      if (!searchQuery.trim()) return true;
+      const q = searchQuery.toLowerCase();
+      return (
+        p.title.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.techStack.some((tech) => tech.toLowerCase().includes(q))
+      );
+    });
 
   return (
     <SectionWrapper id="projects">
@@ -52,12 +62,42 @@ export default function Projects() {
         subtitle={t.projects.subtitle}
       />
 
+      {/* Live Search Bar */}
+      <div className="relative max-w-md mx-auto mb-6">
+        <div className="relative flex items-center">
+          <Search size={15} className="absolute left-3.5 text-slate-500 pointer-events-none" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              play("type");
+            }}
+            placeholder="Cari proyek... (contoh: Kotlin, VSAT, Android)"
+            className="w-full bg-white/[0.03] border border-white/10 rounded-xl pl-10 pr-9 py-2.5 text-xs font-mono text-slate-200 placeholder-slate-600 focus:outline-none focus:border-cyan-neon/40 focus:bg-white/[0.05] transition-all"
+          />
+          <AnimatePresence>
+            {searchQuery && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                onClick={() => { setSearchQuery(""); play("click"); }}
+                className="absolute right-3 text-slate-500 hover:text-slate-200 transition-colors"
+              >
+                <X size={14} />
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
       {/* Category Filter Tabs */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
         {categories.map((cat) => (
           <button
             key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
+            onClick={() => { setActiveCategory(cat.id); play("click"); }}
             className={`relative px-4 py-2 rounded-xl text-xs font-mono transition-all ${
               activeCategory === cat.id
                 ? "text-[var(--color-cyan-text)] font-bold bg-cyan-neon shadow-lg"
@@ -72,6 +112,26 @@ export default function Projects() {
       {/* Grid of Projects */}
       <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <AnimatePresence>
+          {filteredProjects.length === 0 && (
+            <motion.div
+              key="empty"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="col-span-2 py-16 text-center"
+            >
+              <Search size={32} className="mx-auto mb-4 text-slate-700" />
+              <p className="text-slate-500 font-mono text-sm">
+                Tidak ada proyek yang cocok dengan &ldquo;{searchQuery}&rdquo;
+              </p>
+              <button
+                onClick={() => { setSearchQuery(""); setActiveCategory("all"); play("click"); }}
+                className="mt-4 text-xs font-mono text-cyan-neon hover:underline"
+              >
+                Reset pencarian
+              </button>
+            </motion.div>
+          )}
           {filteredProjects.map((project, idx) => {
             const hasCaseStudy = Boolean(project.hasCaseStudy && project.slug);
 
