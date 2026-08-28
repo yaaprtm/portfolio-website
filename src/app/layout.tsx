@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-jetbrains-mono",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -84,19 +84,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`scroll-smooth ${inter.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        {/* Anti-FOUC Theme Init Script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var m=localStorage.getItem("portfolio-theme-mode");if(m==="light"||(!m&&window.matchMedia("(prefers-color-scheme: light)").matches)){document.documentElement.classList.add("light");}}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body className="bg-navy-950 text-slate-200 antialiased">
+    <html lang="id" className={`scroll-smooth ${inter.variable} ${plusJakartaSans.variable}`}>
+      <body className="bg-offwhite text-warm-dark antialiased font-sans">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
 }
-

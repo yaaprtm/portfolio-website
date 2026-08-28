@@ -26,30 +26,28 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative border-t border-white/5 bg-navy-950/80">
-      <div className="section-line" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+    <footer className="relative border-t border-warm-dark/10 bg-[#E8E4DD]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           <div>
-            <span className="font-bold text-slate-100 tracking-wider text-base mb-2 block">
+            <span className="font-display font-extrabold text-warm-dark uppercase tracking-tight text-xl mb-3 block">
               Arya Putra Pratama
             </span>
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="text-warm-gray text-xs leading-relaxed max-w-sm font-medium">
               {t.footer.desc}
             </p>
           </div>
 
           <div>
-            <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-olive-500 mb-4">
               {t.footer.navigation}
             </h3>
-            <ul className="grid grid-cols-2 gap-1.5">
+            <ul className="grid grid-cols-2 gap-2">
               {navKeys.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-cyan-neon text-xs transition-colors font-mono"
+                    className="text-warm-gray hover:text-warm-dark text-xs font-semibold uppercase tracking-wider transition-colors"
                   >
                     {t.nav[link.key]}
                   </Link>
@@ -58,7 +56,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/notes"
-                  className="text-slate-400 hover:text-cyan-neon text-xs transition-colors font-mono"
+                  className="text-warm-gray hover:text-warm-dark text-xs font-semibold uppercase tracking-wider transition-colors"
                 >
                   Catatan Teknis
                 </Link>
@@ -66,7 +64,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/print"
-                  className="text-cyan-neon hover:underline text-xs transition-colors font-mono font-semibold"
+                  className="text-olive-500 hover:underline text-xs font-bold uppercase tracking-wider transition-colors"
                 >
                   📄 {t.common.printPortfolio}
                 </Link>
@@ -75,7 +73,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-mono text-xs text-slate-500 uppercase tracking-widest mb-4">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-olive-500 mb-4">
               {t.footer.social}
             </h3>
             <div className="flex gap-3">
@@ -88,9 +86,8 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -2 }}
-                    className="w-9 h-9 rounded-xl border border-white/10 flex items-center justify-center
-                               text-slate-400 hover:text-cyan-neon hover:border-cyan-neon/30
-                               hover:bg-cyan-soft transition-all"
+                    className="w-10 h-10 rounded-full bg-[#F0EEE9] border border-warm-dark/10 flex items-center justify-center
+                               text-warm-dark hover:bg-olive-500 hover:text-white hover:border-olive-500 transition-all"
                     aria-label={social.label}
                   >
                     <Icon size={16} />
@@ -101,13 +98,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-slate-500 text-xs font-mono">
+        <div className="border-t border-warm-dark/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-warm-gray text-xs font-semibold uppercase tracking-wider">
             © {new Date().getFullYear()} Arya Putra Pratama. {t.footer.copyright}
           </p>
-          <p className="text-slate-500 text-xs font-mono flex items-center gap-1">
+          <p className="text-warm-gray text-xs font-semibold uppercase tracking-wider flex items-center gap-1">
             {t.footer.builtWith}{" "}
-            <Heart size={10} className="text-red-400 fill-red-400 mx-0.5" />
+            <Heart size={12} className="text-olive-500 fill-olive-500 mx-0.5" />
             using Next.js &amp; Tailwind CSS
           </p>
         </div>

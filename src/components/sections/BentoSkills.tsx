@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Network,
@@ -8,17 +7,14 @@ import {
   Wrench,
   Users,
   CheckCircle2,
-  Activity,
   Layers,
-  Radio,
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { useLanguage } from "@/context/LanguageContext";
-import NetworkTopologyVisualizer from "@/components/ui/NetworkTopologyVisualizer";
 
 const networkingSkills = [
-  { name: "MikroTik (MTCNA 88%)", levelKey: "Expert" as const },
+  { name: "MikroTik (MTCNA Certified)", levelKey: "Expert" as const },
   { name: "Cisco & Packet Tracer", levelKey: "Advanced" as const },
   { name: "Routing & Switching", levelKey: "Advanced" as const },
   { name: "Network Troubleshooting", levelKey: "Advanced" as const },
@@ -27,17 +23,17 @@ const networkingSkills = [
 ];
 
 const androidSkills = [
-  "Android Native (Java)",
+  "Android Native (Java & Kotlin)",
   "REST API Integration",
   "Git & Team Workflow",
   "Material Design 3",
 ];
 
 const itSupportSkills = [
-  "Hardware & Software Repair",
+  "Hardware & Software Maintenance",
   "Windows OS Deployment",
-  "Network Maintenance",
-  "System Diagnostics",
+  "Network Diagnostics & Support",
+  "System Troubleshooting",
 ];
 
 const devTools = [
@@ -52,66 +48,55 @@ const devTools = [
 
 export default function BentoSkills() {
   const { t } = useLanguage();
-  const [pinging, setPinging] = useState(false);
-  const [latency, setLatency] = useState<number | null>(null);
-
-  const simulatePing = () => {
-    setPinging(true);
-    setLatency(null);
-    setTimeout(() => {
-      setLatency(Math.floor(Math.random() * 12) + 8);
-      setPinging(false);
-    }, 800);
-  };
 
   return (
-    <SectionWrapper id="skills">
+    <SectionWrapper id="skills" className="bg-[#F0EEE9]">
       <SectionHeading
         tag={t.skills.tag}
         title={t.skills.title}
         subtitle={t.skills.subtitle}
       />
 
-      {/* Asymmetric Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {/* Asymmetric Editorial Bento Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* ============================================================
-            BENTO CARD 1: Networking & Infrastructure (Large Feature Card)
+            BENTO CARD 1: Networking & Infrastructure Architecture
            ============================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="md:col-span-2 lg:col-span-2 glass-card p-6 sm:p-8 flex flex-col justify-between group relative overflow-hidden skill-card border border-white/10"
+          className="md:col-span-2 lg:col-span-2 editorial-card p-6 sm:p-8 flex flex-col justify-between"
         >
-          <div className="relative z-10">
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center">
-                <Network size={24} className="text-cyan-neon" />
+          <div>
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center">
+                <Network size={24} className="text-olive-500" />
               </div>
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-warm-card border border-warm-dark/10 text-olive-500">
                 {t.skills.networking.badge}
               </span>
             </div>
 
-            <h3 className="text-xl font-bold text-slate-100 mb-2">
+            <h3 className="font-display font-extrabold text-2xl text-warm-dark mb-3">
               {t.skills.networking.title}
             </h3>
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+            <p className="text-warm-gray text-sm leading-relaxed mb-6">
               {t.skills.networking.desc}
             </p>
 
             {/* Skill Badges List */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               {networkingSkills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex items-center gap-2 group-hover:border-cyan-neon/30 transition-colors"
+                  className="p-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 flex items-center gap-3"
                 >
-                  <CheckCircle2 size={14} className="text-cyan-neon flex-shrink-0" />
+                  <CheckCircle2 size={16} className="text-olive-500 flex-shrink-0" />
                   <div className="min-w-0">
-                    <p className="text-slate-200 text-xs font-medium truncate">{skill.name}</p>
-                    <p className="text-slate-500 text-[10px] font-mono">
+                    <p className="text-warm-dark text-xs font-bold truncate">{skill.name}</p>
+                    <p className="text-warm-muted text-[11px] font-medium uppercase tracking-wider">
                       {t.skills.networking.levels[skill.levelKey]}
                     </p>
                   </div>
@@ -119,47 +104,6 @@ export default function BentoSkills() {
               ))}
             </div>
           </div>
-
-          {/* Interactive Latency Simulator Widget */}
-          <div className="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between flex-wrap gap-3 bg-white/[0.02] p-3 rounded-xl">
-            <div className="flex items-center gap-2">
-              <Activity size={16} className="text-cyan-neon" />
-              <span className="text-xs font-mono text-slate-300">
-                {t.skills.networking.simulatorLabel}
-              </span>
-              {latency !== null ? (
-                <span className="text-xs font-mono text-cyan-neon font-bold">
-                  {latency}{t.skills.networking.optimal}
-                </span>
-              ) : (
-                <span className="text-xs font-mono text-slate-500">
-                  {t.skills.networking.ready}
-                </span>
-              )}
-            </div>
-
-            <button
-              onClick={simulatePing}
-              disabled={pinging}
-              className="btn-primary px-3 py-1.5 rounded-lg text-xs font-mono flex items-center gap-1.5 disabled:opacity-50 min-h-[36px]"
-            >
-              <Radio size={12} className={pinging ? "animate-spin" : ""} />
-              {pinging ? t.skills.networking.pinging : t.skills.networking.testLatency}
-            </button>
-          </div>
-        </motion.div>
-
-        {/* ============================================================
-            BENTO CARD: Interactive Network Topology Visualizer (Full Width)
-           ============================================================ */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 glass-card p-5 sm:p-6 skill-card border border-white/10 overflow-hidden"
-        >
-          <NetworkTopologyVisualizer />
         </motion.div>
 
         {/* ============================================================
@@ -170,30 +114,34 @@ export default function BentoSkills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="glass-card p-6 flex flex-col justify-between skill-card border border-white/10"
+          className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4">
-              <Smartphone size={20} className="text-cyan-neon" />
+            <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center mb-6">
+              <Smartphone size={22} className="text-olive-500" />
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.android.title}</h3>
-            <p className="text-slate-400 text-xs leading-relaxed mb-4">
+            <h3 className="font-display font-extrabold text-xl text-warm-dark mb-3">
+              {t.skills.android.title}
+            </h3>
+            <p className="text-warm-gray text-xs leading-relaxed mb-5">
               {t.skills.android.desc}
             </p>
 
-            <div className="space-y-2 mb-4">
+            <div className="space-y-2.5 mb-6">
               {androidSkills.map((tech) => (
-                <div key={tech} className="flex items-center gap-2 text-xs text-slate-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-neon" />
+                <div key={tech} className="flex items-center gap-2.5 text-xs font-semibold text-warm-dark">
+                  <span className="w-2 h-2 rounded-full bg-olive-500" />
                   <span>{tech}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-3 border-t border-white/5">
-            <span className="text-[11px] font-mono text-cyan-neon">kebun-raya-cibinong.apk</span>
+          <div className="pt-4 border-t border-warm-dark/10">
+            <span className="text-xs font-bold text-olive-500 tracking-wider uppercase">
+              BRIN Kebun Raya App
+            </span>
           </div>
         </motion.div>
 
@@ -205,53 +153,61 @@ export default function BentoSkills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="glass-card p-6 flex flex-col justify-between skill-card border border-white/10"
+          className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center mb-4">
-              <Wrench size={20} className="text-cyan-neon" />
+            <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center mb-6">
+              <Wrench size={22} className="text-olive-500" />
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.itSupport.title}</h3>
-            <p className="text-slate-400 text-xs leading-relaxed mb-4">
+            <h3 className="font-display font-extrabold text-xl text-warm-dark mb-3">
+              {t.skills.itSupport.title}
+            </h3>
+            <p className="text-warm-gray text-xs leading-relaxed mb-5">
               {t.skills.itSupport.desc}
             </p>
 
-            <div className="space-y-2 mb-4">
+            <div className="space-y-2.5 mb-6">
               {itSupportSkills.map((item) => (
-                <div key={item} className="flex items-center gap-2 text-xs text-slate-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-neon" />
+                <div key={item} className="flex items-center gap-2.5 text-xs font-semibold text-warm-dark">
+                  <span className="w-2 h-2 rounded-full bg-olive-500" />
                   <span>{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="pt-3 border-t border-white/5">
-            <span className="text-[11px] font-mono text-slate-400">Digital Solusindo & ID-Networkers</span>
+          <div className="pt-4 border-t border-warm-dark/10">
+            <span className="text-xs font-bold text-warm-muted tracking-wider uppercase">
+              Field & Enterprise Support
+            </span>
           </div>
         </motion.div>
 
         {/* ============================================================
-            BENTO CARD 4: Tools & Dev Ecosystem
+            BENTO CARD 4: Tools & Developer Ecosystem
            ============================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="md:col-span-2 lg:col-span-2 glass-card p-6 flex flex-col justify-between skill-card border border-white/10"
+          className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
-                <Layers size={20} className="text-cyan-neon" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center">
+                <Layers size={22} className="text-olive-500" />
               </div>
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">{t.skills.tools.badge}</span>
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-warm-card border border-warm-dark/10 text-olive-500">
+                {t.skills.tools.badge}
+              </span>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-2">{t.skills.tools.title}</h3>
-            <p className="text-slate-400 text-xs leading-relaxed mb-5">
+            <h3 className="font-display font-extrabold text-xl text-warm-dark mb-3">
+              {t.skills.tools.title}
+            </h3>
+            <p className="text-warm-gray text-xs leading-relaxed mb-5">
               {t.skills.tools.desc}
             </p>
 
@@ -259,7 +215,7 @@ export default function BentoSkills() {
               {devTools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/10 text-xs font-mono text-slate-300 hover:border-white/30 transition-colors"
+                  className="px-3 py-1.5 rounded-full bg-[#F0EEE9] border border-warm-dark/10 text-xs font-semibold text-warm-dark"
                 >
                   {tool}
                 </span>
@@ -269,33 +225,37 @@ export default function BentoSkills() {
         </motion.div>
 
         {/* ============================================================
-            BENTO CARD 5: Soft Skills & Interpersonal Competencies
+            BENTO CARD 5: Interpersonal Competencies
            ============================================================ */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="md:col-span-2 lg:col-span-2 glass-card p-6 flex flex-col justify-between skill-card border border-white/10"
+          className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center">
-                <Users size={20} className="text-cyan-neon" />
+            <div className="flex items-center justify-between mb-6">
+              <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center">
+                <Users size={22} className="text-olive-500" />
               </div>
-              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/[0.04] text-slate-300 border border-white/10 shadow-sm">{t.skills.softSkills.badge}</span>
+              <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-warm-card border border-warm-dark/10 text-olive-500">
+                {t.skills.softSkills.badge}
+              </span>
             </div>
 
-            <h3 className="text-lg font-bold text-slate-100 mb-3">{t.skills.softSkills.title}</h3>
+            <h3 className="font-display font-extrabold text-xl text-warm-dark mb-3">
+              {t.skills.softSkills.title}
+            </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+            <div className="space-y-3">
               {t.skills.softSkills.items.map((item) => (
-                <div key={item.title} className="p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                  <p className="text-cyan-neon font-mono text-xs font-bold mb-1 flex items-center gap-1.5">
-                    <CheckCircle2 size={13} className="text-cyan-neon flex-shrink-0" />
+                <div key={item.title} className="p-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10">
+                  <p className="text-olive-500 font-display text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                    <CheckCircle2 size={14} className="text-olive-500 flex-shrink-0" />
                     <span>{item.title}</span>
                   </p>
-                  <p className="text-slate-300 text-xs leading-relaxed">{item.desc}</p>
+                  <p className="text-warm-gray text-xs leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

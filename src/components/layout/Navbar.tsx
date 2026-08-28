@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
-import DarkModeToggle from "@/components/ui/DarkModeToggle";
 import LanguageToggle from "@/components/ui/LanguageToggle";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
@@ -17,6 +15,7 @@ const navKeys = [
   { key: "skills", href: "#skills" },
   { key: "projects", href: "#projects" },
   { key: "experience", href: "#experience" },
+  { key: "education", href: "#education" },
   { key: "certifications", href: "#certifications" },
   { key: "contact", href: "#contact" },
 ] as const;
@@ -72,55 +71,51 @@ export default function Navbar() {
       <motion.header
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           scrolled
-            ? "bg-navy-950/85 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/30"
+            ? "bg-[#F0EEE9]/90 backdrop-blur-md border-b border-warm-dark/10 shadow-sm"
             : "bg-transparent"
         )}
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Left Quick Tools: Live CV + Command Palette */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setCvOpen(true)}
-                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all flex items-center gap-1.5"
-              >
-                <FileText size={14} className="text-cyan-neon" />
-                <span className="hidden sm:inline">{t.nav.previewCV}</span>
-              </button>
-
-              <button
-                onClick={() => setCmdOpen(true)}
-                className="px-3 py-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-xs font-mono text-slate-400 hover:text-slate-200 transition-all hidden sm:flex items-center gap-2"
-                title="Tekan Ctrl+K"
-              >
-                <Command size={13} />
-                <span>{t.nav.command}</span>
-                <kbd className="px-1.5 py-0.5 rounded text-[9px] bg-white/10 text-slate-400">Ctrl K</kbd>
-              </button>
-            </div>
+          <div className="flex items-center justify-between h-20">
+            {/* Brand Title */}
+            <a
+              href="#home"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#home");
+              }}
+              className="flex flex-col group cursor-pointer"
+            >
+              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-warm-dark group-hover:text-olive-500 transition-colors uppercase">
+                Arya Putra Pratama
+              </span>
+              <span className="text-[10px] tracking-widest uppercase font-semibold text-olive-500 -mt-1">
+                Editorial Portfolio
+              </span>
+            </a>
 
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-1 sm:gap-2">
+            <ul className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navKeys.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3 py-1.5 text-xs sm:text-sm font-medium font-mono transition-all duration-200 rounded-md",
+                      "relative px-3 py-1.5 text-xs font-semibold tracking-wider uppercase transition-all duration-200",
                       activeSection === link.href.slice(1)
-                        ? "text-cyan-neon"
-                        : "text-slate-400 hover:text-slate-200"
+                        ? "text-olive-500 font-bold"
+                        : "text-warm-gray hover:text-warm-dark"
                     )}
                   >
                     {activeSection === link.href.slice(1) && (
                       <motion.span
-                        layoutId="nav-pill"
-                        className="absolute inset-0 bg-cyan-soft rounded-md border border-cyan-neon/30"
-                        transition={{ type: "spring", duration: 0.4 }}
+                        layoutId="active-nav-underline"
+                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-olive-500"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
                     <span className="relative z-10">{t.nav[link.key]}</span>
@@ -129,61 +124,70 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Right Tools: Language Toggle + Dark Mode Toggle + Theme Switcher + Mobile Menu */}
-            <div className="flex items-center gap-2">
+            {/* Right Utility Buttons */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                onClick={() => setCvOpen(true)}
+                className="px-3.5 py-1.5 rounded-full border border-warm-dark/20 text-xs font-semibold text-warm-dark hover:border-olive-500 hover:text-olive-500 transition-all hidden sm:flex items-center gap-1.5"
+              >
+                <FileText size={13} className="text-olive-500" />
+                <span>{t.nav.previewCV}</span>
+              </button>
+
+              <button
+                onClick={() => setCmdOpen(true)}
+                className="p-2 rounded-full border border-warm-dark/15 text-warm-gray hover:text-warm-dark hover:border-warm-dark/40 transition-all hidden sm:flex items-center"
+                title="Command Palette (Ctrl+K)"
+              >
+                <Command size={14} />
+              </button>
+
               <LanguageToggle />
-              <DarkModeToggle />
-              <ThemeSwitcher />
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2 rounded-xl text-slate-400 hover:text-cyan-neon hover:bg-white/5 transition-all"
-                aria-label="Toggle navigation menu"
+                className="lg:hidden p-2 rounded-full text-warm-dark hover:bg-warm-card transition-all"
+                aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
         </nav>
       </motion.header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-y-0 right-0 z-40 w-72 bg-navy-900/95 backdrop-blur-xl border-l border-white/5 md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-x-0 top-20 z-30 bg-[#F0EEE9] border-b border-warm-dark/10 shadow-xl lg:hidden p-6"
           >
-            <div className="flex flex-col pt-20 px-6 gap-1">
+            <div className="flex flex-col gap-3">
               <button
                 onClick={() => { setMobileOpen(false); setCvOpen(true); }}
-                className="mb-3 px-4 py-3 rounded-xl bg-cyan-neon text-navy-950 font-mono text-xs font-bold flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-full bg-olive-500 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-2"
               >
-                <FileText size={16} /> {t.nav.viewLiveCV}
+                <FileText size={15} /> {t.nav.viewLiveCV}
               </button>
 
               {navKeys.map((link, i) => (
-                <motion.button
+                <button
                   key={link.href}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
                   onClick={() => handleNavClick(link.href)}
                   className={cn(
-                    "text-left px-4 py-3 rounded-lg font-mono text-sm transition-all",
+                    "text-left py-2.5 px-3 rounded-lg font-display text-sm font-bold tracking-wider uppercase transition-all flex items-center justify-between",
                     activeSection === link.href.slice(1)
-                      ? "text-cyan-neon bg-cyan-soft border border-cyan-neon/20"
-                      : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
+                      ? "text-olive-500 bg-warm-card"
+                      : "text-warm-dark hover:bg-warm-card/60"
                   )}
                 >
-                  <span className="text-cyan-neon/40 mr-2">
-                    {String(i + 1).padStart(2, "0")}.
-                  </span>
-                  {t.nav[link.key]}
-                </motion.button>
+                  <span>{t.nav[link.key]}</span>
+                  <span className="text-xs text-warm-muted font-normal">0{i + 1}</span>
+                </button>
               ))}
             </div>
           </motion.div>

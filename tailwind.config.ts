@@ -9,62 +9,52 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Eye-friendly Deep Navy/Slate backgrounds (WCAG compliant)
-        navy: {
-          950: "#0B1120", // Deepest soft navy
-          900: "#0F172A",
-          800: "#1E293B",
-          700: "#334155",
-          600: "#475569",
-        },
-        // Dynamic Accent: Soft Electric Blue (#3B82F6 / #60A5FA)
-        cyan: {
-          neon: "var(--color-cyan)",
-          glow: "var(--color-cyan-glow)",
-          dim: "var(--color-cyan-dim)",
-          soft: "var(--color-cyan-soft)",
-        },
-        blue: {
-          electric: "#3B82F6",
-          bright: "#60A5FA",
+        // Warm Editorial Palette
+        offwhite: "#F0EEE9",
+        paper: "#F7F5F0",
+        "warm-card": "#E8E4DD",
+        "warm-card-hover": "#E1DCD4",
+        "warm-dark": "#1A1A1A",
+        "warm-gray": "#4A4A4A",
+        "warm-muted": "#737373",
+        "warm-border": "#D8D3C8",
+        olive: {
+          50: "#F4F5F0",
+          100: "#E5E7DC",
+          200: "#C9CEB7",
+          300: "#ACB491",
+          400: "#8C966F",
+          500: "#6B7355", // Main Olive Accent
+          600: "#555D42", // Hover
+          700: "#424933",
+          800: "#303524",
+          900: "#1E2216",
         },
       },
       fontFamily: {
-        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "Fira Code", "monospace"],
+        display: ["var(--font-display)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
       },
       animation: {
-        "float": "float 8s ease-in-out infinite",
-        "fade-in": "fade-in 0.6s ease-out",
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "fade-in": "fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "slide-up": "slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-12px)" },
-        },
         "fade-in": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(24px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
-      backgroundImage: {
-        "radial-spotlight":
-          "radial-gradient(circle at 50% -10%, rgba(59, 130, 246, 0.12), transparent 60%), radial-gradient(circle at 80% 60%, rgba(96, 165, 250, 0.06), transparent 50%)",
-        "ambient-grid":
-          "radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px)",
-      },
-      backgroundSize: {
-        "grid": "36px 36px",
-      },
       boxShadow: {
-        "subtle": "0 4px 30px rgba(0, 0, 0, 0.4)",
-        "card-hover": "0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 25px var(--color-cyan-soft)",
-        "accent": "0 0 25px var(--color-cyan-soft)",
+        editorial: "0 10px 30px -10px rgba(26, 26, 26, 0.08)",
+        "editorial-hover": "0 20px 40px -15px rgba(26, 26, 26, 0.14)",
       },
-      borderColor: {
-        "subtle": "rgba(255, 255, 255, 0.08)",
-        "subtle-hover": "var(--color-border-hover)",
+      borderRadius: {
+        pill: "9999px",
       },
     },
   },

@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 import { useLanguage } from "@/context/LanguageContext";
 
 const contactLinks = [
@@ -24,42 +23,36 @@ const contactLinks = [
     label: "Email",
     value: "aryattt45@gmail.com",
     href: "mailto:aryattt45@gmail.com",
-    color: "text-red-400",
   },
   {
     icon: Phone,
     label: "WhatsApp",
     value: "+62 838-9022-7712",
     href: "https://wa.me/6283890227712",
-    color: "text-green-400",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/arya-putra-pratama-848871338/",
+    value: "linkedin.com/in/arya-putra-pratama-848871338",
     href: "https://www.linkedin.com/in/arya-putra-pratama-848871338/",
-    color: "text-blue-400",
   },
   {
     icon: Github,
     label: "GitHub",
     value: "github.com/yaaprtm",
     href: "https://github.com/yaaprtm",
-    color: "text-slate-300",
   },
   {
     icon: Instagram,
     label: "Instagram",
     value: "@yaaprtm",
     href: "https://www.instagram.com/yaaprtm",
-    color: "text-pink-400",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Surabaya / Jakarta, Indonesia",
     href: null,
-    color: "text-orange-400",
   },
 ];
 
@@ -87,7 +80,7 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper id="contact">
+    <SectionWrapper id="contact" className="bg-[#F0EEE9]">
       <SectionHeading
         tag={t.contact.tag}
         title={t.contact.title}
@@ -101,29 +94,29 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="glass-card p-8"
+          className="editorial-card p-8 sm:p-10"
         >
-          <h3 className="font-semibold text-slate-200 text-base mb-6 flex items-center gap-2">
-            <MessageSquare size={18} className="text-cyan-neon" />
+          <h3 className="font-display font-extrabold text-warm-dark text-xl mb-6 flex items-center gap-2">
+            <MessageSquare size={20} className="text-olive-500" />
             {t.contact.sendMessage}
           </h3>
 
           {sent ? (
             <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
-              <CheckCircle2 size={48} className="text-cyan-neon" />
-              <h4 className="font-semibold text-slate-100 text-lg">{t.contact.form.successTitle}</h4>
-              <p className="text-slate-400 text-sm">{t.contact.form.successDesc}</p>
+              <CheckCircle2 size={52} className="text-olive-500" />
+              <h4 className="font-display font-bold text-warm-dark text-xl">{t.contact.form.successTitle}</h4>
+              <p className="text-warm-gray text-sm">{t.contact.form.successDesc}</p>
               <button
                 onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
-                className="text-xs font-mono text-cyan-neon hover:underline mt-2"
+                className="text-xs font-bold uppercase tracking-wider text-olive-500 hover:underline mt-2"
               >
                 {t.contact.form.sendAnother}
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.name}
                 </label>
                 <input
@@ -131,12 +124,12 @@ export default function Contact() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder={t.contact.form.namePlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.email}
                 </label>
                 <input
@@ -144,12 +137,12 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder={t.contact.form.emailPlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-300 text-xs font-mono mb-1.5">
+                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.message}
                 </label>
                 <textarea
@@ -157,15 +150,15 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder={t.contact.form.messagePlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-slate-100 text-sm font-mono placeholder-slate-500 focus:outline-none focus:border-cyan-neon/40 focus:ring-1 focus:ring-cyan-neon/20 transition-all resize-none"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all resize-none"
                 />
               </div>
 
               {error && (
-                <p className="text-red-400 text-xs font-mono">{error}</p>
+                <p className="text-red-600 text-xs font-bold">{error}</p>
               )}
 
-              <Button type="submit" variant="primary" size="lg" disabled={sending} className="w-full">
+              <button type="submit" disabled={sending} className="btn-primary w-full py-4 text-sm uppercase tracking-wider">
                 {sending ? (
                   <span className="flex items-center justify-center gap-2">
                     <Send size={16} className="animate-pulse" />
@@ -177,7 +170,7 @@ export default function Contact() {
                     {t.contact.form.submit}
                   </span>
                 )}
-              </Button>
+              </button>
             </form>
           )}
         </motion.div>
@@ -188,42 +181,42 @@ export default function Contact() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-6"
+          className="space-y-6 flex flex-col justify-between"
         >
           <div>
-            <h3 className="font-semibold text-slate-200 text-base mb-2">
+            <h3 className="font-display font-extrabold text-warm-dark text-2xl mb-3">
               {t.contact.directContact}
             </h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-warm-gray text-base leading-relaxed mb-6">
               {t.contact.directContactDesc}
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {contactLinks.map((link) => {
               const Icon = link.icon;
               return (
                 <motion.div
                   key={link.label}
                   whileHover={{ x: 4 }}
-                  className="glass-card px-5 py-4 flex items-center gap-4 group"
+                  className="editorial-card px-6 py-4 flex items-center gap-4 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center">
-                    <Icon size={16} className={link.color} />
+                  <div className="w-10 h-10 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center text-olive-500 flex-shrink-0">
+                    <Icon size={18} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-mono text-slate-400">{link.label}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-warm-muted">{link.label}</p>
                     {link.href ? (
                       <a
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-slate-200 hover:text-cyan-neon transition-colors truncate block"
+                        className="text-sm font-semibold text-warm-dark hover:text-olive-500 transition-colors truncate block"
                       >
                         {link.value}
                       </a>
                     ) : (
-                      <span className="text-sm text-slate-200 truncate block">
+                      <span className="text-sm font-semibold text-warm-dark truncate block">
                         {link.value}
                       </span>
                     )}

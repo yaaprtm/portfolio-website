@@ -1,7 +1,5 @@
-import dynamic from "next/dynamic";
-import NetworkNavigation from "@/components/layout/NetworkNavigation";
-import Footer from "@/components/layout/Footer";
-import TerminalHero from "@/components/sections/TerminalHero";
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import BentoSkills from "@/components/sections/BentoSkills";
 import Projects from "@/components/sections/Projects";
@@ -10,25 +8,18 @@ import Experience from "@/components/sections/Experience";
 import Education from "@/components/sections/Education";
 import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
-import LiquidBackground from "@/components/ui/LiquidBackground";
-
-const AiAssistant = dynamic(() => import("@/components/ui/AiAssistant"), {
-  ssr: false,
-});
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
     <>
-      {/* Root Level Liquid Morphing Shapes & Network Background */}
-      <LiquidBackground />
+      {/* Classic Horizontal Sticky Editorial Navbar */}
+      <Navbar />
 
-      {/* Interactive Network Topology Map Navigation */}
-      <NetworkNavigation />
-
-      {/* Main Content Area */}
-      <div className="min-h-screen flex flex-col transition-all duration-300 relative z-10">
+      {/* Main Editorial Content Sections */}
+      <div className="min-h-screen flex flex-col relative z-10 bg-offwhite text-warm-dark font-sans">
         <main className="flex-1">
-          <TerminalHero />
+          <Hero />
           <About />
           <BentoSkills />
           <Projects />
@@ -41,9 +32,6 @@ export default function Home() {
 
         <Footer />
       </div>
-
-      {/* Interactive AI Assistant Floating Widget */}
-      <AiAssistant />
     </>
   );
 }

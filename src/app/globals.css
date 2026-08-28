@@ -3,96 +3,27 @@
 @tailwind utilities;
 
 /* ============================================================
-   Google Fonts Import
+   Google Fonts Import — Plus Jakarta Sans & Inter
    ============================================================ */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* ============================================================
-   CSS Custom Properties — SOFT ELECTRIC BLUE & DEEP NAVY
+   CSS Custom Properties — WARM EDITORIAL NEUTRAL & OLIVE GREEN
    ============================================================ */
 :root {
-  /* Default Theme: Noir Monochrome (Hitam & Putih Professional) */
-  --color-bg: #050505;
-  --color-surface: #0a0a0a;
-  --color-surface-2: #141414;
-  
-  --color-cyan: #ffffff;
-  --color-cyan-text: #050505;
-  --color-cyan-glow: #ffffff;
-  --color-cyan-dim: #a1a1aa;
-  --color-cyan-soft: rgba(255, 255, 255, 0.12);
-  --color-border-hover: rgba(255, 255, 255, 0.4);
+  --color-bg: #F0EEE9;
+  --color-surface: #E8E4DD;
+  --color-surface-2: #DFD9CF;
 
-  --color-text: #fafafa;
-  --color-text-muted: #a1a1aa;
-  --color-border: rgba(255, 255, 255, 0.1);
+  --color-olive: #6B7355;
+  --color-olive-hover: #555D42;
+  --color-olive-soft: rgba(107, 115, 85, 0.12);
+
+  --color-text: #1A1A1A;
+  --color-text-muted: #4A4A4A;
+  --color-border: rgba(26, 26, 26, 0.12);
+  --color-border-hover: rgba(107, 115, 85, 0.4);
 }
-
-/* Light Mode Overrides (Pure Crisp White & Black) */
-html.light {
-  --color-bg: #ffffff;
-  --color-surface: #f4f4f5;
-  --color-surface-2: #e4e4e7;
-
-  --color-cyan: #09090b;
-  --color-cyan-text: #ffffff;
-  --color-cyan-glow: #18181b;
-  --color-cyan-dim: #27272a;
-  --color-cyan-soft: rgba(9, 9, 11, 0.10);
-  --color-border-hover: rgba(9, 9, 11, 0.3);
-
-  --color-text: #09090b;
-  --color-text-muted: #52525b;
-  --color-border: rgba(9, 9, 11, 0.12);
-}
-
-html.light .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(15, 23, 42, 0.1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-}
-
-html.light .glass-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12), 0 0 25px var(--color-cyan-soft);
-}
-
-html.light .section-heading {
-  color: #0f172a;
-}
-
-html.light .gradient-text {
-  background: linear-gradient(135deg, #0f172a 30%, var(--color-cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-html.light .btn-secondary {
-  background: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(15, 23, 42, 0.15);
-  color: #0f172a;
-}
-
-html.light .btn-secondary:hover {
-  background: rgba(15, 23, 42, 0.08);
-  border-color: rgba(15, 23, 42, 0.3);
-}
-
-html.light input,
-html.light textarea {
-  background-color: rgba(15, 23, 42, 0.03);
-  color: #0f172a;
-}
-
-html.light ::-webkit-scrollbar-track {
-  background: #f8fafc;
-}
-
-html.light ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-}
-
 
 /* ============================================================
    Base Reset & Body
@@ -115,286 +46,151 @@ body {
   font-family: "Inter", system-ui, sans-serif;
   overflow-x: hidden;
   letter-spacing: -0.01em;
-  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 /* ============================================================
    Custom Scrollbar
    ============================================================ */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: #F0EEE9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-surface-2);
+  background: #D8D3C8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-cyan);
+  background: #6B7355;
 }
 
 /* ============================================================
-   Subtle Ambient Grid Pattern
+   Editorial Typography & Headings
    ============================================================ */
-.bg-grid {
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.06) 1px,
-    transparent 1px
-  );
-  background-size: 36px 36px;
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
-/* ============================================================
-   Editorial Matte Glass Card — Deep Navy Surface
-   ============================================================ */
-.glass-card {
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  transition: background-color 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.glass-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-cyan-soft);
-}
-
-/* ============================================================
-   Bespoke Accent Text
-   ============================================================ */
-.accent-text {
-  color: var(--color-cyan);
-  transition: color 0.3s ease;
-}
-
-/* ============================================================
-   Section Separator Line
-   ============================================================ */
-.section-line {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.12) 50%,
-    transparent
-  );
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-/* ============================================================
-   Gradient Heading — Soft Electric Blue to White
-   ============================================================ */
-.gradient-text {
-  background: linear-gradient(135deg, #ffffff 30%, var(--color-cyan) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: all 0.3s ease;
-}
-
-/* ============================================================
-   Section Heading Style — Editorial
-   ============================================================ */
-.section-heading {
-  font-family: "Inter", sans-serif;
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 700;
+.editorial-title {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-weight: 800;
   letter-spacing: -0.03em;
-  color: #f8fafc;
+  line-height: 0.95;
+  color: #1A1A1A;
+  text-transform: uppercase;
+}
+
+.section-heading {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1A1A1A;
+  line-height: 1.05;
 }
 
 .section-tag {
-  font-family: "JetBrains Mono", monospace;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 0.75rem;
-  color: var(--color-cyan);
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #6B7355;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  transition: color 0.3s ease;
 }
 
 /* ============================================================
-   Skill Card Hover
+   Editorial Cards
    ============================================================ */
-.skill-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+.glass-card, .editorial-card {
+  background: #E8E4DD;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.skill-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-border-hover);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--color-cyan-soft);
-}
-
-/* ============================================================
-   Project Card Hover
-   ============================================================ */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-}
-
-/* ============================================================
-   Input Focus
-   ============================================================ */
-.input-glow:focus {
-  outline: none;
-  border-color: var(--color-cyan);
-  box-shadow: 0 0 0 1px var(--color-cyan);
-}
-
-/* ============================================================
-   Buttons — Soft Electric Blue High Contrast
-   ============================================================ */
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-  background: var(--color-cyan);
-  color: var(--color-cyan-text);
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-primary:hover {
-  background: var(--color-cyan-glow);
-  color: var(--color-cyan-text);
-  box-shadow: 0 0 25px var(--color-cyan-soft);
+.glass-card:hover, .editorial-card:hover {
+  background: #E1DCD4;
+  border-color: rgba(107, 115, 85, 0.3);
+  box-shadow: 0 16px 36px -10px rgba(26, 26, 26, 0.08);
   transform: translateY(-2px);
 }
 
+/* ============================================================
+   Buttons — Editorial Pill Style
+   ============================================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #6B7355;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(107, 115, 85, 0.25);
+}
+
+.btn-primary:hover {
+  background: #555D42;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 115, 85, 0.35);
+}
+
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #f8fafc;
-  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1.5px solid #1A1A1A;
+  color: #1A1A1A;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.875rem 2rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.09);
+  background: #1A1A1A;
+  color: #F0EEE9;
   transform: translateY(-2px);
-}
-
-/* ============================================================
-   LIQUID MORPHING SHAPES KEYFRAMES
-   ============================================================ */
-@keyframes liquid-morph-1 {
-  0%, 100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-  }
-  33% {
-    border-radius: 40% 60% 70% 30% / 40% 70% 30% 60%;
-    transform: translate3d(40px, -45px, 0) scale(1.08) rotate(120deg);
-  }
-  66% {
-    border-radius: 70% 30% 50% 50% / 30% 50% 70% 50%;
-    transform: translate3d(-30px, 30px, 0) scale(0.94) rotate(240deg);
-  }
-}
-
-@keyframes liquid-morph-2 {
-  0%, 100% {
-    border-radius: 40% 60% 50% 50% / 70% 30% 60% 40%;
-    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
-  }
-  50% {
-    border-radius: 70% 30% 40% 60% / 30% 60% 40% 70%;
-    transform: translate3d(-45px, -35px, 0) scale(1.12) rotate(180deg);
-  }
-}
-
-@keyframes liquid-morph-3 {
-  0%, 100% {
-    border-radius: 50% 50% 40% 60% / 40% 60% 50% 50%;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    border-radius: 30% 70% 60% 40% / 60% 40% 70% 30%;
-    transform: translate3d(45px, 40px, 0) scale(1.06);
-  }
-}
-
-.animate-liquid-1 {
-  animation: liquid-morph-1 22s ease-in-out infinite;
-  will-change: transform, border-radius;
-}
-
-.animate-liquid-2 {
-  animation: liquid-morph-2 26s ease-in-out infinite;
-  will-change: transform, border-radius;
-}
-
-.animate-liquid-3 {
-  animation: liquid-morph-3 30s ease-in-out infinite;
-  will-change: transform, border-radius;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-liquid-1,
-  .animate-liquid-2,
-  .animate-liquid-3 {
-    animation: none !important;
-  }
 }
 
 /* ============================================================
    Selection Color
    ============================================================ */
 ::selection {
-  background: var(--color-cyan-soft);
-  color: var(--color-cyan);
+  background: rgba(107, 115, 85, 0.25);
+  color: #1A1A1A;
 }
 
 /* ============================================================
-   PRINT STYLES FOR PDF EXPORT & HARDCOPY
+   Input Glow Focus
+   ============================================================ */
+.input-glow:focus {
+  outline: none;
+  border-color: #6B7355;
+  box-shadow: 0 0 0 2px rgba(107, 115, 85, 0.2);
+}
+
+/* ============================================================
+   Print Styles
    ============================================================ */
 @page {
   size: A4;
-  margin: 2.54cm;
+  margin: 2cm;
 }
 
 @media print {
   body {
     background-color: #ffffff !important;
-    color: #0f172a !important;
-    font-family: "Inter", system-ui, sans-serif !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    color: #1A1A1A !important;
   }
-
-  /* Hide navigation, background shapes, interactive widgets */
-  .no-print,
-  nav,
-  header.no-print,
-  footer.no-print,
-  .liquid-bg,
-  .network-nav,
-  .ai-assistant,
-  button:not(.print-keep) {
+  .no-print, nav, footer, button {
     display: none !important;
   }
-
-  .break-inside-avoid {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
-
-  a {
-    text-decoration: none !important;
-    color: inherit !important;
-  }
 }
-

@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Badge from "@/components/ui/Badge";
 import { useLanguage } from "@/context/LanguageContext";
 
 interface StarItem {
@@ -72,7 +71,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <SectionWrapper id="casestudies" className="relative z-10">
+    <SectionWrapper id="casestudies" className="bg-[#F0EEE9]">
       <SectionHeading
         tag={t.caseStudies.tag}
         title={t.caseStudies.title}
@@ -83,13 +82,13 @@ export default function CaseStudies() {
       <div className="flex justify-end gap-3 mb-6 -mt-4">
         <button
           onClick={expandAll}
-          className="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/40 transition-all"
+          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-warm-card border border-warm-dark/10 text-warm-dark hover:bg-olive-500 hover:text-white transition-all"
         >
           {t.caseStudies.expandAll}
         </button>
         <button
           onClick={collapseAll}
-          className="text-xs font-mono px-3 py-1.5 rounded-lg bg-white/[0.04] border border-white/10 text-slate-300 hover:text-cyan-neon hover:border-cyan-neon/40 transition-all"
+          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-warm-card border border-warm-dark/10 text-warm-dark hover:bg-olive-500 hover:text-white transition-all"
         >
           {t.caseStudies.collapseAll}
         </button>
@@ -111,37 +110,37 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card overflow-hidden border border-white/10 rounded-2xl transition-all duration-300"
+              className="editorial-card overflow-hidden"
             >
               {/* Card Header Bar */}
               <div
                 onClick={() => toggleItem(item.id)}
-                className="p-6 sm:p-8 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 select-none hover:bg-white/[0.02] transition-colors"
+                className="p-6 sm:p-8 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 select-none hover:bg-warm-card-hover transition-colors"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-soft border border-cyan-neon/30 flex items-center justify-center text-cyan-neon flex-shrink-0 mt-0.5">
+                  <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center text-olive-500 flex-shrink-0 mt-0.5">
                     <Icon size={24} />
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-white/[0.04] text-slate-200 border border-white/10 shadow-sm">
+                      <span className="text-xs font-bold uppercase tracking-wider px-3 py-0.5 rounded-full bg-[#F0EEE9] text-olive-500 border border-warm-dark/10">
                         {data.category}
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400">
+                      <span className="text-xs font-semibold text-warm-gray">
                         {data.subtitle}
                       </span>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-100 group-hover:text-cyan-neon transition-colors">
+                    <h3 className="font-display font-extrabold text-xl sm:text-2xl text-warm-dark group-hover:text-olive-500 transition-colors">
                       {data.title}
                     </h3>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 self-end sm:self-center">
-                  <span className="text-xs font-mono text-cyan-neon font-semibold hidden sm:inline">
+                  <span className="text-xs font-bold uppercase tracking-wider text-olive-500 hidden sm:inline">
                     {isOpen ? t.caseStudies.collapseAll : t.caseStudies.viewStar}
                   </span>
-                  <div className="w-9 h-9 rounded-xl bg-white/[0.05] border border-white/10 flex items-center justify-center text-slate-300">
+                  <div className="w-9 h-9 rounded-full bg-warm-card border border-warm-dark/10 flex items-center justify-center text-warm-dark">
                     {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </div>
                 </div>
@@ -155,155 +154,121 @@ export default function CaseStudies() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="border-t border-white/10 px-6 sm:px-8 pb-8 pt-6 space-y-6"
+                    className="border-t border-warm-dark/10 px-6 sm:px-8 pb-8 pt-6 space-y-6"
                   >
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-white/5">
+                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-warm-dark/10">
                       {item.techs.map((tech) => (
-                        <Badge key={tech} variant="cyan">
+                        <span
+                          key={tech}
+                          className="px-3 py-1 rounded-full bg-[#F0EEE9] border border-warm-dark/10 text-xs font-semibold text-warm-dark"
+                        >
                           {tech}
-                        </Badge>
+                        </span>
                       ))}
                     </div>
 
                     {/* STAR Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       {/* S — Situation */}
-                      <div className="p-5 rounded-xl bg-navy-900/60 border border-blue-500/20 space-y-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-blue-400 font-mono text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
                           <Compass size={16} />
                           <span>S — Situation</span>
                         </div>
-                        <p className="text-slate-300 text-sm leading-relaxed">
+                        <p className="text-warm-gray text-sm leading-relaxed">
                           {data.situation}
                         </p>
                       </div>
 
                       {/* T — Task */}
-                      <div className="p-5 rounded-xl bg-navy-900/60 border border-amber-500/20 space-y-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-amber-400 font-mono text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-warm-dark font-display text-xs font-bold uppercase tracking-wider">
                           <ListTodo size={16} />
                           <span>T — Task</span>
                         </div>
-                        <p className="text-slate-300 text-sm leading-relaxed">
+                        <p className="text-warm-gray text-sm leading-relaxed">
                           {data.task}
                         </p>
                       </div>
 
                       {/* A — Action */}
-                      <div className="p-5 rounded-xl bg-navy-900/60 border border-cyan-neon/30 space-y-2 md:col-span-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-cyan-neon font-mono text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 md:col-span-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
                           <Wrench size={16} />
                           <span>A — Action</span>
                         </div>
-                        <p className="text-slate-200 text-sm leading-relaxed font-normal">
+                        <p className="text-warm-dark text-sm leading-relaxed font-normal">
                           {data.action}
                         </p>
                       </div>
 
                       {/* R — Result */}
-                      <div className="p-5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-2 md:col-span-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-olive-500/10 border border-olive-500/30 space-y-2 md:col-span-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
                           <Trophy size={16} />
                           <span>R — Result & Impact</span>
                         </div>
-                        <p className="text-emerald-100/90 text-sm leading-relaxed">
+                        <p className="text-warm-dark text-sm leading-relaxed font-medium">
                           {data.result}
                         </p>
                       </div>
                     </div>
 
-                    {/* Photo Gallery Support (Task 4) */}
+                    {/* Photo Gallery Support */}
                     {images && images.length > 0 && (
-                      <div className="pt-4 border-t border-white/10 space-y-3">
+                      <div className="pt-4 border-t border-warm-dark/10 space-y-4">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-xs font-mono text-cyan-neon uppercase tracking-wider font-semibold flex items-center gap-1.5">
+                          <span className="text-xs font-bold uppercase tracking-wider text-olive-500 flex items-center gap-1.5">
                             <ImageIcon size={14} /> Foto & Dokumentasi Lapangan ({images.length})
                           </span>
-                          <span className="text-[11px] font-mono text-slate-400">
+                          <span className="text-[11px] text-warm-muted uppercase tracking-wider">
                             Klik foto untuk memperbesar
                           </span>
                         </div>
 
                         {imagesNote && (
-                          <p className="text-xs font-mono text-slate-300 bg-white/[0.03] border border-cyan-neon/20 p-3 rounded-xl leading-relaxed italic flex items-start gap-2">
-                            <span className="text-cyan-neon font-bold not-italic">ℹ️</span>
+                          <p className="text-xs text-warm-gray bg-[#F0EEE9] border border-warm-dark/10 p-4 rounded-2xl leading-relaxed italic flex items-start gap-2">
+                            <span className="text-olive-500 font-bold not-italic">ℹ️</span>
                             <span>{imagesNote}</span>
                           </p>
                         )}
 
-                        {/* Layout: Single Image Full-Width OR Responsive Multi-Image Grid */}
-                        {images.length === 1 ? (
-                          <div
-                            onClick={() => setActiveImage(images[0])}
-                            className="group relative w-full aspect-video rounded-xl border border-white/10 overflow-hidden cursor-pointer bg-navy-900/60 hover:border-cyan-neon/40 transition-all"
-                          >
-                            {!failedImages[images[0].src] ? (
-                              <Image
-                                src={images[0].src}
-                                alt={images[0].alt}
-                                fill
-                                sizes="100vw"
-                                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                onError={() => handleImageError(images[0].src)}
-                              />
-                            ) : (
-                              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                                <ImageIcon size={32} className="text-slate-500 mb-2" />
-                                <p className="text-xs font-mono text-slate-300 font-bold mb-1">
-                                  {images[0].caption || images[0].alt}
-                                </p>
-                                <p className="text-[10px] font-mono text-cyan-neon">
-                                  File: {images[0].src}
-                                </p>
-                              </div>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end justify-between">
-                              <span className="text-xs font-mono text-slate-200 truncate">
-                                {images[0].caption || images[0].alt}
-                              </span>
-                              <Maximize2 size={16} className="text-cyan-neon flex-shrink-0" />
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                            {images.map((img, imgIdx) => (
-                              <div
-                                key={imgIdx}
-                                onClick={() => setActiveImage(img)}
-                                className="group relative aspect-video rounded-xl border border-white/10 overflow-hidden cursor-pointer bg-navy-900/60 hover:border-cyan-neon/40 transition-all flex flex-col justify-between"
-                              >
-                                {!failedImages[img.src] ? (
-                                  <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    fill
-                                    sizes="(max-width: 768px) 100vw, 33vw"
-                                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                    onError={() => handleImageError(img.src)}
-                                  />
-                                ) : (
-                                  <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
-                                    <ImageIcon size={24} className="text-slate-500 mb-1" />
-                                    <p className="text-[11px] font-mono text-slate-300 font-semibold line-clamp-2">
-                                      {img.caption || img.alt}
-                                    </p>
-                                    <p className="text-[9px] font-mono text-cyan-neon truncate w-full mt-1">
-                                      {img.src.split("/").pop()}
-                                    </p>
-                                  </div>
-                                )}
-
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end justify-between">
-                                  <span className="text-[11px] font-mono text-slate-200 truncate pr-2">
+                        {/* Responsive Multi-Image Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                          {images.map((img, imgIdx) => (
+                            <div
+                              key={imgIdx}
+                              onClick={() => setActiveImage(img)}
+                              className="group relative aspect-video rounded-2xl border border-warm-dark/10 overflow-hidden cursor-pointer bg-warm-card hover:border-olive-500 transition-all flex flex-col justify-between"
+                            >
+                              {!failedImages[img.src] ? (
+                                <Image
+                                  src={img.src}
+                                  alt={img.alt}
+                                  fill
+                                  sizes="(max-width: 768px) 100vw, 33vw"
+                                  className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                                  onError={() => handleImageError(img.src)}
+                                />
+                              ) : (
+                                <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
+                                  <ImageIcon size={24} className="text-warm-muted mb-1" />
+                                  <p className="text-[11px] text-warm-dark font-bold line-clamp-2">
                                     {img.caption || img.alt}
-                                  </span>
-                                  <Maximize2 size={14} className="text-cyan-neon flex-shrink-0" />
+                                  </p>
                                 </div>
+                              )}
+
+                              <div className="absolute inset-0 bg-warm-dark/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end justify-between">
+                                <span className="text-[11px] font-semibold text-white truncate pr-2">
+                                  {img.caption || img.alt}
+                                </span>
+                                <Maximize2 size={14} className="text-white flex-shrink-0" />
                               </div>
-                            ))}
-                          </div>
-                        )}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </motion.div>
@@ -322,23 +287,23 @@ export default function CaseStudies() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveImage(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-warm-dark/80 backdrop-blur-md flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full glass-card p-6 border border-white/20 shadow-2xl text-center space-y-4"
+              className="relative max-w-4xl w-full bg-[#F0EEE9] rounded-3xl p-6 border border-warm-dark/20 shadow-2xl text-center space-y-4"
             >
               <button
                 onClick={() => setActiveImage(null)}
-                className="absolute top-4 right-4 p-2 rounded-xl bg-white/10 text-slate-300 hover:text-white transition-colors z-10 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                className="absolute top-4 right-4 p-2.5 rounded-full bg-warm-card text-warm-dark hover:bg-warm-dark hover:text-white transition-colors z-10"
               >
                 <X size={20} />
               </button>
 
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-navy-950 border border-white/10 flex items-center justify-center">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-warm-card border border-warm-dark/10 flex items-center justify-center">
                 {!failedImages[activeImage.src] ? (
                   <Image
                     src={activeImage.src}
@@ -349,32 +314,23 @@ export default function CaseStudies() {
                   />
                 ) : (
                   <div className="p-6 text-center space-y-2">
-                    <ImageIcon size={48} className="mx-auto text-cyan-neon mb-2 animate-bounce" />
-                    <p className="text-sm font-bold text-slate-100 font-mono">
+                    <ImageIcon size={48} className="mx-auto text-olive-500 mb-2" />
+                    <p className="text-sm font-bold text-warm-dark">
                       {activeImage.caption || activeImage.alt}
-                    </p>
-                    <p className="text-xs font-mono text-slate-400">
-                      Foto pendukung case study. Simpan foto di path:
-                    </p>
-                    <p className="text-xs font-mono text-cyan-neon font-bold bg-white/5 p-2 rounded-lg inline-block">
-                      public{activeImage.src}
                     </p>
                   </div>
                 )}
               </div>
 
               <div className="text-left space-y-2 max-w-3xl mx-auto">
-                <p className="text-slate-100 font-bold text-base font-mono text-cyan-neon">
+                <p className="text-warm-dark font-display font-extrabold text-lg text-olive-500">
                   {activeImage.caption || activeImage.alt}
                 </p>
                 {activeImage.description && (
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans bg-white/[0.03] border border-white/10 p-3 rounded-xl">
+                  <p className="text-warm-gray text-xs sm:text-sm leading-relaxed bg-warm-card border border-warm-dark/10 p-4 rounded-2xl">
                     {activeImage.description}
                   </p>
                 )}
-                <p className="text-slate-400 text-[11px] font-mono">
-                  Alt: {activeImage.alt}
-                </p>
               </div>
             </motion.div>
           </motion.div>

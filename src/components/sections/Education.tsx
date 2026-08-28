@@ -23,59 +23,56 @@ function EducationTimelineEntry({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
-      className="relative flex gap-5 pb-10 last:pb-0"
+      className="relative flex gap-6 pb-12 last:pb-0"
     >
-      {/* Timeline Indicator with Graduation Cap */}
+      {/* Timeline Bullet */}
       <div className="relative flex flex-col items-center">
-        <div className="w-10 h-10 rounded-xl bg-cyan-soft border border-cyan-neon/40 flex items-center justify-center flex-shrink-0 z-10 shadow-lg">
-          <GraduationCap size={20} className="text-cyan-neon" />
-          {edu.current && (
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-neon border-2 border-navy-950 animate-pulse" />
-          )}
+        <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center flex-shrink-0 z-10">
+          <GraduationCap size={22} className="text-olive-500" />
         </div>
-        <div className="w-px flex-1 bg-white/10 mt-2" />
+        <div className="w-0.5 flex-1 bg-warm-dark/10 mt-3" />
       </div>
 
       {/* Content Card */}
-      <div className="flex-1 glass-card p-6 mb-2 border border-white/10">
-        <div className="flex items-start justify-between gap-3 mb-3 flex-wrap">
+      <div className="flex-1 editorial-card p-6 sm:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-soft text-cyan-neon border border-cyan-neon/30 font-bold uppercase">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-olive-500 text-white">
                 {edu.current ? t.education.active : t.education.alumni}
               </span>
             </div>
-            <h3 className="font-bold text-slate-100 text-base">{edu.title}</h3>
-            <p className="text-slate-400 text-xs font-mono mt-0.5 flex items-center gap-1.5">
-              <School size={13} className="text-cyan-neon" />
+            <h3 className="font-display font-extrabold text-warm-dark text-xl">{edu.title}</h3>
+            <p className="text-warm-gray text-xs font-semibold uppercase tracking-wider mt-1 flex items-center gap-1.5">
+              <School size={14} className="text-olive-500" />
               <span>{edu.company} · {edu.location}</span>
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-cyan-neon bg-cyan-soft px-3 py-1 rounded-md border border-cyan-neon/30 font-semibold">
+            <span className="text-xs font-bold uppercase tracking-wider text-warm-dark bg-[#F0EEE9] px-3.5 py-1.5 rounded-full border border-warm-dark/10">
               {edu.period}
             </span>
           </div>
         </div>
 
-        {/* Description */}
-        <ul className="space-y-2 mb-4">
+        {/* Description Bullet List */}
+        <ul className="space-y-2.5 mb-5">
           {edu.description.map((desc, i) => (
-            <li key={i} className="flex gap-2.5 text-slate-300 text-xs sm:text-sm leading-relaxed">
-              <span className="text-cyan-neon font-mono text-xs mt-0.5">•</span>
+            <li key={i} className="flex gap-3 text-warm-gray text-xs sm:text-sm leading-relaxed">
+              <span className="text-olive-500 font-bold">•</span>
               {desc}
             </li>
           ))}
         </ul>
 
-        {/* Focus Areas */}
+        {/* Tech / Focus Areas */}
         {edu.technologies && (
-          <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/5">
+          <div className="flex flex-wrap gap-2 pt-4 border-t border-warm-dark/10">
             {edu.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-[11px] font-mono text-slate-300 bg-white/[0.04] px-2.5 py-0.5 rounded-md border border-white/10"
+                className="text-xs font-semibold text-warm-dark bg-[#F0EEE9] px-3 py-1 rounded-full border border-warm-dark/10"
               >
                 {tech}
               </span>
@@ -91,14 +88,14 @@ export default function Education() {
   const { t } = useLanguage();
 
   return (
-    <SectionWrapper id="education">
+    <SectionWrapper id="education" className="bg-[#F0EEE9]">
       <SectionHeading
         tag={t.education.tag}
         title={t.education.title}
         subtitle={t.education.subtitle}
       />
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {educationList.map((edu, idx) => (
           <EducationTimelineEntry key={edu.id} edu={edu} idx={idx} />
         ))}

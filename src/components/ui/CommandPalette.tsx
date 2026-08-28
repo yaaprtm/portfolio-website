@@ -13,10 +13,7 @@ import {
   Code,
   FolderGit2,
   Home,
-  ExternalLink,
   Globe,
-  Moon,
-  Sun,
   BookOpen,
   Satellite,
   Smartphone,
@@ -55,22 +52,6 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
   const inputRef = useRef<HTMLInputElement>(null);
   const { lang, setLang } = useLanguage();
   const { play } = useSoundEffects();
-
-  // Toggle dark/light mode
-  const toggleDarkMode = () => {
-    const html = document.documentElement;
-    if (html.classList.contains("light")) {
-      html.classList.remove("light");
-      localStorage.setItem("theme-mode", "dark");
-    } else {
-      html.classList.add("light");
-      localStorage.setItem("theme-mode", "light");
-    }
-  };
-
-  const isLightMode =
-    typeof document !== "undefined" &&
-    document.documentElement.classList.contains("light");
 
   const navItems: CommandItem[] = [
     { id: "nav-home", label: "Home", sublabel: "Kembali ke atas", icon: Home, href: "#home" },
@@ -140,17 +121,6 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
         onClose();
       },
     },
-    {
-      id: "settings-theme",
-      label: `Ganti Mode → ${isLightMode ? "Dark Mode" : "Light Mode"}`,
-      sublabel: "Toggle tema tampilan",
-      icon: isLightMode ? Moon : Sun,
-      action: () => {
-        toggleDarkMode();
-        play("click");
-        onClose();
-      },
-    },
   ];
 
   const allGroups: ItemGroup[] = [
@@ -160,7 +130,6 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
     { label: "⚙️ Pengaturan", items: settingsItems },
   ];
 
-  // Flatten all items for search + keyboard nav
   const filteredGroups: ItemGroup[] = query
     ? [
         {
@@ -234,7 +203,6 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
     }
   };
 
-  // Highlight matching text
   const highlight = (text: string, query: string) => {
     if (!query) return text;
     const idx = text.toLowerCase().indexOf(query.toLowerCase());
@@ -242,7 +210,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
     return (
       <>
         {text.slice(0, idx)}
-        <mark className="bg-cyan-neon/20 text-cyan-neon rounded px-0.5">{text.slice(idx, idx + query.length)}</mark>
+        <mark className="bg-olive-500/20 text-olive-500 rounded px-0.5 font-bold">{text.slice(idx, idx + query.length)}</mark>
         {text.slice(idx + query.length)}
       </>
     );
@@ -259,7 +227,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 bg-warm-dark/80 backdrop-blur-md"
           />
 
           <motion.div
@@ -267,11 +235,11 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="relative w-full max-w-xl glass-card border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-10"
+            className="relative w-full max-w-xl bg-[#F0EEE9] border border-warm-dark/15 rounded-3xl shadow-2xl overflow-hidden z-10 text-warm-dark"
           >
             {/* Input Header */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
-              <Search size={16} className="text-slate-400 flex-shrink-0" />
+            <div className="flex items-center gap-3 px-5 py-4 border-b border-warm-dark/10">
+              <Search size={18} className="text-warm-muted flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -280,28 +248,28 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
                   setQuery(e.target.value);
                   play("type");
                 }}
-                placeholder="Ketik perintah atau cari... (CV, Java, VSAT, bahasa...)"
-                className="w-full bg-transparent text-sm text-slate-100 placeholder-slate-500 focus:outline-none font-mono"
+                placeholder="Ketik perintah atau cari... (CV, Java, VSAT...)"
+                className="w-full bg-transparent text-sm text-warm-dark font-medium placeholder-warm-muted focus:outline-none"
               />
-              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-slate-400 border border-white/10 flex-shrink-0">
+              <kbd className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-warm-card text-warm-dark border border-warm-dark/10 flex-shrink-0">
                 ESC
               </kbd>
             </div>
 
             {/* Results List */}
-            <div className="p-2 max-h-80 overflow-y-auto">
+            <div className="p-3 max-h-80 overflow-y-auto">
               {allFilteredItems.length === 0 ? (
-                <div className="p-6 text-center text-xs font-mono text-slate-500">
-                  <Search size={24} className="mx-auto mb-2 opacity-30" />
+                <div className="p-8 text-center text-xs font-semibold text-warm-gray">
+                  <Search size={28} className="mx-auto mb-2 opacity-40" />
                   <p>Tidak ada hasil untuk &ldquo;{query}&rdquo;</p>
                 </div>
               ) : (
                 filteredGroups.map((group) => (
-                  <div key={group.label} className="mb-2">
-                    <p className="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-3 py-1.5">
+                  <div key={group.label} className="mb-3">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-olive-500 px-3 py-1.5">
                       {group.label}
                     </p>
-                    <div className="space-y-0.5">
+                    <div className="space-y-1">
                       {group.items.map((item) => {
                         const Icon = item.icon;
                         const isSelected = globalItemIdx === selectedIdx;
@@ -315,32 +283,32 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
                               setSelectedIdx(currentIdx);
                               play("hover");
                             }}
-                            className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-mono text-left transition-all ${
+                            className={`w-full flex items-center justify-between px-4 py-2.5 rounded-2xl text-xs font-semibold text-left transition-all ${
                               isSelected
-                                ? "bg-cyan-soft border border-cyan-neon/20 text-slate-100"
-                                : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
+                                ? "bg-olive-500 text-white shadow-sm"
+                                : "text-warm-dark hover:bg-warm-card"
                             }`}
                           >
                             <div className="flex items-center gap-3 min-w-0">
                               <Icon
-                                size={14}
-                                className={isSelected ? "text-cyan-neon flex-shrink-0" : "text-slate-500 flex-shrink-0"}
+                                size={16}
+                                className={isSelected ? "text-white flex-shrink-0" : "text-olive-500 flex-shrink-0"}
                               />
                               <div className="min-w-0">
-                                <p className={isSelected ? "text-slate-100" : "text-slate-300"}>
+                                <p className={isSelected ? "text-white font-bold" : "text-warm-dark font-semibold"}>
                                   {highlight(item.label, query)}
                                 </p>
                                 {item.sublabel && (
-                                  <p className="text-[10px] text-slate-500 truncate">
+                                  <p className={`text-[10px] truncate ${isSelected ? "text-white/80" : "text-warm-muted"}`}>
                                     {highlight(item.sublabel, query)}
                                   </p>
                                 )}
                               </div>
                             </div>
                             <ChevronRight
-                              size={12}
+                              size={14}
                               className={`flex-shrink-0 transition-colors ${
-                                isSelected ? "text-cyan-neon" : "text-slate-700"
+                                isSelected ? "text-white" : "text-warm-muted"
                               }`}
                             />
                           </button>
@@ -353,9 +321,9 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
             </div>
 
             {/* Footer hint */}
-            <div className="px-4 py-2 border-t border-white/5 flex items-center justify-between text-[10px] font-mono text-slate-600">
+            <div className="px-5 py-3 border-t border-warm-dark/10 flex items-center justify-between text-[11px] font-semibold text-warm-gray">
               <span>↑↓ navigasi · Enter pilih · Esc tutup</span>
-              <span className="text-slate-700">⌘K / Ctrl+K</span>
+              <span className="text-olive-500">⌘K / Ctrl+K</span>
             </div>
           </motion.div>
         </div>
