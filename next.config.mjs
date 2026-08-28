@@ -22,7 +22,8 @@ const nextConfig = {
 
   // Experimental features for better performance
   experimental: {
-    optimizeCss: true,
+    // optimizeCss disabled - causing build errors
+    // optimizeCss: true,
     optimizePackageImports: [
       'lucide-react',
       'framer-motion',
