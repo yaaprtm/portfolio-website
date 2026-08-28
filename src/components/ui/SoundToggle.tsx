@@ -15,6 +15,7 @@ export default function SoundToggle({ className }: { className?: string }) {
       toggleMute();
       setTimeout(() => play("ping"), 50);
     } else {
+      play("click");
       toggleMute();
     }
   };
@@ -22,22 +23,23 @@ export default function SoundToggle({ className }: { className?: string }) {
   return (
     <button
       onClick={handleToggle}
+      onMouseEnter={() => !isMuted && play("hover")}
       title={isMuted ? "Aktifkan Efek Suara" : "Matikan Efek Suara"}
       className={cn(
-        "relative flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]",
-        "text-slate-400 hover:text-slate-200 hover:border-white/30 transition-all duration-200",
-        "min-h-[36px] min-w-[36px] p-2",
+        "relative flex items-center justify-center rounded-full border border-mono-border p-2",
+        "text-mono-gray hover:text-mono-black hover:border-mono-black transition-all duration-200",
+        "min-h-[36px] min-w-[36px]",
         className
       )}
     >
       {isMuted ? (
-        <VolumeX size={14} className="text-slate-500" />
+        <VolumeX size={16} className="text-mono-gray" />
       ) : (
-        <Volume2 size={14} className="text-cyan-neon" />
+        <Volume2 size={16} className="text-mono-black" />
       )}
       {/* Active indicator */}
       {!isMuted && (
-        <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-cyan-neon animate-pulse" />
+        <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-mono-black animate-pulse" />
       )}
     </button>
   );

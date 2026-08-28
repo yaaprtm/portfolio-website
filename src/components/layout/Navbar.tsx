@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LanguageToggle from "@/components/ui/LanguageToggle";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
+import SoundToggle from "@/components/ui/SoundToggle";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -152,6 +154,8 @@ export default function Navbar() {
                 <Command size={14} />
               </button>
 
+              <ThemeSwitcher />
+              <SoundToggle />
               <LanguageToggle />
 
               <button
