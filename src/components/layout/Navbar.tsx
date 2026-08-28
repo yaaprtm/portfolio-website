@@ -96,7 +96,7 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Brand Title */}
+            {/* Brand Title - Compact */}
             <a
               href="#home"
               onClick={(e) => {
@@ -105,22 +105,22 @@ export default function Navbar() {
               }}
               className="flex flex-col group cursor-pointer flex-shrink-0"
             >
-              <span className="font-display font-extrabold text-base sm:text-lg tracking-tight text-mono-black group-hover:text-mono-gray transition-colors uppercase whitespace-nowrap leading-none mb-1">
-                Arya Putra Pratama
+              <span className="font-display font-extrabold text-sm sm:text-base tracking-tight text-mono-black group-hover:text-mono-gray transition-colors uppercase whitespace-nowrap leading-none mb-0.5">
+                ARYA PUTRA PRATAMA
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-bold text-mono-gray whitespace-nowrap">
-                IT Enthusiast · Portfolio
+              <span className="text-[9px] tracking-widest uppercase font-bold text-mono-gray whitespace-nowrap">
+                IT ENTHUSIAST · PORTFOLIO
               </span>
             </a>
 
             {/* Desktop Navigation */}
-            <ul className="hidden lg:flex items-center gap-1 xl:gap-2">
+            <ul className="hidden lg:flex items-center gap-0.5 xl:gap-1">
               {navKeys.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNavClick(link.href)}
                     className={cn(
-                      "relative px-3 py-1.5 text-xs font-semibold tracking-wider uppercase transition-all duration-200",
+                      "relative px-2 xl:px-2.5 py-1.5 text-[11px] font-semibold tracking-wider uppercase transition-all duration-200",
                       activeSection === link.href.slice(1)
                         ? "text-mono-black font-extrabold"
                         : "text-mono-gray hover:text-mono-black"
@@ -129,7 +129,7 @@ export default function Navbar() {
                     {activeSection === link.href.slice(1) && (
                       <motion.span
                         layoutId="active-nav-underline"
-                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-mono-black"
+                        className="absolute bottom-0 left-2 right-2 h-0.5 bg-mono-black"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -139,14 +139,15 @@ export default function Navbar() {
               ))}
             </ul>
 
-            {/* Right Utility Buttons */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            {/* Right Utility Buttons - Compact */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <button
                 onClick={() => setCvOpen(true)}
-                className="px-3.5 py-1.5 rounded-full border border-mono-black text-xs font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all hidden sm:flex items-center gap-1.5"
+                className="px-2.5 xl:px-3 py-1.5 rounded-full border border-mono-black text-[11px] font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all hidden sm:flex items-center gap-1"
               >
-                <FileText size={13} className="text-current" />
-                <span>{t.nav.previewCV}</span>
+                <FileText size={12} className="text-current" />
+                <span className="hidden xl:inline">{t.nav.previewCV}</span>
+                <span className="xl:hidden">CV</span>
               </button>
 
               <button
@@ -154,7 +155,7 @@ export default function Navbar() {
                 className="p-2 rounded-full border border-mono-border text-mono-gray hover:text-mono-black hover:border-mono-black transition-all hidden sm:flex items-center"
                 title="Command Palette (Ctrl+K)"
               >
-                <Command size={14} />
+                <Command size={13} />
               </button>
 
               <LanguageToggle />
@@ -166,7 +167,7 @@ export default function Navbar() {
                 className="lg:hidden p-2 rounded-full text-mono-black hover:bg-mono-card transition-all"
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
             </div>
           </div>
