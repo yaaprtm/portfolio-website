@@ -4,11 +4,15 @@ import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import GlobalKeyboardShortcuts from "@/components/ui/GlobalKeyboardShortcuts";
 
+// Font optimization dengan preload dan display swap
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: true,
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -16,6 +20,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["500", "600", "700", "800"],
   variable: "--font-display",
   display: "swap",
+  preload: true,
+  fallback: ["system-ui", "arial"],
+  adjustFontFallback: true,
 });
 
 // ============================================================
@@ -86,6 +93,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`scroll-smooth ${inter.variable} ${plusJakartaSans.variable}`}>
+      <head>
+        {/* Preconnect untuk Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS Prefetch untuk external resources */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+      </head>
       <body className="bg-offwhite text-mono-black antialiased font-sans">
         <LanguageProvider>
           <GlobalKeyboardShortcuts />

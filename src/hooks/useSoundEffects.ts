@@ -1,9 +1,10 @@
 // ============================================================
 // HOOK: useSoundEffects — Web Audio API SFX (No External Files)
+// Optimized version dengan memoization
 // ============================================================
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo } from "react";
 
 type SoundType = "click" | "hover" | "success" | "ping" | "open" | "close" | "type";
 
@@ -129,5 +130,9 @@ export function useSoundEffects() {
     });
   }, []);
 
-  return { play, isMuted, toggleMute, initialized };
+  // Memoize return object to prevent re-renders
+  return useMemo(
+    () => ({ play, isMuted, toggleMute, initialized }),
+    [play, isMuted, toggleMute, initialized]
+  );
 }

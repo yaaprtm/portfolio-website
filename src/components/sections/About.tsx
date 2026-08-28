@@ -99,6 +99,13 @@ export default function About() {
           <div className="relative w-full max-w-sm aspect-[4/5] rounded-3xl overflow-hidden bg-mono-card border border-mono-border shadow-editorial">
             <Image
               src="/images/arya-photo.png"
+              alt="Arya Putra Pratama - IT Enthusiast"
+              fill
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+              className="object-cover object-top"
+              sizes="(max-width: 768px) 100vw, 40vw"
               alt="Arya Putra Pratama"
               fill
               sizes="(max-width: 640px) 288px, 360px"

@@ -1,14 +1,31 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import BentoSkills from "@/components/sections/BentoSkills";
-import Projects from "@/components/sections/Projects";
-import CaseStudies from "@/components/sections/CaseStudies";
-import Experience from "@/components/sections/Experience";
-import Education from "@/components/sections/Education";
-import Certifications from "@/components/sections/Certifications";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/layout/Footer";
+import dynamic from "next/dynamic";
+
+// Lazy load komponen yang tidak immediately visible untuk faster initial page load
+const BentoSkills = dynamic(() => import("@/components/sections/BentoSkills"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Projects = dynamic(() => import("@/components/sections/Projects"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const CaseStudies = dynamic(() => import("@/components/sections/CaseStudies"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Experience = dynamic(() => import("@/components/sections/Experience"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Education = dynamic(() => import("@/components/sections/Education"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Certifications = dynamic(() => import("@/components/sections/Certifications"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Contact = dynamic(() => import("@/components/sections/Contact"), {
+  loading: () => <div className="min-h-screen" />,
+});
+const Footer = dynamic(() => import("@/components/layout/Footer"));
 
 export default function Home() {
   return (

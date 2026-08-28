@@ -4,12 +4,15 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
+import dynamic from "next/dynamic";
 import LanguageToggle from "@/components/ui/LanguageToggle";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import SoundToggle from "@/components/ui/SoundToggle";
-import CommandPalette from "@/components/ui/CommandPalette";
-import CvModal from "@/components/ui/CvModal";
 import { useLanguage } from "@/context/LanguageContext";
+
+// Lazy load modals yang jarang dibuka
+const CommandPalette = dynamic(() => import("@/components/ui/CommandPalette"));
+const CvModal = dynamic(() => import("@/components/ui/CvModal"));
 
 const navKeys = [
   { key: "home", href: "#home" },
