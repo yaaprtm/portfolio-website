@@ -105,11 +105,11 @@ export default function ThemeSwitcher() {
     <div className="relative z-50">
       <button
         onClick={handleOpen}
-        className="p-2 rounded-full border border-warm-dark/15 text-warm-gray hover:text-warm-dark hover:border-warm-dark/40 transition-all flex items-center justify-center"
+        className="p-2 rounded-full border border-mono-border text-mono-gray hover:text-mono-black hover:border-mono-black transition-all flex items-center justify-center"
         title={t.common?.switchTheme || "Ubah Warna Aksen"}
         aria-label="Change Accent Color"
       >
-        <Palette size={16} className="text-warm-dark" />
+        <Palette size={16} className="text-mono-black" />
       </button>
 
       <AnimatePresence>
@@ -130,9 +130,9 @@ export default function ThemeSwitcher() {
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              className="absolute right-0 top-12 w-56 rounded-2xl bg-[#F0EEE9] p-3 border border-warm-dark/15 shadow-2xl z-50 text-warm-dark"
+              className="absolute right-0 top-12 w-56 rounded-2xl bg-white p-3 border border-mono-border shadow-2xl z-50 text-mono-black"
             >
-              <p className="text-[10px] font-bold uppercase tracking-widest text-warm-muted px-2.5 mb-2">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-mono-gray px-2.5 mb-2">
                 {(t.common as any)?.colorThemeLabel || "Pilih Warna Aksen"}
               </p>
               <div className="space-y-1">
@@ -148,18 +148,18 @@ export default function ThemeSwitcher() {
                       onMouseEnter={() => play("hover")}
                       className={`w-full flex items-center justify-between px-3 py-2 rounded-2xl text-xs font-semibold transition-all text-left ${
                         isActive
-                          ? "bg-warm-card text-warm-dark font-bold border border-warm-dark/10"
-                          : "text-warm-gray hover:bg-warm-card/60 hover:text-warm-dark"
+                          ? "bg-mono-card text-mono-black font-bold border border-mono-border"
+                          : "text-mono-gray hover:bg-mono-card/60 hover:text-mono-black"
                       }`}
                     >
                       <div className="flex items-center gap-2.5">
                         <span
-                          className="w-4 h-4 rounded-full border border-warm-dark/20 flex-shrink-0 shadow-sm"
+                          className="w-4 h-4 rounded-full border border-mono-border flex-shrink-0 shadow-sm"
                           style={{ backgroundColor: preset.color }}
                         />
                         <span>{preset.name}</span>
                       </div>
-                      {isActive && <Check size={14} className="text-warm-dark" />}
+                      {isActive && <Check size={14} className="text-mono-black" />}
                     </button>
                   );
                 })}
