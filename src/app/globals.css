@@ -14,6 +14,11 @@
   --color-text-muted: #404040;
   --color-border: #E5E5E5;
   --color-border-hover: #0A0A0A;
+
+  /* Accent Color Theme Variables - Changeable via ThemeSwitcher */
+  --color-olive: #475569;
+  --color-olive-hover: #334155;
+  --color-olive-soft: rgba(71, 85, 105, 0.15);
 }
 
 /* ============================================================

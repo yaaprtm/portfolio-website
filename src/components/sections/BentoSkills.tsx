@@ -69,10 +69,10 @@ export default function BentoSkills() {
         >
           <div>
             <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-olive text-white flex items-center justify-center">
                 <Network size={24} />
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-mono-card border border-mono-border text-mono-black">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-olive/10 border border-olive/20 text-olive">
                 {t.skills.networking.badge}
               </span>
             </div>
@@ -91,7 +91,7 @@ export default function BentoSkills() {
                   key={skill.name}
                   className="p-3.5 rounded-2xl bg-[#FAFAFA] border border-mono-border flex items-center gap-3"
                 >
-                  <CheckCircle2 size={16} className="text-mono-black flex-shrink-0" />
+                  <CheckCircle2 size={16} className="text-olive flex-shrink-0" />
                   <div className="min-w-0">
                     <p className="text-mono-black text-xs font-bold truncate">{skill.name}</p>
                     <p className="text-mono-muted text-[11px] font-semibold uppercase tracking-wider">
@@ -113,7 +113,7 @@ export default function BentoSkills() {
           className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-full bg-olive text-white flex items-center justify-center mb-6">
               <Smartphone size={22} />
             </div>
 
@@ -127,7 +127,7 @@ export default function BentoSkills() {
             <div className="space-y-2.5 mb-6">
               {androidSkills.map((tech) => (
                 <div key={tech} className="flex items-center gap-2.5 text-xs font-bold text-mono-black">
-                  <span className="w-2 h-2 rounded-full bg-mono-black" />
+                  <span className="w-2 h-2 rounded-full bg-olive" />
                   <span>{tech}</span>
                 </div>
               ))}
@@ -135,7 +135,7 @@ export default function BentoSkills() {
           </div>
 
           <div className="pt-4 border-t border-mono-border">
-            <span className="text-xs font-extrabold text-mono-black tracking-wider uppercase">
+            <span className="text-xs font-extrabold text-olive tracking-wider uppercase">
               BRIN Kebun Raya App
             </span>
           </div>
@@ -150,7 +150,7 @@ export default function BentoSkills() {
           className="editorial-card p-6 flex flex-col justify-between"
         >
           <div>
-            <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center mb-6">
+            <div className="w-12 h-12 rounded-full bg-olive text-white flex items-center justify-center mb-6">
               <Wrench size={22} />
             </div>
 
@@ -164,7 +164,7 @@ export default function BentoSkills() {
             <div className="space-y-2.5 mb-6">
               {itSupportSkills.map((item) => (
                 <div key={item} className="flex items-center gap-2.5 text-xs font-bold text-mono-black">
-                  <span className="w-2 h-2 rounded-full bg-mono-black" />
+                  <span className="w-2 h-2 rounded-full bg-olive" />
                   <span>{item}</span>
                 </div>
               ))}
@@ -188,10 +188,10 @@ export default function BentoSkills() {
         >
           <div>
             <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-olive text-white flex items-center justify-center">
                 <Layers size={22} />
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-mono-card border border-mono-border text-mono-black">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-olive/10 border border-olive/20 text-olive">
                 {t.skills.tools.badge}
               </span>
             </div>
@@ -207,7 +207,7 @@ export default function BentoSkills() {
               {devTools.map((tool) => (
                 <span
                   key={tool}
-                  className="px-3 py-1.5 rounded-full bg-[#FAFAFA] border border-mono-border text-xs font-bold text-mono-black"
+                  className="px-3 py-1.5 rounded-full bg-[#FAFAFA] border border-mono-border text-xs font-bold text-mono-black hover:border-olive hover:text-olive transition-colors"
                 >
                   {tool}
                 </span>
@@ -226,10 +226,10 @@ export default function BentoSkills() {
         >
           <div>
             <div className="flex items-center justify-between mb-6">
-              <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-olive text-white flex items-center justify-center">
                 <Users size={22} />
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-mono-card border border-mono-border text-mono-black">
+              <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-olive/10 border border-olive/20 text-olive">
                 {t.skills.softSkills.badge}
               </span>
             </div>
@@ -242,7 +242,7 @@ export default function BentoSkills() {
               {t.skills.softSkills.items.map((item) => (
                 <div key={item.title} className="p-3.5 rounded-2xl bg-[#FAFAFA] border border-mono-border">
                   <p className="text-mono-black font-display text-xs font-extrabold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                    <CheckCircle2 size={14} className="text-mono-black flex-shrink-0" />
+                    <CheckCircle2 size={14} className="text-olive flex-shrink-0" />
                     <span>{item.title}</span>
                   </p>
                   <p className="text-mono-gray text-xs leading-relaxed">{item.desc}</p>

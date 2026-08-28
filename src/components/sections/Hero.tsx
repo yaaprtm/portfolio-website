@@ -135,13 +135,13 @@ export default function Hero() {
             href="#skills"
             onClick={() => play("click")}
             onMouseEnter={() => play("hover")}
-            className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
+            className="editorial-card p-5 flex items-start gap-4 group hover:border-olive transition-all"
           >
-            <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
+            <div className="p-3 rounded-xl bg-olive text-white group-hover:scale-105 transition-transform">
               <Network size={22} />
             </div>
             <div>
-              <span className="text-xs font-bold tracking-widest text-mono-black uppercase block mb-1">
+              <span className="text-xs font-bold tracking-widest text-olive uppercase block mb-1">
                 #NETWORKING
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">
@@ -158,13 +158,13 @@ export default function Hero() {
             href="#skills"
             onClick={() => play("click")}
             onMouseEnter={() => play("hover")}
-            className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
+            className="editorial-card p-5 flex items-start gap-4 group hover:border-olive transition-all"
           >
-            <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
+            <div className="p-3 rounded-xl bg-olive text-white group-hover:scale-105 transition-transform">
               <Smartphone size={22} />
             </div>
             <div>
-              <span className="text-xs font-bold tracking-widest text-mono-black uppercase block mb-1">
+              <span className="text-xs font-bold tracking-widest text-olive uppercase block mb-1">
                 #ANDROIDDEV
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">
@@ -181,13 +181,13 @@ export default function Hero() {
             href="#skills"
             onClick={() => play("click")}
             onMouseEnter={() => play("hover")}
-            className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
+            className="editorial-card p-5 flex items-start gap-4 group hover:border-olive transition-all"
           >
-            <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
+            <div className="p-3 rounded-xl bg-olive text-white group-hover:scale-105 transition-transform">
               <Wrench size={22} />
             </div>
             <div>
-              <span className="text-xs font-bold tracking-widest text-mono-black uppercase block mb-1">
+              <span className="text-xs font-bold tracking-widest text-olive uppercase block mb-1">
                 #ITSUPPORT
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">

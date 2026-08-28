@@ -109,25 +109,13 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
     },
   ];
 
-  const settingsItems: CommandItem[] = [
-    {
-      id: "settings-lang",
-      label: `Ganti Bahasa → ${lang === "id" ? "English" : "Bahasa Indonesia"}`,
-      sublabel: `Bahasa sekarang: ${lang === "id" ? "Indonesia" : "English"}`,
-      icon: Globe,
-      action: () => {
-        setLang(lang === "id" ? "en" : "id");
-        play("click");
-        onClose();
-      },
-    },
-  ];
+  // Settings removed - language toggle is in navbar
+  const settingsItems: CommandItem[] = [];
 
   const allGroups: ItemGroup[] = [
     { label: "🗺️ Navigasi", items: navItems },
     { label: "🚀 Proyek", items: projectItems },
     { label: "⚡ Actions", items: actionItems },
-    { label: "⚙️ Pengaturan", items: settingsItems },
   ];
 
   const filteredGroups: ItemGroup[] = query

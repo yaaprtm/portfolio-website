@@ -157,9 +157,9 @@ export default function Navbar() {
                 <Command size={14} />
               </button>
 
+              <LanguageToggle />
               <ThemeSwitcher />
               <SoundToggle />
-              <LanguageToggle />
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}

@@ -19,6 +19,11 @@ const config: Config = {
         "mono-muted": "#737373",
         "mono-border": "#E5E5E5",
         "mono-border-dark": "#1A1A1A",
+        
+        // Accent Color Theme - Dynamically changeable via CSS variables
+        olive: "var(--color-olive)",
+        "olive-hover": "var(--color-olive-hover)",
+        "olive-soft": "var(--color-olive-soft)",
       },
       fontFamily: {
         display: ["var(--font-display)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
