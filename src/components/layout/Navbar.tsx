@@ -29,6 +29,16 @@ export default function Navbar() {
   const [cmdOpen, setCmdOpen] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
 
+  // Listen for global Ctrl+K event
+  useEffect(() => {
+    const handleOpenCommandPalette = () => {
+      setCmdOpen(true);
+    };
+
+    window.addEventListener("openCommandPalette", handleOpenCommandPalette);
+    return () => window.removeEventListener("openCommandPalette", handleOpenCommandPalette);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);

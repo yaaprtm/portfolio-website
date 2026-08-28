@@ -11,7 +11,11 @@ import idTranslations from "@/locales/id.json";
 import enTranslations from "@/locales/en.json";
 
 export type Lang = "id" | "en";
-export type Translations = typeof idTranslations;
+
+// Make Translations type dynamic to avoid hardcoding
+type TranslationsType = typeof idTranslations;
+
+export type Translations = TranslationsType;
 
 interface LanguageContextType {
   lang: Lang;

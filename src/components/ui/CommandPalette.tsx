@@ -164,10 +164,7 @@ export default function CommandPalette({ isOpen, onClose, onOpenCv }: CommandPal
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-        e.preventDefault();
-        if (isOpen) onClose();
-      } else if (e.key === "Escape" && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       } else if (e.key === "ArrowDown" && isOpen) {
         e.preventDefault();

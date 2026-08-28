@@ -133,7 +133,7 @@ export default function ThemeSwitcher() {
               className="absolute right-0 top-12 w-56 rounded-2xl bg-[#F0EEE9] p-3 border border-warm-dark/15 shadow-2xl z-50 text-warm-dark"
             >
               <p className="text-[10px] font-bold uppercase tracking-widest text-warm-muted px-2.5 mb-2">
-                {t.common?.colorThemeLabel || "Pilih Warna Aksen"}
+                {(t.common as any)?.colorThemeLabel || "Pilih Warna Aksen"}
               </p>
               <div className="space-y-1">
                 {colorPresets.map((preset) => {

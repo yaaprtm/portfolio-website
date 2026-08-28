@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import GlobalKeyboardShortcuts from "@/components/ui/GlobalKeyboardShortcuts";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -86,7 +87,10 @@ export default function RootLayout({
   return (
     <html lang="id" className={`scroll-smooth ${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="bg-offwhite text-mono-black antialiased font-sans">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <GlobalKeyboardShortcuts />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

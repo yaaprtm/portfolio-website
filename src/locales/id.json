@@ -27,6 +27,14 @@
       "education": "STr. Teknik Rekayasa Internet · Politeknik Elektronika Negeri Surabaya (PENS) '26 - '30",
       "experience": "Android Dev Intern @ BRIN (Kebun Raya Cibinong App)",
       "availability": "Available for internships, projects, and collaborative opportunities"
+    },
+    "skillCards": {
+      "networking": "Jaringan Komputer",
+      "networkingDesc": "Router, Switch, MikroTik MTCNA, Cisco Packet Tracer & Topology.",
+      "android": "Android Development",
+      "androidDesc": "Kotlin, Android Studio, REST API integration & Mobile UX.",
+      "itSupport": "IT Support & Maintenance",
+      "itSupportDesc": "Hardware, OS troubleshooting, network maintenance & field support."
     }
   },
   "about": {
