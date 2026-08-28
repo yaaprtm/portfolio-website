@@ -9,27 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm Editorial Palette
-        offwhite: "#F0EEE9",
-        paper: "#F7F5F0",
-        "warm-card": "#E8E4DD",
-        "warm-card-hover": "#E1DCD4",
-        "warm-dark": "#1A1A1A",
-        "warm-gray": "#4A4A4A",
-        "warm-muted": "#737373",
-        "warm-border": "#D8D3C8",
-        olive: {
-          50: "var(--color-olive-soft, rgba(107, 115, 85, 0.12))",
-          100: "var(--color-olive-100, #E5E7DC)",
-          200: "#C9CEB7",
-          300: "#ACB491",
-          400: "#8C966F",
-          500: "var(--color-olive, #6B7355)", // Main Accent
-          600: "var(--color-olive-hover, #555D42)", // Hover Accent
-          700: "#424933",
-          800: "#303524",
-          900: "#1E2216",
-        },
+        // Pure Monochrome Palette
+        offwhite: "#FAFAFA",
+        paper: "#FFFFFF",
+        "mono-card": "#F5F5F5",
+        "mono-card-hover": "#EBEBEB",
+        "mono-black": "#0A0A0A",
+        "mono-gray": "#404040",
+        "mono-muted": "#737373",
+        "mono-border": "#E5E5E5",
+        "mono-border-dark": "#1A1A1A",
       },
       fontFamily: {
         display: ["var(--font-display)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
@@ -50,8 +39,8 @@ const config: Config = {
         },
       },
       boxShadow: {
-        editorial: "0 10px 30px -10px rgba(26, 26, 26, 0.08)",
-        "editorial-hover": "0 20px 40px -15px rgba(26, 26, 26, 0.14)",
+        editorial: "0 10px 30px -10px rgba(0, 0, 0, 0.06)",
+        "editorial-hover": "0 20px 40px -15px rgba(0, 0, 0, 0.12)",
       },
       borderRadius: {
         pill: "9999px",

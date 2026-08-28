@@ -85,7 +85,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`scroll-smooth ${inter.variable} ${plusJakartaSans.variable}`}>
-      <body className="bg-offwhite text-warm-dark antialiased font-sans">
+      <body className="bg-offwhite text-mono-black antialiased font-sans">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

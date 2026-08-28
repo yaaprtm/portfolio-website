@@ -8,21 +8,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* ============================================================
-   CSS Custom Properties — WARM EDITORIAL NEUTRAL & OLIVE GREEN
+   CSS Custom Properties — PURE MONOCHROME NOIR
    ============================================================ */
 :root {
-  --color-bg: #F0EEE9;
-  --color-surface: #E8E4DD;
-  --color-surface-2: #DFD9CF;
+  --color-bg: #FAFAFA;
+  --color-surface: #F5F5F5;
+  --color-surface-2: #EBEBEB;
 
-  --color-olive: #6B7355;
-  --color-olive-hover: #555D42;
-  --color-olive-soft: rgba(107, 115, 85, 0.12);
-
-  --color-text: #1A1A1A;
-  --color-text-muted: #4A4A4A;
-  --color-border: rgba(26, 26, 26, 0.12);
-  --color-border-hover: rgba(107, 115, 85, 0.4);
+  --color-text: #0A0A0A;
+  --color-text-muted: #404040;
+  --color-border: #E5E5E5;
+  --color-border-hover: #0A0A0A;
 }
 
 /* ============================================================
@@ -56,16 +52,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F0EEE9;
+  background: #FAFAFA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8D3C8;
+  background: #D4D4D4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6B7355;
+  background: #0A0A0A;
 }
 
 /* ============================================================
@@ -80,7 +76,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 0.95;
-  color: #1A1A1A;
+  color: #0A0A0A;
   text-transform: uppercase;
 }
 
@@ -89,7 +85,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-size: clamp(2.25rem, 4vw, 3.25rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #1A1A1A;
+  color: #0A0A0A;
   line-height: 1.05;
 }
 
@@ -97,48 +93,48 @@ h1, h2, h3, h4, h5, h6, .font-display {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #6B7355;
+  color: #0A0A0A;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
 /* ============================================================
-   Editorial Cards
+   Editorial Cards — Pure Monochrome
    ============================================================ */
 .glass-card, .editorial-card {
-  background: #E8E4DD;
-  border: 1px solid rgba(26, 26, 26, 0.08);
+  background: #F5F5F5;
+  border: 1px solid #E5E5E5;
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover, .editorial-card:hover {
-  background: #E1DCD4;
-  border-color: rgba(107, 115, 85, 0.3);
-  box-shadow: 0 16px 36px -10px rgba(26, 26, 26, 0.08);
+  background: #EBEBEB;
+  border-color: #0A0A0A;
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 
 /* ============================================================
-   Buttons — Editorial Pill Style
+   Buttons — Pure Monochrome Pill Style
    ============================================================ */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #6B7355;
+  background: #0A0A0A;
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(107, 115, 85, 0.25);
+  box-shadow: 0 4px 14px rgba(10, 10, 10, 0.15);
 }
 
 .btn-primary:hover {
-  background: #555D42;
+  background: #262626;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(107, 115, 85, 0.35);
+  box-shadow: 0 8px 20px rgba(10, 10, 10, 0.25);
 }
 
 .btn-secondary {
@@ -146,17 +142,17 @@ h1, h2, h3, h4, h5, h6, .font-display {
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: 1.5px solid #1A1A1A;
-  color: #1A1A1A;
-  font-weight: 600;
+  border: 1.5px solid #0A0A0A;
+  color: #0A0A0A;
+  font-weight: 700;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background: #1A1A1A;
-  color: #F0EEE9;
+  background: #0A0A0A;
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -164,8 +160,8 @@ h1, h2, h3, h4, h5, h6, .font-display {
    Selection Color
    ============================================================ */
 ::selection {
-  background: rgba(107, 115, 85, 0.25);
-  color: #1A1A1A;
+  background: #0A0A0A;
+  color: #FFFFFF;
 }
 
 /* ============================================================
@@ -173,8 +169,8 @@ h1, h2, h3, h4, h5, h6, .font-display {
    ============================================================ */
 .input-glow:focus {
   outline: none;
-  border-color: #6B7355;
-  box-shadow: 0 0 0 2px rgba(107, 115, 85, 0.2);
+  border-color: #0A0A0A;
+  box-shadow: 0 0 0 2px rgba(10, 10, 10, 0.15);
 }
 
 /* ============================================================
@@ -188,7 +184,7 @@ h1, h2, h3, h4, h5, h6, .font-display {
 @media print {
   body {
     background-color: #ffffff !important;
-    color: #1A1A1A !important;
+    color: #0A0A0A !important;
   }
   .no-print, nav, footer, button {
     display: none !important;

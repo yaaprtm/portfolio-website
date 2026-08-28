@@ -27,10 +27,10 @@ function EducationTimelineEntry({
     >
       {/* Timeline Bullet */}
       <div className="relative flex flex-col items-center">
-        <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center flex-shrink-0 z-10">
-          <GraduationCap size={22} className="text-olive-500" />
+        <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center flex-shrink-0 z-10">
+          <GraduationCap size={22} />
         </div>
-        <div className="w-0.5 flex-1 bg-warm-dark/10 mt-3" />
+        <div className="w-0.5 flex-1 bg-mono-border mt-3" />
       </div>
 
       {/* Content Card */}
@@ -38,19 +38,19 @@ function EducationTimelineEntry({
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-olive-500 text-white">
+              <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-mono-black text-white">
                 {edu.current ? t.education.active : t.education.alumni}
               </span>
             </div>
-            <h3 className="font-display font-extrabold text-warm-dark text-xl">{edu.title}</h3>
-            <p className="text-warm-gray text-xs font-semibold uppercase tracking-wider mt-1 flex items-center gap-1.5">
-              <School size={14} className="text-olive-500" />
+            <h3 className="font-display font-extrabold text-mono-black text-xl">{edu.title}</h3>
+            <p className="text-mono-gray text-xs font-bold uppercase tracking-wider mt-1 flex items-center gap-1.5">
+              <School size={14} className="text-mono-black" />
               <span>{edu.company} · {edu.location}</span>
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-warm-dark bg-[#F0EEE9] px-3.5 py-1.5 rounded-full border border-warm-dark/10">
+            <span className="text-xs font-bold uppercase tracking-wider text-mono-black bg-[#FAFAFA] px-3.5 py-1.5 rounded-full border border-mono-border">
               {edu.period}
             </span>
           </div>
@@ -59,8 +59,8 @@ function EducationTimelineEntry({
         {/* Description Bullet List */}
         <ul className="space-y-2.5 mb-5">
           {edu.description.map((desc, i) => (
-            <li key={i} className="flex gap-3 text-warm-gray text-xs sm:text-sm leading-relaxed">
-              <span className="text-olive-500 font-bold">•</span>
+            <li key={i} className="flex gap-3 text-mono-gray text-xs sm:text-sm leading-relaxed">
+              <span className="text-mono-black font-extrabold">•</span>
               {desc}
             </li>
           ))}
@@ -68,11 +68,11 @@ function EducationTimelineEntry({
 
         {/* Tech / Focus Areas */}
         {edu.technologies && (
-          <div className="flex flex-wrap gap-2 pt-4 border-t border-warm-dark/10">
+          <div className="flex flex-wrap gap-2 pt-4 border-t border-mono-border">
             {edu.technologies.map((tech) => (
               <span
                 key={tech}
-                className="text-xs font-semibold text-warm-dark bg-[#F0EEE9] px-3 py-1 rounded-full border border-warm-dark/10"
+                className="text-xs font-bold text-mono-black bg-[#FAFAFA] px-3 py-1 rounded-full border border-mono-border"
               >
                 {tech}
               </span>
@@ -88,7 +88,7 @@ export default function Education() {
   const { t } = useLanguage();
 
   return (
-    <SectionWrapper id="education" className="bg-[#F0EEE9]">
+    <SectionWrapper id="education" className="bg-[#FAFAFA]">
       <SectionHeading
         tag={t.education.tag}
         title={t.education.title}

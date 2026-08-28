@@ -80,7 +80,7 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper id="contact" className="bg-[#F0EEE9]">
+    <SectionWrapper id="contact" className="bg-[#FAFAFA]">
       <SectionHeading
         tag={t.contact.tag}
         title={t.contact.title}
@@ -96,19 +96,19 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="editorial-card p-8 sm:p-10"
         >
-          <h3 className="font-display font-extrabold text-warm-dark text-xl mb-6 flex items-center gap-2">
-            <MessageSquare size={20} className="text-olive-500" />
+          <h3 className="font-display font-extrabold text-mono-black text-xl mb-6 flex items-center gap-2">
+            <MessageSquare size={20} className="text-mono-black" />
             {t.contact.sendMessage}
           </h3>
 
           {sent ? (
             <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
-              <CheckCircle2 size={52} className="text-olive-500" />
-              <h4 className="font-display font-bold text-warm-dark text-xl">{t.contact.form.successTitle}</h4>
-              <p className="text-warm-gray text-sm">{t.contact.form.successDesc}</p>
+              <CheckCircle2 size={52} className="text-mono-black" />
+              <h4 className="font-display font-bold text-mono-black text-xl">{t.contact.form.successTitle}</h4>
+              <p className="text-mono-gray text-sm">{t.contact.form.successDesc}</p>
               <button
                 onClick={() => { setSent(false); setForm({ name: "", email: "", message: "" }); }}
-                className="text-xs font-bold uppercase tracking-wider text-olive-500 hover:underline mt-2"
+                className="text-xs font-bold uppercase tracking-wider text-mono-black hover:underline mt-2"
               >
                 {t.contact.form.sendAnother}
               </button>
@@ -116,7 +116,7 @@ export default function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
+                <label className="block text-mono-black text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.name}
                 </label>
                 <input
@@ -124,12 +124,12 @@ export default function Contact() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   placeholder={t.contact.form.namePlaceholder}
-                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#FAFAFA] border border-mono-border text-mono-black text-sm font-semibold placeholder-mono-muted focus:outline-none focus:border-mono-black focus:ring-2 focus:ring-mono-black/10 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
+                <label className="block text-mono-black text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.email}
                 </label>
                 <input
@@ -137,12 +137,12 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder={t.contact.form.emailPlaceholder}
-                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#FAFAFA] border border-mono-border text-mono-black text-sm font-semibold placeholder-mono-muted focus:outline-none focus:border-mono-black focus:ring-2 focus:ring-mono-black/10 transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-warm-dark text-xs font-bold uppercase tracking-wider mb-2">
+                <label className="block text-mono-black text-xs font-bold uppercase tracking-wider mb-2">
                   {t.contact.form.message}
                 </label>
                 <textarea
@@ -150,7 +150,7 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder={t.contact.form.messagePlaceholder}
-                  className="w-full px-5 py-3.5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 text-warm-dark text-sm font-medium placeholder-warm-muted focus:outline-none focus:border-olive-500 focus:ring-2 focus:ring-olive-500/20 transition-all resize-none"
+                  className="w-full px-5 py-3.5 rounded-2xl bg-[#FAFAFA] border border-mono-border text-mono-black text-sm font-semibold placeholder-mono-muted focus:outline-none focus:border-mono-black focus:ring-2 focus:ring-mono-black/10 transition-all resize-none"
                 />
               </div>
 
@@ -184,10 +184,10 @@ export default function Contact() {
           className="space-y-6 flex flex-col justify-between"
         >
           <div>
-            <h3 className="font-display font-extrabold text-warm-dark text-2xl mb-3">
+            <h3 className="font-display font-extrabold text-mono-black text-2xl mb-3">
               {t.contact.directContact}
             </h3>
-            <p className="text-warm-gray text-base leading-relaxed mb-6">
+            <p className="text-mono-gray text-base leading-relaxed mb-6">
               {t.contact.directContactDesc}
             </p>
           </div>
@@ -201,22 +201,22 @@ export default function Contact() {
                   whileHover={{ x: 4 }}
                   className="editorial-card px-6 py-4 flex items-center gap-4 group"
                 >
-                  <div className="w-10 h-10 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center text-olive-500 flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-mono-black text-white flex items-center justify-center flex-shrink-0">
                     <Icon size={18} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-warm-muted">{link.label}</p>
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-mono-muted">{link.label}</p>
                     {link.href ? (
                       <a
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-semibold text-warm-dark hover:text-olive-500 transition-colors truncate block"
+                        className="text-sm font-bold text-mono-black hover:underline transition-colors truncate block"
                       >
                         {link.value}
                       </a>
                     ) : (
-                      <span className="text-sm font-semibold text-warm-dark truncate block">
+                      <span className="text-sm font-bold text-mono-black truncate block">
                         {link.value}
                       </span>
                     )}

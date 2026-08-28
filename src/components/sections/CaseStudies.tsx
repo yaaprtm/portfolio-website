@@ -71,7 +71,7 @@ export default function CaseStudies() {
   };
 
   return (
-    <SectionWrapper id="casestudies" className="bg-[#F0EEE9]">
+    <SectionWrapper id="casestudies" className="bg-[#FAFAFA]">
       <SectionHeading
         tag={t.caseStudies.tag}
         title={t.caseStudies.title}
@@ -82,13 +82,13 @@ export default function CaseStudies() {
       <div className="flex justify-end gap-3 mb-6 -mt-4">
         <button
           onClick={expandAll}
-          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-warm-card border border-warm-dark/10 text-warm-dark hover:bg-olive-500 hover:text-white transition-all"
+          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-mono-card border border-mono-border text-mono-black hover:bg-mono-black hover:text-white transition-all"
         >
           {t.caseStudies.expandAll}
         </button>
         <button
           onClick={collapseAll}
-          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-warm-card border border-warm-dark/10 text-warm-dark hover:bg-olive-500 hover:text-white transition-all"
+          className="text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full bg-mono-card border border-mono-border text-mono-black hover:bg-mono-black hover:text-white transition-all"
         >
           {t.caseStudies.collapseAll}
         </button>
@@ -115,32 +115,32 @@ export default function CaseStudies() {
               {/* Card Header Bar */}
               <div
                 onClick={() => toggleItem(item.id)}
-                className="p-6 sm:p-8 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 select-none hover:bg-warm-card-hover transition-colors"
+                className="p-6 sm:p-8 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 select-none hover:bg-mono-card-hover transition-colors"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center text-olive-500 flex-shrink-0 mt-0.5">
+                  <div className="w-12 h-12 rounded-full bg-mono-black text-white flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Icon size={24} />
                   </div>
                   <div>
                     <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                      <span className="text-xs font-bold uppercase tracking-wider px-3 py-0.5 rounded-full bg-[#F0EEE9] text-olive-500 border border-warm-dark/10">
+                      <span className="text-xs font-extrabold uppercase tracking-wider px-3 py-0.5 rounded-full bg-[#FAFAFA] text-mono-black border border-mono-border">
                         {data.category}
                       </span>
-                      <span className="text-xs font-semibold text-warm-gray">
+                      <span className="text-xs font-semibold text-mono-gray">
                         {data.subtitle}
                       </span>
                     </div>
-                    <h3 className="font-display font-extrabold text-xl sm:text-2xl text-warm-dark group-hover:text-olive-500 transition-colors">
+                    <h3 className="font-display font-extrabold text-xl sm:text-2xl text-mono-black group-hover:text-mono-gray transition-colors">
                       {data.title}
                     </h3>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 self-end sm:self-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-olive-500 hidden sm:inline">
+                  <span className="text-xs font-bold uppercase tracking-wider text-mono-black hidden sm:inline">
                     {isOpen ? t.caseStudies.collapseAll : t.caseStudies.viewStar}
                   </span>
-                  <div className="w-9 h-9 rounded-full bg-warm-card border border-warm-dark/10 flex items-center justify-center text-warm-dark">
+                  <div className="w-9 h-9 rounded-full bg-mono-card border border-mono-border flex items-center justify-center text-mono-black">
                     {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                   </div>
                 </div>
@@ -154,14 +154,14 @@ export default function CaseStudies() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="border-t border-warm-dark/10 px-6 sm:px-8 pb-8 pt-6 space-y-6"
+                    className="border-t border-mono-border px-6 sm:px-8 pb-8 pt-6 space-y-6"
                   >
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-warm-dark/10">
+                    <div className="flex flex-wrap gap-2 pt-1 pb-2 border-b border-mono-border">
                       {item.techs.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 rounded-full bg-[#F0EEE9] border border-warm-dark/10 text-xs font-semibold text-warm-dark"
+                          className="px-3 py-1 rounded-full bg-[#FAFAFA] border border-mono-border text-xs font-bold text-mono-black"
                         >
                           {tech}
                         </span>
@@ -171,45 +171,45 @@ export default function CaseStudies() {
                     {/* STAR Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       {/* S — Situation */}
-                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#FAFAFA] border border-mono-border space-y-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-mono-black font-display text-xs font-bold uppercase tracking-wider">
                           <Compass size={16} />
                           <span>S — Situation</span>
                         </div>
-                        <p className="text-warm-gray text-sm leading-relaxed">
+                        <p className="text-mono-gray text-sm leading-relaxed">
                           {data.situation}
                         </p>
                       </div>
 
                       {/* T — Task */}
-                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-warm-dark font-display text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#FAFAFA] border border-mono-border space-y-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-mono-black font-display text-xs font-bold uppercase tracking-wider">
                           <ListTodo size={16} />
                           <span>T — Task</span>
                         </div>
-                        <p className="text-warm-gray text-sm leading-relaxed">
+                        <p className="text-mono-gray text-sm leading-relaxed">
                           {data.task}
                         </p>
                       </div>
 
                       {/* A — Action */}
-                      <div className="p-5 rounded-2xl bg-[#F0EEE9] border border-warm-dark/10 space-y-2 md:col-span-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-[#FAFAFA] border border-mono-border space-y-2 md:col-span-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-mono-black font-display text-xs font-bold uppercase tracking-wider">
                           <Wrench size={16} />
                           <span>A — Action</span>
                         </div>
-                        <p className="text-warm-dark text-sm leading-relaxed font-normal">
+                        <p className="text-mono-black text-sm leading-relaxed font-normal">
                           {data.action}
                         </p>
                       </div>
 
                       {/* R — Result */}
-                      <div className="p-5 rounded-2xl bg-olive-500/10 border border-olive-500/30 space-y-2 md:col-span-2 relative overflow-hidden">
-                        <div className="flex items-center gap-2 text-olive-500 font-display text-xs font-bold uppercase tracking-wider">
+                      <div className="p-5 rounded-2xl bg-mono-card border border-mono-border-dark space-y-2 md:col-span-2 relative overflow-hidden">
+                        <div className="flex items-center gap-2 text-mono-black font-display text-xs font-extrabold uppercase tracking-wider">
                           <Trophy size={16} />
                           <span>R — Result & Impact</span>
                         </div>
-                        <p className="text-warm-dark text-sm leading-relaxed font-medium">
+                        <p className="text-mono-black text-sm leading-relaxed font-semibold">
                           {data.result}
                         </p>
                       </div>
@@ -217,19 +217,19 @@ export default function CaseStudies() {
 
                     {/* Photo Gallery Support */}
                     {images && images.length > 0 && (
-                      <div className="pt-4 border-t border-warm-dark/10 space-y-4">
+                      <div className="pt-4 border-t border-mono-border space-y-4">
                         <div className="flex items-center justify-between gap-2">
-                          <span className="text-xs font-bold uppercase tracking-wider text-olive-500 flex items-center gap-1.5">
+                          <span className="text-xs font-extrabold uppercase tracking-wider text-mono-black flex items-center gap-1.5">
                             <ImageIcon size={14} /> Foto & Dokumentasi Lapangan ({images.length})
                           </span>
-                          <span className="text-[11px] text-warm-muted uppercase tracking-wider">
+                          <span className="text-[11px] text-mono-muted uppercase tracking-wider">
                             Klik foto untuk memperbesar
                           </span>
                         </div>
 
                         {imagesNote && (
-                          <p className="text-xs text-warm-gray bg-[#F0EEE9] border border-warm-dark/10 p-4 rounded-2xl leading-relaxed italic flex items-start gap-2">
-                            <span className="text-olive-500 font-bold not-italic">ℹ️</span>
+                          <p className="text-xs text-mono-gray bg-[#FAFAFA] border border-mono-border p-4 rounded-2xl leading-relaxed italic flex items-start gap-2">
+                            <span className="text-mono-black font-bold not-italic">ℹ️</span>
                             <span>{imagesNote}</span>
                           </p>
                         )}
@@ -240,7 +240,7 @@ export default function CaseStudies() {
                             <div
                               key={imgIdx}
                               onClick={() => setActiveImage(img)}
-                              className="group relative aspect-video rounded-2xl border border-warm-dark/10 overflow-hidden cursor-pointer bg-warm-card hover:border-olive-500 transition-all flex flex-col justify-between"
+                              className="group relative aspect-video rounded-2xl border border-mono-border overflow-hidden cursor-pointer bg-mono-card hover:border-mono-black transition-all flex flex-col justify-between"
                             >
                               {!failedImages[img.src] ? (
                                 <Image
@@ -248,19 +248,19 @@ export default function CaseStudies() {
                                   alt={img.alt}
                                   fill
                                   sizes="(max-width: 768px) 100vw, 33vw"
-                                  className="object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300"
+                                  className="object-cover filter grayscale contrast-110 group-hover:scale-105 transition-all duration-300"
                                   onError={() => handleImageError(img.src)}
                                 />
                               ) : (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center p-3 text-center">
-                                  <ImageIcon size={24} className="text-warm-muted mb-1" />
-                                  <p className="text-[11px] text-warm-dark font-bold line-clamp-2">
+                                  <ImageIcon size={24} className="text-mono-muted mb-1" />
+                                  <p className="text-[11px] text-mono-black font-bold line-clamp-2">
                                     {img.caption || img.alt}
                                   </p>
                                 </div>
                               )}
 
-                              <div className="absolute inset-0 bg-warm-dark/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end justify-between">
+                              <div className="absolute inset-0 bg-mono-black/60 opacity-0 group-hover:opacity-100 transition-opacity p-3 flex items-end justify-between">
                                 <span className="text-[11px] font-semibold text-white truncate pr-2">
                                   {img.caption || img.alt}
                                 </span>
@@ -287,35 +287,35 @@ export default function CaseStudies() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActiveImage(null)}
-            className="fixed inset-0 z-50 bg-warm-dark/80 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 bg-mono-black/80 backdrop-blur-md flex items-center justify-center p-4"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full bg-[#F0EEE9] rounded-3xl p-6 border border-warm-dark/20 shadow-2xl text-center space-y-4"
+              className="relative max-w-4xl w-full bg-[#FAFAFA] rounded-3xl p-6 border border-mono-border shadow-2xl text-center space-y-4"
             >
               <button
                 onClick={() => setActiveImage(null)}
-                className="absolute top-4 right-4 p-2.5 rounded-full bg-warm-card text-warm-dark hover:bg-warm-dark hover:text-white transition-colors z-10"
+                className="absolute top-4 right-4 p-2.5 rounded-full bg-mono-card text-mono-black hover:bg-mono-black hover:text-white transition-colors z-10"
               >
                 <X size={20} />
               </button>
 
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-warm-card border border-warm-dark/10 flex items-center justify-center">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-mono-card border border-mono-border flex items-center justify-center">
                 {!failedImages[activeImage.src] ? (
                   <Image
                     src={activeImage.src}
                     alt={activeImage.alt}
                     fill
                     sizes="100vw"
-                    className="object-contain"
+                    className="object-contain filter grayscale contrast-110"
                   />
                 ) : (
                   <div className="p-6 text-center space-y-2">
-                    <ImageIcon size={48} className="mx-auto text-olive-500 mb-2" />
-                    <p className="text-sm font-bold text-warm-dark">
+                    <ImageIcon size={48} className="mx-auto text-mono-black mb-2" />
+                    <p className="text-sm font-bold text-mono-black">
                       {activeImage.caption || activeImage.alt}
                     </p>
                   </div>
@@ -323,11 +323,11 @@ export default function CaseStudies() {
               </div>
 
               <div className="text-left space-y-2 max-w-3xl mx-auto">
-                <p className="text-warm-dark font-display font-extrabold text-lg text-olive-500">
+                <p className="text-mono-black font-display font-extrabold text-lg">
                   {activeImage.caption || activeImage.alt}
                 </p>
                 {activeImage.description && (
-                  <p className="text-warm-gray text-xs sm:text-sm leading-relaxed bg-warm-card border border-warm-dark/10 p-4 rounded-2xl">
+                  <p className="text-mono-gray text-xs sm:text-sm leading-relaxed bg-mono-card border border-mono-border p-4 rounded-2xl">
                     {activeImage.description}
                   </p>
                 )}

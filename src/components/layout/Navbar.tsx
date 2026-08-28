@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LanguageToggle from "@/components/ui/LanguageToggle";
-import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -76,7 +75,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
           scrolled
-            ? "bg-[#F0EEE9]/90 backdrop-blur-md border-b border-warm-dark/10 shadow-sm"
+            ? "bg-[#FAFAFA]/90 backdrop-blur-md border-b border-mono-border shadow-sm"
             : "bg-transparent"
         )}
       >
@@ -91,10 +90,10 @@ export default function Navbar() {
               }}
               className="flex flex-col group cursor-pointer flex-shrink-0"
             >
-              <span className="font-display font-extrabold text-base sm:text-lg tracking-tight text-warm-dark group-hover:text-olive-500 transition-colors uppercase whitespace-nowrap leading-none mb-1">
+              <span className="font-display font-extrabold text-base sm:text-lg tracking-tight text-mono-black group-hover:text-mono-gray transition-colors uppercase whitespace-nowrap leading-none mb-1">
                 Arya Putra Pratama
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-bold text-olive-500 whitespace-nowrap">
+              <span className="text-[10px] tracking-widest uppercase font-bold text-mono-gray whitespace-nowrap">
                 IT Enthusiast · Portfolio
               </span>
             </a>
@@ -108,14 +107,14 @@ export default function Navbar() {
                     className={cn(
                       "relative px-3 py-1.5 text-xs font-semibold tracking-wider uppercase transition-all duration-200",
                       activeSection === link.href.slice(1)
-                        ? "text-olive-500 font-bold"
-                        : "text-warm-gray hover:text-warm-dark"
+                        ? "text-mono-black font-extrabold"
+                        : "text-mono-gray hover:text-mono-black"
                     )}
                   >
                     {activeSection === link.href.slice(1) && (
                       <motion.span
                         layoutId="active-nav-underline"
-                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-olive-500"
+                        className="absolute bottom-0 left-3 right-3 h-0.5 bg-mono-black"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -129,26 +128,25 @@ export default function Navbar() {
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => setCvOpen(true)}
-                className="px-3.5 py-1.5 rounded-full border border-warm-dark/20 text-xs font-semibold text-warm-dark hover:border-olive-500 hover:text-olive-500 transition-all hidden sm:flex items-center gap-1.5"
+                className="px-3.5 py-1.5 rounded-full border border-mono-black text-xs font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all hidden sm:flex items-center gap-1.5"
               >
-                <FileText size={13} className="text-olive-500" />
+                <FileText size={13} className="text-current" />
                 <span>{t.nav.previewCV}</span>
               </button>
 
               <button
                 onClick={() => setCmdOpen(true)}
-                className="p-2 rounded-full border border-warm-dark/15 text-warm-gray hover:text-warm-dark hover:border-warm-dark/40 transition-all hidden sm:flex items-center"
+                className="p-2 rounded-full border border-mono-border text-mono-gray hover:text-mono-black hover:border-mono-black transition-all hidden sm:flex items-center"
                 title="Command Palette (Ctrl+K)"
               >
                 <Command size={14} />
               </button>
 
-              <ThemeSwitcher />
               <LanguageToggle />
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-full text-warm-dark hover:bg-warm-card transition-all"
+                className="lg:hidden p-2 rounded-full text-mono-black hover:bg-mono-card transition-all"
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -166,12 +164,12 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-20 z-30 bg-[#F0EEE9] border-b border-warm-dark/10 shadow-xl lg:hidden p-6"
+            className="fixed inset-x-0 top-20 z-30 bg-[#FAFAFA] border-b border-mono-border shadow-xl lg:hidden p-6"
           >
             <div className="flex flex-col gap-3">
               <button
                 onClick={() => { setMobileOpen(false); setCvOpen(true); }}
-                className="w-full py-3 rounded-full bg-olive-500 text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-2"
+                className="w-full py-3 rounded-full bg-mono-black text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-2"
               >
                 <FileText size={15} /> {t.nav.viewLiveCV}
               </button>
@@ -183,12 +181,12 @@ export default function Navbar() {
                   className={cn(
                     "text-left py-2.5 px-3 rounded-lg font-display text-sm font-bold tracking-wider uppercase transition-all flex items-center justify-between",
                     activeSection === link.href.slice(1)
-                      ? "text-olive-500 bg-warm-card"
-                      : "text-warm-dark hover:bg-warm-card/60"
+                      ? "text-mono-black bg-mono-card font-extrabold"
+                      : "text-mono-gray hover:bg-mono-card/60"
                   )}
                 >
                   <span>{t.nav[link.key]}</span>
-                  <span className="text-xs text-warm-muted font-normal">0{i + 1}</span>
+                  <span className="text-xs text-mono-muted font-normal">0{i + 1}</span>
                 </button>
               ))}
             </div>

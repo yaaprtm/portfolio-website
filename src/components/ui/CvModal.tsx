@@ -28,7 +28,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-warm-dark/80 backdrop-blur-md"
+            className="fixed inset-0 bg-mono-black/80 backdrop-blur-md"
           />
 
           {/* Modal Container */}
@@ -36,33 +36,33 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-3xl bg-[#F0EEE9] border border-warm-dark/10 p-6 sm:p-8 rounded-3xl shadow-2xl z-10 max-h-[90vh] overflow-y-auto text-warm-dark"
+            className="relative w-full max-w-3xl bg-[#FAFAFA] border border-mono-border p-6 sm:p-8 rounded-3xl shadow-2xl z-10 max-h-[90vh] overflow-y-auto text-mono-black"
           >
             {/* Header Action Bar */}
-            <div className="flex items-center justify-between pb-6 mb-6 border-b border-warm-dark/10">
+            <div className="flex items-center justify-between pb-6 mb-6 border-b border-mono-border">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-olive-500/10 border border-olive-500/20 flex items-center justify-center">
-                  <FileText size={20} className="text-olive-500" />
+                <div className="w-10 h-10 rounded-full bg-mono-black text-white flex items-center justify-center">
+                  <FileText size={20} />
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-warm-dark text-lg">Curriculum Vitae</h3>
-                  <p className="text-warm-gray text-xs font-semibold uppercase tracking-wider">Arya Putra Pratama · Official Resume</p>
+                  <h3 className="font-display font-extrabold text-mono-black text-lg">Curriculum Vitae</h3>
+                  <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">Arya Putra Pratama · Official Resume</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2">
                 <button
                   onClick={handleCopyLink}
-                  className="px-3.5 py-2 rounded-full border border-warm-dark/20 bg-warm-card text-xs font-semibold text-warm-dark hover:border-olive-500 transition-all flex items-center gap-1.5"
+                  className="px-3.5 py-2 rounded-full border border-mono-black bg-mono-card text-xs font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all flex items-center gap-1.5"
                 >
-                  {copied ? <Check size={14} className="text-olive-500" /> : null}
+                  {copied ? <Check size={14} className="text-mono-black" /> : null}
                   {copied ? "Link Copied" : "Share"}
                 </button>
                 <a
                   href="/print"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full bg-olive-500 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 hover:bg-olive-600 transition-all"
+                  className="px-4 py-2 rounded-full bg-mono-black text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-mono-gray transition-all"
                 >
                   <FileText size={14} />
                   Printable PDF
@@ -77,7 +77,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                 </a>
                 <button
                   onClick={onClose}
-                  className="p-2.5 rounded-full text-warm-dark hover:bg-warm-card transition-all ml-2"
+                  className="p-2.5 rounded-full text-mono-black hover:bg-mono-card transition-all ml-2"
                 >
                   <X size={18} />
                 </button>
@@ -87,79 +87,79 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
             {/* Resume Content */}
             <div className="space-y-6 text-sm leading-relaxed">
               {/* Profile Header */}
-              <div className="bg-warm-card border border-warm-dark/10 p-5 rounded-2xl">
-                <h2 className="font-display font-extrabold text-2xl text-warm-dark mb-1">ARYA PUTRA PRATAMA</h2>
-                <p className="text-olive-500 font-semibold text-xs uppercase tracking-wider mb-3">
+              <div className="bg-mono-card border border-mono-border p-5 rounded-2xl">
+                <h2 className="font-display font-extrabold text-2xl text-mono-black mb-1">ARYA PUTRA PRATAMA</h2>
+                <p className="text-mono-black font-extrabold text-xs uppercase tracking-wider mb-3">
                   STr. Teknik Rekayasa Internet (PENS Surabaya) · IT Support Technician · Android Dev Intern
                 </p>
-                <p className="text-warm-gray text-xs leading-relaxed font-medium">
+                <p className="text-mono-gray text-xs leading-relaxed font-medium">
                   Siswa/Mahasiswa berorientasi praktis di bidang Teknik Komputer & Jaringan, IT Support, dan Android Development. Berpengalaman magang di Badan Riset dan Inovasi Nasional (BRIN) mengembangkan aplikasi & web Kebun Raya Cibinong.
                 </p>
               </div>
 
               {/* Education */}
               <div>
-                <h4 className="font-display text-xs font-bold text-olive-500 tracking-widest uppercase mb-3 flex items-center gap-2">
+                <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
                   <GraduationCap size={16} /> Riwayat Pendidikan
                 </h4>
                 <div className="space-y-3">
-                  <div className="border-l-2 border-olive-500 pl-4">
-                    <p className="font-bold text-warm-dark text-xs">Politeknik Elektronika Negeri Surabaya (PENS)</p>
-                    <p className="text-warm-gray text-xs font-medium uppercase tracking-wider">STr. Teknik Rekayasa Internet · 2026 - 2030</p>
+                  <div className="border-l-2 border-mono-black pl-4">
+                    <p className="font-bold text-mono-black text-xs">Politeknik Elektronika Negeri Surabaya (PENS)</p>
+                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">STr. Teknik Rekayasa Internet · 2026 - 2030</p>
                   </div>
-                  <div className="border-l-2 border-warm-dark/20 pl-4">
-                    <p className="font-bold text-warm-dark text-xs">SMK Dinamika Pembangunan 1 Jakarta</p>
-                    <p className="text-warm-gray text-xs font-medium uppercase tracking-wider">Teknik Komputer dan Jaringan (TKJ) · 2023 - 2026</p>
+                  <div className="border-l-2 border-mono-border pl-4">
+                    <p className="font-bold text-mono-black text-xs">SMK Dinamika Pembangunan 1 Jakarta</p>
+                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">Teknik Komputer dan Jaringan (TKJ) · 2023 - 2026</p>
                   </div>
                 </div>
               </div>
 
               {/* Work & Internship Experience */}
               <div>
-                <h4 className="font-display text-xs font-bold text-olive-500 tracking-widest uppercase mb-3 flex items-center gap-2">
+                <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
                   <Briefcase size={16} /> Pengalaman Kerja & Magang
                 </h4>
                 <div className="space-y-3 text-xs">
-                  <div className="bg-warm-card p-4 rounded-2xl border border-warm-dark/10">
-                    <div className="flex justify-between font-bold text-warm-dark mb-1 uppercase tracking-wider">
+                  <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
+                    <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>Android Developer Intern — BRIN</span>
-                      <span className="text-warm-muted">Juli 2026 - Agu 2026</span>
+                      <span className="text-mono-muted">Juli 2026 - Agu 2026</span>
                     </div>
-                    <p className="text-warm-gray font-medium">Pengembangan aplikasi mobile Kebun Raya Cibinong dalam tim 4 orang (1 FE, 2 BE, 1 Android).</p>
+                    <p className="text-mono-gray font-medium">Pengembangan aplikasi mobile Kebun Raya Cibinong dalam tim 4 orang (1 FE, 2 BE, 1 Android).</p>
                   </div>
 
-                  <div className="bg-warm-card p-4 rounded-2xl border border-warm-dark/10">
-                    <div className="flex justify-between font-bold text-warm-dark mb-1 uppercase tracking-wider">
+                  <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
+                    <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>IT Support — PT. Trima Anugrah Sejahtera</span>
-                      <span className="text-warm-muted">Mar 2025 - Juli 2026</span>
+                      <span className="text-mono-muted">Mar 2025 - Juli 2026</span>
                     </div>
-                    <p className="text-warm-gray font-medium">Pemeliharaan dasar komputer dan jaringan rutin, troubleshooting hardware/software, instalasi OS.</p>
+                    <p className="text-mono-gray font-medium">Pemeliharaan dasar komputer dan jaringan rutin, troubleshooting hardware/software, instalasi OS.</p>
                   </div>
 
-                  <div className="bg-warm-card p-4 rounded-2xl border border-warm-dark/10">
-                    <div className="flex justify-between font-bold text-warm-dark mb-1 uppercase tracking-wider">
+                  <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
+                    <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>IT Support — ID-Networkers</span>
-                      <span className="text-warm-muted">Des 2024 - Mar 2025</span>
+                      <span className="text-mono-muted">Des 2024 - Mar 2025</span>
                     </div>
-                    <p className="text-warm-gray font-medium">Troubleshooting teknis, maintenance perangkat jaringan & infrastruktur IT operasional.</p>
+                    <p className="text-mono-gray font-medium">Troubleshooting teknis, maintenance perangkat jaringan & infrastruktur IT operasional.</p>
                   </div>
 
-                  <div className="bg-warm-card p-4 rounded-2xl border border-warm-dark/10">
-                    <div className="flex justify-between font-bold text-warm-dark mb-1 uppercase tracking-wider">
+                  <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
+                    <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>Assistant Project Manager — PT. Telnusa Intrakom</span>
-                      <span className="text-warm-muted">Desember 2023</span>
+                      <span className="text-mono-muted">Desember 2023</span>
                     </div>
-                    <p className="text-warm-gray font-medium">Koordinasi lapangan instalasi VSAT di Kalimantan Barat, pemantauan progress & dokumentasi teknis.</p>
+                    <p className="text-mono-gray font-medium">Koordinasi lapangan instalasi VSAT di Kalimantan Barat, pemantauan progress & dokumentasi teknis.</p>
                   </div>
                 </div>
               </div>
 
               {/* Certifications & Achievements */}
               <div>
-                <h4 className="font-display text-xs font-bold text-olive-500 tracking-widest uppercase mb-3 flex items-center gap-2">
+                <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
                   <Award size={16} /> Sertifikasi & Prestasi
                 </h4>
-                <ul className="list-disc list-inside text-xs text-warm-gray space-y-1 font-medium">
+                <ul className="list-disc list-inside text-xs text-mono-gray space-y-1 font-medium">
                   <li>MikroTik Certified Network Associate (MTCNA) — Skor 88% (2024)</li>
                   <li>Finalist IONIC IoT & Networking PENS (2025)</li>
                 </ul>
