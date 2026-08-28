@@ -55,7 +55,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   onClick={handleCopyLink}
                   className="px-3.5 py-2 rounded-full border border-mono-black bg-mono-card text-xs font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all flex items-center gap-1.5"
                 >
-                  {copied ? <Check size={14} className="text-mono-black" /> : null}
+                  {copied ? <Check size={14} /> : null}
                   {copied ? "Link Copied" : "Share"}
                 </button>
                 <a
@@ -65,15 +65,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   className="px-4 py-2 rounded-full bg-mono-black text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-mono-gray transition-all"
                 >
                   <FileText size={14} />
-                  Printable PDF
-                </a>
-                <a
-                  href="/docs/CV-Arya-Putra-Pratama.pdf"
-                  download="CV_Arya_Putra_Pratama.pdf"
-                  className="btn-primary py-2 px-4 text-xs uppercase tracking-wider flex items-center gap-1.5"
-                >
-                  <Download size={14} />
-                  Download PDF
+                  Print / Save as PDF
                 </a>
                 <button
                   onClick={onClose}

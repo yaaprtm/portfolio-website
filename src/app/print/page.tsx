@@ -135,8 +135,8 @@ export default function PrintPortfolioPage() {
         )}
       </header>
 
-      {/* Main Printable Document Container */}
-      <main className="max-w-4xl mx-auto bg-white p-8 sm:p-12 print:p-0 print:max-w-none text-slate-900 leading-relaxed font-sans shadow-xl print:shadow-none my-6 print:my-0 rounded-2xl print:rounded-none">
+      {/* Main Printable Document Container - NO FRAMES */}
+      <main className="max-w-4xl mx-auto bg-white p-8 sm:p-12 print:p-8 print:max-w-none text-slate-900 leading-relaxed font-sans print:shadow-none my-6 print:my-0 print:rounded-none">
         
         {/* ============================================================
             1. HEADER & ABOUT SECTION
@@ -170,7 +170,7 @@ export default function PrintPortfolioPage() {
               </p>
               <p className="flex items-center gap-1.5">
                 <Globe size={12} className="text-slate-500" />
-                aryaputrapratama.vercel.app
+                yaaportو.my.id
               </p>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function PrintPortfolioPage() {
         </section>
 
         {/* ============================================================
-            2. TECHNICAL SKILLS SECTION
+            2. TECHNICAL SKILLS SECTION - NO FRAMES
            ============================================================ */}
         {sectionsVisibility.skills && (
           <section className="mb-6 break-inside-avoid">
@@ -198,7 +198,7 @@ export default function PrintPortfolioPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
               {skillCategories.map((cat) => (
-                <div key={cat.id} className="p-3 bg-slate-50 border border-slate-200 rounded-lg print:border-slate-300">
+                <div key={cat.id}>
                   <h3 className="font-bold text-slate-900 font-mono mb-1.5">
                     {cat.title}
                   </h3>
@@ -216,7 +216,7 @@ export default function PrintPortfolioPage() {
         )}
 
         {/* ============================================================
-            3. FEATURED PROJECTS SECTION (Updated from projects.ts)
+            3. FEATURED PROJECTS SECTION - NO FRAMES
            ============================================================ */}
         {sectionsVisibility.projects && (
           <section className="mb-6">
@@ -226,7 +226,7 @@ export default function PrintPortfolioPage() {
 
             <div className="space-y-3.5">
               {projects.map((proj) => (
-                <div key={proj.id} className="break-inside-avoid p-3 bg-slate-50 border border-slate-200 rounded-lg print:border-slate-300">
+                <div key={proj.id} className="break-inside-avoid">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between font-mono text-xs mb-1">
                     <span className="font-bold text-slate-900">{proj.title}</span>
                     <span className="text-[11px] text-blue-700 print:text-slate-600 uppercase font-semibold">
@@ -315,7 +315,7 @@ export default function PrintPortfolioPage() {
         )}
 
         {/* ============================================================
-            6. TECHNICAL CASE STUDIES (STAR SUMMARY)
+            6. TECHNICAL CASE STUDIES (STAR SUMMARY) - NO FRAMES
            ============================================================ */}
         {sectionsVisibility.caseStudies && (
           <section className="mb-6">
@@ -325,7 +325,7 @@ export default function PrintPortfolioPage() {
 
             <div className="space-y-4">
               {/* VSAT */}
-              <div className="break-inside-avoid p-3.5 bg-slate-50 border border-slate-200 rounded-lg print:border-slate-300">
+              <div className="break-inside-avoid">
                 <div className="flex items-baseline justify-between mb-1">
                   <h3 className="font-bold text-xs text-slate-900 font-mono">
                     {t.caseStudies.vsat.title}
@@ -340,7 +340,7 @@ export default function PrintPortfolioPage() {
               </div>
 
               {/* BRIN */}
-              <div className="break-inside-avoid p-3.5 bg-slate-50 border border-slate-200 rounded-lg print:border-slate-300">
+              <div className="break-inside-avoid">
                 <div className="flex items-baseline justify-between mb-1">
                   <h3 className="font-bold text-xs text-slate-900 font-mono">
                     {t.caseStudies.brin.title}
@@ -358,7 +358,7 @@ export default function PrintPortfolioPage() {
         )}
 
         {/* ============================================================
-            7. CERTIFICATIONS & HONORS
+            7. CERTIFICATIONS & HONORS - NO FRAMES
            ============================================================ */}
         {sectionsVisibility.certifications && (
           <section className="break-inside-avoid">
@@ -368,7 +368,7 @@ export default function PrintPortfolioPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               {certifications.map((cert) => (
-                <div key={cert.id} className="p-2.5 bg-slate-50 border border-slate-200 rounded-md print:border-slate-300 flex items-center justify-between">
+                <div key={cert.id} className="flex items-center justify-between">
                   <div>
                     <p className="font-bold text-slate-900 font-mono">{cert.name}</p>
                     <p className="text-slate-600 text-[11px]">{cert.issuer}</p>
@@ -383,7 +383,7 @@ export default function PrintPortfolioPage() {
         {/* Print Document Footer */}
         <footer className="mt-8 pt-4 border-t border-slate-300 text-center text-[10px] font-mono text-slate-500">
           <p>
-            Generated from Official Portfolio Website: aryaputrapratama.vercel.app · Arya Putra Pratama
+            Generated from Official Portfolio Website: yaaportو.my.id · Arya Putra Pratama
           </p>
         </footer>
       </main>
