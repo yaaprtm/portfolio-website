@@ -102,7 +102,7 @@ export default function About() {
               alt="Arya Putra Pratama"
               fill
               sizes="(max-width: 640px) 288px, 360px"
-              className="object-cover object-top filter grayscale contrast-110"
+              className="object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 

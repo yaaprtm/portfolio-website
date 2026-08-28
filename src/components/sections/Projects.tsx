@@ -142,7 +142,7 @@ export default function Projects() {
                         src={project.image}
                         alt={project.title}
                         fill
-                        className={`object-cover filter grayscale contrast-110 group-hover:scale-105 transition-all duration-500 ${
+                        className={`object-cover group-hover:scale-105 transition-all duration-500 ${
                           project.imageOrientation === "portrait"
                             ? "object-top"
                             : "object-center"

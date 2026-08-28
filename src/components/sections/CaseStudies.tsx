@@ -248,7 +248,7 @@ export default function CaseStudies() {
                                   alt={img.alt}
                                   fill
                                   sizes="(max-width: 768px) 100vw, 33vw"
-                                  className="object-cover filter grayscale contrast-110 group-hover:scale-105 transition-all duration-300"
+                                  className="object-cover group-hover:scale-105 transition-all duration-300"
                                   onError={() => handleImageError(img.src)}
                                 />
                               ) : (
@@ -310,7 +310,7 @@ export default function CaseStudies() {
                     alt={activeImage.alt}
                     fill
                     sizes="100vw"
-                    className="object-contain filter grayscale contrast-110"
+                    className="object-contain"
                   />
                 ) : (
                   <div className="p-6 text-center space-y-2">

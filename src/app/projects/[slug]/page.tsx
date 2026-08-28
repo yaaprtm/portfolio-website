@@ -236,7 +236,7 @@ export default function CaseStudyPage() {
                       src={item.src}
                       alt={item.caption}
                       fill
-                      className="object-cover filter grayscale contrast-110 group-hover:scale-105 transition-all duration-500"
+                      className="object-cover group-hover:scale-105 transition-all duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   ) : null}

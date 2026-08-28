@@ -79,7 +79,7 @@ export default function Hero() {
                 alt="Arya Putra Pratama"
                 fill
                 priority
-                className="object-cover object-top filter grayscale contrast-110 group-hover:scale-105 transition-all duration-700 ease-out"
+                className="object-cover object-top group-hover:scale-105 transition-all duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
 
