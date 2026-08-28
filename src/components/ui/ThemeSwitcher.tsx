@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { Palette, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
-export type EditorialColorTheme = "olive" | "terracotta" | "sage" | "espresso" | "burgundy" | "navy";
+export type EditorialColorTheme = "slateBlue" | "charcoal" | "burgundy" | "emerald" | "navy" | "deepPurple";
 
 export interface ColorPreset {
   id: EditorialColorTheme;
@@ -17,55 +18,57 @@ export interface ColorPreset {
 
 export const colorPresets: ColorPreset[] = [
   {
-    id: "olive",
-    name: "Olive Green",
-    color: "#6B7355",
-    hoverColor: "#555D42",
-    softColor: "rgba(107, 115, 85, 0.15)",
+    id: "slateBlue",
+    name: "Slate Blue",
+    color: "#475569",
+    hoverColor: "#334155",
+    softColor: "rgba(71, 85, 105, 0.15)",
   },
   {
-    id: "terracotta",
-    name: "Terracotta Rust",
-    color: "#B85B35",
-    hoverColor: "#9B4A28",
-    softColor: "rgba(184, 91, 53, 0.15)",
-  },
-  {
-    id: "sage",
-    name: "Forest Sage",
-    color: "#4A6B5D",
-    hoverColor: "#3A564A",
-    softColor: "rgba(74, 107, 93, 0.15)",
-  },
-  {
-    id: "espresso",
-    name: "Espresso Noir",
-    color: "#2C2825",
-    hoverColor: "#1F1C1A",
-    softColor: "rgba(44, 40, 37, 0.15)",
+    id: "charcoal",
+    name: "Charcoal Grey",
+    color: "#374151",
+    hoverColor: "#1F2937",
+    softColor: "rgba(55, 65, 81, 0.15)",
   },
   {
     id: "burgundy",
-    name: "Warm Burgundy",
-    color: "#8B3A42",
-    hoverColor: "#722E35",
-    softColor: "rgba(139, 58, 66, 0.15)",
+    name: "Deep Burgundy",
+    color: "#7C2D3A",
+    hoverColor: "#5F2230",
+    softColor: "rgba(124, 45, 58, 0.15)",
+  },
+  {
+    id: "emerald",
+    name: "Forest Emerald",
+    color: "#047857",
+    hoverColor: "#065F46",
+    softColor: "rgba(4, 120, 87, 0.15)",
   },
   {
     id: "navy",
-    name: "Editorial Navy",
-    color: "#2B4C7E",
-    hoverColor: "#1F385C",
-    softColor: "rgba(43, 76, 126, 0.15)",
+    name: "Professional Navy",
+    color: "#1E3A8A",
+    hoverColor: "#1E40AF",
+    softColor: "rgba(30, 58, 138, 0.15)",
+  },
+  {
+    id: "deepPurple",
+    name: "Executive Purple",
+    color: "#6B21A8",
+    hoverColor: "#581C87",
+    softColor: "rgba(107, 33, 168, 0.15)",
   },
 ];
 
 export default function ThemeSwitcher() {
   const { t } = useLanguage();
-  const [activeTheme, setActiveTheme] = useState<EditorialColorTheme>("olive");
+  const { play } = useSoundEffects();
+  const [activeTheme, setActiveTheme] = useState<EditorialColorTheme>("slateBlue");
   const [open, setOpen] = useState(false);
 
   const applyTheme = (presetId: EditorialColorTheme) => {
+    play("click");
     setActiveTheme(presetId);
     const preset = colorPresets.find((p) => p.id === presetId) || colorPresets[0];
     const root = document.documentElement;
@@ -90,12 +93,18 @@ export default function ThemeSwitcher() {
     } catch {
       // ignore
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleOpen = () => {
+    play("open");
+    setOpen(!open);
+  };
 
   return (
     <div className="relative z-50">
       <button
-        onClick={() => setOpen(!open)}
+        onClick={handleOpen}
         className="p-2 rounded-full border border-warm-dark/15 text-warm-gray hover:text-warm-dark hover:border-warm-dark/40 transition-all flex items-center justify-center"
         title={t.common?.switchTheme || "Ubah Warna Aksen"}
         aria-label="Change Accent Color"
@@ -110,7 +119,10 @@ export default function ThemeSwitcher() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                play("close");
+                setOpen(false);
+              }}
               className="fixed inset-0 z-40"
             />
 
@@ -121,7 +133,7 @@ export default function ThemeSwitcher() {
               className="absolute right-0 top-12 w-56 rounded-2xl bg-[#F0EEE9] p-3 border border-warm-dark/15 shadow-2xl z-50 text-warm-dark"
             >
               <p className="text-[10px] font-bold uppercase tracking-widest text-warm-muted px-2.5 mb-2">
-                Pilih Warna Aksen
+                {t.common?.colorThemeLabel || "Pilih Warna Aksen"}
               </p>
               <div className="space-y-1">
                 {colorPresets.map((preset) => {
@@ -133,6 +145,7 @@ export default function ThemeSwitcher() {
                         applyTheme(preset.id);
                         setOpen(false);
                       }}
+                      onMouseEnter={() => play("hover")}
                       className={`w-full flex items-center justify-between px-3 py-2 rounded-2xl text-xs font-semibold transition-all text-left ${
                         isActive
                           ? "bg-warm-card text-warm-dark font-bold border border-warm-dark/10"

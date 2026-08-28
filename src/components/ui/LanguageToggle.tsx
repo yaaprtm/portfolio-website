@@ -2,11 +2,14 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import type { Lang } from "@/context/LanguageContext";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export default function LanguageToggle() {
   const { lang, setLang } = useLanguage();
+  const { play } = useSoundEffects();
 
   const handleToggle = () => {
+    play("click");
     setLang(lang === "id" ? "en" : "id");
   };
 

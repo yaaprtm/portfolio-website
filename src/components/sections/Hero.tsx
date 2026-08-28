@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowDownRight, Sparkles, Network, Smartphone, Wrench } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const { play } = useSoundEffects();
 
   return (
     <section
@@ -51,6 +53,8 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
+                onClick={() => play("click")}
+                onMouseEnter={() => play("hover")}
                 className="btn-primary group"
               >
                 <span>{t.hero.viewProjects || "Lihat Proyek Saya"}</span>
@@ -59,6 +63,8 @@ export default function Hero() {
 
               <a
                 href="#contact"
+                onClick={() => play("click")}
+                onMouseEnter={() => play("hover")}
                 className="btn-secondary"
               >
                 <span>{t.hero.contact || "Hubungi Saya"}</span>
@@ -124,6 +130,8 @@ export default function Hero() {
           {/* Card 1: Networking */}
           <a
             href="#skills"
+            onClick={() => play("click")}
+            onMouseEnter={() => play("hover")}
             className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
           >
             <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
@@ -134,10 +142,10 @@ export default function Hero() {
                 #NETWORKING
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">
-                Jaringan Komputer
+                {t.hero?.skillCards?.networking || "Jaringan Komputer"}
               </h3>
               <p className="text-xs text-mono-gray mt-1">
-                Router, Switch, MikroTik MTCNA, Cisco Packet Tracer & Topology.
+                {t.hero?.skillCards?.networkingDesc || "Router, Switch, MikroTik MTCNA, Cisco Packet Tracer & Topology."}
               </p>
             </div>
           </a>
@@ -145,6 +153,8 @@ export default function Hero() {
           {/* Card 2: Android Dev */}
           <a
             href="#skills"
+            onClick={() => play("click")}
+            onMouseEnter={() => play("hover")}
             className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
           >
             <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
@@ -155,10 +165,10 @@ export default function Hero() {
                 #ANDROIDDEV
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">
-                Android Development
+                {t.hero?.skillCards?.android || "Android Development"}
               </h3>
               <p className="text-xs text-mono-gray mt-1">
-                Kotlin, Android Studio, REST API integration & Mobile UX.
+                {t.hero?.skillCards?.androidDesc || "Kotlin, Android Studio, REST API integration & Mobile UX."}
               </p>
             </div>
           </a>
@@ -166,6 +176,8 @@ export default function Hero() {
           {/* Card 3: IT Support */}
           <a
             href="#skills"
+            onClick={() => play("click")}
+            onMouseEnter={() => play("hover")}
             className="editorial-card p-5 flex items-start gap-4 group hover:border-mono-black transition-all"
           >
             <div className="p-3 rounded-xl bg-mono-black text-white group-hover:scale-105 transition-transform">
@@ -176,10 +188,10 @@ export default function Hero() {
                 #ITSUPPORT
               </span>
               <h3 className="font-display font-extrabold text-mono-black text-base">
-                IT Support & Maintenance
+                {t.hero?.skillCards?.itSupport || "IT Support & Maintenance"}
               </h3>
               <p className="text-xs text-mono-gray mt-1">
-                Hardware, OS troubleshooting, network maintenance & field support.
+                {t.hero?.skillCards?.itSupportDesc || "Hardware, OS troubleshooting, network maintenance & field support."}
               </p>
             </div>
           </a>

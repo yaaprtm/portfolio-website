@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { Sun, Moon } from "lucide-react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 export default function DarkModeToggle() {
   const [isDark, setIsDark] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const { play } = useSoundEffects();
 
   useEffect(() => {
     setMounted(true);
@@ -15,6 +17,7 @@ export default function DarkModeToggle() {
   }, []);
 
   const toggle = () => {
+    play("click");
     const newIsDark = !isDark;
     setIsDark(newIsDark);
     if (newIsDark) {
@@ -39,6 +42,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggle}
+      onMouseEnter={() => play("hover")}
       className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] flex items-center justify-center
                  text-slate-400 hover:text-cyan-neon hover:border-cyan-neon/30 transition-all"
       title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}

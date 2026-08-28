@@ -73,48 +73,48 @@ export function useSoundEffects() {
 
       switch (type) {
         case "click":
-          // Short crisp click — like a keyboard mechanical switch
-          masterGain.gain.setValueAtTime(0.3, now);
-          playTone(1200, now, 0.03, 0.4, "square");
-          playTone(600, now + 0.02, 0.04, 0.2, "square");
+          // Enhanced click sound — more audible and crisp
+          masterGain.gain.setValueAtTime(0.5, now);
+          playTone(1200, now, 0.04, 0.6, "square");
+          playTone(600, now + 0.025, 0.05, 0.35, "square");
           break;
 
         case "hover":
-          // Subtle high ping
-          masterGain.gain.setValueAtTime(0.08, now);
-          playTone(1800, now, 0.06, 0.15, "sine");
+          // More noticeable hover sound
+          masterGain.gain.setValueAtTime(0.18, now);
+          playTone(1600, now, 0.08, 0.28, "sine");
           break;
 
         case "success":
-          // Ascending chime — modal open success
-          masterGain.gain.setValueAtTime(0.2, now);
-          playTone(440, now, 0.12, 0.3, "sine");
-          playTone(554, now + 0.1, 0.12, 0.3, "sine");
-          playTone(659, now + 0.2, 0.2, 0.35, "sine");
+          // More pronounced success chime
+          masterGain.gain.setValueAtTime(0.35, now);
+          playTone(440, now, 0.15, 0.45, "sine");
+          playTone(554, now + 0.1, 0.15, 0.45, "sine");
+          playTone(659, now + 0.2, 0.25, 0.5, "sine");
           break;
 
         case "ping":
-          // Network packet ping sound — short rising beep
-          masterGain.gain.setValueAtTime(0.25, now);
-          playTone(800, now, 0.15, 0.3, "sine", 1400);
+          // Louder network ping sound
+          masterGain.gain.setValueAtTime(0.4, now);
+          playTone(800, now, 0.18, 0.45, "sine", 1400);
           break;
 
         case "open":
-          // Menu / panel open — sweeping tone
-          masterGain.gain.setValueAtTime(0.18, now);
-          playTone(300, now, 0.2, 0.3, "sine", 600);
+          // Enhanced menu open sound
+          masterGain.gain.setValueAtTime(0.3, now);
+          playTone(300, now, 0.25, 0.4, "sine", 700);
           break;
 
         case "close":
-          // Reverse sweep
-          masterGain.gain.setValueAtTime(0.15, now);
-          playTone(600, now, 0.15, 0.25, "sine", 300);
+          // Enhanced close sound
+          masterGain.gain.setValueAtTime(0.28, now);
+          playTone(700, now, 0.2, 0.38, "sine", 300);
           break;
 
         case "type":
-          // Soft keyboard type SFX
-          masterGain.gain.setValueAtTime(0.06, now);
-          playTone(2200 + Math.random() * 400, now, 0.025, 0.1, "square");
+          // More audible keyboard type sound
+          masterGain.gain.setValueAtTime(0.12, now);
+          playTone(2200 + Math.random() * 400, now, 0.035, 0.18, "square");
           break;
       }
     },
