@@ -19,13 +19,13 @@ const config: Config = {
         "warm-muted": "#737373",
         "warm-border": "#D8D3C8",
         olive: {
-          50: "#F4F5F0",
-          100: "#E5E7DC",
+          50: "var(--color-olive-soft, rgba(107, 115, 85, 0.12))",
+          100: "var(--color-olive-100, #E5E7DC)",
           200: "#C9CEB7",
           300: "#ACB491",
           400: "#8C966F",
-          500: "#6B7355", // Main Olive Accent
-          600: "#555D42", // Hover
+          500: "var(--color-olive, #6B7355)", // Main Accent
+          600: "var(--color-olive-hover, #555D42)", // Hover Accent
           700: "#424933",
           800: "#303524",
           900: "#1E2216",

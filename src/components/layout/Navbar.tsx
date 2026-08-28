@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Command, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LanguageToggle from "@/components/ui/LanguageToggle";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import CommandPalette from "@/components/ui/CommandPalette";
 import CvModal from "@/components/ui/CvModal";
 import { useLanguage } from "@/context/LanguageContext";
@@ -88,13 +89,13 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="flex flex-col group cursor-pointer"
+              className="flex flex-col group cursor-pointer flex-shrink-0"
             >
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-warm-dark group-hover:text-olive-500 transition-colors uppercase">
+              <span className="font-display font-extrabold text-base sm:text-lg tracking-tight text-warm-dark group-hover:text-olive-500 transition-colors uppercase whitespace-nowrap leading-none mb-1">
                 Arya Putra Pratama
               </span>
-              <span className="text-[10px] tracking-widest uppercase font-semibold text-olive-500 -mt-1">
-                Editorial Portfolio
+              <span className="text-[10px] tracking-widest uppercase font-bold text-olive-500 whitespace-nowrap">
+                IT Enthusiast · Portfolio
               </span>
             </a>
 
@@ -142,6 +143,7 @@ export default function Navbar() {
                 <Command size={14} />
               </button>
 
+              <ThemeSwitcher />
               <LanguageToggle />
 
               <button
