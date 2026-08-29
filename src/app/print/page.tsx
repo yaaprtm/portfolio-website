@@ -89,7 +89,7 @@ export default function PrintCVPage() {
                 : "IT Enthusiast — Networking, Android Development & IT Support"}
             </p>
             <p className="text-xs text-gray-600" style={{ fontFamily: 'Arial, sans-serif' }}>
-              aryattt45@gmail.com | +62 838-9022-7712 | linkedin.com/in/arya-putra-pratama-848871338 | yaaportو.my.id
+              aryattt45@gmail.com | +62 838-9022-7712 | linkedin.com/in/arya-putra-pratama-848871338 | yaaporto.my.id
             </p>
           </header>
 

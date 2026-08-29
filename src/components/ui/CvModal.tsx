@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Download, FileText, Check, Award, Briefcase, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { certifications } from "@/data/certifications";
 
 interface CvModalProps {
   isOpen: boolean;
@@ -152,8 +153,11 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   <Award size={16} /> Sertifikasi & Prestasi
                 </h4>
                 <ul className="list-disc list-inside text-xs text-mono-gray space-y-1 font-medium">
-                  <li>MikroTik Certified Network Associate (MTCNA) — Skor 88% (2024)</li>
-                  <li>Finalist IONIC IoT & Networking PENS (2025)</li>
+                  {certifications.map((cert) => (
+                    <li key={cert.id}>
+                      <strong className="text-mono-black">{cert.name}</strong> — {cert.issuer} ({cert.date})
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
