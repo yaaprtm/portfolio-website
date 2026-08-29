@@ -321,7 +321,7 @@ export default function PrintCVPage() {
       <style jsx global>{`
         @page {
           size: A4;
-          margin: 15mm;
+          margin: 12mm; /* Dikurangi dari 15mm */
         }
 
         @media print {
@@ -336,7 +336,7 @@ export default function PrintCVPage() {
           main {
             max-width: 100%;
             margin: 0;
-            padding: 0;
+            padding: 0 !important;
             box-shadow: none;
           }
 
@@ -347,6 +347,89 @@ export default function PrintCVPage() {
 
           section {
             page-break-inside: avoid;
+          }
+
+          /* Optimasi spacing untuk 1 halaman */
+          h2 {
+            margin-bottom: 6px !important; /* Dikurangi dari ~8-10px */
+          }
+
+          p {
+            margin-bottom: 0 !important;
+          }
+
+          .space-y-1 > * + * {
+            margin-top: 3px !important; /* Dikurangi dari 4px */
+          }
+
+          .space-y-1\.5 > * + * {
+            margin-top: 4px !important; /* Dikurangi dari 6px */
+          }
+
+          .space-y-2 > * + * {
+            margin-top: 6px !important; /* Dikurangi dari 8px */
+          }
+
+          .space-y-3 > * + * {
+            margin-top: 9px !important; /* Dikurangi dari 12px */
+          }
+
+          .mb-4 {
+            margin-bottom: 10px !important; /* Dikurangi dari 16px */
+          }
+
+          .mb-5 {
+            margin-bottom: 12px !important; /* Dikurangi dari 20px */
+          }
+
+          .pb-1 {
+            padding-bottom: 3px !important; /* Dikurangi dari 4px */
+          }
+
+          .mb-0\.5 {
+            margin-bottom: 1.5px !important; /* Dikurangi dari 2px */
+          }
+
+          .mb-1 {
+            margin-bottom: 3px !important; /* Dikurangi dari 4px */
+          }
+
+          .mb-2 {
+            margin-bottom: 6px !important; /* Dikurangi dari 8px */
+          }
+
+          /* Perkecil line-height summary untuk lebih ringkas */
+          .leading-relaxed {
+            line-height: 1.4 !important; /* Dikurangi dari 1.625 */
+          }
+
+          /* Optimasi spacing untuk 1 halaman */
+          h2 {
+            margin-bottom: 6px !important; /* Dikurangi dari ~8-10px */
+          }
+
+          p {
+            margin-bottom: 0 !important;
+          }
+
+          .space-y-1 > * + * {
+            margin-top: 3px !important; /* Dikurangi dari 4px */
+          }
+
+          .space-y-2 > * + * {
+            margin-top: 6px !important; /* Dikurangi dari 8px */
+          }
+
+          .mb-4 {
+            margin-bottom: 10px !important; /* Dikurangi dari 16px */
+          }
+
+          .mb-5 {
+            margin-bottom: 12px !important; /* Dikurangi dari 20px */
+          }
+
+          .pb-1 {
+            padding-bottom: 3px !important; /* Dikurangi dari 4px */
           }
         }
       `}</style>
