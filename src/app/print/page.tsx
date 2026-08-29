@@ -309,7 +309,7 @@ export default function PrintCVPage() {
                 • <strong>Finalist, IONIC IoT & Networking Competition</strong> — Politeknik Elektronika Negeri Surabaya (PENS), 2025
               </li>
               <li>
-                • <strong>Sertifikat Kompetensi Keahlian Teknik Komputer dan Jaringan (TKJ)</strong> — SMK Dinamika Pembangunan 1 Jakarta, 2023
+                • <strong>Sertifikat Kompetensi Keahlian Teknik Komputer dan Jaringan (TKJ)</strong> — SMK Dinamika Pembangunan 1 Jakarta, 2026
               </li>
             </ul>
           </section>

@@ -49,7 +49,7 @@ export const certifications: Certification[] = [
     name: "Sertifikat Kompetensi Keahlian Teknik Komputer & Jaringan",
     shortName: "TKJ / UKK",
     issuer: "SMK Dinamika Pembangunan 1 Jakarta",
-    date: "2023",
+    date: "2026",
     category: "other",
     color: "#3DCA75",
     credentialUrl: "/images/certifications/sertifikat-kompetensi-jaringan.pdf",
