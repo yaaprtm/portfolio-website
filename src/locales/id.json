@@ -165,7 +165,13 @@
     "tag": "SERTIFIKASI & PRESTASI",
     "title": "Sertifikasi & Prestasi",
     "subtitle": "Bukti kompetensi dan penghargaan teknis yang telah dicapai.",
-    "verify": "Verifikasi"
+    "verify": "Verifikasi",
+    "pdfDocument": "Dokumen PDF Sertifikat",
+    "viewPreview": "Pratinjau PDF",
+    "openFile": "Buka File",
+    "openNewTab": "Buka Tab Baru",
+    "closePdf": "Tutup PDF Modal",
+    "pdfNotFound": "Dokumen PDF tidak ditemukan."
   },
   "contact": {
     "tag": "HUBUNGI SAYA",
@@ -287,6 +293,11 @@
     "darkMode": "Mode Gelap",
     "lightMode": "Mode Terang",
     "switchTheme": "Ubah Tema Warna",
-    "printPortfolio": "Halaman PDF / Cetak"
+    "printPortfolio": "Halaman PDF / Cetak",
+    "share": "Bagikan",
+    "linkCopied": "Link Disalin",
+    "officialResume": "Resume Resmi",
+    "workInternshipExp": "Pengalaman Kerja & Magang",
+    "certificationsAchievements": "Sertifikasi & Prestasi"
   }
 }

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Download, FileText, Check, Award, Briefcase, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { certifications } from "@/data/certifications";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface CvModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface CvModalProps {
 }
 
 export default function CvModal({ isOpen, onClose }: CvModalProps) {
+  const { t, lang } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
@@ -47,7 +49,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                 </div>
                 <div>
                   <h3 className="font-display font-extrabold text-mono-black text-lg">Curriculum Vitae</h3>
-                  <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">Arya Putra Pratama · Official Resume</p>
+                  <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">Arya Putra Pratama · {t.common.officialResume}</p>
                 </div>
               </div>
 
@@ -57,7 +59,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   className="px-3.5 py-2 rounded-full border border-mono-black bg-mono-card text-xs font-bold text-mono-black hover:bg-mono-black hover:text-white transition-all flex items-center gap-1.5"
                 >
                   {copied ? <Check size={14} /> : null}
-                  {copied ? "Link Copied" : "Share"}
+                  {copied ? t.common.linkCopied : t.common.share}
                 </button>
                 <a
                   href="/print"
@@ -66,7 +68,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   className="px-4 py-2 rounded-full bg-mono-black text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 hover:bg-mono-gray transition-all"
                 >
                   <FileText size={14} />
-                  Print / Save as PDF
+                  {t.print.downloadPdf}
                 </a>
                 <button
                   onClick={onClose}
@@ -86,23 +88,29 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
                   STr. Teknik Rekayasa Internet (PENS Surabaya) · IT Support Technician · Android Dev Intern
                 </p>
                 <p className="text-mono-gray text-xs leading-relaxed font-medium">
-                  Siswa/Mahasiswa berorientasi praktis di bidang Teknik Komputer & Jaringan, IT Support, dan Android Development. Berpengalaman magang di Badan Riset dan Inovasi Nasional (BRIN) mengembangkan aplikasi & web Kebun Raya Cibinong.
+                  {lang === "id" 
+                    ? "Siswa/Mahasiswa berorientasi praktis di bidang Teknik Komputer & Jaringan, IT Support, dan Android Development. Berpengalaman magang di Badan Riset dan Inovasi Nasional (BRIN) mengembangkan aplikasi & web Kebun Raya Cibinong."
+                    : "Practice-oriented student in Computer & Network Engineering, IT Support, and Android Development. Experienced intern at National Research and Innovation Agency (BRIN) developing applications & web for Cibinong Botanical Garden."}
                 </p>
               </div>
 
               {/* Education */}
               <div>
                 <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
-                  <GraduationCap size={16} /> Riwayat Pendidikan
+                  <GraduationCap size={16} /> {t.education.title}
                 </h4>
                 <div className="space-y-3">
                   <div className="border-l-2 border-mono-black pl-4">
                     <p className="font-bold text-mono-black text-xs">Politeknik Elektronika Negeri Surabaya (PENS)</p>
-                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">STr. Teknik Rekayasa Internet · 2026 - 2030</p>
+                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">
+                      {lang === "id" ? "STr. Teknik Rekayasa Internet · 2026 - 2030" : "Applied Bachelor (D4) Internet Engineering · 2026 - 2030"}
+                    </p>
                   </div>
                   <div className="border-l-2 border-mono-border pl-4">
                     <p className="font-bold text-mono-black text-xs">SMK Dinamika Pembangunan 1 Jakarta</p>
-                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">Teknik Komputer dan Jaringan (TKJ) · 2023 - 2026</p>
+                    <p className="text-mono-gray text-xs font-bold uppercase tracking-wider">
+                      {lang === "id" ? "Teknik Komputer dan Jaringan (TKJ) · 2023 - 2026" : "Computer and Network Engineering (TKJ) · 2023 - 2026"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -110,39 +118,55 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
               {/* Work & Internship Experience */}
               <div>
                 <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
-                  <Briefcase size={16} /> Pengalaman Kerja & Magang
+                  <Briefcase size={16} /> {t.common.workInternshipExp}
                 </h4>
                 <div className="space-y-3 text-xs">
                   <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
                     <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
-                      <span>Android Developer Intern — BRIN</span>
-                      <span className="text-mono-muted">Juli 2026 - Agu 2026</span>
+                      <span>{lang === "id" ? "Android Developer Intern — BRIN" : "Android Developer Intern — BRIN"}</span>
+                      <span className="text-mono-muted">{lang === "id" ? "Juli 2026 - Agu 2026" : "July 2026 - Aug 2026"}</span>
                     </div>
-                    <p className="text-mono-gray font-medium">Pengembangan aplikasi mobile Kebun Raya Cibinong dalam tim 4 orang (1 FE, 2 BE, 1 Android).</p>
+                    <p className="text-mono-gray font-medium">
+                      {lang === "id"
+                        ? "Pengembangan aplikasi mobile Kebun Raya Cibinong dalam tim 4 orang (1 FE, 2 BE, 1 Android)."
+                        : "Developed Cibinong Botanical Garden mobile application in a team of 4 (1 FE, 2 BE, 1 Android)."}
+                    </p>
                   </div>
 
                   <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
                     <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>IT Support — PT. Trima Anugrah Sejahtera</span>
-                      <span className="text-mono-muted">Mar 2025 - Juli 2026</span>
+                      <span className="text-mono-muted">{lang === "id" ? "Mar 2025 - Juli 2026" : "Mar 2025 - July 2026"}</span>
                     </div>
-                    <p className="text-mono-gray font-medium">Pemeliharaan dasar komputer dan jaringan rutin, troubleshooting hardware/software, instalasi OS.</p>
+                    <p className="text-mono-gray font-medium">
+                      {lang === "id"
+                        ? "Pemeliharaan dasar komputer dan jaringan rutin, troubleshooting hardware/software, instalasi OS."
+                        : "Routine computer and network maintenance, hardware/software troubleshooting, OS installation."}
+                    </p>
                   </div>
 
                   <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
                     <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>IT Support — ID-Networkers</span>
-                      <span className="text-mono-muted">Des 2024 - Mar 2025</span>
+                      <span className="text-mono-muted">{lang === "id" ? "Des 2024 - Mar 2025" : "Dec 2024 - Mar 2025"}</span>
                     </div>
-                    <p className="text-mono-gray font-medium">Troubleshooting teknis, maintenance perangkat jaringan & infrastruktur IT operasional.</p>
+                    <p className="text-mono-gray font-medium">
+                      {lang === "id"
+                        ? "Troubleshooting teknis, maintenance perangkat jaringan & infrastruktur IT operasional."
+                        : "Technical troubleshooting, network device maintenance & operational IT infrastructure."}
+                    </p>
                   </div>
 
                   <div className="bg-mono-card p-4 rounded-2xl border border-mono-border">
                     <div className="flex justify-between font-bold text-mono-black mb-1 uppercase tracking-wider">
                       <span>Assistant Project Manager — PT. Telnusa Intrakom</span>
-                      <span className="text-mono-muted">Desember 2023</span>
+                      <span className="text-mono-muted">{lang === "id" ? "Desember 2023" : "December 2023"}</span>
                     </div>
-                    <p className="text-mono-gray font-medium">Koordinasi lapangan instalasi VSAT di Kalimantan Barat, pemantauan progress & dokumentasi teknis.</p>
+                    <p className="text-mono-gray font-medium">
+                      {lang === "id"
+                        ? "Koordinasi lapangan instalasi VSAT di Kalimantan Barat, pemantauan progress & dokumentasi teknis."
+                        : "VSAT installation field coordination in West Kalimantan, progress monitoring & technical documentation."}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -150,7 +174,7 @@ export default function CvModal({ isOpen, onClose }: CvModalProps) {
               {/* Certifications & Achievements */}
               <div>
                 <h4 className="font-display text-xs font-extrabold text-mono-black tracking-widest uppercase mb-3 flex items-center gap-2">
-                  <Award size={16} /> Sertifikasi & Prestasi
+                  <Award size={16} /> {t.common.certificationsAchievements}
                 </h4>
                 <ul className="list-disc list-inside text-xs text-mono-gray space-y-1 font-medium">
                   {certifications.map((cert) => (

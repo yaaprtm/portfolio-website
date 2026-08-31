@@ -165,7 +165,13 @@
     "tag": "CERTIFICATIONS & HONORS",
     "title": "Certifications & Honors",
     "subtitle": "Verified technical credentials and academic recognitions.",
-    "verify": "Verify Credential"
+    "verify": "Verify Credential",
+    "pdfDocument": "PDF Certificate Document",
+    "viewPreview": "View Preview",
+    "openFile": "Open File",
+    "openNewTab": "Open in New Tab",
+    "closePdf": "Close PDF Modal",
+    "pdfNotFound": "PDF document not found."
   },
   "contact": {
     "tag": "GET IN TOUCH",
@@ -288,6 +294,11 @@
     "lightMode": "Light Mode",
     "switchTheme": "Switch Color Theme",
     "colorThemeLabel": "Select Accent Color",
-    "printPortfolio": "PDF / Printable Page"
+    "printPortfolio": "PDF / Printable Page",
+    "share": "Share",
+    "linkCopied": "Link Copied",
+    "officialResume": "Official Resume",
+    "workInternshipExp": "Work & Internship Experience",
+    "certificationsAchievements": "Certifications & Achievements"
   }
 }

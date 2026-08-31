@@ -17,7 +17,7 @@ import { certifications, Certification } from "@/data/certifications";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Certifications() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [activeCert, setActiveCert] = useState<Certification | null>(null);
 
   return (
@@ -63,7 +63,7 @@ export default function Certifications() {
                       </div>
                       <div className="min-w-0">
                         <p className="text-xs font-extrabold text-mono-black truncate group-hover/pdf:text-mono-gray transition-colors">
-                          Dokumen PDF Sertifikat
+                          {t.certifications.pdfDocument}
                         </p>
                         <p className="text-[11px] text-mono-muted truncate font-mono">
                           {pdfPath.split("/").pop()}
@@ -96,7 +96,7 @@ export default function Certifications() {
                 {/* Description */}
                 {cert.description && (
                   <p className="text-mono-gray text-xs leading-relaxed mb-5 bg-[#FAFAFA] p-4 rounded-2xl border border-mono-border">
-                    {cert.description}
+                    {typeof cert.description === 'string' ? cert.description : cert.description[lang]}
                   </p>
                 )}
               </div>
@@ -109,7 +109,7 @@ export default function Certifications() {
                     className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-mono-black hover:underline transition-colors"
                   >
                     <Eye size={14} />
-                    <span>Pratinjau PDF</span>
+                    <span>{t.certifications.viewPreview}</span>
                   </button>
 
                   <a
@@ -118,7 +118,7 @@ export default function Certifications() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-mono-black hover:underline"
                   >
-                    <span>Buka File</span>
+                    <span>{t.certifications.openFile}</span>
                     <ExternalLink size={12} />
                   </a>
                 </div>
@@ -165,14 +165,14 @@ export default function Certifications() {
                       rel="noopener noreferrer"
                       className="btn-primary py-2 px-4 text-xs uppercase tracking-wider flex items-center gap-1.5"
                     >
-                      <span>Buka Tab Baru</span>
+                      <span>{t.certifications.openNewTab}</span>
                       <ExternalLink size={14} />
                     </a>
                   )}
                   <button
                     onClick={() => setActiveCert(null)}
                     className="p-2.5 rounded-full bg-mono-card text-mono-black hover:bg-mono-black hover:text-white transition-colors"
-                    aria-label="Tutup PDF Modal"
+                    aria-label={t.certifications.closePdf}
                   >
                     <X size={20} />
                   </button>
@@ -189,7 +189,7 @@ export default function Certifications() {
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-mono-gray text-sm font-semibold">
-                    Dokumen PDF tidak ditemukan.
+                    {t.certifications.pdfNotFound}
                   </div>
                 )}
               </div>
@@ -198,7 +198,7 @@ export default function Certifications() {
               {activeCert.description && (
                 <div className="text-left pt-3 border-t border-mono-border">
                   <p className="text-mono-gray text-xs sm:text-sm leading-relaxed font-medium">
-                    {activeCert.description}
+                    {typeof activeCert.description === 'string' ? activeCert.description : activeCert.description[lang]}
                   </p>
                 </div>
               )}
