@@ -140,25 +140,25 @@ export default function PrintCVPage() {
               <div className="break-inside-avoid">
                 <div className="flex justify-between items-baseline mb-0.5">
                   <p className="text-xs font-bold text-black" style={{ fontFamily: 'Arial, sans-serif' }}>
-                    Android Developer Intern — {lang === "id" ? "BRIN (Badan Riset dan Inovasi Nasional)" : "National Research and Innovation Agency (BRIN)"}
+                    Android Native Developer — {lang === "id" ? "BRIN (Kebun Raya Cibinong)" : "BRIN (Cibinong Botanical Garden)"}
                   </p>
                   <p className="text-xs text-gray-600" style={{ fontFamily: 'Arial, sans-serif' }}>
                     {lang === "id" ? "Jul 2026 - Agu 2026" : "Jul 2026 - Aug 2026"}
                   </p>
                 </div>
                 <p className="text-xs text-gray-600 italic mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>
-                  {lang === "id" ? "Kebun Raya Cibinong, Bogor, Jawa Barat" : "Cibinong Botanical Garden, Bogor, West Java"}
+                  {lang === "id" ? "Cibinong, Bogor, Jawa Barat" : "Cibinong, Bogor, West Java"}
                 </p>
                 <ul className="list-disc list-inside text-xs text-gray-800 space-y-0.5 pl-2" style={{ fontFamily: 'Arial, sans-serif' }}>
                   <li>
                     {lang === "id"
-                      ? "Mengembangkan aplikasi mobile Android untuk Kebun Raya Cibinong menggunakan Java dan Kotlin dengan integrasi REST API"
-                      : "Developed Android mobile application for Cibinong Botanical Garden using Java and Kotlin with REST API integration"}
+                      ? "Mengembangkan Sistem Pelaporan Terpadu Internal Operasional Kebun Raya Cibinong menggunakan Android native (Java) dengan integrasi REST API"
+                      : "Developed Integrated Internal Operational Reporting System for Cibinong Botanical Garden using Android native (Java) with REST API integration"}
                   </li>
                   <li>
                     {lang === "id"
-                      ? "Berkolaborasi dengan tim untuk mengimplementasikan fitur user-friendly dan meningkatkan pengalaman pengguna aplikasi"
-                      : "Collaborated with team to implement user-friendly features and enhance application user experience"}
+                      ? "Menyelesaikan program magang dengan predikat SANGAT BAIK (Sertifikat ID: SE-KM-002/MAP-VIII/2026)"
+                      : "Completed internship program with EXCELLENT predicate (Certificate ID: SE-KM-002/MAP-VIII/2026)"}
                   </li>
                 </ul>
               </div>
@@ -302,6 +302,9 @@ export default function PrintCVPage() {
             </h2>
 
             <ul className="text-xs text-gray-800 space-y-1" style={{ fontFamily: 'Arial, sans-serif' }}>
+              <li>
+                • <strong>Sertifikat Kelulusan Magang — Android Native Developer</strong> — BRIN (Kebun Raya Cibinong), {lang === "id" ? "Agustus" : "August"} 2026 (ID: SE-KM-002/MAP-VIII/2026, {lang === "id" ? "Predikat: SANGAT BAIK" : "Predicate: EXCELLENT"})
+              </li>
               <li>
                 • <strong>MikroTik Certified Network Associate (MTCNA)</strong> — MikroTik, 2024 (Score: 88%)
               </li>
